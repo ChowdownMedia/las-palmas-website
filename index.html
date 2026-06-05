@@ -82,6 +82,7 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
 @keyframes lps-intro-name{0%{opacity:0;transform:translateY(14px) scale(.96)}100%{opacity:1;transform:translateY(0) scale(1)}}
 @media(prefers-reduced-motion:reduce){.reveal,.shimmer-text,[class*="reveal-"]{animation:none!important;opacity:1!important;transform:none!important}.lps-intro{animation:lps-intro-veil-quick 750ms ease forwards}.lps-intro-bloom,.lps-intro-arc,.lps-intro-rays,.lps-intro-sunbody,.lps-intro-welcome,.lps-intro-name{animation:none!important;opacity:1!important;transform:none!important}}
 @keyframes lps-intro-veil-quick{0%,55%{opacity:1}100%{opacity:0}}
+.lp-scrim{position:fixed;inset:0;opacity:0;pointer-events:none;border:none;padding:0}.lp-drawer{position:fixed;top:0;left:0;bottom:0;width:min(86vw,340px);transform:translateX(-105%)}
 .no-js .lps-intro{display:none}
 </style>
 <link rel="stylesheet" href="/assets/css/site.css" media="print" onload="this.media='all'">
@@ -222,7 +223,7 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
   </header>
 
   <button class="lp-scrim" tabindex="-1" aria-hidden="true"></button>
-  <aside class="lp-drawer" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true">
+  <aside class="lp-drawer" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true" inert>
     <div class="lp-drawer-head">
       <span class="lp-drawer-title">Las Palmas <em>Menu</em></span>
       <button class="lp-drawer-close" aria-label="Close menu" data-nav-close>
@@ -650,9 +651,9 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
           <p class="lph-eyebrow">— What Guests Are Saying —</p>
           <h2 class="serif lph-h2">Reviews from <span class="shimmer-text">Our Family</span> of Guests</h2>
         </div>
-        <div class="lph-testimonials" role="list">
-          <article class="lph-testimonial" role="listitem">
-            <div class="lph-stars" aria-label="5 out of 5 stars">
+        <div class="lph-testimonials">
+          <article class="lph-testimonial">
+            <div class="lph-stars" role="img" aria-label="5 out of 5 stars">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
@@ -662,8 +663,8 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
             <p class="lph-testimonial-quote">"Best fajitas in Northwest Georgia, hands down. We've been coming here since the kids were little — they're in college now."</p>
             <p class="lph-testimonial-attr"><span class="lph-testimonial-name">Sarah M.</span><span class="lph-testimonial-city">Rome, GA</span></p>
           </article>
-          <article class="lph-testimonial" role="listitem">
-            <div class="lph-stars" aria-label="5 out of 5 stars">
+          <article class="lph-testimonial">
+            <div class="lph-stars" role="img" aria-label="5 out of 5 stars">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
@@ -673,8 +674,8 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
             <p class="lph-testimonial-quote">"Margaritas are perfect and the salsa is unreal. Friendly staff every single visit. Our family's go-to."</p>
             <p class="lph-testimonial-attr"><span class="lph-testimonial-name">David K.</span><span class="lph-testimonial-city">Cartersville, GA</span></p>
           </article>
-          <article class="lph-testimonial" role="listitem">
-            <div class="lph-stars" aria-label="5 out of 5 stars">
+          <article class="lph-testimonial">
+            <div class="lph-stars" role="img" aria-label="5 out of 5 stars">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
@@ -684,8 +685,8 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
             <p class="lph-testimonial-quote">"Catered my mom's 70th — showed up on time, set up beautifully, food was incredible. We'll absolutely use them again."</p>
             <p class="lph-testimonial-attr"><span class="lph-testimonial-name">Jennifer T.</span><span class="lph-testimonial-city">Rockmart, GA</span></p>
           </article>
-          <article class="lph-testimonial" role="listitem">
-            <div class="lph-stars" aria-label="5 out of 5 stars">
+          <article class="lph-testimonial">
+            <div class="lph-stars" role="img" aria-label="5 out of 5 stars">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
@@ -695,8 +696,8 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
             <p class="lph-testimonial-quote">"I'm picky about Mexican food and Las Palmas gets it right every time. The chips and queso alone are worth the drive."</p>
             <p class="lph-testimonial-attr"><span class="lph-testimonial-name">Marcus R.</span><span class="lph-testimonial-city">Rome, GA</span></p>
           </article>
-          <article class="lph-testimonial" role="listitem">
-            <div class="lph-stars" aria-label="5 out of 5 stars">
+          <article class="lph-testimonial">
+            <div class="lph-stars" role="img" aria-label="5 out of 5 stars">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
@@ -741,7 +742,7 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
         <div class="lph-loc-grid">
           <article class="lph-loc">
             <h3 class="lph-loc-name">Riverside</h3>
-            <a href="https://maps.app.goo.gl/dp5atybNyxoMBAwr9" target="_blank" rel="noopener noreferrer" class="lph-loc-addr" aria-label="Directions to Riverside">311 Riverside Pkwy NE, Rome, GA 30161</a>
+            <a href="https://maps.app.goo.gl/dp5atybNyxoMBAwr9" target="_blank" rel="noopener noreferrer" class="lph-loc-addr" aria-label="Get directions to 311 Riverside Pkwy NE, Rome, GA 30161">311 Riverside Pkwy NE, Rome, GA 30161</a>
             <a href="tel:+17062350555" class="lph-loc-phone" aria-label="Call Riverside at 706-235-0555">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               <span>706-235-0555</span>
@@ -750,7 +751,7 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
           </article>
           <article class="lph-loc">
             <h3 class="lph-loc-name">Shorter</h3>
-            <a href="https://maps.app.goo.gl/NtYwt68mdmp5UQ7S6" target="_blank" rel="noopener noreferrer" class="lph-loc-addr" aria-label="Directions to Shorter">246 Shorter Ave NW, Rome, GA 30165</a>
+            <a href="https://maps.app.goo.gl/NtYwt68mdmp5UQ7S6" target="_blank" rel="noopener noreferrer" class="lph-loc-addr" aria-label="Get directions to 246 Shorter Ave NW, Rome, GA 30165">246 Shorter Ave NW, Rome, GA 30165</a>
             <a href="tel:+17062919788" class="lph-loc-phone" aria-label="Call Shorter at 706-291-9788">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               <span>706-291-9788</span>
@@ -759,7 +760,7 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
           </article>
           <article class="lph-loc">
             <h3 class="lph-loc-name">Cartersville</h3>
-            <a href="https://maps.app.goo.gl/sL8KN7RrmxCxdBfG6" target="_blank" rel="noopener noreferrer" class="lph-loc-addr" aria-label="Directions to Cartersville">140 Main St Mkt Pl SE, Cartersville, GA 30121</a>
+            <a href="https://maps.app.goo.gl/sL8KN7RrmxCxdBfG6" target="_blank" rel="noopener noreferrer" class="lph-loc-addr" aria-label="Get directions to 140 Main St Mkt Pl SE, Cartersville, GA 30121">140 Main St Mkt Pl SE, Cartersville, GA 30121</a>
             <a href="tel:+17703862977" class="lph-loc-phone" aria-label="Call Cartersville at 770-386-2977">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               <span>770-386-2977</span>
@@ -768,7 +769,7 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
           </article>
           <article class="lph-loc">
             <h3 class="lph-loc-name">Rockmart</h3>
-            <a href="https://maps.app.goo.gl/ewkzvty3xADFHQcN8" target="_blank" rel="noopener noreferrer" class="lph-loc-addr" aria-label="Directions to Rockmart">1422 Chattahoochee Dr, Rockmart, GA 30153</a>
+            <a href="https://maps.app.goo.gl/ewkzvty3xADFHQcN8" target="_blank" rel="noopener noreferrer" class="lph-loc-addr" aria-label="Get directions to 1422 Chattahoochee Dr, Rockmart, GA 30153">1422 Chattahoochee Dr, Rockmart, GA 30153</a>
             <a href="tel:+16786854135" class="lph-loc-phone" aria-label="Call Rockmart at 678-685-4135">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               <span>678-685-4135</span>

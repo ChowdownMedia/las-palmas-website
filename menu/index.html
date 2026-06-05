@@ -128,6 +128,8 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
 .dot-sep{color:var(--text-mute)}
 .lp-footer-copy{font-size:12px;color:var(--text-mute)}
 .no-js .m-search-wrap,.no-js .m-filters{display:none}
+
+.lp-scrim{position:fixed;inset:0;opacity:0;pointer-events:none;border:none;padding:0}.lp-drawer{position:fixed;top:0;left:0;bottom:0;width:min(86vw,340px);transform:translateX(-105%)}
 </style>
 <link rel="stylesheet" href="/assets/css/site.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="/assets/css/site.css"></noscript>
@@ -4325,7 +4327,7 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
   </header>
 
   <button class="lp-scrim" tabindex="-1" aria-hidden="true"></button>
-  <aside class="lp-drawer" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true">
+  <aside class="lp-drawer" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true" inert>
     <div class="lp-drawer-head">
       <span class="lp-drawer-title">Las Palmas <em>Menu</em></span>
       <button class="lp-drawer-close" aria-label="Close menu" data-nav-close>

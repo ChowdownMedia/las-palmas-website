@@ -92,6 +92,7 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
 @keyframes lps-intro-name{0%{opacity:0;transform:translateY(14px) scale(.96)}100%{opacity:1;transform:translateY(0) scale(1)}}
 @media(prefers-reduced-motion:reduce){.reveal,.shimmer-text,[class*="reveal-"]{animation:none!important;opacity:1!important;transform:none!important}.lps-intro{animation:lps-intro-veil-quick 750ms ease forwards}.lps-intro-bloom,.lps-intro-arc,.lps-intro-rays,.lps-intro-sunbody,.lps-intro-welcome,.lps-intro-name{animation:none!important;opacity:1!important;transform:none!important}}
 @keyframes lps-intro-veil-quick{0%,55%{opacity:1}100%{opacity:0}}
+.lp-scrim{position:fixed;inset:0;opacity:0;pointer-events:none;border:none;padding:0}.lp-drawer{position:fixed;top:0;left:0;bottom:0;width:min(86vw,340px);transform:translateX(-105%)}
 .no-js .lps-intro{display:none}
 </style>
 <link rel="stylesheet" href="/assets/css/site.css" media="print" onload="this.media='all'">
@@ -210,7 +211,7 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
   </header>
 
   <button class="lp-scrim" tabindex="-1" aria-hidden="true"></button>
-  <aside class="lp-drawer" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true">
+  <aside class="lp-drawer" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true" inert>
     <div class="lp-drawer-head">
       <span class="lp-drawer-title">Las Palmas <em>Menu</em></span>
       <button class="lp-drawer-close" aria-label="Close menu" data-nav-close>

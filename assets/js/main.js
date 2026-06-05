@@ -48,6 +48,7 @@
     if (!page || !drawer) return;
     page.classList.toggle("nav-open", open);
     drawer.setAttribute("aria-hidden", String(!open));
+    drawer.inert = !open; /* keeps closed-drawer links out of tab order */
     d.body.style.overflow = open ? "hidden" : "";
     if (open && firstLink) setTimeout(function () { firstLink.focus(); }, 90);
     else if (!open && openBtn) openBtn.focus();
