@@ -20,7 +20,7 @@
 <meta name="theme-color" content="#faf3e4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1a0f07" media="(prefers-color-scheme: dark)">
 
-<script>(function(){try{var t=localStorage.getItem('lp-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}document.documentElement.classList.remove('no-js');})();</script>
+<script>(function(){var p='auto';try{var s=localStorage.getItem('lp-catering-theme');if(s==='auto'||s==='light'||s==='dark')p=s;}catch(e){}var h=new Date().getHours();var dark=p==='dark'||(p==='auto'&&(h>=19||h<7));document.documentElement.setAttribute('data-lpc-pref',p);document.documentElement.setAttribute('data-lpc-dark',dark?'1':'0');if(dark)document.documentElement.setAttribute('data-theme','dark');})();</script>
 
 <link rel="preload" href="/assets/fonts/playfair-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/manrope-var.woff2" as="font" type="font/woff2" crossorigin>
@@ -157,7 +157,18 @@ body{margin:0;font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',
 
 /* ── Drawer (shared with site.css; minimal inline fallbacks already in site.css) ── */
 
-.lp-scrim{position:fixed;inset:0;opacity:0;pointer-events:none;border:none;padding:0}.lp-drawer{position:fixed;top:0;left:0;bottom:0;width:min(86vw,340px);transform:translateX(-105%)}
+
+/* ── Glenn's catering header (ChatV2/LocationsV2 pattern) ── */
+.lpc-header{position:sticky;top:0;z-index:30;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;padding:max(env(safe-area-inset-top),10px) 14px 12px;background:linear-gradient(180deg,var(--header-bg) 0%,rgba(247,239,226,0.82) 100%);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
+html[data-lpc-dark="1"] .lpc-header{background:linear-gradient(180deg,rgba(20,12,7,0.92) 0%,rgba(20,12,7,0.78) 100%)}
+.lpc-iconbtn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:999px;border:1px solid var(--line-soft);background:var(--bg-card);color:var(--text);text-decoration:none;cursor:pointer;font-family:inherit;transition:background 160ms ease,transform 160ms ease,border-color 160ms ease}
+.lpc-iconbtn:hover{background:var(--bg-card-2);border-color:var(--line)}
+.lpc-iconbtn:active{transform:scale(0.96)}
+.lpc-header-brand{display:inline-flex;align-items:center;justify-content:center;gap:9px}
+.lpc-header-name{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(19px,5vw,22px);font-weight:400;color:var(--text);letter-spacing:0.005em;line-height:1}
+[data-lpc-pref="auto"] .lpc-theme-ico-light,[data-lpc-pref="auto"] .lpc-theme-ico-dark{display:none}
+[data-lpc-pref="light"] .lpc-theme-ico-auto,[data-lpc-pref="light"] .lpc-theme-ico-dark{display:none}
+[data-lpc-pref="dark"] .lpc-theme-ico-auto,[data-lpc-pref="dark"] .lpc-theme-ico-light{display:none}
 </style>
 <link rel="stylesheet" href="/assets/css/site.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="/assets/css/site.css"></noscript>
@@ -190,55 +201,32 @@ body{margin:0;font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',
 <body>
 <div class="lp-page has-dock">
 
-  <header class="lp-header">
-    <div class="container lp-header-inner">
-      <button class="lp-iconbtn" aria-label="Open menu" data-nav-open>
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
-      </button>
-
-      <a class="lp-brand" href="/">
-        <span class="lp-brand-mark" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 15a5 5 0 0 1 10 0" fill="currentColor" stroke="none"/><line x1="12" y1="5" x2="12" y2="8"/><line x1="5.6" y1="8.6" x2="7.4" y2="10.4"/><line x1="18.4" y1="8.6" x2="16.6" y2="10.4"/><line x1="3" y1="15" x2="5" y2="15"/><line x1="19" y1="15" x2="21" y2="15"/><path d="M4 19h16"/></svg>
-        </span>
-        <span class="lp-brand-name">Las Palmas <em>· Catering</em></span>
-      </a>
-
-      <span class="header-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-        Best of GA 2025
-      </span>
-
-      <button class="lp-iconbtn" aria-label="Switch to dark mode" data-theme-toggle>
-        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
-    </div>
-  </header>
-
-  <button class="lp-scrim" tabindex="-1" aria-hidden="true"></button>
-  <aside class="lp-drawer" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true" inert>
-    <div class="lp-drawer-head">
-      <span class="lp-drawer-title">Las Palmas <em>Menu</em></span>
-      <button class="lp-drawer-close" aria-label="Close menu" data-nav-close>
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
-      </button>
-    </div>
-    <nav class="lp-drawer-nav">
-      <a href="/"><span>Home</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/menu/"><span>Menu</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/chat/"><span>Chat</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/locations/"><span>Locations</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/specials/"><span>Daily Specials</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/drinks/"><span>Drinks</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/catering/"><span>Catering</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/feedback/"><span>Feedback</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/events/"><span>Events</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/tacopete/"><span>VIP Rewards</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/join-our-team/"><span>Join Our Team</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/order/"><span>Online Ordering</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    </nav>
-    <div class="lp-drawer-foot">© <span data-year>2026</span> Las Palmas Mexican Restaurant</div>
-  </aside>
+  <header class="lpc-header" role="banner">
+  <a href="/" class="lpc-iconbtn" aria-label="Las Palmas home">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+  </a>
+  <div class="lpc-header-brand">
+    <svg viewBox="0 0 44 44" width="30" height="30" aria-hidden="true">
+      <defs>
+        <linearGradient id="lpc-hm-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FBE7BD"/><stop offset="100%" stop-color="#F0CF87"/></linearGradient>
+        <linearGradient id="lpc-hm-sun" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F5BE3F"/><stop offset="100%" stop-color="#E07628"/></linearGradient>
+      </defs>
+      <circle cx="22" cy="22" r="22" fill="url(#lpc-hm-bg)"/>
+      <g stroke="#C8801E" stroke-width="1.6" stroke-linecap="round" opacity="0.85">
+        <line x1="22" y1="9" x2="22" y2="12.5"/><line x1="14" y1="13.5" x2="16.2" y2="15.7"/><line x1="30" y1="13.5" x2="27.8" y2="15.7"/><line x1="10.5" y1="20.5" x2="13.5" y2="20.5"/><line x1="33.5" y1="20.5" x2="30.5" y2="20.5"/>
+      </g>
+      <path d="M 14 24.5 a 8 8 0 0 1 16 0 z" fill="url(#lpc-hm-sun)"/>
+      <path d="M 7.5 28.5 Q 22 33.5 36.5 28.5" stroke="#B23A14" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+      <path d="M 12 32.5 Q 22 35.5 32 32.5" stroke="#D88239" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    </svg>
+    <span class="lpc-header-name">Las Palmas</span>
+  </div>
+  <button type="button" id="lpc-theme" class="lpc-iconbtn" aria-label="Theme: auto. Click to change.">
+    <svg class="lpc-theme-ico-auto" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8a2.83 2.83 0 0 0 4 4 4 4 0 1 1-4-4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.9 4.9 1.4 1.4"/><path d="m17.7 17.7 1.4 1.4"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.3 17.7-1.4 1.4"/><path d="m19.1 4.9-1.4 1.4"/></svg>
+    <svg class="lpc-theme-ico-light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+    <svg class="lpc-theme-ico-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+</header>
 
   <main>
     <div class="container">
@@ -457,28 +445,29 @@ body{margin:0;font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',
     </div>
   </main>
 
-  <footer class="lp-footer">
-    <div class="container lp-footer-inner">
-      <a class="lp-footer-brand" href="/">
-        <span class="lp-footer-mark" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 15a5 5 0 0 1 10 0" fill="currentColor" stroke="none"/><line x1="12" y1="5" x2="12" y2="8"/><line x1="5.6" y1="8.6" x2="7.4" y2="10.4"/><line x1="18.4" y1="8.6" x2="16.6" y2="10.4"/><line x1="3" y1="15" x2="5" y2="15"/><line x1="19" y1="15" x2="21" y2="15"/><path d="M4 19h16"/></svg>
-        </span>
-        <span class="lp-footer-name">Las Palmas <em>Mexican Restaurant</em></span>
-      </a>
-      <nav class="lp-footer-links" aria-label="Footer">
-        <a href="/">Home</a>
-        <span class="dot-sep" aria-hidden="true">·</span>
-        <a href="/menu/">Menu</a>
-        <span class="dot-sep" aria-hidden="true">·</span>
-        <a href="/locations/">Locations</a>
-        <span class="dot-sep" aria-hidden="true">·</span>
-        <a href="/specials/">Daily Specials</a>
-      </nav>
-      <p class="lp-footer-copy">© <span data-year>2026</span> Las Palmas Mexican Restaurant. All rights reserved.</p>
-    </div>
-  </footer>
-
 </div>
-<script src="/assets/js/main.js" defer></script>
+<script>
+(function(){
+  var d=document, html=d.documentElement, KEY='lp-catering-theme';
+  function isDarkByClock(){var h=new Date().getHours();return h>=19||h<7;}
+  function pref(){return html.getAttribute('data-lpc-pref')||'auto';}
+  function apply(){
+    var p=pref(), dark=p==='dark'||(p==='auto'&&isDarkByClock());
+    if(dark){html.setAttribute('data-theme','dark');}else{html.removeAttribute('data-theme');}
+    html.setAttribute('data-lpc-dark',dark?'1':'0');
+    var btn=d.getElementById('lpc-theme');
+    btn.setAttribute('aria-label','Theme: '+p+'. Click to change.');
+    btn.title=p==='auto'?('Auto (currently '+(dark?'dark':'light')+' by clock)'):p==='light'?'Light theme':'Dark theme';
+  }
+  d.getElementById('lpc-theme').addEventListener('click',function(){
+    var next=pref()==='auto'?'light':pref()==='light'?'dark':'auto';
+    html.setAttribute('data-lpc-pref',next);
+    try{localStorage.setItem(KEY,next);}catch(e){}
+    apply();
+  });
+  setInterval(apply,60000);
+  apply();
+})();
+</script>
 </body>
 </html>
