@@ -20,17 +20,12 @@
 <meta name="theme-color" content="#faf3e4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1a0f07" media="(prefers-color-scheme: dark)">
 
-<script>(function(){try{var t=localStorage.getItem('lp-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}document.documentElement.classList.remove('no-js');})();</script>
+<script>(function(){var t='light';try{var s=localStorage.getItem('lp-jot-theme');if(s==='light'||s==='dark')t=s;else if(matchMedia('(prefers-color-scheme: dark)').matches)t='dark';}catch(e){}if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();</script>
 
-<link rel="preload" href="/assets/fonts/playfair-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/manrope-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/dm-serif-display.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 
 <style>
-@font-face{font-family:'Manrope';src:url('/assets/fonts/manrope-var.woff2') format('woff2');font-weight:200 800;font-style:normal;font-display:swap}
-@font-face{font-family:'Playfair Display';src:url('/assets/fonts/playfair-var.woff2') format('woff2');font-weight:400 900;font-style:normal;font-display:swap}
-@font-face{font-family:'Playfair Display';src:url('/assets/fonts/playfair-italic-var.woff2') format('woff2');font-weight:400 900;font-style:italic;font-display:swap}
 @font-face{font-family:'DM Serif Display';src:url('/assets/fonts/dm-serif-display.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:'DM Serif Display';src:url('/assets/fonts/dm-serif-display-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
 @font-face{font-family:'Inter';src:url('/assets/fonts/inter-var.woff2') format('woff2');font-weight:400 700;font-style:normal;font-display:swap}
@@ -40,32 +35,15 @@
 *{box-sizing:border-box}html,body{background:var(--bg)}
 body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--text);-webkit-font-smoothing:antialiased}
 .lp-page{background:var(--bg);color:var(--text);min-height:100vh}
-.serif{font-family:'Playfair Display',Georgia,serif}.italic{font-style:italic}
+.italic{font-style:italic}
 .gradient-text{background:var(--gradient-text);-webkit-background-clip:text;background-clip:text;color:transparent}
 .container{width:100%;max-width:720px;margin:0 auto;padding:0 18px}
 @media(min-width:768px){.container{max-width:880px;padding:0 28px}}
 @media(min-width:1100px){.container{max-width:1040px}}
-.lp-header{position:sticky;top:0;z-index:50;-webkit-backdrop-filter:saturate(140%) blur(10px);backdrop-filter:saturate(140%) blur(10px);background:var(--header-bg);border-bottom:1px solid var(--line-soft)}
-.lp-header-inner{display:flex;align-items:center;gap:10px;padding:12px 18px}
 .lp-iconbtn{width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;background:var(--bg-card);border:1px solid var(--line);color:var(--text);border-radius:12px;cursor:pointer;box-shadow:var(--shadow-sm)}
-.lp-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);flex:1;min-width:0}
-.lp-brand-mark{width:34px;height:34px;border-radius:10px;background:var(--gradient-warm);display:inline-flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);color:#fff7e8;flex:0 0 34px}
-.lp-brand-name{font-family:'Playfair Display',Georgia,serif;font-size:18px;font-weight:700;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.lp-brand-name em{color:var(--terracotta);font-style:italic}
 
 /* ===== Drawer (shared pattern) ===== */
-.lp-scrim{position:fixed;inset:0;z-index:60;background:rgba(20,10,4,.5);border:0;opacity:0;pointer-events:none;transition:opacity .25s ease}
-.nav-open .lp-scrim{opacity:1;pointer-events:auto}
-.lp-drawer{position:fixed;top:0;left:0;bottom:0;width:min(86vw,340px);z-index:70;background:var(--bg-elev);border-right:1px solid var(--line);box-shadow:var(--shadow-lg);transform:translateX(-104%);transition:transform .3s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column}
-.nav-open .lp-drawer{transform:translateX(0)}
-.lp-drawer-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--line-soft)}
-.lp-drawer-title{font-family:'Playfair Display',Georgia,serif;font-size:18px;font-weight:700}
-.lp-drawer-title em{color:var(--terracotta);font-style:italic}
-.lp-drawer-close{width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;background:var(--bg-card);border:1px solid var(--line);color:var(--text);border-radius:10px;cursor:pointer}
-.lp-drawer-nav{display:flex;flex-direction:column;padding:10px;gap:2px;overflow-y:auto}
-.lp-drawer-nav a{display:flex;align-items:center;justify-content:space-between;padding:13px 14px;border-radius:12px;text-decoration:none;color:var(--text);font-weight:600;font-size:15px}
-.lp-drawer-nav a:hover{background:var(--bg-card)}
-.lp-drawer-foot{margin-top:auto;padding:16px 18px;border-top:1px solid var(--line-soft);font-size:12px;color:var(--text-mute)}
+
 
 /* ===== Join Our Team — page-scoped (.jot-*) ===== */
 .jot-root{--jot-bg:#f7efe2;--jot-bg-2:#f2e2c5;--jot-surface:#fff4df;--jot-surface-soft:#f3dfbd;--jot-text:#3d2016;--jot-text-strong:#2a160e;--jot-muted:#7b5b45;--jot-gold:#d3a647;--jot-gold-soft:#e7c069;--jot-terracotta:#c9482c;--jot-terracotta-dark:#8f2c1d;--jot-green:#6f7f36;--jot-red:#b93225;--jot-border:rgba(120,75,35,0.18);--jot-border-strong:rgba(120,75,35,0.36);--jot-shadow-sm:0 4px 14px rgba(60,30,10,0.06);--jot-shadow-md:0 14px 36px rgba(60,30,10,0.10);--jot-shadow-lg:0 28px 60px rgba(60,30,10,0.16);--jot-radius-sm:10px;--jot-radius:16px;--jot-radius-lg:22px;--jot-radius-xl:30px;--jot-focus:0 0 0 3px rgba(211,166,71,0.45);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;color:var(--jot-text);background:radial-gradient(ellipse at 50% -10%,var(--jot-bg-2) 0%,var(--jot-bg) 55%,var(--jot-bg) 100%);line-height:1.5;position:relative}
@@ -229,6 +207,24 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
 @media(max-width:480px){.jot-main{padding:18px 14px 60px}.jot-fs-head{gap:10px}.jot-fs-index{min-width:38px;height:38px;font-size:15px}.jot-fs-title{font-size:20px}.jot-fs{padding:18px 14px}}
 @media(prefers-reduced-motion:reduce){.jot-root *,.jot-root *::before,.jot-root *::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 .no-js .jot-toggle-hide{display:none}
+
+/* ── Glenn's JoinTeamHeader (verbatim) ── */
+.jot-header{position:relative;z-index:5;padding:16px 20px;background:linear-gradient(180deg,rgba(255,244,223,0.85) 0%,rgba(255,244,223,0.45) 70%,rgba(255,244,223,0) 100%);backdrop-filter:blur(8px);border-bottom:1px solid var(--jot-border)}
+html[data-theme="dark"] .jot-header{background:linear-gradient(180deg,rgba(36,20,14,0.85) 0%,rgba(36,20,14,0.45) 70%,rgba(36,20,14,0) 100%)}
+.jot-header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:14px}
+.jot-home-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 14px 9px 12px;border-radius:999px;background:var(--jot-surface);border:1px solid var(--jot-border);color:var(--jot-text);text-decoration:none;font-weight:600;font-size:14px;letter-spacing:0.01em;box-shadow:var(--jot-shadow-sm);transition:transform 160ms ease,box-shadow 160ms ease,background 160ms ease}
+.jot-home-btn:hover{transform:translateY(-1px);box-shadow:var(--jot-shadow-md);background:var(--jot-surface-soft)}
+.jot-home-btn:focus-visible{outline:none;box-shadow:var(--jot-focus)}
+.jot-brand{margin-left:auto;margin-right:auto;display:flex;align-items:center;gap:10px}
+.jot-brand-text{display:flex;flex-direction:column;line-height:1.1}
+.jot-brand-name{font-family:'DM Serif Display',serif;font-size:20px;color:var(--jot-text-strong);letter-spacing:0.01em}
+.jot-brand-tag{font-size:11px;color:var(--jot-muted);letter-spacing:0.08em;text-transform:uppercase}
+.jot-theme-toggle{width:40px;height:40px;border-radius:50%;background:var(--jot-surface);border:1px solid var(--jot-border);color:var(--jot-text);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--jot-shadow-sm);transition:transform 160ms ease,box-shadow 160ms ease,background 160ms ease}
+.jot-theme-toggle:hover{transform:translateY(-1px);background:var(--jot-surface-soft)}
+.jot-theme-toggle:focus-visible{outline:none;box-shadow:var(--jot-focus)}
+.jot-icon{width:20px;height:20px}
+html:not([data-theme="dark"]) .jot-ico-sun{display:none}
+html[data-theme="dark"] .jot-ico-moon{display:none}
 </style>
 <link rel="stylesheet" href="/assets/css/site.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="/assets/css/site.css"></noscript>
@@ -268,45 +264,35 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
 <body>
 <div class="lp-page">
 
-  <header class="lp-header">
-    <div class="container lp-header-inner">
-      <button class="lp-iconbtn" aria-label="Open menu" data-nav-open>
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
-      </button>
-
-      <a class="lp-brand" href="/">
-        <span class="lp-brand-mark" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 15a5 5 0 0 1 10 0" fill="currentColor" stroke="none"/><line x1="12" y1="5" x2="12" y2="8"/><line x1="5.6" y1="8.6" x2="7.4" y2="10.4"/><line x1="18.4" y1="8.6" x2="16.6" y2="10.4"/><line x1="3" y1="15" x2="5" y2="15"/><line x1="19" y1="15" x2="21" y2="15"/><path d="M4 19h16"/></svg>
-        </span>
-        <span class="lp-brand-name">Las Palmas <em>· Join Our Team</em></span>
-      </a>
-
-      <button class="lp-iconbtn" aria-label="Switch to dark mode" data-theme-toggle>
-        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
+  <header class="jot-header">
+  <div class="jot-header-inner">
+    <a class="jot-home-btn" href="/" aria-label="Return to the Las Palmas home page">
+      <svg class="jot-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span class="jot-home-btn-label">Home</span>
+    </a>
+    <div class="jot-brand" aria-hidden="true">
+      <svg width="40" height="40" viewBox="0 0 60 60" fill="none" aria-hidden="true" class="jot-lp-mark">
+        <defs>
+          <linearGradient id="jotLPGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#e7c069"/>
+            <stop offset="0.55" stop-color="#d3a647"/>
+            <stop offset="1" stop-color="#c9482c"/>
+          </linearGradient>
+        </defs>
+        <rect x="2" y="2" width="56" height="56" rx="14" fill="url(#jotLPGrad)"/>
+        <path d="M16 16h6v22h12v6H16V16Zm22 0h10c4 0 7 3 7 7s-3 7-7 7h-4v14h-6V16Zm6 6v8h4c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2h-4Z" fill="#3a1d10" opacity="0.92"/>
+      </svg>
+      <div class="jot-brand-text">
+        <div class="jot-brand-name">Las Palmas</div>
+        <div class="jot-brand-tag">Mexican Restaurant &middot; Since 1997</div>
+      </div>
     </div>
-  </header>
-
-  <button class="lp-scrim" tabindex="-1" aria-hidden="true"></button>
-  <aside class="lp-drawer" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true" inert>
-    <div class="lp-drawer-head">
-      <span class="lp-drawer-title">Las Palmas <em>Menu</em></span>
-      <button class="lp-drawer-close" aria-label="Close menu" data-nav-close>
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
-      </button>
-    </div>
-    <nav class="lp-drawer-nav">
-      <a href="/"><span>Home</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/menu/"><span>Menu</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/locations/"><span>Locations</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/specials/"><span>Daily Specials</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/catering/"><span>Catering</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/join-our-team/"><span>Join Our Team</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/order/"><span>Online Ordering</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    </nav>
-    <div class="lp-drawer-foot">© <span data-year>2026</span> Las Palmas Mexican Restaurant</div>
-  </aside>
+    <button type="button" class="jot-theme-toggle" id="jot-theme" aria-label="Switch theme">
+      <svg class="jot-icon jot-ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="jot-icon jot-ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
 
   <div class="jot-root">
   <main class="jot-main">
@@ -722,7 +708,7 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
   </div>
 
 </div>
-<script src="/assets/js/main.js" defer></script>
+
 <script>
 /* Join Our Team — page-scoped interactivity (no backend; visual form behavior only) */
 (function(){
@@ -810,6 +796,17 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
   d.querySelectorAll('[data-terms-close]').forEach(function(b){b.addEventListener('click',closeModal);});
   if(modal) modal.addEventListener('click',function(e){if(e.target===modal)closeModal();});
   d.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal&&!modal.hidden)closeModal();});
+})();
+</script>
+<script>
+(function(){
+  var d=document, html=d.documentElement;
+  var btn=d.getElementById('jot-theme');
+  if(btn)btn.addEventListener('click',function(){
+    var dark=html.getAttribute('data-theme')==='dark';
+    if(dark){html.removeAttribute('data-theme');}else{html.setAttribute('data-theme','dark');}
+    try{localStorage.setItem('lp-jot-theme',dark?'light':'dark');}catch(e){}
+  });
 })();
 </script>
 </body>
