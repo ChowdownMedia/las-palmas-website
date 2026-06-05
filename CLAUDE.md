@@ -51,6 +51,10 @@ each GBP listing points at its own location page.
 - Cloudflare: LiveWire account (`wrangler whoami` MUST show chuckp@livewiremediapartners.com before
   any deploy — Chuck also has personal/other accounts)
 - Static site, no build command, output dir = root
+- **CI: pushes to main auto-deploy** via .github/workflows/deploy.yml (wrangler-action +
+  CLOUDFLARE_API_TOKEN repo secret, scoped Account→Pages→Edit, created 2026-06-05).
+  Manual deploy fallback: `wrangler pages deploy . --project-name las-palmas-website`
+- Pushing needs `gh auth switch -u ChowdownMedia` (then switch back to adessocoffee)
 - Deliverables are TWO artifacts: the site + Post-Launch Triangulation Playbook (generated at deploy-ready)
 
 ## QA before any push
