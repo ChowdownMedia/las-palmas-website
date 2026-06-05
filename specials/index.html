@@ -20,17 +20,12 @@
 <meta name="theme-color" content="#faf3e4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1a0f07" media="(prefers-color-scheme: dark)">
 
-<script>(function(){try{var t=localStorage.getItem('lp-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}document.documentElement.classList.remove('no-js');})();</script>
+<script>(function(){var t='light';try{var s=localStorage.getItem('lp-ds-theme');if(s==='light'||s==='dark')t=s;else if(matchMedia('(prefers-color-scheme: dark)').matches)t='dark';}catch(e){}if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();</script>
 
-<link rel="preload" href="/assets/fonts/playfair-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/manrope-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/dm-sans-var.woff2" as="font" type="font/woff2" crossorigin>
 
 <style>
-@font-face{font-family:'Manrope';src:url('/assets/fonts/manrope-var.woff2') format('woff2');font-weight:200 800;font-style:normal;font-display:swap}
-@font-face{font-family:'Playfair Display';src:url('/assets/fonts/playfair-var.woff2') format('woff2');font-weight:400 900;font-style:normal;font-display:swap}
-@font-face{font-family:'Playfair Display';src:url('/assets/fonts/playfair-italic-var.woff2') format('woff2');font-weight:400 900;font-style:italic;font-display:swap}
 @font-face{font-family:'Instrument Serif';src:url('/assets/fonts/instrument-serif.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:'Instrument Serif';src:url('/assets/fonts/instrument-serif-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
 @font-face{font-family:'DM Sans';src:url('/assets/fonts/dm-sans-var.woff2') format('woff2');font-weight:100 1000;font-style:normal;font-display:swap}
@@ -38,9 +33,9 @@
 :root{--bg:#faf3e4;--bg-elev:#f4ead4;--bg-card:#fbf5e6;--bg-card-2:#efe1c2;--line:#e3cfa3;--line-soft:#ead9b2;--text:#3b2415;--text-soft:#6b4a2e;--text-mute:#8a6a4a;--gold:#c89b3c;--gold-deep:#a87a1f;--amber:#d99a3c;--terracotta:#c25a36;--terracotta-deep:#a3411f;--salsa:#b03826;--shadow-sm:0 1px 2px rgba(74,42,18,.06),0 2px 8px rgba(74,42,18,.04);--shadow-md:0 4px 14px rgba(74,42,18,.10),0 1px 3px rgba(74,42,18,.06);--shadow-lg:0 18px 42px rgba(74,42,18,.14),0 4px 12px rgba(74,42,18,.08);--glow:0 0 0 1px rgba(217,154,60,.30),0 14px 38px -10px rgba(176,56,38,.30);--ring:0 0 0 3px rgba(200,155,60,.35);--gradient-warm:linear-gradient(135deg,#f4c97a 0%,#e08b4f 55%,#c2502c 100%);--gradient-button:linear-gradient(180deg,#d96b40 0%,#b03826 100%);--gradient-button-hover:linear-gradient(180deg,#e07a4d 0%,#c2452c 100%);--gradient-text:linear-gradient(95deg,#b03826 0%,#d99a3c 100%);--header-bg:rgba(250,243,228,.82)}
 [data-theme="dark"]{--bg:#1a0f07;--bg-elev:#22150c;--bg-card:#28190f;--bg-card-2:#311e12;--line:#4a2f1c;--line-soft:#3a2616;--text:#f1e2c4;--text-soft:#d8bf94;--text-mute:#a48d65;--gold:#d9a23c;--gold-deep:#b8862e;--amber:#e0a84a;--terracotta:#d96d44;--terracotta-deep:#c2502c;--salsa:#c44525;--shadow-sm:0 1px 2px rgba(0,0,0,.45),0 2px 8px rgba(0,0,0,.25);--shadow-md:0 6px 20px rgba(0,0,0,.55),0 2px 6px rgba(0,0,0,.3);--shadow-lg:0 22px 50px rgba(0,0,0,.65),0 6px 16px rgba(0,0,0,.4);--glow:0 0 0 1px rgba(217,162,60,.32),0 16px 44px -10px rgba(217,130,60,.40);--ring:0 0 0 3px rgba(217,162,60,.40);--gradient-warm:linear-gradient(135deg,#b8752c 0%,#9c4825 55%,#5e2010 100%);--gradient-button:linear-gradient(180deg,#e0784a 0%,#b03e20 100%);--gradient-button-hover:linear-gradient(180deg,#ec8757 0%,#c54725 100%);--gradient-text:linear-gradient(95deg,#e08e60 0%,#e0b860 100%);--header-bg:rgba(28,17,8,.78)}
 *{box-sizing:border-box}html,body{background:var(--bg)}
-body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--text);-webkit-font-smoothing:antialiased}
+body{margin:0;font-family:'DM Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--text);-webkit-font-smoothing:antialiased}
 .lp-page{background:var(--bg);color:var(--text);min-height:100vh}
-.serif{font-family:'Playfair Display',Georgia,serif}.italic{font-style:italic}
+.serif{font-family:'Instrument Serif',Georgia,serif}.italic{font-style:italic}
 .gradient-text{background:var(--gradient-text);-webkit-background-clip:text;background-clip:text;color:transparent}
 .lp-glow{box-shadow:var(--shadow-md),var(--glow)}
 .container{width:100%;max-width:720px;margin:0 auto;padding:0 18px}
@@ -53,13 +48,7 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
 .card{background:var(--bg-card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-md);overflow:hidden}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--text-soft)}
 .eyebrow-rule{display:inline-block;width:22px;height:1px;background:var(--text-mute);opacity:.6}
-.lp-header{position:sticky;top:0;z-index:50;-webkit-backdrop-filter:saturate(140%) blur(10px);backdrop-filter:saturate(140%) blur(10px);background:var(--header-bg);border-bottom:1px solid var(--line-soft)}
-.lp-header-inner{display:flex;align-items:center;gap:10px;padding:12px 18px}
 .lp-iconbtn{width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;background:var(--bg-card);border:1px solid var(--line);color:var(--text);border-radius:12px;cursor:pointer;box-shadow:var(--shadow-sm)}
-.lp-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);flex:1;min-width:0}
-.lp-brand-mark{width:34px;height:34px;border-radius:10px;background:var(--gradient-warm);display:inline-flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);color:#fff7e8;flex:0 0 34px}
-.lp-brand-name{font-family:'Playfair Display',Georgia,serif;font-size:18px;font-weight:700;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.lp-brand-name em{color:var(--terracotta);font-style:italic}
 .header-badge{display:none;align-items:center;gap:6px;padding:7px 11px;border-radius:999px;background:rgba(200,155,60,.14);border:1px solid var(--line);color:var(--gold-deep);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
 @media(min-width:520px){.header-badge{display:inline-flex}}
 @keyframes lp-fade-up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
@@ -68,26 +57,24 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
 .reveal-1{animation-delay:60ms}.reveal-2{animation-delay:140ms}.reveal-3{animation-delay:220ms}.reveal-4{animation-delay:300ms}.reveal-5{animation-delay:380ms}
 .shimmer-text{background:linear-gradient(95deg,var(--salsa) 0%,var(--amber) 50%,var(--salsa) 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:lp-shimmer 5s linear infinite}
 .has-dock{padding-bottom:24px}
-.lps-intro{position:fixed;inset:0;z-index:2000;display:grid;place-items:center;overflow:hidden;pointer-events:none;animation:lps-intro-veil var(--intro-dur,1650ms) ease forwards}
-.lps-intro.is-done{display:none}
-.lps-intro-bloom{position:absolute;width:120vmin;height:120vmin;border-radius:50%;filter:blur(6px);animation:lps-intro-bloom 1650ms cubic-bezier(.2,.7,.2,1) forwards}
-.lps-intro-arc{position:relative;width:clamp(150px,44vmin,230px);height:auto;margin-bottom:6px;animation:lps-intro-arc 1000ms cubic-bezier(.2,.7,.2,1) both}
-.lps-intro-rays{animation:lps-intro-rays 1400ms ease both;transform-origin:100px 78px}
-.lps-intro-sunbody{animation:lps-intro-sun 900ms cubic-bezier(.2,.7,.2,1) both;transform-origin:100px 78px}
-.lps-intro-text{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center;padding:0 18px}
-.lps-intro-welcome{font:500 13px 'Manrope',sans-serif;letter-spacing:.34em;text-transform:uppercase;color:var(--text-mute);animation:lps-intro-rise 700ms ease both;animation-delay:160ms}
-.lps-intro-name{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(40px,13vw,68px);line-height:1.02;background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:lps-intro-name 900ms cubic-bezier(.2,.7,.2,1) both,lps-shimmer2 4.5s ease-in-out infinite;animation-delay:300ms,600ms;filter:drop-shadow(0 2px 6px rgba(120,45,18,.18))}
-@keyframes lps-shimmer2{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-@keyframes lps-intro-veil{0%,66%{opacity:1}100%{opacity:0}}
-@keyframes lps-intro-bloom{0%{opacity:0;transform:scale(.6)}40%{opacity:.95}70%{opacity:.8;transform:scale(1.06)}100%{opacity:0;transform:scale(1.16)}}
-@keyframes lps-intro-arc{0%{opacity:0;transform:translateY(16px) scale(.92)}60%{opacity:1}100%{opacity:1;transform:translateY(0) scale(1)}}
-@keyframes lps-intro-rays{0%{opacity:0}55%{opacity:.85}100%{opacity:.85}}
-@keyframes lps-intro-sun{0%{transform:scaleY(.2);opacity:0}100%{transform:scaleY(1);opacity:1}}
-@keyframes lps-intro-rise{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}
-@media(prefers-reduced-motion:reduce){.reveal,.shimmer-text,[class*="reveal-"]{animation:none!important;opacity:1!important;transform:none!important}.lps-intro{animation:lps-intro-veil-quick 750ms ease forwards}.lps-intro-bloom,.lps-intro-arc,.lps-intro-rays,.lps-intro-sunbody,.lps-intro-welcome,.lps-intro-name{animation:none!important;opacity:1!important;transform:none!important}}
-@keyframes lps-intro-veil-quick{0%,55%{opacity:1}100%{opacity:0}}
-.lp-scrim{position:fixed;inset:0;opacity:0;pointer-events:none;border:none;padding:0}.lp-drawer{position:fixed;top:0;left:0;bottom:0;width:min(86vw,340px);transform:translateX(-105%)}
-.no-js .lps-intro{display:none}
+50%{background-position:100% 50%}}
+100%{opacity:0}}
+40%{opacity:.95}70%{opacity:.8;transform:scale(1.06)}100%{opacity:0;transform:scale(1.16)}}
+60%{opacity:1}100%{opacity:1;transform:translateY(0) scale(1)}}
+55%{opacity:.85}100%{opacity:.85}}
+100%{transform:scaleY(1);opacity:1}}
+100%{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.reveal,.shimmer-text,[class*="reveal-"]{animation:none!important;opacity:1!important;transform:none!important}}
+100%{opacity:0}}
+.ds-header-left,.ds-header-right{display:flex;flex:0 0 auto;min-width:40px}
+.ds-brand{display:inline-flex;align-items:center;gap:8px;font-family:'Instrument Serif',Georgia,serif;font-size:22px;line-height:1;color:var(--text);letter-spacing:-0.01em}
+.ds-brand-icon{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:linear-gradient(140deg,var(--gold),var(--terracotta));color:#fff4df;box-shadow:var(--shadow-sm)}
+html[data-theme="dark"] .ds-brand-icon{color:#160c08}
+.ds-brand-text-accent{font-style:italic;color:var(--terracotta)}
+.ds-icon-btn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--bg-card);color:var(--text);border:1px solid var(--line);cursor:pointer;transition:transform 0.15s ease,background 0.15s ease,border-color 0.15s ease;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.ds-icon-btn:hover{border-color:var(--line-soft);transform:translateY(-1px)}
+html:not([data-theme="dark"]) .ds-ico-sun{display:none}
+html[data-theme="dark"] .ds-ico-moon{display:none}
 </style>
 <link rel="stylesheet" href="/assets/css/site.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="/assets/css/site.css"></noscript>
@@ -192,83 +179,29 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
 <body>
 <div class="lp-page has-dock">
 
-  <!-- Welcome intro (sunrise palette — baked from Glenn's defaults) -->
-  <div class="lps-intro" data-duration="1650" role="presentation" aria-hidden="true"
-       style="--intro-dur:1650ms;background:radial-gradient(circle at 50% 42%, rgba(245,190,63,0.345), transparent 58%),radial-gradient(circle at 22% 78%, rgba(217,70,42,0.264), transparent 55%),radial-gradient(circle at 80% 24%, rgba(122,38,22,0.203), transparent 52%),var(--bg)">
-    <div class="lps-intro-bloom" style="background:radial-gradient(circle, rgba(245,190,63,0.558) 0%, rgba(245,190,63,0.305) 35%, rgba(217,70,42,0.142) 60%, transparent 72%)"></div>
-    <svg class="lps-intro-arc" viewBox="0 0 200 120" aria-hidden="true">
-      <defs>
-        <linearGradient id="lps-intro-sun" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#F5BE3F"/>
-          <stop offset="100%" stop-color="#D9462A"/>
-        </linearGradient>
-      </defs>
-      <g class="lps-intro-rays" stroke="#F5BE3F" stroke-width="2" stroke-linecap="round" opacity="0.8">
-        <line x1="100" y1="34" x2="100" y2="50"/>
-        <line x1="64" y1="44" x2="74" y2="56"/>
-        <line x1="136" y1="44" x2="126" y2="56"/>
-        <line x1="46" y1="70" x2="60" y2="72"/>
-        <line x1="154" y1="70" x2="140" y2="72"/>
-      </g>
-      <path class="lps-intro-sunbody" d="M 70 78 a 30 30 0 0 1 60 0 z" fill="url(#lps-intro-sun)"/>
-      <path d="M 30 88 Q 100 100 170 88" stroke="#7A2616" stroke-width="3" fill="none" stroke-linecap="round"/>
-      <path d="M 44 96 Q 100 104 156 96" stroke="#D9462A" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-    </svg>
-    <div class="lps-intro-text">
-      <span class="lps-intro-welcome">Welcome to Las Palmas</span>
-      <span class="lps-intro-name" style="background-image:linear-gradient(90deg,#D9462A,#F5BE3F,#7A2616,#F5BE3F,#D9462A)">Daily Specials</span>
-    </div>
+  <header class="ds-header">
+  <div class="ds-header-left">
+    <a href="/" class="ds-icon-btn" aria-label="Las Palmas home">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    </a>
   </div>
-
-  <header class="lp-header">
-    <div class="container lp-header-inner">
-      <button class="lp-iconbtn" aria-label="Open menu" data-nav-open>
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
-      </button>
-
-      <a class="lp-brand" href="/">
-        <span class="lp-brand-mark" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 15a5 5 0 0 1 10 0" fill="currentColor" stroke="none"/><line x1="12" y1="5" x2="12" y2="8"/><line x1="5.6" y1="8.6" x2="7.4" y2="10.4"/><line x1="18.4" y1="8.6" x2="16.6" y2="10.4"/><line x1="3" y1="15" x2="5" y2="15"/><line x1="19" y1="15" x2="21" y2="15"/><path d="M4 19h16"/></svg>
-        </span>
-        <span class="lp-brand-name">Las Palmas <em>· Daily Specials</em></span>
-      </a>
-
-      <span class="header-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-        Best of GA 2025
-      </span>
-
-      <button class="lp-iconbtn" aria-label="Switch to dark mode" data-theme-toggle>
-        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
-    </div>
-  </header>
-
-  <button class="lp-scrim" tabindex="-1" aria-hidden="true"></button>
-  <aside class="lp-drawer" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true" inert>
-    <div class="lp-drawer-head">
-      <span class="lp-drawer-title">Las Palmas <em>Menu</em></span>
-      <button class="lp-drawer-close" aria-label="Close menu" data-nav-close>
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
-      </button>
-    </div>
-    <nav class="lp-drawer-nav">
-      <a href="/"><span>Home</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/menu/"><span>Menu</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/chat/"><span>Chat</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/locations/"><span>Locations</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/specials/"><span>Daily Specials</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/drinks/"><span>Drinks</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/catering/"><span>Catering</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/feedback/"><span>Feedback</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/events/"><span>Events</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/tacopete/"><span>VIP Rewards</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/join-our-team/"><span>Join Our Team</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/order/"><span>Online Ordering</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    </nav>
-    <div class="lp-drawer-foot">© <span data-year>2026</span> Las Palmas Mexican Restaurant</div>
-  </aside>
+  <div class="ds-brand">
+    <span class="ds-brand-icon" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="13" r="5" fill="currentColor" opacity="0.85"/>
+        <path d="M3 18h18M5.5 18a6.5 6.5 0 0 1 13 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+        <path d="M12 4v2M19 6.5l-1.4 1.4M5 6.5l1.4 1.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+    </span>
+    <span class="ds-brand-text">Las <span class="ds-brand-text-accent">Palmas</span></span>
+  </div>
+  <div class="ds-header-right">
+    <button type="button" class="ds-icon-btn" id="ds-theme" aria-label="Switch theme">
+      <svg class="ds-ico-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="ds-ico-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
 
   <main>
     <!-- ── Hero ─────────────────────────────────────────────────────── -->
@@ -901,29 +834,8 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
     </section>
   </main>
 
-  <footer class="lp-footer">
-    <div class="container lp-footer-inner">
-      <a class="lp-footer-brand" href="/">
-        <span class="lp-footer-mark" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 15a5 5 0 0 1 10 0" fill="currentColor" stroke="none"/><line x1="12" y1="5" x2="12" y2="8"/><line x1="5.6" y1="8.6" x2="7.4" y2="10.4"/><line x1="18.4" y1="8.6" x2="16.6" y2="10.4"/><line x1="3" y1="15" x2="5" y2="15"/><line x1="19" y1="15" x2="21" y2="15"/><path d="M4 19h16"/></svg>
-        </span>
-        <span class="lp-footer-name">Las Palmas <em>Mexican Restaurant</em></span>
-      </a>
-      <div class="lp-footer-links">
-        <a href="/locations/">All Locations</a>
-        <span class="dot-sep">·</span>
-        <a href="/">Home</a>
-        <span class="dot-sep">·</span>
-        <a href="/menu/">Menu</a>
-        <span class="dot-sep">·</span>
-        <a href="/feedback/">Feedback</a>
-      </div>
-      <div class="lp-footer-copy">© <span data-year>2026</span> Las Palmas Mexican Restaurant · Northwest Georgia</div>
-    </div>
-  </footer>
-
 </div>
-<script src="/assets/js/main.js" defer></script>
+
 <script>
 /* Corporate specials aggregator — page-specific behavior.
    Uses data-corp-* attributes so it never collides with the shared
@@ -973,6 +885,17 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
   /* Footer year (shared main.js also sets [data-year]; harmless duplicate) */
   var yr=d.querySelector("[data-year]");
   if(yr) yr.textContent=String(new Date().getFullYear());
+})();
+</script>
+<script>
+(function(){
+  var d=document, html=d.documentElement;
+  var btn=d.getElementById('ds-theme');
+  if(btn)btn.addEventListener('click',function(){
+    var dark=html.getAttribute('data-theme')==='dark';
+    if(dark){html.removeAttribute('data-theme');}else{html.setAttribute('data-theme','dark');}
+    try{localStorage.setItem('lp-ds-theme',dark?'light':'dark');}catch(e){}
+  });
 })();
 </script>
 </body>
