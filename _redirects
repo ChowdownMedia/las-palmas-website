@@ -1,0 +1,26 @@
+# ── Old GHL site URLs → new structure (301 = permanent, preserves rankings) ──
+/home               /                     301
+/onlineordering     /order/               301
+/employment         /join-our-team/       301
+/gallery            /#gallery             301
+/coming-soon        /                     301
+/rockmart-ds        /rockmart/#specials   301
+
+# Closed locations (May 2026 ownership split) → locations hub
+/armuchee           /locations/           301
+/armuchee/*         /locations/           301
+/dalton             /locations/           301
+/dalton/*           /locations/           301
+
+# ── Nav targets not yet built (302 = temporary, swap when pages ship) ──
+/dailyspecials      /specials/            301
+/chat               /                     302
+/chat/              /                     302
+/drinks             /menu/                302
+/drinks/            /menu/                302
+/feedback           /                     302
+/feedback/          /                     302
+
+# VIP Rewards → Taco Pete portal (separate Cloudflare Pages project)
+/tacopete           https://laspalmas-vip.pages.dev/   302
+/tacopete/          https://laspalmas-vip.pages.dev/   302

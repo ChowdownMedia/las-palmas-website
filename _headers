@@ -1,0 +1,14 @@
+# Immutable cache for fingerprint-stable assets (fonts/images/css/js)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Security baseline for all pages
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Keep the staging host out of Google until the July domain cutover.
+# NOTE: must match the actual Cloudflare Pages project name at deploy time.
+https://las-palmas-website.pages.dev/*
+  X-Robots-Tag: noindex

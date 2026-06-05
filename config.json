@@ -1,0 +1,101 @@
+{
+  "brand": {
+    "name": "Las Palmas Mexican Restaurant",
+    "domain": "https://laspalmasmexicanrest.com",
+    "founded": "1997",
+    "instagram": "https://www.instagram.com/laspalmasmexicanrestaurants",
+    "instagram_handle": "@laspalmasmexicanrestaurants"
+  },
+  "locations": {
+    "riverside": {
+      "name": "Las Palmas Mexican Restaurant - Riverside",
+      "slug": "riverside",
+      "town_label": "Riverside, Rome, GA",
+      "address": "311 Riverside Pkwy NE",
+      "city": "Rome",
+      "state": "GA",
+      "zip": "30161",
+      "country": "US",
+      "phone": "+17062350555",
+      "phone_display": "706-235-0555",
+      "geo": { "lat": 34.2595784, "lng": -85.1687110 },
+      "geo_verified": "nominatim-house-number",
+      "hours": [
+        { "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "11:00", "closes": "22:00", "display": "Mon – Fri: 11:00 AM – 10:00 PM" },
+        { "days": ["Saturday"], "opens": "11:00", "closes": "22:30", "display": "Sat: 11:00 AM – 10:30 PM" },
+        { "days": ["Sunday"], "opens": "11:00", "closes": "22:00", "display": "Sun: 11:00 AM – 10:00 PM" }
+      ],
+      "ordering_url": "https://order.online/store/las-palmas-mexican-restaurant-rome-33450519/?hideModal=true",
+      "instagram_handle": "@laspalmasmexicanrestaurants"
+    },
+    "rockmart": {
+      "name": "Las Palmas Mexican Restaurant - Rockmart",
+      "slug": "rockmart",
+      "town_label": "Rockmart, GA",
+      "opened": "2023",
+      "address": "1422 Chattahoochee Dr",
+      "city": "Rockmart",
+      "state": "GA",
+      "zip": "30153",
+      "country": "US",
+      "phone": "+16786854135",
+      "phone_display": "678-685-4135",
+      "geo": { "lat": 34.0086917, "lng": -85.0329565 },
+      "geo_verified": "nominatim-street-only-VERIFY-AGAINST-GBP",
+      "hours": [
+        { "days": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"], "opens": "11:00", "closes": "22:00", "display": "Sun – Thu: 11:00 AM – 10:00 PM" },
+        { "days": ["Friday", "Saturday"], "opens": "11:00", "closes": "22:30", "display": "Fri – Sat: 11:00 AM – 10:30 PM" }
+      ],
+      "ordering_url": "https://order.online/store/-33441203/?pickup=true&hideModal=true&utm_source=gfo&rwg_token=AFd1xnF-63Vswvqjx_34jLz6UiOo8f2dOASbTpLWZ0Z8eEiZypMFSuW9pZOFTxzfiLKnoKKDN14KWqn1zAuiGa_1MH0jUhnF7g%3D%3D",
+      "instagram_handle": "@laspalmasmexicanrestaurants",
+      "has_standalone_menu": true
+    },
+    "shorter": {
+      "name": "Las Palmas Mexican Restaurant - Shorter Avenue",
+      "slug": "shorter",
+      "town_label": "Shorter Ave, Rome, GA",
+      "opened": "1997",
+      "original_location": true,
+      "address": "246 Shorter Ave NW",
+      "city": "Rome",
+      "state": "GA",
+      "zip": "30165",
+      "country": "US",
+      "phone": "+17062919788",
+      "phone_display": "706-291-9788",
+      "geo": { "lat": 34.2630774, "lng": -85.1882697 },
+      "geo_verified": "nominatim-house-number",
+      "hours": [
+        { "days": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"], "opens": "11:00", "closes": "22:00", "display": "Sun – Thu: 11:00 AM – 10:00 PM" },
+        { "days": ["Friday"], "opens": "11:00", "closes": "22:30", "display": "Fri: 11:00 AM – 10:30 PM" },
+        { "days": ["Saturday"], "opens": "11:00", "closes": "22:00", "display": "Sat: 11:00 AM – 10:00 PM" }
+      ],
+      "ordering_url": "https://order.online/store/las-palmas-mexican-restaurant-rome-33448963/?hideModal=true&delivery=true",
+      "instagram_handle": "@laspalmas_shorter"
+    },
+    "cartersville": {
+      "name": "Las Palmas Mexican Restaurant - Cartersville",
+      "slug": "cartersville",
+      "town_label": "Cartersville, GA",
+      "address": "140 Main St Mkt Pl SE",
+      "city": "Cartersville",
+      "state": "GA",
+      "zip": "30121",
+      "country": "US",
+      "phone": "+17703862977",
+      "phone_display": "770-386-2977",
+      "geo": { "lat": 34.1730723, "lng": -84.7756060 },
+      "geo_verified": "nominatim-shopping-center-zip-match",
+      "hours": [
+        { "days": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"], "opens": "11:00", "closes": "22:00", "display": "Sun – Thu: 11:00 AM – 10:00 PM" },
+        { "days": ["Friday", "Saturday"], "opens": "11:00", "closes": "22:30", "display": "Fri – Sat: 11:00 AM – 10:30 PM" }
+      ],
+      "ordering_url": "https://www.livewireorders.com/ordering/restaurant/menu?company_uid=91c58b6a-d322-4781-8a83-98998b9c5453&restaurant_uid=a80eca9a-841b-48ec-9b51-c130487f3ed6&facebook=true",
+      "instagram_handle": "@laspalmasmexicanrestaurants"
+    }
+  },
+  "closed_locations": {
+    "note": "Armuchee and Dalton closed May 2026 (ownership split). 301 their old URLs to /locations/. Never publish content for them.",
+    "slugs": ["armuchee", "dalton"]
+  }
+}
