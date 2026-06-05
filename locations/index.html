@@ -1,192 +1,539 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Las Palmas Locations | Rome, Rockmart &amp; Cartersville, GA</title>
-<meta name="description" content="Find your Las Palmas Mexican Restaurant — four Northwest Georgia locations in Rome, Rockmart &amp; Cartersville. Hours, directions &amp; online ordering.">
+<meta name="description" content="Find your Las Palmas — Shorter, Riverside, Cartersville &amp; Rockmart. Hours, directions, phone numbers, and online ordering for every location.">
 <link rel="canonical" href="https://laspalmasmexicanrest.com/locations/">
-
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Las Palmas Mexican Restaurant">
-<meta property="og:title" content="Las Palmas Locations — Rome, Rockmart &amp; Cartersville, GA">
-<meta property="og:description" content="Four Las Palmas Mexican Restaurant locations across Northwest Georgia. Choose yours for hours, directions, and online ordering.">
+<meta property="og:title" content="Find Your Las Palmas — Four Locations in Northwest Georgia">
+<meta property="og:description" content="Choose your location for ordering, directions, hours, and more.">
 <meta property="og:url" content="https://laspalmasmexicanrest.com/locations/">
 <meta property="og:image" content="https://laspalmasmexicanrest.com/assets/images/shared/og-share.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Las Palmas Locations — Rome, Rockmart &amp; Cartersville, GA">
-<meta name="twitter:description" content="Four Las Palmas Mexican Restaurant locations across Northwest Georgia.">
+<meta name="twitter:title" content="Find Your Las Palmas — Four Locations in Northwest Georgia">
+<meta name="twitter:description" content="Choose your location for ordering, directions, hours, and more.">
 <meta name="twitter:image" content="https://laspalmasmexicanrest.com/assets/images/shared/og-share.jpg">
-<meta name="theme-color" content="#faf3e4" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1a0f07" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F7EFE2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#160C08" media="(prefers-color-scheme: dark)">
 
-<script>(function(){try{var t=localStorage.getItem('lp-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}document.documentElement.classList.remove('no-js');})();</script>
+<!-- Glenn's theme model: pref (auto|light|dark) in localStorage lp-locations-theme; auto = dark 19:00–07:00 -->
+<script>(function(){var p='auto';try{var s=localStorage.getItem('lp-locations-theme');if(s==='auto'||s==='light'||s==='dark')p=s;}catch(e){}var h=new Date().getHours();var dark=p==='dark'||(p==='auto'&&(h>=19||h<7));document.documentElement.setAttribute('data-lpl-pref',p);document.documentElement.setAttribute('data-lpl-dark',dark?'1':'0');})();</script>
 
 <link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/dm-sans-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" href="/assets/images/locations/locations-shorter-1.webp">
 
 <style>
-@font-face{font-family:'DM Sans';src:url('/assets/fonts/dm-sans-var.woff2') format('woff2');font-weight:400 700;font-style:normal;font-display:swap}
-@font-face{font-family:'DM Sans';src:url('/assets/fonts/dm-sans-italic-var.woff2') format('woff2');font-weight:400 700;font-style:italic;font-display:swap}
 @font-face{font-family:'Instrument Serif';src:url('/assets/fonts/instrument-serif.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:'Instrument Serif';src:url('/assets/fonts/instrument-serif-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
-:root{--bg:#faf3e4;--bg-elev:#f4ead4;--bg-card:#fbf5e6;--bg-card-2:#efe1c2;--line:#e3cfa3;--line-soft:#ead9b2;--text:#3b2415;--text-soft:#6b4a2e;--text-mute:#8a6a4a;--gold:#c89b3c;--gold-deep:#a87a1f;--amber:#d99a3c;--terracotta:#c25a36;--terracotta-deep:#a3411f;--salsa:#b03826;--shadow-sm:0 1px 2px rgba(74,42,18,.06),0 2px 8px rgba(74,42,18,.04);--shadow-md:0 4px 14px rgba(74,42,18,.10),0 1px 3px rgba(74,42,18,.06);--shadow-lg:0 18px 42px rgba(74,42,18,.14),0 4px 12px rgba(74,42,18,.08);--glow:0 0 0 1px rgba(217,154,60,.30),0 14px 38px -10px rgba(176,56,38,.30);--ring:0 0 0 3px rgba(200,155,60,.35);--gradient-warm:linear-gradient(135deg,#f4c97a 0%,#e08b4f 55%,#c2502c 100%);--gradient-button:linear-gradient(180deg,#d96b40 0%,#b03826 100%);--gradient-button-hover:linear-gradient(180deg,#e07a4d 0%,#c2452c 100%);--gradient-text:linear-gradient(95deg,#b03826 0%,#d99a3c 100%);--header-bg:rgba(250,243,228,.82)}
-[data-theme="dark"]{--bg:#1a0f07;--bg-elev:#22150c;--bg-card:#28190f;--bg-card-2:#311e12;--line:#4a2f1c;--line-soft:#3a2616;--text:#f1e2c4;--text-soft:#d8bf94;--text-mute:#a48d65;--gold:#d9a23c;--gold-deep:#b8862e;--amber:#e0a84a;--terracotta:#d96d44;--terracotta-deep:#c2502c;--salsa:#c44525;--shadow-sm:0 1px 2px rgba(0,0,0,.45),0 2px 8px rgba(0,0,0,.25);--shadow-md:0 6px 20px rgba(0,0,0,.55),0 2px 6px rgba(0,0,0,.3);--shadow-lg:0 22px 50px rgba(0,0,0,.65),0 6px 16px rgba(0,0,0,.4);--glow:0 0 0 1px rgba(217,162,60,.32),0 16px 44px -10px rgba(217,130,60,.40);--ring:0 0 0 3px rgba(217,162,60,.40);--gradient-warm:linear-gradient(135deg,#b8752c 0%,#9c4825 55%,#5e2010 100%);--gradient-button:linear-gradient(180deg,#e0784a 0%,#b03e20 100%);--gradient-button-hover:linear-gradient(180deg,#ec8757 0%,#c54725 100%);--gradient-text:linear-gradient(95deg,#e08e60 0%,#e0b860 100%);--header-bg:rgba(28,17,8,.78)}
-*{box-sizing:border-box}html,body{background:var(--bg)}
-body{margin:0;font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--text);-webkit-font-smoothing:antialiased}
-.lp-page{background:var(--bg);color:var(--text);min-height:100vh}
-.serif{font-family:'Instrument Serif','Playfair Display',Georgia,serif}.italic{font-style:italic}
-.gradient-text{background:var(--gradient-text);-webkit-background-clip:text;background-clip:text;color:transparent}
-.lp-glow{box-shadow:var(--shadow-md),var(--glow)}
-.container{width:100%;max-width:720px;margin:0 auto;padding:0 18px}
-@media(min-width:768px){.container{max-width:880px;padding:0 28px}}
-@media(min-width:1100px){.container{max-width:1040px}}
-.section{padding:38px 0}@media(min-width:768px){.section{padding:56px 0}}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 18px;border-radius:999px;border:1px solid transparent;font-family:'DM Sans',sans-serif;font-weight:600;font-size:15px;cursor:pointer;text-decoration:none;min-height:48px;line-height:1}
-.btn-primary{background:var(--gradient-button);color:#fff7e8;border-color:rgba(0,0,0,.12);box-shadow:var(--shadow-md),inset 0 1px 0 rgba(255,255,255,.20)}
-.btn-secondary{background:var(--bg-card);color:var(--text);border:1px solid var(--line);box-shadow:var(--shadow-sm)}
-.card{background:var(--bg-card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-md);overflow:hidden}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--text-soft)}
-.eyebrow-rule{display:inline-block;width:22px;height:1px;background:var(--text-mute);opacity:.6}
-.lp-header{position:sticky;top:0;z-index:50;-webkit-backdrop-filter:saturate(140%) blur(10px);backdrop-filter:saturate(140%) blur(10px);background:var(--header-bg);border-bottom:1px solid var(--line-soft)}
-.lp-header-inner{display:flex;align-items:center;gap:10px;padding:12px 18px}
-.lp-iconbtn{width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;background:var(--bg-card);border:1px solid var(--line);color:var(--text);border-radius:12px;cursor:pointer;box-shadow:var(--shadow-sm)}
-.lp-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);flex:1;min-width:0}
-.lp-brand-mark{width:34px;height:34px;border-radius:10px;background:var(--gradient-warm);display:inline-flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);color:#fff7e8;flex:0 0 34px}
-.lp-brand-name{font-family:'Instrument Serif','Playfair Display',Georgia,serif;font-size:18px;font-weight:700;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.lp-brand-name em{color:var(--terracotta);font-style:italic}
+@font-face{font-family:'DM Sans';src:url('/assets/fonts/dm-sans-var.woff2') format('woff2');font-weight:100 1000;font-style:normal;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('/assets/fonts/dm-sans-italic-var.woff2') format('woff2');font-weight:100 1000;font-style:italic;font-display:swap}
 
-/* ── Drawer (matches shared site.css conventions / data-nav attrs) ── */
-.lp-scrim{position:fixed;inset:0;z-index:60;border:none;padding:0;background:rgba(20,12,7,.5);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease;cursor:pointer}
-.nav-open .lp-scrim{opacity:1;visibility:visible}
-.lp-drawer{position:fixed;top:0;left:0;bottom:0;z-index:70;width:min(86vw,340px);background:var(--bg-elev);border-right:1px solid var(--line);box-shadow:var(--shadow-lg);transform:translateX(-104%);transition:transform .3s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column}
-.nav-open .lp-drawer{transform:translateX(0)}
-.lp-drawer-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:18px 18px 14px;border-bottom:1px solid var(--line-soft)}
-.lp-drawer-title{font-family:'Instrument Serif','Playfair Display',Georgia,serif;font-size:20px;font-weight:700}
-.lp-drawer-title em{color:var(--terracotta);font-style:italic}
-.lp-drawer-close{width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;background:var(--bg-card);border:1px solid var(--line);color:var(--text);border-radius:11px;cursor:pointer}
-.lp-drawer-nav{display:flex;flex-direction:column;padding:8px 12px;overflow-y:auto;flex:1}
-.lp-drawer-nav a{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 12px;border-radius:12px;text-decoration:none;color:var(--text);font-weight:600;font-size:15.5px}
-.lp-drawer-nav a:hover{background:var(--bg-card)}
-.lp-drawer-nav a svg{color:var(--text-mute)}
-.lp-drawer-foot{padding:14px 18px;border-top:1px solid var(--line-soft);font-size:12px;color:var(--text-mute)}
+/* ════ LocationsV2.6 baseStyles — ported verbatim ════ */
+:root, .lpl-root[data-theme="light"] {
+  --bg:           #F7EFE2;
+  --bg-deep:      #F2E5C2;
+  --surface:      #FFF8E9;
+  --surface-soft: #F8EBD0;
+  --surface-deep: #F3DFBD;
+  --text:         #3D2016;
+  --text-strong:  #2A140C;
+  --muted:        #7B5B45;
+  --soft:         #A38968;
+  --gold:         #C8923A;
+  --gold-deep:    #A6731D;
+  --gold-light:   #F5E2B0;
+  --terracotta:        #C9482C;
+  --terracotta-deep:   #8F2C1D;
+  --terracotta-glow:   rgba(201, 72, 44, 0.20);
+  --border:       rgba(120, 75, 35, 0.18);
+  --border-soft:  rgba(120, 75, 35, 0.11);
+  --shadow-sm:    0 1px 2px rgba(80, 45, 15, 0.04), 0 4px 12px rgba(80, 45, 15, 0.06);
+  --shadow-md:    0 2px 4px rgba(80, 45, 15, 0.07), 0 12px 28px rgba(80, 45, 15, 0.10);
+  --shadow-lg:    0 4px 8px rgba(80, 45, 15, 0.09), 0 22px 50px rgba(80, 45, 15, 0.14);
+  --page-grad:
+    radial-gradient(circle at 12% -6%, rgba(245, 219, 165, 0.55) 0%, transparent 42%),
+    radial-gradient(circle at 92% 108%, rgba(232, 178, 138, 0.30) 0%, transparent 52%),
+    linear-gradient(180deg, #F7EFE2 0%, #F2E1BE 100%);
+  --texture-dot:    rgba(160, 110, 60, 0.045);
+  --texture-dot-2:  rgba(160, 110, 60, 0.030);
+  --header-bg:      rgba(247, 239, 226, 0.94);
+  --header-bg-soft: rgba(247, 239, 226, 0.82);
+  --card-grad:      linear-gradient(180deg, #FFFAEE 0%, #F7E8C8 100%);
+  --card-hover:     linear-gradient(180deg, #FFFCEF 0%, #F4E0B4 100%);
+  --details-bg:     rgba(248, 235, 208, 0.55);
+  --actbtn-bg:      var(--surface);
+  --actbtn-hover:   var(--surface-deep);
+  --social-bg:      var(--surface-soft);
+  --social-hover:   var(--surface-deep);
+  --float-bg:       linear-gradient(180deg, #FFFAEE 0%, #F0DBA9 100%);
+  --float-glow:     0 4px 14px rgba(200, 146, 58, 0.30), 0 12px 32px rgba(80, 45, 15, 0.18);
+  --hero-shimmer-a: #6B2B1F;
+  --hero-shimmer-b: #B9472A;
+  --hero-shimmer-c: #D8A640;
+  --hero-shimmer-d: #C9482C;
+  --hero-shimmer-e: #7A2616;
+  --on-terracotta:  #FFF8EC;
+  --on-gold:        #3D2016;
+  --font-display:   'Instrument Serif', 'Playfair Display', Georgia, serif;
+  --font-body:      'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.lpl-root[data-theme="dark"] {
+  --bg:           #160C08;
+  --bg-deep:      #0E0604;
+  --surface:      #24140E;
+  --surface-soft: #2E1B13;
+  --surface-deep: #38241A;
+  --text:         #F4E3C4;
+  --text-strong:  #FAEDD0;
+  --muted:        #C5A987;
+  --soft:         #9A7E62;
+  --gold:         #D3A647;
+  --gold-deep:    #E1B85A;
+  --gold-light:   #3F2D14;
+  --terracotta:        #D45A35;
+  --terracotta-deep:   #A33A22;
+  --terracotta-glow:   rgba(212, 90, 53, 0.30);
+  --border:       rgba(211, 166, 71, 0.22);
+  --border-soft:  rgba(211, 166, 71, 0.13);
+  --shadow-sm:    0 1px 2px rgba(0, 0, 0, 0.40), 0 4px 12px rgba(0, 0, 0, 0.45);
+  --shadow-md:    0 2px 6px rgba(0, 0, 0, 0.45), 0 14px 32px rgba(0, 0, 0, 0.55);
+  --shadow-lg:    0 4px 10px rgba(0, 0, 0, 0.50), 0 24px 56px rgba(0, 0, 0, 0.65);
+  --page-grad:
+    radial-gradient(circle at 12% -6%, rgba(180, 105, 50, 0.20) 0%, transparent 45%),
+    radial-gradient(circle at 92% 108%, rgba(150, 75, 35, 0.22) 0%, transparent 52%),
+    linear-gradient(180deg, #160C08 0%, #0E0604 100%);
+  --texture-dot:    rgba(220, 170, 100, 0.028);
+  --texture-dot-2:  rgba(220, 170, 100, 0.020);
+  --header-bg:      rgba(20, 12, 7, 0.92);
+  --header-bg-soft: rgba(20, 12, 7, 0.78);
+  --card-grad:      linear-gradient(180deg, #2A1810 0%, #1D1009 100%);
+  --card-hover:     linear-gradient(180deg, #321F15 0%, #21130B 100%);
+  --details-bg:     rgba(40, 25, 16, 0.7);
+  --actbtn-bg:      var(--surface-soft);
+  --actbtn-hover:   var(--surface-deep);
+  --social-bg:      var(--surface-soft);
+  --social-hover:   var(--surface-deep);
+  --float-bg:       linear-gradient(180deg, #3A2615 0%, #1F1209 100%);
+  --float-glow:     0 4px 14px rgba(211, 166, 71, 0.24), 0 12px 36px rgba(0, 0, 0, 0.55);
+  --hero-shimmer-a: #8F351F;
+  --hero-shimmer-b: #D45A35;
+  --hero-shimmer-c: #E5B85C;
+  --hero-shimmer-d: #C95630;
+  --hero-shimmer-e: #6F2A18;
+  --on-terracotta:  #FFF5E5;
+  --on-gold:        #1E0F08;
+}
 
-/* ── Hero ── */
-.loc-hero{text-align:center;padding:34px 0 8px}
-.loc-hero-eyebrow{font-size:11.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--text-mute);margin:0 0 12px;opacity:.85}
-.loc-hero h1{margin:0 0 12px;font-size:clamp(38px,11vw,60px);line-height:1.02;letter-spacing:-.005em;font-weight:400}
-.loc-hero-accent{font-style:italic}
-.loc-hero-sub{font-size:15px;color:var(--text-soft);margin:0 auto;max-width:38ch;line-height:1.5}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { background: var(--bg, #F7EFE2); color: var(--text, #3D2016); }
 
-/* ── Location grid ── */
-.loc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:6px 0 28px}
-@media(min-width:760px){.loc-grid{grid-template-columns:repeat(3,1fr);gap:16px}}
-@media(max-width:340px){.loc-grid{grid-template-columns:1fr}}
+.lpl-root {
+  position: relative;
+  min-height: 100dvh;
+  min-height: 100vh;
+  background: var(--page-grad);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+.lpl-root::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(var(--texture-dot) 1px, transparent 1px),
+    radial-gradient(var(--texture-dot-2) 1px, transparent 1px);
+  background-size: 28px 28px, 14px 14px;
+  background-position: 0 0, 7px 7px;
+}
 
-.loc-card{position:relative;display:flex;flex-direction:column;background:var(--bg-card);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
-.loc-card:hover{box-shadow:var(--shadow-md);border-color:var(--gold);transform:translateY(-2px)}
-.loc-card.is-open{box-shadow:var(--shadow-md);border-color:var(--gold)}
-.loc-card-imglink{display:block;position:relative;width:calc(100% - 16px);margin:8px 8px 0;border-radius:16px;overflow:hidden;background:var(--bg-card-2);aspect-ratio:1/1}
-.loc-card-imglink img{display:block;width:100%;height:100%;object-fit:cover}
-.loc-card-body{padding:12px 12px;display:flex;flex-direction:column;gap:10px}
-.loc-card-name{font-family:'Instrument Serif','Playfair Display',Georgia,serif;font-weight:400;font-size:clamp(22px,5.5vw,26px);color:var(--text);margin:2px 0 0;line-height:1.05;letter-spacing:.005em}
-.loc-card-name a{color:inherit;text-decoration:none}
-.loc-card-name a:hover{color:var(--terracotta)}
+.lpl-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: max(env(safe-area-inset-top), 10px) 14px 12px;
+  background: linear-gradient(180deg, var(--header-bg) 0%, var(--header-bg-soft) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-soft);
+}
+.lpl-iconbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  background: var(--surface-soft);
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 160ms ease, transform 160ms ease, border-color 160ms ease;
+}
+.lpl-iconbtn:hover { background: var(--surface-deep); border-color: var(--border); }
+.lpl-iconbtn:active { transform: scale(0.96); }
+.lpl-header-brand { display: inline-flex; align-items: center; justify-content: center; gap: 9px; }
+.lpl-header-name {
+  font-family: var(--font-display);
+  font-size: clamp(19px, 5vw, 22px);
+  font-weight: 400;
+  color: var(--text-strong);
+  letter-spacing: 0.005em;
+  line-height: 1;
+}
+[data-lpl-pref="auto"] .lpl-theme-ico-light, [data-lpl-pref="auto"] .lpl-theme-ico-dark { display: none; }
+[data-lpl-pref="light"] .lpl-theme-ico-auto, [data-lpl-pref="light"] .lpl-theme-ico-dark { display: none; }
+[data-lpl-pref="dark"] .lpl-theme-ico-auto, [data-lpl-pref="dark"] .lpl-theme-ico-light { display: none; }
 
-/* Call / Directions row — stack on phones, 2-up at >=760px (JSX v2.5) */
-.loc-actions{display:grid;grid-template-columns:1fr;gap:6px}
-@media(min-width:760px){.loc-actions{grid-template-columns:1fr 1fr}}
-.loc-actbtn{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-width:0;padding:9px 8px;background:var(--bg-card);border:1px solid var(--line);border-radius:12px;color:var(--text);font-weight:600;font-size:13px;text-decoration:none}
-.loc-actbtn:hover{background:var(--bg-card-2);border-color:var(--gold)}
-.loc-actbtn svg{color:var(--terracotta);flex-shrink:0}
-.loc-orderbtn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:12px 14px;background:var(--gradient-button);color:#fff7e8;border:1px solid rgba(0,0,0,.12);border-radius:14px;font-weight:600;font-size:14px;letter-spacing:.01em;text-decoration:none;box-shadow:var(--shadow-sm),inset 0 1px 0 rgba(255,255,255,.18)}
-.loc-orderbtn:hover{background:var(--gradient-button-hover)}
+.lpl-main { position: relative; z-index: 1; width: 100%; max-width: 880px; margin: 0 auto; padding: 0 14px; }
 
-.loc-socials{display:flex;align-items:center;justify-content:center;gap:10px;padding:2px 0 0}
-.loc-social{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:999px;background:var(--bg-card-2);border:1px solid var(--line-soft);color:var(--terracotta);text-decoration:none;touch-action:manipulation}
-.loc-social:hover{background:var(--bg-elev);color:var(--terracotta-deep);border-color:var(--gold)}
-.loc-social svg{pointer-events:none}
+.lpl-hero { text-align: center; padding: 26px 6px 22px; position: relative; }
+.lpl-hero-eyebrow {
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 12px;
+  opacity: 0.85;
+}
+.lpl-hero-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(38px, 11vw, 60px);
+  line-height: 1.02;
+  color: var(--text-strong);
+  margin: 0 0 12px;
+  letter-spacing: -0.005em;
+}
+.lpl-hero-accent {
+  background: linear-gradient(90deg, var(--hero-shimmer-a), var(--hero-shimmer-b), var(--hero-shimmer-c), var(--hero-shimmer-d), var(--hero-shimmer-e), var(--hero-shimmer-a));
+  background-size: 240% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-block;
+  font-style: italic;
+  animation: lpl-shimmer 9s ease-in-out infinite;
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,0.04));
+}
+@keyframes lpl-shimmer { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+.lpl-hero-sub { font-size: 15px; color: var(--muted); margin: 0 auto; max-width: 38ch; line-height: 1.5; }
 
-/* More toggle — full-width button at card bottom, flipping chevron */
-.loc-more-btn{display:inline-flex;align-items:center;justify-content:center;gap:4px;width:calc(100% + 24px);padding:7px 10px;background:transparent;border:none;border-top:1px solid var(--line-soft);border-radius:0;color:var(--text-mute);font-family:'DM Sans',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;margin:4px -12px -12px;touch-action:manipulation;transition:color .14s ease,background .14s ease}
-.loc-more-btn:hover{color:var(--text);background:var(--bg-elev)}
-.loc-more-btn svg{pointer-events:none}
-.loc-more-chev{transition:transform .28s cubic-bezier(.4,.14,.3,1)}
-.loc-more-chev.is-flipped{transform:rotate(180deg)}
+.lpl-section-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(22px, 6vw, 28px);
+  color: var(--text-strong);
+  margin: 0 0 14px;
+  letter-spacing: 0.005em;
+  line-height: 1.15;
+}
 
-/* Expandable details — hidden by default, revealed on .is-open */
-.loc-details{max-height:0;overflow:hidden;opacity:0;background:var(--bg-elev);border-top:1px solid transparent;transition:max-height .38s cubic-bezier(.4,.14,.3,1),opacity .26s ease,padding .38s cubic-bezier(.4,.14,.3,1)}
-.loc-details.is-open{max-height:900px;opacity:1;border-top:1px solid var(--line-soft)}
-.loc-details-inner{padding:14px 14px 16px;display:flex;flex-direction:column;gap:12px}
-.loc-detail-label{font-family:'DM Sans',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute);margin:0 0 6px}
-.loc-detail-label:not(:first-child){margin-top:14px}
-.loc-addr{margin:0;font-size:13.5px;line-height:1.45}
-.loc-detail-link{color:var(--terracotta);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;font-weight:500}
-.loc-detail-link:hover{color:var(--terracotta-deep)}
-.loc-hours{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
-.loc-hours li{display:flex;justify-content:space-between;gap:12px;font-size:13px}
-.loc-hours-days{font-weight:600;color:var(--text)}
-.loc-hours-time{color:var(--text-mute);font-variant-numeric:tabular-nums}
-/* Optional special note (red under hours) — empty by default */
-.loc-hours-note{margin:10px 0 0;padding:8px 10px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:13px;color:#B5301B;background:rgba(193,56,34,.08);border-left:3px solid #C13822;border-radius:0 8px 8px 0;line-height:1.4;white-space:pre-wrap;word-break:break-word;letter-spacing:.005em}
-[data-theme="dark"] .loc-hours-note{color:#F08070;background:rgba(240,128,112,.10);border-left-color:#E66555}
+.lpl-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 6px 0 28px; }
+@media (min-width: 760px) { .lpl-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
+@media (max-width: 340px) { .lpl-grid { grid-template-columns: 1fr; } }
 
-/* ── Bottom "More from Las Palmas" ── */
-.loc-more-title{font-family:'Instrument Serif','Playfair Display',Georgia,serif;font-weight:400;font-size:clamp(22px,6vw,28px);margin:0 0 14px;line-height:1.15;letter-spacing:.005em}
-.loc-more-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media(max-width:380px){.loc-more-grid{grid-template-columns:1fr}}
-.loc-bigbtn{display:flex;align-items:center;gap:12px;padding:14px;border:1px solid var(--line);border-radius:18px;text-decoration:none;background:var(--bg-card);color:var(--text);box-shadow:var(--shadow-sm)}
-.loc-bigbtn:hover{border-color:var(--gold);box-shadow:var(--shadow-md);transform:translateY(-1px)}
-.loc-bigbtn-icon{flex-shrink:0;width:42px;height:42px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 30%,var(--bg-card-2) 0%,var(--bg-elev) 100%);border:1px solid var(--line-soft);color:var(--terracotta)}
-.loc-bigbtn--specials .loc-bigbtn-icon{color:var(--gold-deep)}
-.loc-bigbtn-text{display:flex;flex-direction:column;gap:1px;min-width:0}
-.loc-bigbtn-title{font-family:'Instrument Serif','Playfair Display',Georgia,serif;font-size:19px;font-weight:400;line-height:1.05}
-.loc-bigbtn-sub{font-size:12px;color:var(--text-mute)}
+.lpl-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--card-grad);
+  border: 1px solid var(--border-soft);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background 220ms ease;
+}
+.lpl-card:hover { background: var(--card-hover); border-color: var(--border); box-shadow: var(--shadow-md); }
+.lpl-card.is-open { box-shadow: var(--shadow-md); border-color: var(--border); }
 
-/* ── Footer ── */
-.lp-footer{border-top:1px solid var(--line-soft);background:var(--bg-elev);padding:30px 0 110px}
-@media(min-width:900px){.lp-footer{padding-bottom:34px}}
-.lp-footer-inner{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
-.lp-footer-brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
-.lp-footer-mark{width:30px;height:30px;border-radius:9px;background:var(--gradient-warm);display:inline-flex;align-items:center;justify-content:center;color:#fff7e8}
-.lp-footer-name{font-family:'Instrument Serif','Playfair Display',Georgia,serif;font-size:17px;font-weight:700}
-.lp-footer-name em{color:var(--terracotta);font-style:italic}
-.lp-footer-links{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;font-size:13.5px}
-.lp-footer-links a{color:var(--text-soft);text-decoration:none}
-.lp-footer-links a:hover{color:var(--terracotta)}
-.dot-sep{color:var(--text-mute)}
-.lp-footer-copy{font-size:12px;color:var(--text-mute)}
+.lpl-card-imgwrap {
+  position: relative;
+  width: calc(100% - 16px);
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 8px 8px 0;
+  background: var(--surface-deep);
+  box-shadow: 0 2px 6px rgba(60, 25, 10, 0.10) inset;
+}
+.lpl-art { display: block; width: 100%; height: 100%; }
 
-/* ── Floating Chat / VIP ── */
-.loc-float{position:fixed;right:14px;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);z-index:55;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
-.loc-float-btn{display:inline-flex;align-items:center;gap:7px;padding:9px 14px 9px 12px;background:var(--bg-card);color:var(--text);font-weight:600;font-size:13px;text-decoration:none;border:1px solid var(--line);border-radius:999px;box-shadow:var(--shadow-md);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
-.loc-float-btn:hover{border-color:var(--gold)}
-.loc-float-btn--chat svg{color:var(--terracotta)}
-.loc-float-btn--vip svg{color:var(--gold-deep)}
+.lpl-card-body { padding: 12px 12px 12px; display: flex; flex-direction: column; gap: 10px; }
+.lpl-card-name {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(22px, 5.5vw, 26px);
+  color: var(--text-strong);
+  margin: 2px 0 0;
+  line-height: 1.05;
+  letter-spacing: 0.005em;
+}
 
-@keyframes loc-rise{to{opacity:1;transform:translateY(0)}}
-@media(prefers-reduced-motion:no-preference){
-  .loc-hero-eyebrow,.loc-hero h1,.loc-hero-sub{opacity:0;transform:translateY(8px);animation:loc-rise 700ms cubic-bezier(.2,.7,.2,1) forwards}
-  .loc-hero h1{animation-delay:120ms}.loc-hero-sub{animation-delay:260ms}
-  .loc-card{opacity:0;transform:translateY(10px);animation:loc-rise 600ms cubic-bezier(.2,.7,.2,1) forwards}
-  .loc-grid>.loc-card:nth-child(1){animation-delay:340ms}.loc-grid>.loc-card:nth-child(2){animation-delay:410ms}.loc-grid>.loc-card:nth-child(3){animation-delay:480ms}.loc-grid>.loc-card:nth-child(4){animation-delay:550ms}
+.lpl-card-actions { display: grid; grid-template-columns: 1fr; gap: 6px; }
+@media (min-width: 760px) { .lpl-card-actions { grid-template-columns: 1fr 1fr; } }
+.lpl-actbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-width: 0;
+  padding: 9px 8px;
+  background: var(--actbtn-bg);
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  color: var(--text);
+  font: 600 13px var(--font-body);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 140ms ease, border-color 140ms ease, transform 140ms ease;
+}
+.lpl-actbtn:hover { background: var(--actbtn-hover); border-color: var(--border); }
+.lpl-actbtn:active { transform: scale(0.97); }
+.lpl-actbtn svg { color: var(--terracotta); flex-shrink: 0; }
+
+.lpl-orderbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 12px 14px;
+  background: linear-gradient(180deg, var(--terracotta) 0%, var(--terracotta-deep) 100%);
+  color: var(--on-terracotta);
+  border: none;
+  border-radius: 14px;
+  font: 600 14px var(--font-body);
+  text-decoration: none;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 6px rgba(143, 44, 29, 0.28), 0 6px 18px rgba(143, 44, 29, 0.18);
+  transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+}
+.lpl-orderbtn:hover { box-shadow: 0 3px 10px rgba(143, 44, 29, 0.40), 0 10px 28px rgba(143, 44, 29, 0.24); filter: brightness(1.04); }
+.lpl-orderbtn:active { transform: scale(0.98); }
+
+.lpl-card-socials { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 2px 0 0; }
+.lpl-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: var(--social-bg);
+  border: 1px solid var(--border-soft);
+  color: var(--terracotta);
+  cursor: pointer;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: background 140ms ease, color 140ms ease, transform 140ms ease, border-color 140ms ease;
+}
+.lpl-social:hover { background: var(--social-hover); color: var(--terracotta-deep); border-color: var(--border); }
+.lpl-social:active { transform: scale(0.94); }
+
+.lpl-social svg, .lpl-iconbtn svg, .lpl-float-btn svg, .lpl-orderbtn svg, .lpl-actbtn svg, .lpl-bigbtn-icon svg, .lpl-more-btn svg { pointer-events: none; }
+.lpl-iconbtn, .lpl-orderbtn, .lpl-actbtn, .lpl-bigbtn, .lpl-float-btn, .lpl-more-btn { touch-action: manipulation; }
+
+.lpl-more-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: calc(100% + 24px);
+  padding: 7px 10px;
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--border-soft);
+  border-radius: 0;
+  color: var(--muted);
+  font: 600 12.5px var(--font-body);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin: 4px -12px -12px;
+  transition: color 140ms ease, background 140ms ease;
+}
+.lpl-more-btn:hover { color: var(--text); background: var(--surface-soft); }
+.lpl-more-chev { transition: transform 280ms cubic-bezier(.4, .14, .3, 1); }
+.lpl-more-chev.is-flipped { transform: rotate(180deg); }
+
+.lpl-details {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  background: var(--details-bg);
+  transition:
+    max-height 380ms cubic-bezier(.4, .14, .3, 1),
+    opacity 260ms ease,
+    padding 380ms cubic-bezier(.4, .14, .3, 1);
+  border-top: 1px solid transparent;
+}
+.lpl-details.is-open { max-height: 900px; opacity: 1; border-top: 1px solid var(--border-soft); }
+.lpl-details-inner { padding: 14px 14px 16px; display: flex; flex-direction: column; gap: 12px; }
+
+.lpl-detail-block { margin: 0; font-size: 13.5px; }
+.lpl-detail-block dt {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-bottom: 5px;
+}
+.lpl-detail-block dt:not(:first-child) { margin-top: 14px; }
+.lpl-detail-block dd { margin: 0; color: var(--text); line-height: 1.45; word-break: break-word; }
+.lpl-detail-link {
+  color: var(--terracotta);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  font-weight: 500;
+}
+.lpl-detail-link:hover { color: var(--terracotta-deep); }
+
+.lpl-hours { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.lpl-hours li { display: flex; justify-content: space-between; gap: 12px; font-size: 13px; color: var(--text); }
+.lpl-hours-days { font-weight: 600; color: var(--text-strong); }
+.lpl-hours-time { color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.lpl-bottom { margin: 18px 0 22px; }
+.lpl-bottom-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (max-width: 380px) { .lpl-bottom-actions { grid-template-columns: 1fr; } }
+.lpl-bigbtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 14px;
+  border: 1px solid var(--border-soft);
+  border-radius: 18px;
+  text-decoration: none;
+  background: var(--card-grad);
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+.lpl-bigbtn:hover { border-color: var(--border); box-shadow: var(--shadow-md); transform: translateY(-1px); background: var(--card-hover); }
+.lpl-bigbtn:active { transform: translateY(0); }
+.lpl-bigbtn-icon {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 35% 30%, var(--gold-light) 0%, var(--surface-deep) 100%);
+  border: 1px solid var(--border-soft);
+  color: var(--terracotta);
+}
+.lpl-bigbtn--specials .lpl-bigbtn-icon { color: var(--gold-deep); }
+.lpl-bigbtn-text { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.lpl-bigbtn-title { font-family: var(--font-display); font-size: 19px; font-weight: 400; color: var(--text-strong); line-height: 1.05; }
+.lpl-bigbtn-sub { font-size: 12px; color: var(--muted); letter-spacing: 0.005em; }
+
+.lpl-bottom-spacer { height: calc(env(safe-area-inset-bottom, 0px) + 88px); }
+
+.lpl-float {
+  position: fixed;
+  right: 14px;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 14px);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+}
+.lpl-float-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 14px 9px 12px;
+  background: var(--float-bg);
+  color: var(--text-strong);
+  font: 600 13px var(--font-body);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  box-shadow: var(--float-glow);
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.lpl-float-btn:hover { filter: brightness(1.04); box-shadow: 0 6px 18px rgba(200, 146, 58, 0.36), 0 14px 36px rgba(80, 45, 15, 0.20); }
+.lpl-float-btn:active { transform: scale(0.96); }
+.lpl-float-btn--chat svg { color: var(--terracotta); }
+.lpl-float-btn--vip svg  { color: var(--gold-deep); }
+
+.lpl-root a:focus-visible, .lpl-root button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .lpl-hero-eyebrow, .lpl-hero-title, .lpl-hero-sub {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: lpl-rise 700ms cubic-bezier(.2, .7, .2, 1) forwards;
+  }
+  .lpl-hero-eyebrow { animation-delay: 60ms; }
+  .lpl-hero-title   { animation-delay: 160ms; }
+  .lpl-hero-sub     { animation-delay: 320ms; }
+  .lpl-card {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: lpl-rise 600ms cubic-bezier(.2, .7, .2, 1) forwards;
+  }
+  .lpl-grid > .lpl-card:nth-child(1) { animation-delay: 380ms; }
+  .lpl-grid > .lpl-card:nth-child(2) { animation-delay: 450ms; }
+  .lpl-grid > .lpl-card:nth-child(3) { animation-delay: 520ms; }
+  .lpl-grid > .lpl-card:nth-child(4) { animation-delay: 580ms; }
+}
+@keyframes lpl-rise { to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .lpl-hero-accent { animation: none; } }
+
+/* Discreet "Thank you." line (hours-editor gate in the prototype; editor is backend-deferred) */
+.lpl-thankyou-btn {
+  display: block;
+  margin: 18px auto 0;
+  padding: 6px 14px;
+  background: transparent;
+  border: none;
+  font: 400 italic 12.5px var(--font-display);
+  color: var(--soft);
+  opacity: 0.6;
+  letter-spacing: 0.04em;
+  text-align: center;
 }
 </style>
-<link rel="stylesheet" href="/assets/css/site.css" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="/assets/css/site.css"></noscript>
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "name": "Las Palmas Mexican Restaurant Locations",
+  "name": "Las Palmas Locations",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Las Palmas Shorter Avenue — Rome, GA", "url": "https://laspalmasmexicanrest.com/shorter/", "item": "https://laspalmasmexicanrest.com/shorter/" },
-    { "@type": "ListItem", "position": 2, "name": "Las Palmas Riverside — Rome, GA", "url": "https://laspalmasmexicanrest.com/riverside/", "item": "https://laspalmasmexicanrest.com/riverside/" },
-    { "@type": "ListItem", "position": 3, "name": "Las Palmas Cartersville — Cartersville, GA", "url": "https://laspalmasmexicanrest.com/cartersville/", "item": "https://laspalmasmexicanrest.com/cartersville/" },
-    { "@type": "ListItem", "position": 4, "name": "Las Palmas Rockmart — Rockmart, GA", "url": "https://laspalmasmexicanrest.com/rockmart/", "item": "https://laspalmasmexicanrest.com/rockmart/" }
+    { "@type": "ListItem", "position": 1, "name": "Las Palmas Shorter — Rome, GA", "item": "https://laspalmasmexicanrest.com/shorter/" },
+    { "@type": "ListItem", "position": 2, "name": "Las Palmas Riverside — Rome, GA", "item": "https://laspalmasmexicanrest.com/riverside/" },
+    { "@type": "ListItem", "position": 3, "name": "Las Palmas Cartersville — Cartersville, GA", "item": "https://laspalmasmexicanrest.com/cartersville/" },
+    { "@type": "ListItem", "position": 4, "name": "Las Palmas Rockmart — Rockmart, GA", "item": "https://laspalmasmexicanrest.com/rockmart/" }
   ]
 }
 </script>
@@ -202,394 +549,395 @@ body{margin:0;font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',
 </script>
 </head>
 <body>
-<div class="lp-page">
+<div class="lpl-root" id="lpl-root" data-theme="light">
 
-  <header class="lp-header">
-    <div class="container lp-header-inner">
-      <button class="lp-iconbtn" aria-label="Open menu" data-nav-open>
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
-      </button>
-
-      <a class="lp-brand" href="/">
-        <span class="lp-brand-mark" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 15a5 5 0 0 1 10 0" fill="currentColor" stroke="none"/><line x1="12" y1="5" x2="12" y2="8"/><line x1="5.6" y1="8.6" x2="7.4" y2="10.4"/><line x1="18.4" y1="8.6" x2="16.6" y2="10.4"/><line x1="3" y1="15" x2="5" y2="15"/><line x1="19" y1="15" x2="21" y2="15"/><path d="M4 19h16"/></svg>
-        </span>
-        <span class="lp-brand-name">Las Palmas <em>· Locations</em></span>
-      </a>
-
-      <button class="lp-iconbtn" aria-label="Switch to dark mode" data-theme-toggle>
-        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
+  <!-- Header -->
+  <header class="lpl-header" role="banner">
+    <a href="/" class="lpl-iconbtn" aria-label="Las Palmas home">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+    </a>
+    <div class="lpl-header-brand">
+      <svg viewBox="0 0 44 44" width="30" height="30" aria-hidden="true">
+        <defs>
+          <linearGradient id="lpl-hm-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FBE7BD"/><stop offset="100%" stop-color="#F0CF87"/></linearGradient>
+          <linearGradient id="lpl-hm-sun" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F5BE3F"/><stop offset="100%" stop-color="#E07628"/></linearGradient>
+        </defs>
+        <circle cx="22" cy="22" r="22" fill="url(#lpl-hm-bg)"/>
+        <g stroke="#C8801E" stroke-width="1.6" stroke-linecap="round" opacity="0.85">
+          <line x1="22" y1="9" x2="22" y2="12.5"/><line x1="14" y1="13.5" x2="16.2" y2="15.7"/><line x1="30" y1="13.5" x2="27.8" y2="15.7"/><line x1="10.5" y1="20.5" x2="13.5" y2="20.5"/><line x1="33.5" y1="20.5" x2="30.5" y2="20.5"/>
+        </g>
+        <path d="M 14 24.5 a 8 8 0 0 1 16 0 z" fill="url(#lpl-hm-sun)"/>
+        <path d="M 7.5 28.5 Q 22 33.5 36.5 28.5" stroke="#B23A14" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <path d="M 12 32.5 Q 22 35.5 32 32.5" stroke="#D88239" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span class="lpl-header-name">Las Palmas</span>
     </div>
+    <button type="button" id="lpl-theme" class="lpl-iconbtn" aria-label="Theme: auto. Click to change.">
+      <svg class="lpl-theme-ico-auto" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8a2.83 2.83 0 0 0 4 4 4 4 0 1 1-4-4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.9 4.9 1.4 1.4"/><path d="m17.7 17.7 1.4 1.4"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.3 17.7-1.4 1.4"/><path d="m19.1 4.9-1.4 1.4"/></svg>
+      <svg class="lpl-theme-ico-light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="lpl-theme-ico-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
   </header>
 
-  <button class="lp-scrim" tabindex="-1" aria-hidden="true"></button>
-  <aside class="lp-drawer" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true" inert>
-    <div class="lp-drawer-head">
-      <span class="lp-drawer-title">Las Palmas <em>Menu</em></span>
-      <button class="lp-drawer-close" aria-label="Close menu" data-nav-close>
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
-      </button>
-    </div>
-    <nav class="lp-drawer-nav">
-      <a href="/"><span>Home</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/menu/"><span>Menu</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/chat/"><span>Chat</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/locations/"><span>Locations</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/specials/"><span>Daily Specials</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/drinks/"><span>Drinks</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/catering/"><span>Catering</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/feedback/"><span>Feedback</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/events/"><span>Events</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/tacopete/"><span>VIP Rewards</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/join-our-team/"><span>Join Our Team</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/order/"><span>Online Ordering</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    </nav>
-    <div class="lp-drawer-foot">© <span data-year>2026</span> Las Palmas Mexican Restaurant</div>
-  </aside>
-
-  <main>
-    <!-- ── Hero ── -->
-    <section class="section loc-hero">
-      <div class="container">
-        <p class="loc-hero-eyebrow">— Four locations across Northwest Georgia —</p>
-        <h1 class="serif">Find Your <span class="loc-hero-accent gradient-text">Las Palmas</span></h1>
-        <p class="loc-hero-sub">Choose your location for ordering, directions, hours, and more.</p>
-      </div>
+  <main class="lpl-main">
+    <!-- Hero -->
+    <section class="lpl-hero" aria-labelledby="lpl-hero-title">
+      <p class="lpl-hero-eyebrow">— Four locations across Northwest Georgia —</p>
+      <h1 id="lpl-hero-title" class="lpl-hero-title">Find Your <span class="lpl-hero-accent">Las Palmas</span></h1>
+      <p class="lpl-hero-sub">Choose your location for ordering, directions, hours, and more.</p>
     </section>
 
-    <!-- ── Location grid ── -->
-    <section class="section" style="padding-top:6px">
-      <div class="container">
-        <div class="loc-grid">
+    <!-- Location grid -->
+    <section class="lpl-grid" aria-label="Las Palmas locations">
 
-          <!-- Shorter -->
-          <article class="loc-card">
-            <a class="loc-card-imglink" href="/shorter/" aria-label="Visit the Las Palmas Shorter Avenue location page">
-              <img src="/assets/images/locations/locations-shorter-1.webp" width="560" height="560" alt="Las Palmas Shorter Avenue staff team in front of the Rome, GA storefront">
-            </a>
-            <div class="loc-card-body">
-              <h2 class="loc-card-name"><a href="/shorter/">Shorter Avenue</a></h2>
-
-              <div class="loc-actions">
-                <a href="tel:+17062919788" class="loc-actbtn" aria-label="Call Las Palmas Shorter Avenue at 706-291-9788">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                  <span>Call</span>
-                </a>
-                <a href="https://maps.app.goo.gl/NtYwt68mdmp5UQ7S6?g_st=ac" target="_blank" rel="noopener noreferrer" class="loc-actbtn" aria-label="Get directions to Las Palmas Shorter Avenue">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  <span>Directions</span>
-                </a>
-              </div>
-
-              <a href="https://order.online/store/las-palmas-mexican-restaurant-rome-33448963/?hideModal=true&amp;delivery=true" target="_blank" rel="noopener noreferrer" class="loc-orderbtn" aria-label="Order online from Las Palmas Shorter Avenue">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6L18 2H6z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-                <span>Order Online</span>
-              </a>
-
-              <div class="loc-socials" role="group" aria-label="Shorter Avenue social media">
-                <a href="https://www.facebook.com/LasPalmasMexicanRestShorter" target="_blank" rel="noopener noreferrer" class="loc-social" aria-label="Las Palmas Shorter Avenue on Facebook">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.4l.4-3h-2.8V8.7c0-.87.27-1.47 1.52-1.47H16.4V4.55c-.28-.04-1.25-.13-2.38-.13-2.36 0-3.98 1.44-3.98 4.08v2.27H7.6v3h2.44V21h3.46z"/></svg>
-                </a>
-                <a href="https://www.instagram.com/laspalmasmexicanrestaurants" target="_blank" rel="noopener noreferrer" class="loc-social" aria-label="Las Palmas Shorter Avenue on Instagram">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.1" cy="6.9" r="0.9" fill="currentColor" stroke="none"/></svg>
-                </a>
-                <a href="https://www.tiktok.com/@laspalmas_shorter" target="_blank" rel="noopener noreferrer" class="loc-social" aria-label="Las Palmas Shorter Avenue on TikTok">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M16.7 3h-2.85v12.06a2.84 2.84 0 1 1-2.84-2.84c.3 0 .58.05.85.14V9.42c-.28-.04-.56-.06-.85-.06A5.85 5.85 0 1 0 16.7 15.2V8.78a7.46 7.46 0 0 0 4.3 1.36V7.27a4.6 4.6 0 0 1-4.3-4.27z"/></svg>
-                </a>
-              </div>
-
-              <button type="button" class="loc-more-btn" aria-expanded="false" aria-controls="loc-details-shorter">
-                <span>More</span>
-                <svg class="loc-more-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-            </div>
-            <div class="loc-details" id="loc-details-shorter" role="region" aria-label="Shorter Avenue details">
-              <div class="loc-details-inner">
-                <div>
-                  <p class="loc-detail-label">Address</p>
-                  <p class="loc-addr"><a class="loc-detail-link" href="https://maps.app.goo.gl/NtYwt68mdmp5UQ7S6?g_st=ac" target="_blank" rel="noopener noreferrer">246 Shorter Ave NW, Rome, GA 30165</a></p>
-                  <p class="loc-detail-label">Phone</p>
-                  <p class="loc-addr"><a class="loc-detail-link" href="tel:+17062919788">706-291-9788</a></p>
-                  <p class="loc-detail-label">Hours</p>
-                  <ul class="loc-hours">
-                    <li><span class="loc-hours-days">Sun – Thu</span><span class="loc-hours-time">11:00 AM – 10:00 PM</span></li>
-                    <li><span class="loc-hours-days">Fri</span><span class="loc-hours-time">11:00 AM – 10:30 PM</span></li>
-                    <li><span class="loc-hours-days">Sat</span><span class="loc-hours-time">11:00 AM – 10:00 PM</span></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Riverside -->
-          <article class="loc-card">
-            <a class="loc-card-imglink" href="/riverside/" aria-label="Visit the Las Palmas Riverside location page">
-              <img src="/assets/images/locations/locations-riverside-1.webp" width="560" height="560" loading="lazy" alt="Las Palmas Riverside staff team in front of the Riverside Parkway storefront in Rome, GA">
-            </a>
-            <div class="loc-card-body">
-              <h2 class="loc-card-name"><a href="/riverside/">Riverside</a></h2>
-
-              <div class="loc-actions">
-                <a href="tel:+17062350555" class="loc-actbtn" aria-label="Call Las Palmas Riverside at 706-235-0555">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                  <span>Call</span>
-                </a>
-                <a href="https://maps.app.goo.gl/dp5atybNyxoMBAwr9?g_st=ac" target="_blank" rel="noopener noreferrer" class="loc-actbtn" aria-label="Get directions to Las Palmas Riverside">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  <span>Directions</span>
-                </a>
-              </div>
-
-              <a href="https://order.online/store/las-palmas-mexican-restaurant-rome-33450519/?hideModal=true" target="_blank" rel="noopener noreferrer" class="loc-orderbtn" aria-label="Order online from Las Palmas Riverside">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6L18 2H6z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-                <span>Order Online</span>
-              </a>
-
-              <div class="loc-socials" role="group" aria-label="Riverside social media">
-                <a href="https://www.facebook.com/share/17mXsWV6XS/" target="_blank" rel="noopener noreferrer" class="loc-social" aria-label="Las Palmas Riverside on Facebook">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.4l.4-3h-2.8V8.7c0-.87.27-1.47 1.52-1.47H16.4V4.55c-.28-.04-1.25-.13-2.38-.13-2.36 0-3.98 1.44-3.98 4.08v2.27H7.6v3h2.44V21h3.46z"/></svg>
-                </a>
-                <a href="https://www.instagram.com/laspalmasmexicanrestaurants" target="_blank" rel="noopener noreferrer" class="loc-social" aria-label="Las Palmas Riverside on Instagram">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.1" cy="6.9" r="0.9" fill="currentColor" stroke="none"/></svg>
-                </a>
-                <a href="https://www.tiktok.com/@laspalmas_riverside" target="_blank" rel="noopener noreferrer" class="loc-social" aria-label="Las Palmas Riverside on TikTok">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M16.7 3h-2.85v12.06a2.84 2.84 0 1 1-2.84-2.84c.3 0 .58.05.85.14V9.42c-.28-.04-.56-.06-.85-.06A5.85 5.85 0 1 0 16.7 15.2V8.78a7.46 7.46 0 0 0 4.3 1.36V7.27a4.6 4.6 0 0 1-4.3-4.27z"/></svg>
-                </a>
-              </div>
-
-              <button type="button" class="loc-more-btn" aria-expanded="false" aria-controls="loc-details-riverside">
-                <span>More</span>
-                <svg class="loc-more-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-            </div>
-            <div class="loc-details" id="loc-details-riverside" role="region" aria-label="Riverside details">
-              <div class="loc-details-inner">
-                <div>
-                  <p class="loc-detail-label">Address</p>
-                  <p class="loc-addr"><a class="loc-detail-link" href="https://maps.app.goo.gl/dp5atybNyxoMBAwr9?g_st=ac" target="_blank" rel="noopener noreferrer">311 Riverside Pkwy NE, Rome, GA 30161</a></p>
-                  <p class="loc-detail-label">Phone</p>
-                  <p class="loc-addr"><a class="loc-detail-link" href="tel:+17062350555">706-235-0555</a></p>
-                  <p class="loc-detail-label">Hours</p>
-                  <ul class="loc-hours">
-                    <li><span class="loc-hours-days">Mon – Fri</span><span class="loc-hours-time">11:00 AM – 10:00 PM</span></li>
-                    <li><span class="loc-hours-days">Sat</span><span class="loc-hours-time">11:00 AM – 10:30 PM</span></li>
-                    <li><span class="loc-hours-days">Sun</span><span class="loc-hours-time">11:00 AM – 10:00 PM</span></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Cartersville -->
-          <article class="loc-card">
-            <a class="loc-card-imglink" href="/cartersville/" aria-label="Visit the Las Palmas Cartersville location page">
-              <img src="/assets/images/locations/locations-cartersville-1.webp" width="560" height="560" loading="lazy" alt="Las Palmas Cartersville staff team in front of the Cartersville, GA storefront">
-            </a>
-            <div class="loc-card-body">
-              <h2 class="loc-card-name"><a href="/cartersville/">Cartersville</a></h2>
-
-              <div class="loc-actions">
-                <a href="tel:+17703862977" class="loc-actbtn" aria-label="Call Las Palmas Cartersville at 770-386-2977">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                  <span>Call</span>
-                </a>
-                <a href="https://maps.app.goo.gl/sL8KN7RrmxCxdBfG6" target="_blank" rel="noopener noreferrer" class="loc-actbtn" aria-label="Get directions to Las Palmas Cartersville">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  <span>Directions</span>
-                </a>
-              </div>
-
-              <a href="https://www.livewireorders.com/ordering/restaurant/menu?company_uid=91c58b6a-d322-4781-8a83-98998b9c5453&amp;restaurant_uid=a80eca9a-841b-48ec-9b51-c130487f3ed6&amp;facebook=true" target="_blank" rel="noopener noreferrer" class="loc-orderbtn" aria-label="Order online from Las Palmas Cartersville">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6L18 2H6z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-                <span>Order Online</span>
-              </a>
-
-              <div class="loc-socials" role="group" aria-label="Cartersville social media">
-                <a href="https://www.facebook.com/LasPalmasMexicanRestCartersville" target="_blank" rel="noopener noreferrer" class="loc-social" aria-label="Las Palmas Cartersville on Facebook">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.4l.4-3h-2.8V8.7c0-.87.27-1.47 1.52-1.47H16.4V4.55c-.28-.04-1.25-.13-2.38-.13-2.36 0-3.98 1.44-3.98 4.08v2.27H7.6v3h2.44V21h3.46z"/></svg>
-                </a>
-                <a href="https://www.instagram.com/laspalmasmexicanrestaurants" target="_blank" rel="noopener noreferrer" class="loc-social" aria-label="Las Palmas Cartersville on Instagram">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.1" cy="6.9" r="0.9" fill="currentColor" stroke="none"/></svg>
-                </a>
-                <a href="https://www.tiktok.com/@laspalmas_cartersville" target="_blank" rel="noopener noreferrer" class="loc-social" aria-label="Las Palmas Cartersville on TikTok">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M16.7 3h-2.85v12.06a2.84 2.84 0 1 1-2.84-2.84c.3 0 .58.05.85.14V9.42c-.28-.04-.56-.06-.85-.06A5.85 5.85 0 1 0 16.7 15.2V8.78a7.46 7.46 0 0 0 4.3 1.36V7.27a4.6 4.6 0 0 1-4.3-4.27z"/></svg>
-                </a>
-              </div>
-
-              <button type="button" class="loc-more-btn" aria-expanded="false" aria-controls="loc-details-cartersville">
-                <span>More</span>
-                <svg class="loc-more-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-            </div>
-            <div class="loc-details" id="loc-details-cartersville" role="region" aria-label="Cartersville details">
-              <div class="loc-details-inner">
-                <div>
-                  <p class="loc-detail-label">Address</p>
-                  <p class="loc-addr"><a class="loc-detail-link" href="https://maps.app.goo.gl/sL8KN7RrmxCxdBfG6" target="_blank" rel="noopener noreferrer">140 Main St Mkt Pl SE, Cartersville, GA 30121</a></p>
-                  <p class="loc-detail-label">Phone</p>
-                  <p class="loc-addr"><a class="loc-detail-link" href="tel:+17703862977">770-386-2977</a></p>
-                  <p class="loc-detail-label">Hours</p>
-                  <ul class="loc-hours">
-                    <li><span class="loc-hours-days">Sun – Thu</span><span class="loc-hours-time">11:00 AM – 10:00 PM</span></li>
-                    <li><span class="loc-hours-days">Fri – Sat</span><span class="loc-hours-time">11:00 AM – 10:30 PM</span></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Rockmart -->
-          <article class="loc-card">
-            <a class="loc-card-imglink" href="/rockmart/" aria-label="Visit the Las Palmas Rockmart location page">
-              <img src="/assets/images/locations/locations-rockmart-1.webp" width="560" height="560" loading="lazy" alt="Las Palmas Rockmart staff team in front of the Rockmart, GA storefront">
-            </a>
-            <div class="loc-card-body">
-              <h2 class="loc-card-name"><a href="/rockmart/">Rockmart</a></h2>
-
-              <div class="loc-actions">
-                <a href="tel:+16786854135" class="loc-actbtn" aria-label="Call Las Palmas Rockmart at 678-685-4135">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                  <span>Call</span>
-                </a>
-                <a href="https://maps.app.goo.gl/ewkzvty3xADFHQcN8" target="_blank" rel="noopener noreferrer" class="loc-actbtn" aria-label="Get directions to Las Palmas Rockmart">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  <span>Directions</span>
-                </a>
-              </div>
-
-              <a href="https://order.online/store/-33441203/?pickup=true&amp;hideModal=true&amp;utm_source=gfo&amp;rwg_token=AFd1xnF-63Vswvqjx_34jLz6UiOo8f2dOASbTpLWZ0Z8eEiZypMFSuW9pZOFTxzfiLKnoKKDN14KWqn1zAuiGa_1MH0jUhnF7g%3D%3D" target="_blank" rel="noopener noreferrer" class="loc-orderbtn" aria-label="Order online from Las Palmas Rockmart">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6L18 2H6z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-                <span>Order Online</span>
-              </a>
-
-              <div class="loc-socials" role="group" aria-label="Rockmart social media">
-                <a href="https://www.facebook.com/LasPalmasMexicanCuisineRockmart" target="_blank" rel="noopener noreferrer" class="loc-social" aria-label="Las Palmas Rockmart on Facebook">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.4l.4-3h-2.8V8.7c0-.87.27-1.47 1.52-1.47H16.4V4.55c-.28-.04-1.25-.13-2.38-.13-2.36 0-3.98 1.44-3.98 4.08v2.27H7.6v3h2.44V21h3.46z"/></svg>
-                </a>
-                <a href="https://www.instagram.com/laspalmasmexicanrestaurants" target="_blank" rel="noopener noreferrer" class="loc-social" aria-label="Las Palmas Rockmart on Instagram">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.1" cy="6.9" r="0.9" fill="currentColor" stroke="none"/></svg>
-                </a>
-                <a href="https://www.tiktok.com/@laspalmas_rockmart" target="_blank" rel="noopener noreferrer" class="loc-social" aria-label="Las Palmas Rockmart on TikTok">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M16.7 3h-2.85v12.06a2.84 2.84 0 1 1-2.84-2.84c.3 0 .58.05.85.14V9.42c-.28-.04-.56-.06-.85-.06A5.85 5.85 0 1 0 16.7 15.2V8.78a7.46 7.46 0 0 0 4.3 1.36V7.27a4.6 4.6 0 0 1-4.3-4.27z"/></svg>
-                </a>
-              </div>
-
-              <button type="button" class="loc-more-btn" aria-expanded="false" aria-controls="loc-details-rockmart">
-                <span>More</span>
-                <svg class="loc-more-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-            </div>
-            <div class="loc-details" id="loc-details-rockmart" role="region" aria-label="Rockmart details">
-              <div class="loc-details-inner">
-                <div>
-                  <p class="loc-detail-label">Address</p>
-                  <p class="loc-addr"><a class="loc-detail-link" href="https://maps.app.goo.gl/ewkzvty3xADFHQcN8" target="_blank" rel="noopener noreferrer">1422 Chattahoochee Dr, Rockmart, GA 30153</a></p>
-                  <p class="loc-detail-label">Phone</p>
-                  <p class="loc-addr"><a class="loc-detail-link" href="tel:+16786854135">678-685-4135</a></p>
-                  <p class="loc-detail-label">Hours</p>
-                  <ul class="loc-hours">
-                    <li><span class="loc-hours-days">Sun – Thu</span><span class="loc-hours-time">11:00 AM – 10:00 PM</span></li>
-                    <li><span class="loc-hours-days">Fri – Sat</span><span class="loc-hours-time">11:00 AM – 10:30 PM</span></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </article>
-
+      <!-- Shorter — amber palette -->
+      <article class="lpl-card" data-loc="shorter">
+        <div class="lpl-card-imgwrap">
+          <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" class="lpl-art" aria-hidden="true">
+            <defs>
+              <linearGradient id="lpl-bg-amber" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E6B048"/><stop offset="55%" stop-color="#C9482C"/><stop offset="100%" stop-color="#7A2616"/></linearGradient>
+              <radialGradient id="lpl-sun-amber" cx="100" cy="108" r="68" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="rgba(255, 232, 178, 0.75)"/><stop offset="55%" stop-color="rgba(255, 200, 125, 0.18)"/><stop offset="100%" stop-color="rgba(255, 200, 125, 0)"/></radialGradient>
+              <pattern id="lpl-dots-amber" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r="0.7" fill="rgba(255, 240, 210, 0.13)"/></pattern>
+              <linearGradient id="lpl-arch-amber" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(35, 16, 8, 0.05)"/><stop offset="100%" stop-color="rgba(35, 16, 8, 0.22)"/></linearGradient>
+            </defs>
+            <rect width="200" height="200" fill="url(#lpl-bg-amber)"/>
+            <rect width="200" height="200" fill="url(#lpl-dots-amber)"/>
+            <circle cx="100" cy="108" r="68" fill="url(#lpl-sun-amber)"/>
+            <path d="M 52 170 L 52 92 Q 52 50 100 50 Q 148 50 148 92 L 148 170 Z" fill="url(#lpl-arch-amber)" stroke="rgba(255, 232, 180, 0.55)" stroke-width="1.4"/>
+            <path d="M 64 170 L 64 96 Q 64 62 100 62 Q 136 62 136 96 L 136 170" fill="none" stroke="rgba(255, 232, 180, 0.32)" stroke-width="0.7"/>
+            <text x="100" y="124" text-anchor="middle" fill="rgba(255, 246, 218, 0.94)" font-family="'Instrument Serif', Georgia, serif" font-size="62" font-weight="400" letter-spacing="2.5" style="filter:drop-shadow(0 1px 2px rgba(60, 25, 10, 0.35))">LP</text>
+            <path d="M 22 180 Q 100 192 178 180" stroke="rgba(255, 235, 200, 0.55)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <path d="M 32 192 Q 100 198 168 192" stroke="rgba(255, 235, 200, 0.32)" stroke-width="1" fill="none" stroke-linecap="round"/>
+          </svg>
         </div>
+        <div class="lpl-card-body">
+          <h3 class="lpl-card-name">Shorter</h3>
+          <div class="lpl-card-actions">
+            <a href="tel:7062919788" class="lpl-actbtn" aria-label="Call Shorter at 706-291-9788">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>Call</span>
+            </a>
+            <a href="https://maps.app.goo.gl/NtYwt68mdmp5UQ7S6?g_st=ac" target="_blank" rel="noopener noreferrer" class="lpl-actbtn" aria-label="Get directions to Shorter">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+              <span>Directions</span>
+            </a>
+          </div>
+          <a href="https://order.online/store/las-palmas-mexican-restaurant-rome-33448963/?hideModal=true&amp;delivery=true" target="_blank" rel="noopener noreferrer" class="lpl-orderbtn" aria-label="Order online from Shorter">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span>Order Online</span>
+          </a>
+          <div class="lpl-card-socials" role="group" aria-label="Shorter social media">
+            <a href="https://www.facebook.com/LasPalmasMexicanRestShorter" target="_blank" rel="noopener noreferrer" class="lpl-social" aria-label="Shorter on Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.4l.4-3h-2.8V8.7c0-.87.27-1.47 1.52-1.47H16.4V4.55c-.28-.04-1.25-.13-2.38-.13-2.36 0-3.98 1.44-3.98 4.08v2.27H7.6v3h2.44V21h3.46z"/></svg></a>
+            <a href="https://www.instagram.com/laspalmasmexicanrestaurants" target="_blank" rel="noopener noreferrer" class="lpl-social" aria-label="Shorter on Instagram"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.1" cy="6.9" r="0.9" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.tiktok.com/@laspalmas_shorter" target="_blank" rel="noopener noreferrer" class="lpl-social" aria-label="Shorter on TikTok"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M16.7 3h-2.85v12.06a2.84 2.84 0 1 1-2.84-2.84c.3 0 .58.05.85.14V9.42c-.28-.04-.56-.06-.85-.06A5.85 5.85 0 1 0 16.7 15.2V8.78a7.46 7.46 0 0 0 4.3 1.36V7.27a4.6 4.6 0 0 1-4.3-4.27z"/></svg></a>
+          </div>
+          <button type="button" class="lpl-more-btn" aria-expanded="false" aria-controls="lpl-details-shorter" data-more="shorter">
+            <span data-more-label>More</span>
+            <svg class="lpl-more-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+        </div>
+        <div id="lpl-details-shorter" class="lpl-details" role="region" aria-label="Shorter details">
+          <div class="lpl-details-inner">
+            <dl class="lpl-detail-block">
+              <dt>Address</dt>
+              <dd><a href="https://maps.app.goo.gl/NtYwt68mdmp5UQ7S6?g_st=ac" target="_blank" rel="noopener noreferrer" class="lpl-detail-link">246 Shorter Ave NW, Rome, GA 30165</a></dd>
+              <dt>Phone</dt>
+              <dd><a href="tel:7062919788" class="lpl-detail-link">706-291-9788</a></dd>
+              <dt>Hours</dt>
+              <dd>
+                <ul class="lpl-hours">
+                  <li><span class="lpl-hours-days">Sun – Thu</span><span class="lpl-hours-time">11:00 AM – 10:00 PM</span></li>
+                  <li><span class="lpl-hours-days">Fri</span><span class="lpl-hours-time">11:00 AM – 10:30 PM</span></li>
+                  <li><span class="lpl-hours-days">Sat</span><span class="lpl-hours-time">11:00 AM – 10:00 PM</span></li>
+                </ul>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <!-- Riverside — sunset palette -->
+      <article class="lpl-card" data-loc="riverside">
+        <div class="lpl-card-imgwrap">
+          <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" class="lpl-art" aria-hidden="true">
+            <defs>
+              <linearGradient id="lpl-bg-sunset" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E8A040"/><stop offset="55%" stop-color="#CC5E2D"/><stop offset="100%" stop-color="#8B2D18"/></linearGradient>
+              <radialGradient id="lpl-sun-sunset" cx="100" cy="108" r="68" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="rgba(255, 232, 178, 0.75)"/><stop offset="55%" stop-color="rgba(255, 200, 125, 0.18)"/><stop offset="100%" stop-color="rgba(255, 200, 125, 0)"/></radialGradient>
+              <pattern id="lpl-dots-sunset" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r="0.7" fill="rgba(255, 240, 210, 0.13)"/></pattern>
+              <linearGradient id="lpl-arch-sunset" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(35, 16, 8, 0.05)"/><stop offset="100%" stop-color="rgba(35, 16, 8, 0.22)"/></linearGradient>
+            </defs>
+            <rect width="200" height="200" fill="url(#lpl-bg-sunset)"/>
+            <rect width="200" height="200" fill="url(#lpl-dots-sunset)"/>
+            <circle cx="100" cy="108" r="68" fill="url(#lpl-sun-sunset)"/>
+            <path d="M 52 170 L 52 92 Q 52 50 100 50 Q 148 50 148 92 L 148 170 Z" fill="url(#lpl-arch-sunset)" stroke="rgba(255, 232, 180, 0.55)" stroke-width="1.4"/>
+            <path d="M 64 170 L 64 96 Q 64 62 100 62 Q 136 62 136 96 L 136 170" fill="none" stroke="rgba(255, 232, 180, 0.32)" stroke-width="0.7"/>
+            <text x="100" y="124" text-anchor="middle" fill="rgba(255, 246, 218, 0.94)" font-family="'Instrument Serif', Georgia, serif" font-size="62" font-weight="400" letter-spacing="2.5" style="filter:drop-shadow(0 1px 2px rgba(60, 25, 10, 0.35))">LP</text>
+            <path d="M 22 180 Q 100 192 178 180" stroke="rgba(255, 235, 200, 0.55)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <path d="M 32 192 Q 100 198 168 192" stroke="rgba(255, 235, 200, 0.32)" stroke-width="1" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="lpl-card-body">
+          <h3 class="lpl-card-name">Riverside</h3>
+          <div class="lpl-card-actions">
+            <a href="tel:7062350555" class="lpl-actbtn" aria-label="Call Riverside at 706-235-0555">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>Call</span>
+            </a>
+            <a href="https://maps.app.goo.gl/dp5atybNyxoMBAwr9?g_st=ac" target="_blank" rel="noopener noreferrer" class="lpl-actbtn" aria-label="Get directions to Riverside">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+              <span>Directions</span>
+            </a>
+          </div>
+          <a href="https://order.online/store/las-palmas-mexican-restaurant-rome-33450519/?hideModal=true" target="_blank" rel="noopener noreferrer" class="lpl-orderbtn" aria-label="Order online from Riverside">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span>Order Online</span>
+          </a>
+          <div class="lpl-card-socials" role="group" aria-label="Riverside social media">
+            <a href="https://www.facebook.com/share/17mXsWV6XS/" target="_blank" rel="noopener noreferrer" class="lpl-social" aria-label="Riverside on Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.4l.4-3h-2.8V8.7c0-.87.27-1.47 1.52-1.47H16.4V4.55c-.28-.04-1.25-.13-2.38-.13-2.36 0-3.98 1.44-3.98 4.08v2.27H7.6v3h2.44V21h3.46z"/></svg></a>
+            <a href="https://www.instagram.com/laspalmasmexicanrestaurants" target="_blank" rel="noopener noreferrer" class="lpl-social" aria-label="Riverside on Instagram"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.1" cy="6.9" r="0.9" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.tiktok.com/@laspalmas_riverside" target="_blank" rel="noopener noreferrer" class="lpl-social" aria-label="Riverside on TikTok"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M16.7 3h-2.85v12.06a2.84 2.84 0 1 1-2.84-2.84c.3 0 .58.05.85.14V9.42c-.28-.04-.56-.06-.85-.06A5.85 5.85 0 1 0 16.7 15.2V8.78a7.46 7.46 0 0 0 4.3 1.36V7.27a4.6 4.6 0 0 1-4.3-4.27z"/></svg></a>
+          </div>
+          <button type="button" class="lpl-more-btn" aria-expanded="false" aria-controls="lpl-details-riverside" data-more="riverside">
+            <span data-more-label>More</span>
+            <svg class="lpl-more-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+        </div>
+        <div id="lpl-details-riverside" class="lpl-details" role="region" aria-label="Riverside details">
+          <div class="lpl-details-inner">
+            <dl class="lpl-detail-block">
+              <dt>Address</dt>
+              <dd><a href="https://maps.app.goo.gl/dp5atybNyxoMBAwr9?g_st=ac" target="_blank" rel="noopener noreferrer" class="lpl-detail-link">311 Riverside Pkwy NE, Rome, GA 30161</a></dd>
+              <dt>Phone</dt>
+              <dd><a href="tel:7062350555" class="lpl-detail-link">706-235-0555</a></dd>
+              <dt>Hours</dt>
+              <dd>
+                <ul class="lpl-hours">
+                  <li><span class="lpl-hours-days">Mon – Fri</span><span class="lpl-hours-time">11:00 AM – 10:00 PM</span></li>
+                  <li><span class="lpl-hours-days">Sat</span><span class="lpl-hours-time">11:00 AM – 10:30 PM</span></li>
+                  <li><span class="lpl-hours-days">Sun</span><span class="lpl-hours-time">11:00 AM – 10:00 PM</span></li>
+                </ul>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <!-- Cartersville — rust palette -->
+      <article class="lpl-card" data-loc="cartersville">
+        <div class="lpl-card-imgwrap">
+          <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" class="lpl-art" aria-hidden="true">
+            <defs>
+              <linearGradient id="lpl-bg-rust" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#D89540"/><stop offset="55%" stop-color="#B84520"/><stop offset="100%" stop-color="#6E2316"/></linearGradient>
+              <radialGradient id="lpl-sun-rust" cx="100" cy="108" r="68" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="rgba(255, 232, 178, 0.75)"/><stop offset="55%" stop-color="rgba(255, 200, 125, 0.18)"/><stop offset="100%" stop-color="rgba(255, 200, 125, 0)"/></radialGradient>
+              <pattern id="lpl-dots-rust" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r="0.7" fill="rgba(255, 240, 210, 0.13)"/></pattern>
+              <linearGradient id="lpl-arch-rust" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(35, 16, 8, 0.05)"/><stop offset="100%" stop-color="rgba(35, 16, 8, 0.22)"/></linearGradient>
+            </defs>
+            <rect width="200" height="200" fill="url(#lpl-bg-rust)"/>
+            <rect width="200" height="200" fill="url(#lpl-dots-rust)"/>
+            <circle cx="100" cy="108" r="68" fill="url(#lpl-sun-rust)"/>
+            <path d="M 52 170 L 52 92 Q 52 50 100 50 Q 148 50 148 92 L 148 170 Z" fill="url(#lpl-arch-rust)" stroke="rgba(255, 232, 180, 0.55)" stroke-width="1.4"/>
+            <path d="M 64 170 L 64 96 Q 64 62 100 62 Q 136 62 136 96 L 136 170" fill="none" stroke="rgba(255, 232, 180, 0.32)" stroke-width="0.7"/>
+            <text x="100" y="124" text-anchor="middle" fill="rgba(255, 246, 218, 0.94)" font-family="'Instrument Serif', Georgia, serif" font-size="62" font-weight="400" letter-spacing="2.5" style="filter:drop-shadow(0 1px 2px rgba(60, 25, 10, 0.35))">LP</text>
+            <path d="M 22 180 Q 100 192 178 180" stroke="rgba(255, 235, 200, 0.55)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <path d="M 32 192 Q 100 198 168 192" stroke="rgba(255, 235, 200, 0.32)" stroke-width="1" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="lpl-card-body">
+          <h3 class="lpl-card-name">Cartersville</h3>
+          <div class="lpl-card-actions">
+            <a href="tel:7703862977" class="lpl-actbtn" aria-label="Call Cartersville at 770-386-2977">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>Call</span>
+            </a>
+            <a href="https://maps.app.goo.gl/sL8KN7RrmxCxdBfG6" target="_blank" rel="noopener noreferrer" class="lpl-actbtn" aria-label="Get directions to Cartersville">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+              <span>Directions</span>
+            </a>
+          </div>
+          <a href="https://www.livewireorders.com/ordering/restaurant/menu?company_uid=91c58b6a-d322-4781-8a83-98998b9c5453&amp;restaurant_uid=a80eca9a-841b-48ec-9b51-c130487f3ed6&amp;facebook=true" target="_blank" rel="noopener noreferrer" class="lpl-orderbtn" aria-label="Order online from Cartersville">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span>Order Online</span>
+          </a>
+          <div class="lpl-card-socials" role="group" aria-label="Cartersville social media">
+            <a href="https://www.facebook.com/LasPalmasMexicanRestCartersville" target="_blank" rel="noopener noreferrer" class="lpl-social" aria-label="Cartersville on Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.4l.4-3h-2.8V8.7c0-.87.27-1.47 1.52-1.47H16.4V4.55c-.28-.04-1.25-.13-2.38-.13-2.36 0-3.98 1.44-3.98 4.08v2.27H7.6v3h2.44V21h3.46z"/></svg></a>
+            <a href="https://www.instagram.com/laspalmasmexicanrestaurants" target="_blank" rel="noopener noreferrer" class="lpl-social" aria-label="Cartersville on Instagram"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.1" cy="6.9" r="0.9" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.tiktok.com/@laspalmas_cartersville" target="_blank" rel="noopener noreferrer" class="lpl-social" aria-label="Cartersville on TikTok"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M16.7 3h-2.85v12.06a2.84 2.84 0 1 1-2.84-2.84c.3 0 .58.05.85.14V9.42c-.28-.04-.56-.06-.85-.06A5.85 5.85 0 1 0 16.7 15.2V8.78a7.46 7.46 0 0 0 4.3 1.36V7.27a4.6 4.6 0 0 1-4.3-4.27z"/></svg></a>
+          </div>
+          <button type="button" class="lpl-more-btn" aria-expanded="false" aria-controls="lpl-details-cartersville" data-more="cartersville">
+            <span data-more-label>More</span>
+            <svg class="lpl-more-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+        </div>
+        <div id="lpl-details-cartersville" class="lpl-details" role="region" aria-label="Cartersville details">
+          <div class="lpl-details-inner">
+            <dl class="lpl-detail-block">
+              <dt>Address</dt>
+              <dd><a href="https://maps.app.goo.gl/sL8KN7RrmxCxdBfG6" target="_blank" rel="noopener noreferrer" class="lpl-detail-link">140 Main St Mkt Pl SE, Cartersville, GA 30121</a></dd>
+              <dt>Phone</dt>
+              <dd><a href="tel:7703862977" class="lpl-detail-link">770-386-2977</a></dd>
+              <dt>Hours</dt>
+              <dd>
+                <ul class="lpl-hours">
+                  <li><span class="lpl-hours-days">Sun – Thu</span><span class="lpl-hours-time">11:00 AM – 10:00 PM</span></li>
+                  <li><span class="lpl-hours-days">Fri – Sat</span><span class="lpl-hours-time">11:00 AM – 10:30 PM</span></li>
+                </ul>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <!-- Rockmart — honey palette -->
+      <article class="lpl-card" data-loc="rockmart">
+        <div class="lpl-card-imgwrap">
+          <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" class="lpl-art" aria-hidden="true">
+            <defs>
+              <linearGradient id="lpl-bg-honey" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#EEC368"/><stop offset="55%" stop-color="#D27433"/><stop offset="100%" stop-color="#9A3A1C"/></linearGradient>
+              <radialGradient id="lpl-sun-honey" cx="100" cy="108" r="68" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="rgba(255, 232, 178, 0.75)"/><stop offset="55%" stop-color="rgba(255, 200, 125, 0.18)"/><stop offset="100%" stop-color="rgba(255, 200, 125, 0)"/></radialGradient>
+              <pattern id="lpl-dots-honey" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r="0.7" fill="rgba(255, 240, 210, 0.13)"/></pattern>
+              <linearGradient id="lpl-arch-honey" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(35, 16, 8, 0.05)"/><stop offset="100%" stop-color="rgba(35, 16, 8, 0.22)"/></linearGradient>
+            </defs>
+            <rect width="200" height="200" fill="url(#lpl-bg-honey)"/>
+            <rect width="200" height="200" fill="url(#lpl-dots-honey)"/>
+            <circle cx="100" cy="108" r="68" fill="url(#lpl-sun-honey)"/>
+            <path d="M 52 170 L 52 92 Q 52 50 100 50 Q 148 50 148 92 L 148 170 Z" fill="url(#lpl-arch-honey)" stroke="rgba(255, 232, 180, 0.55)" stroke-width="1.4"/>
+            <path d="M 64 170 L 64 96 Q 64 62 100 62 Q 136 62 136 96 L 136 170" fill="none" stroke="rgba(255, 232, 180, 0.32)" stroke-width="0.7"/>
+            <text x="100" y="124" text-anchor="middle" fill="rgba(255, 246, 218, 0.94)" font-family="'Instrument Serif', Georgia, serif" font-size="62" font-weight="400" letter-spacing="2.5" style="filter:drop-shadow(0 1px 2px rgba(60, 25, 10, 0.35))">LP</text>
+            <path d="M 22 180 Q 100 192 178 180" stroke="rgba(255, 235, 200, 0.55)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <path d="M 32 192 Q 100 198 168 192" stroke="rgba(255, 235, 200, 0.32)" stroke-width="1" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="lpl-card-body">
+          <h3 class="lpl-card-name">Rockmart</h3>
+          <div class="lpl-card-actions">
+            <a href="tel:6786854135" class="lpl-actbtn" aria-label="Call Rockmart at 678-685-4135">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>Call</span>
+            </a>
+            <a href="https://maps.app.goo.gl/ewkzvty3xADFHQcN8" target="_blank" rel="noopener noreferrer" class="lpl-actbtn" aria-label="Get directions to Rockmart">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+              <span>Directions</span>
+            </a>
+          </div>
+          <a href="https://order.online/store/las-palmas-mexican-restaurant-chattahoochee-33441203?pickup=true" target="_blank" rel="noopener noreferrer" class="lpl-orderbtn" aria-label="Order online from Rockmart">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span>Order Online</span>
+          </a>
+          <div class="lpl-card-socials" role="group" aria-label="Rockmart social media">
+            <a href="https://www.facebook.com/LasPalmasMexicanCuisineRockmart" target="_blank" rel="noopener noreferrer" class="lpl-social" aria-label="Rockmart on Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.4l.4-3h-2.8V8.7c0-.87.27-1.47 1.52-1.47H16.4V4.55c-.28-.04-1.25-.13-2.38-.13-2.36 0-3.98 1.44-3.98 4.08v2.27H7.6v3h2.44V21h3.46z"/></svg></a>
+            <a href="https://www.instagram.com/laspalmasmexicanrestaurants" target="_blank" rel="noopener noreferrer" class="lpl-social" aria-label="Rockmart on Instagram"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.1" cy="6.9" r="0.9" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.tiktok.com/@laspalmas_rockmart" target="_blank" rel="noopener noreferrer" class="lpl-social" aria-label="Rockmart on TikTok"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M16.7 3h-2.85v12.06a2.84 2.84 0 1 1-2.84-2.84c.3 0 .58.05.85.14V9.42c-.28-.04-.56-.06-.85-.06A5.85 5.85 0 1 0 16.7 15.2V8.78a7.46 7.46 0 0 0 4.3 1.36V7.27a4.6 4.6 0 0 1-4.3-4.27z"/></svg></a>
+          </div>
+          <button type="button" class="lpl-more-btn" aria-expanded="false" aria-controls="lpl-details-rockmart" data-more="rockmart">
+            <span data-more-label>More</span>
+            <svg class="lpl-more-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+        </div>
+        <div id="lpl-details-rockmart" class="lpl-details" role="region" aria-label="Rockmart details">
+          <div class="lpl-details-inner">
+            <dl class="lpl-detail-block">
+              <dt>Address</dt>
+              <dd><a href="https://maps.app.goo.gl/ewkzvty3xADFHQcN8" target="_blank" rel="noopener noreferrer" class="lpl-detail-link">1422 Chattahoochee Dr, Rockmart, GA 30153</a></dd>
+              <dt>Phone</dt>
+              <dd><a href="tel:6786854135" class="lpl-detail-link">678-685-4135</a></dd>
+              <dt>Hours</dt>
+              <dd>
+                <ul class="lpl-hours">
+                  <li><span class="lpl-hours-days">Sun – Thu</span><span class="lpl-hours-time">11:00 AM – 10:00 PM</span></li>
+                  <li><span class="lpl-hours-days">Fri – Sat</span><span class="lpl-hours-time">11:00 AM – 10:30 PM</span></li>
+                </ul>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- Bottom actions -->
+    <section class="lpl-bottom" aria-labelledby="lpl-bottom-title">
+      <h2 id="lpl-bottom-title" class="lpl-section-title">More from Las Palmas</h2>
+      <div class="lpl-bottom-actions">
+        <a href="/specials/" class="lpl-bigbtn lpl-bigbtn--specials">
+          <span class="lpl-bigbtn-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </span>
+          <span class="lpl-bigbtn-text">
+            <span class="lpl-bigbtn-title">Daily Specials</span>
+            <span class="lpl-bigbtn-sub">Today's favorites</span>
+          </span>
+        </a>
+        <a href="/menu/" class="lpl-bigbtn lpl-bigbtn--menu">
+          <span class="lpl-bigbtn-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </span>
+          <span class="lpl-bigbtn-text">
+            <span class="lpl-bigbtn-title">Menu</span>
+            <span class="lpl-bigbtn-sub">Browse everything</span>
+          </span>
+        </a>
       </div>
     </section>
 
-    <!-- ── More from Las Palmas ── -->
-    <section class="section" style="padding-top:6px">
-      <div class="container">
-        <h2 class="serif loc-more-title">More from Las Palmas</h2>
-        <div class="loc-more-grid">
-          <a href="/specials/" class="loc-bigbtn loc-bigbtn--specials">
-            <span class="loc-bigbtn-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 7.2L22 11l-7.6 1.8L12 22l-2.4-9.2L2 11l7.6-1.8L12 2z"/></svg>
-            </span>
-            <span class="loc-bigbtn-text">
-              <span class="loc-bigbtn-title">Daily Specials</span>
-              <span class="loc-bigbtn-sub">Today's favorites</span>
-            </span>
-          </a>
-          <a href="/menu/" class="loc-bigbtn">
-            <span class="loc-bigbtn-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-            </span>
-            <span class="loc-bigbtn-text">
-              <span class="loc-bigbtn-title">Menu</span>
-              <span class="loc-bigbtn-sub">Browse everything</span>
-            </span>
-          </a>
-        </div>
-      </div>
-    </section>
+    <!-- Discreet sign-off (the prototype's hours-editor gate; editor is backend-deferred) -->
+    <p class="lpl-thankyou-btn">Thank you.</p>
+
+    <div class="lpl-bottom-spacer" aria-hidden="true"></div>
   </main>
 
-  <footer class="lp-footer">
-    <div class="container lp-footer-inner">
-      <a class="lp-footer-brand" href="/">
-        <span class="lp-footer-mark" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 15a5 5 0 0 1 10 0" fill="currentColor" stroke="none"/><line x1="12" y1="5" x2="12" y2="8"/><line x1="5.6" y1="8.6" x2="7.4" y2="10.4"/><line x1="18.4" y1="8.6" x2="16.6" y2="10.4"/><line x1="3" y1="15" x2="5" y2="15"/><line x1="19" y1="15" x2="21" y2="15"/><path d="M4 19h16"/></svg>
-        </span>
-        <span class="lp-footer-name">Las Palmas <em>Mexican Restaurant</em></span>
-      </a>
-      <div class="lp-footer-links">
-        <a href="/">Home</a>
-        <span class="dot-sep">·</span>
-        <a href="/menu/">Menu</a>
-        <span class="dot-sep">·</span>
-        <a href="/specials/">Daily Specials</a>
-        <span class="dot-sep">·</span>
-        <a href="/feedback/">Feedback</a>
-      </div>
-      <div class="lp-footer-copy">© <span data-year>2026</span> Las Palmas Mexican Restaurant · Serving Rome, Rockmart &amp; Cartersville, GA</div>
-    </div>
-  </footer>
-
-  <div class="loc-float" aria-label="Quick actions">
-    <a href="/chat/" class="loc-float-btn loc-float-btn--chat" aria-label="Open Las Palmas chat assistant">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  <!-- Floating actions -->
+  <div class="lpl-float" aria-label="Quick actions">
+    <a href="/chat/" class="lpl-float-btn lpl-float-btn--chat" aria-label="Open Las Palmas chat assistant">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
       <span>Chat</span>
     </a>
-    <a href="/tacopete/" class="loc-float-btn loc-float-btn--vip" aria-label="View VIP rewards program">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7z" fill="currentColor"/><path d="M5 20h14" fill="none"/></svg>
+    <a href="/tacopete/" class="lpl-float-btn lpl-float-btn--vip" aria-label="View VIP rewards program">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg>
       <span>VIP</span>
     </a>
   </div>
-
 </div>
-<script src="/assets/js/main.js" defer></script>
+
 <script>
 (function(){
-  var cards = Array.prototype.slice.call(document.querySelectorAll('.loc-card'));
-  var items = cards.map(function(card){
-    return {
-      card: card,
-      btn: card.querySelector('.loc-more-btn'),
-      details: card.querySelector('.loc-details'),
-      chev: card.querySelector('.loc-more-chev'),
-      label: card.querySelector('.loc-more-btn span')
-    };
-  }).filter(function(it){ return it.btn && it.details; });
-  var expanded = null;
-  function setOpen(it, open){
-    it.card.classList.toggle('is-open', open);
-    it.details.classList.toggle('is-open', open);
-    it.btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    if (it.chev) it.chev.classList.toggle('is-flipped', open);
-    if (it.label) it.label.textContent = open ? 'Less' : 'More';
+  var d=document, root=d.getElementById('lpl-root'), html=d.documentElement;
+  /* ── Theme: auto (clock: dark 19–7) / light / dark; persists lp-locations-theme ── */
+  var KEY='lp-locations-theme';
+  function isDarkByClock(){var h=new Date().getHours();return h>=19||h<7;}
+  function pref(){return html.getAttribute('data-lpl-pref')||'auto';}
+  function apply(){
+    var p=pref();
+    var dark=p==='dark'||(p==='auto'&&isDarkByClock());
+    root.setAttribute('data-theme',dark?'dark':'light');
+    var btn=d.getElementById('lpl-theme');
+    btn.setAttribute('aria-label','Theme: '+p+'. Click to change.');
+    btn.title=p==='auto'?('Auto (currently '+(dark?'dark':'light')+' by clock)'):p==='light'?'Light theme':'Dark theme';
   }
-  items.forEach(function(it){
-    it.btn.addEventListener('click', function(){
-      var willOpen = expanded !== it;
-      if (expanded) setOpen(expanded, false);
-      if (willOpen){ setOpen(it, true); expanded = it; }
-      else { expanded = null; }
+  d.getElementById('lpl-theme').addEventListener('click',function(){
+    var next=pref()==='auto'?'light':pref()==='light'?'dark':'auto';
+    html.setAttribute('data-lpl-pref',next);
+    try{localStorage.setItem(KEY,next);}catch(e){}
+    apply();
+  });
+  setInterval(apply,60000);
+  apply();
+
+  /* ── One-at-a-time accordion ── */
+  var expanded=null;
+  d.querySelectorAll('[data-more]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var id=btn.getAttribute('data-more');
+      var open=expanded===id?null:id;
+      expanded=open;
+      d.querySelectorAll('[data-more]').forEach(function(b){
+        var bid=b.getAttribute('data-more');
+        var is=bid===open;
+        b.setAttribute('aria-expanded',String(is));
+        b.querySelector('[data-more-label]').textContent=is?'Less':'More';
+        b.querySelector('.lpl-more-chev').classList.toggle('is-flipped',is);
+        var det=d.getElementById('lpl-details-'+bid);
+        det.classList.toggle('is-open',is);
+        b.closest('.lpl-card').classList.toggle('is-open',is);
+      });
     });
   });
 })();
