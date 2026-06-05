@@ -22,20 +22,28 @@
 
 <script>(function(){try{var t=localStorage.getItem('lp-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}document.documentElement.classList.remove('no-js');})();</script>
 
-<link rel="preload" href="/assets/fonts/playfair-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/playfair-italic-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/manrope-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/outfit-var.woff2" as="font" type="font/woff2" crossorigin>
 
 <style>
 @font-face{font-family:'Manrope';src:url('/assets/fonts/manrope-var.woff2') format('woff2');font-weight:200 800;font-style:normal;font-display:swap}
 @font-face{font-family:'Playfair Display';src:url('/assets/fonts/playfair-var.woff2') format('woff2');font-weight:400 900;font-style:normal;font-display:swap}
 @font-face{font-family:'Playfair Display';src:url('/assets/fonts/playfair-italic-var.woff2') format('woff2');font-weight:400 900;font-style:italic;font-display:swap}
+@font-face{font-family:'Fraunces';src:url('/assets/fonts/fraunces-var.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:'Fraunces';src:url('/assets/fonts/fraunces-italic-var.woff2') format('woff2');font-weight:100 900;font-style:italic;font-display:swap}
+@font-face{font-family:'Outfit';src:url('/assets/fonts/outfit-var.woff2') format('woff2');font-weight:300 700;font-style:normal;font-display:swap}
+@font-face{font-family:'Caveat';src:url('/assets/fonts/caveat-var.woff2') format('woff2');font-weight:600 700;font-style:normal;font-display:swap}
 :root{--bg:#faf3e4;--bg-elev:#f4ead4;--bg-card:#fbf5e6;--bg-card-2:#efe1c2;--line:#e3cfa3;--line-soft:#ead9b2;--text:#3b2415;--text-soft:#6b4a2e;--text-mute:#8a6a4a;--gold:#c89b3c;--gold-deep:#a87a1f;--amber:#d99a3c;--terracotta:#c25a36;--terracotta-deep:#a3411f;--salsa:#b03826;--shadow-sm:0 1px 2px rgba(74,42,18,.06),0 2px 8px rgba(74,42,18,.04);--shadow-md:0 4px 14px rgba(74,42,18,.10),0 1px 3px rgba(74,42,18,.06);--shadow-lg:0 18px 42px rgba(74,42,18,.14),0 4px 12px rgba(74,42,18,.08);--glow:0 0 0 1px rgba(217,154,60,.30),0 14px 38px -10px rgba(176,56,38,.30);--ring:0 0 0 3px rgba(200,155,60,.35);--gradient-warm:linear-gradient(135deg,#f4c97a 0%,#e08b4f 55%,#c2502c 100%);--gradient-button:linear-gradient(180deg,#d96b40 0%,#b03826 100%);--gradient-text:linear-gradient(95deg,#b03826 0%,#d99a3c 100%);--header-bg:rgba(250,243,228,.82)}
 [data-theme="dark"]{--bg:#1a0f07;--bg-elev:#22150c;--bg-card:#28190f;--bg-card-2:#311e12;--line:#4a2f1c;--line-soft:#3a2616;--text:#f1e2c4;--text-soft:#d8bf94;--text-mute:#a48d65;--gold:#d9a23c;--gold-deep:#b8862e;--amber:#e0a84a;--terracotta:#d96d44;--terracotta-deep:#c2502c;--salsa:#c44525;--shadow-sm:0 1px 2px rgba(0,0,0,.45),0 2px 8px rgba(0,0,0,.25);--shadow-md:0 6px 20px rgba(0,0,0,.55),0 2px 6px rgba(0,0,0,.3);--shadow-lg:0 22px 50px rgba(0,0,0,.65),0 6px 16px rgba(0,0,0,.4);--glow:0 0 0 1px rgba(217,162,60,.32),0 16px 44px -10px rgba(217,130,60,.40);--ring:0 0 0 3px rgba(217,162,60,.40);--gradient-warm:linear-gradient(135deg,#b8752c 0%,#9c4825 55%,#5e2010 100%);--gradient-button:linear-gradient(180deg,#e0784a 0%,#b03e20 100%);--gradient-text:linear-gradient(95deg,#e08e60 0%,#e0b860 100%);--header-bg:rgba(28,17,8,.78)}
 *{box-sizing:border-box}html,body{background:var(--bg)}
 body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--text);-webkit-font-smoothing:antialiased}
 .lp-page{background:var(--bg);color:var(--text);min-height:100vh}
 .serif{font-family:'Playfair Display',Georgia,serif}.italic{font-style:italic}
+/* ── Menu page content adopts the JSX families (chrome keeps site.css) ── */
+main{font-family:'Outfit',-apple-system,sans-serif}
+main .serif,.m-cat-title,.m-item-price,.m-price-chip-val{font-family:'Fraunces','Playfair Display',Georgia,serif}
+.m-intro h1,.m-cat-title,.m-hero h1,.m-fav-title{font-variation-settings:'opsz' 144}
 .gradient-text{background:var(--gradient-text);-webkit-background-clip:text;background-clip:text;color:transparent}
 .container{width:100%;max-width:720px;margin:0 auto;padding:0 18px}
 @media(min-width:768px){.container{max-width:880px;padding:0 28px}}
@@ -60,11 +68,44 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
 .m-intro-body{margin:12px 0 0;font-size:15px;line-height:1.6;color:var(--text-soft);max-width:640px}
 /* sticky controls bar */
 .m-controls{position:sticky;top:66px;z-index:40;background:var(--header-bg);-webkit-backdrop-filter:saturate(140%) blur(10px);backdrop-filter:saturate(140%) blur(10px);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);padding:12px 0}
-.m-switch{display:flex;gap:8px;margin-bottom:11px}
-.m-switch-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:11px 10px;border-radius:14px;border:1px solid var(--line);background:var(--bg-card);color:var(--text-soft);font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;cursor:pointer;box-shadow:var(--shadow-sm);min-height:48px}
-.m-switch-btn .m-switch-sub{display:block;font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-mute);margin-top:2px}
-.m-switch-btn[aria-selected="true"]{background:var(--gradient-button);color:#fff7e8;border-color:rgba(0,0,0,.12);box-shadow:var(--shadow-md),inset 0 1px 0 rgba(255,255,255,.18)}
-.m-switch-btn[aria-selected="true"] .m-switch-sub{color:rgba(255,247,232,.85)}
+/* ── Single menu toggle (advertises the OTHER menu, stacked label) ── */
+.m-switch{display:flex;justify-content:flex-end;margin-bottom:11px}
+.m-switch-toggle{flex-shrink:0;display:inline-flex;align-items:center;gap:6px;padding:6px 14px 6px 11px;border-radius:999px;border:1px solid var(--salsa);background:var(--bg-card);color:var(--text);font-family:'Outfit',sans-serif;cursor:pointer;line-height:1;box-shadow:var(--shadow-sm);min-height:44px}
+.m-switch-toggle .m-switch-ico{color:var(--salsa);flex-shrink:0}
+.m-switch-toggle .m-switch-lbl{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.m-switch-toggle .m-switch-main{font-size:13px;font-weight:700}
+.m-switch-toggle .m-switch-sub{font-size:8.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-mute)}
+/* ── Hero band ── */
+.m-hero{padding:18px 0 4px}
+.m-hero h1{font-family:'Fraunces','Playfair Display',serif;font-weight:700;font-size:clamp(28px,6.4vw,40px);line-height:1.1;margin:0;letter-spacing:-.01em;color:var(--text)}
+.m-hero h1 em{font-style:italic;color:var(--gold-deep);font-weight:500}
+[data-theme="dark"] .m-hero h1 em{color:var(--gold)}
+.m-hero-sub{margin:6px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--text-mute)}
+.m-hero-rule{width:36px;height:2px;border-radius:1px;margin:10px 0 4px;background:linear-gradient(90deg,var(--gold),transparent);opacity:.8}
+/* ── House Favorites carousel ── */
+.m-fav{padding:22px 0 6px}
+.m-fav-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px;gap:12px}
+.m-fav-over{font-family:'Caveat',cursive;font-size:15px;color:var(--salsa);font-weight:700;letter-spacing:.02em;line-height:1.1}
+.m-fav-title{font-family:'Fraunces','Playfair Display',serif;font-weight:700;font-size:22px;margin:1px 0 0;color:var(--text);letter-spacing:-.01em}
+.m-fav-count{font-size:11px;color:var(--text-mute);font-weight:500;white-space:nowrap}
+.m-fav-track{display:flex;gap:12px;overflow-x:auto;padding:2px 0 12px;scroll-snap-type:x mandatory;-ms-overflow-style:none;scrollbar-width:none}
+.m-fav-track::-webkit-scrollbar{display:none}
+.m-fav-card{flex-shrink:0;scroll-snap-align:start;width:220px;min-height:280px;border-radius:18px;border:none;padding:0;cursor:pointer;text-align:left;font-family:'Outfit',sans-serif;background:var(--bg-card);box-shadow:var(--shadow-md);overflow:hidden;position:relative;text-decoration:none;color:var(--text);display:block}
+.m-fav-art{height:140px;position:relative;overflow:hidden}
+.m-fav-art-orn{position:absolute;right:-20px;bottom:-20px;width:130px;height:130px;opacity:.18;color:#fff}
+.m-fav-art-shine{position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.25),transparent 60%)}
+.m-fav-badges{position:absolute;top:10px;left:10px;display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.m-fav-badge{background:rgba(0,0,0,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:#FFE7B0;font-size:9px;font-weight:700;letter-spacing:.12em;padding:4px 8px;border-radius:999px;text-transform:uppercase;display:inline-flex;align-items:center;gap:4px}
+.m-fav-badge-new{background:#fff;color:#7a1d0c;font-size:9px;font-weight:800;letter-spacing:.12em;padding:3px 7px;border-radius:4px;text-transform:uppercase}
+.m-fav-cat{position:absolute;bottom:10px;left:12px;color:#fff;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;text-shadow:0 1px 4px rgba(0,0,0,.4)}
+.m-fav-body{padding:12px 14px 14px}
+.m-fav-name{font-family:'Fraunces','Playfair Display',serif;font-weight:700;font-size:17px;line-height:1.2;color:var(--text);letter-spacing:-.01em;margin-bottom:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-variation-settings:'opsz' 144}
+.m-fav-desc{font-size:11.5px;color:var(--text-soft);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:8px;min-height:32px}
+.m-fav-foot{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+.m-fav-price{font-family:'Fraunces','Playfair Display',serif;font-weight:700;font-size:16px;color:var(--gold-deep)}
+[data-theme="dark"] .m-fav-price{color:var(--gold)}
+.m-fav-view{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:600;color:var(--text-mute);letter-spacing:.03em}
+.m-fav.is-hidden,.m-hero.is-hidden{display:none}
 .m-search-wrap{position:relative}
 .m-search{width:100%;box-sizing:border-box;padding:12px 40px 12px 40px;background:var(--bg-card);color:var(--text);border:1px solid var(--line);border-radius:12px;font-size:15px;font-family:'Manrope',sans-serif;outline:none}
 .m-search:focus{border-color:var(--gold);box-shadow:var(--ring)}
@@ -73,7 +114,7 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
 .m-search-clear.show{display:inline-flex}
 .m-filters{display:flex;gap:6px;overflow-x:auto;margin-top:10px;-ms-overflow-style:none;scrollbar-width:none}
 .m-filters::-webkit-scrollbar{display:none}
-.m-filter{flex-shrink:0;display:inline-flex;align-items:center;gap:5px;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:var(--bg-card);color:var(--text-soft);font-size:12.5px;font-weight:600;font-family:'Manrope',sans-serif;cursor:pointer;white-space:nowrap}
+.m-filter{flex-shrink:0;display:inline-flex;align-items:center;gap:5px;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:var(--bg-card);color:var(--text-soft);font-size:12.5px;font-weight:600;font-family:'Outfit',sans-serif;cursor:pointer;white-space:nowrap}
 .m-filter[aria-pressed="true"]{background:var(--salsa);border-color:var(--salsa);color:#fff7e8}
 /* category jump nav */
 .m-jump{display:flex;gap:6px;overflow-x:auto;padding:10px 0 2px;-ms-overflow-style:none;scrollbar-width:none}
@@ -109,8 +150,16 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
 .m-price-chip-val{color:var(--gold-deep);font-weight:700;font-family:'Playfair Display',Georgia,serif;font-variant-numeric:tabular-nums}
 [data-theme="dark"] .m-price-chip-val{color:var(--gold)}
 .m-item-tags{margin-top:10px;display:flex;flex-wrap:wrap;gap:5px}
-.m-microtag{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:600;color:var(--leaf,#5f7a2e);background:rgba(95,122,46,.10);border:1px solid rgba(95,122,46,.22);padding:3px 8px;border-radius:999px}
-[data-theme="dark"] .m-microtag{color:#8fab45;background:rgba(143,171,69,.12);border-color:rgba(143,171,69,.26)}
+.m-microtag{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:600;letter-spacing:.02em;padding:3px 8px;border-radius:999px;border:1px solid}
+.m-microtag--spicy{color:var(--salsa);background:rgba(176,56,38,.08);border-color:rgba(176,56,38,.19)}
+.m-microtag--cheesy{color:var(--gold-deep);background:rgba(168,122,31,.08);border-color:rgba(168,122,31,.19)}
+.m-microtag--veggie{color:#5f7a2e;background:rgba(95,122,46,.08);border-color:rgba(95,122,46,.19)}
+.m-microtag--shareable{color:var(--text-soft);background:rgba(107,74,46,.08);border-color:rgba(107,74,46,.19)}
+.m-microtag--crafted{color:var(--gold-deep);background:rgba(168,122,31,.08);border-color:rgba(168,122,31,.19)}
+[data-theme="dark"] .m-microtag--spicy{color:#e0784a;background:rgba(224,120,74,.12);border-color:rgba(224,120,74,.26)}
+[data-theme="dark"] .m-microtag--cheesy,[data-theme="dark"] .m-microtag--crafted{color:var(--gold);background:rgba(217,162,60,.12);border-color:rgba(217,162,60,.26)}
+[data-theme="dark"] .m-microtag--veggie{color:#8fab45;background:rgba(143,171,69,.12);border-color:rgba(143,171,69,.26)}
+[data-theme="dark"] .m-microtag--shareable{color:var(--text-soft);background:rgba(216,191,148,.10);border-color:rgba(216,191,148,.22)}
 .m-empty{display:none;text-align:center;padding:50px 20px;color:var(--text-mute)}
 .m-empty.show{display:block}
 .m-cat.is-hidden{display:none}
@@ -4349,22 +4398,38 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
     <section class="m-intro">
       <div class="container">
         <div class="eyebrow"><span class="eyebrow-rule"></span>Rome &amp; Northwest Georgia<span class="eyebrow-rule"></span></div>
-        <h1 class="serif">Las Palmas <span class="italic gradient-text">Menu</span></h1>
-        <p class="serif m-intro-tag">Authentic Mexican, served fresh since 1997.</p>
+        <p class="serif m-intro-tag" style="margin:10px 0 6px;font-size:clamp(15px,3.2vw,18px)">Las Palmas Menu &mdash; authentic Mexican, served fresh since 1997.</p>
         <p class="m-intro-body">Explore our full menu of fajitas, burritos, street tacos, birria, seafood, salads, combos, lunch specials and more. Our Riverside, Shorter Ave and Cartersville kitchens share the Main menu; our Rockmart kitchen has its own. Switch between them below.</p>
+      </div>
+    </section>
+
+    <section class="m-hero" id="m-hero">
+      <div class="container">
+        <h1 class="serif">Tonight, <em>eat with us.</em></h1>
+        <p class="m-hero-sub" id="m-hero-sub">Shorter · Riverside · Cartersville</p>
+        <div class="m-hero-rule"></div>
+      </div>
+    </section>
+
+    <section class="m-fav" id="m-fav">
+      <div class="container">
+        <div class="m-fav-head">
+          <div>
+            <div class="m-fav-over">start here &rarr;</div>
+            <h2 class="m-fav-title">House Favorites</h2>
+          </div>
+          <span class="m-fav-count" id="m-fav-count"></span>
+        </div>
+        <div class="m-fav-track" id="m-fav-track"></div>
       </div>
     </section>
 
     <div class="m-controls">
       <div class="container">
-        <div class="m-switch" role="tablist" aria-label="Choose a menu">
-          <button class="m-switch-btn" role="tab" id="tab-main" aria-controls="panel-main" aria-selected="true" data-menu="main">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h0a2 2 0 0 0 2-2V2"/><path d="M5 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>
-            <span>Main Menu<span class="m-switch-sub">Riverside · Shorter · Cartersville</span></span>
-          </button>
-          <button class="m-switch-btn" role="tab" id="tab-rockmart" aria-controls="panel-rockmart" aria-selected="false" data-menu="rockmart">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h0a2 2 0 0 0 2-2V2"/><path d="M5 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>
-            <span>Rockmart Menu<span class="m-switch-sub">Rockmart, GA</span></span>
+        <div class="m-switch">
+          <button class="m-switch-toggle" type="button" id="m-switch-toggle" data-menu-other="rockmart" aria-label="View the Rockmart menu">
+            <svg class="m-switch-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h0a2 2 0 0 0 2-2V2"/><path d="M5 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>
+            <span class="m-switch-lbl"><span class="m-switch-main" id="m-switch-name">Rockmart</span><span class="m-switch-sub">Menu</span></span>
           </button>
         </div>
 
@@ -4375,9 +4440,12 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
         </div>
 
         <div class="m-filters" role="group" aria-label="Quick filters">
+          <button class="m-filter" data-filter="popular" aria-pressed="false"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>Favorites</button>
           <button class="m-filter" data-filter="new" aria-pressed="false"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2z"/></svg>New</button>
+          <button class="m-filter" data-filter="spicy" aria-pressed="false"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5Z"/></svg>Spicy</button>
+          <button class="m-filter" data-filter="cheesy" aria-pressed="false"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" y1="17" x2="18" y2="17"/></svg>Cheesy</button>
           <button class="m-filter" data-filter="veggie" aria-pressed="false"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>Veggie</button>
-          <button class="m-filter" data-filter="co" aria-pressed="false"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" y1="17" x2="18" y2="17"/></svg>Cooked to Order</button>
+          <button class="m-filter" data-filter="shareable" aria-pressed="false"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h0a2 2 0 0 0 2-2V2"/><path d="M5 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>Shareable</button>
         </div>
 
         <nav class="m-jump" id="m-jump-main" aria-label="Jump to category">
@@ -4793,35 +4861,314 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
 <script>
 (function(){
   var d=document;
-  /* ── Menu toggle (Main / Rockmart) ── */
-  var tabs=d.querySelectorAll('.m-switch-btn');
+
+  /* ==== Ported from LasPalmasMenuV3.2 JSX (design source of truth) ==== */
+  var FEATURED_SEED={};[
+    "The Dips::Cheese Dip","Chicken::Loco Rice","Traditionals::Quesabirria",
+    "Birria Plates::Quesabirria*","Fajitas::Parrillada","Fajitas::Parrillada*",
+    "Fajitas::Molcajete","Steaks::Carne Asada","Steaks::Carne Asada*",
+    "Tacos::Authentic Mexican Tacos","Tacos::Street Mini Tacos",
+    "Tacos::Street Mini Tacos*","Nachos::Nachos Fajitas","Nachos::Nachos Supreme",
+    "Nachos::Nachos Supreme Fajita","Nachos::Nachos with Toppings",
+    "Fajitas::Fajitas Texanas*","Fajitas::Chicken","Salads::Las Palmas Bowl",
+    "Lunch Specials::Las Palmas Bowl*","Lunch Specials::Lunch Loco Rice Chicken",
+    "Soups::Chicken or Chipotle Soup","The Dips::Fresh Guacamole",
+    "The Dips::Las Palmas Dip","Salads::Taco Salad","Traditionals::Chimichanga",
+    "Traditionals::Quesadilla Texana","Traditionals::Quesadilla Texana*",
+    "A La Carte::Order of Tacos (3)","Combos::#3","Combos::#6"
+  ].forEach(function(k){FEATURED_SEED[k]=1;});
+  var DATENIGHT_SEED={};[
+    "The Dips::Fresh Guacamole","The Dips::Spinach and Cheese Dip",
+    "The Dips::Las Palmas Dip","The Dips::Papas Locas","Fajitas::Parrillada",
+    "Fajitas::Parrillada*","Fajitas::Molcajete","Fajitas::Fajitas Texanas*",
+    "Fajitas::Tapatio Special","Fajitas::Tapatio Special*",
+    "Birria Plates::Quesabirria*","Traditionals::Quesabirria",
+    "Steaks::Carne Asada","Steaks::Carne Asada*","Steaks::Steak a la Mexicana",
+    "Seafood::Camarones a la Diabla","Chicken::Loco Rice",
+    "Desserts::Cheesecake Tres Leches","Desserts::Fried Ice Cream",
+    "Desserts::Churros"
+  ].forEach(function(k){DATENIGHT_SEED[k]=1;});
+  /* Items carrying an explicit veggie tag in the JSX data. */
+  var VEGGIE_EXPLICIT={
+    "Tacos::Avocado Taco Plate":1,"Lunch Specials::Las Palmas Bowl*":1,
+    "Salads::Las Palmas Bowl":1,"Lunch Specials::Las Palmas Bowl":1
+  };
+
+  var CARD_GRADIENTS={
+    cheese:["#E8A33D","#B8341B"],rice:["#C8932E","#7A4519"],
+    birria:["#8B1E0E","#3D0E08"],beef:["#5C2412","#1F0A05"],
+    taco:["#D2691E","#7A3010"],nacho:["#E0A050","#8B3A1F"],
+    fajita:["#A8331C","#4D1308"],bowl:["#5B7A2E","#2D3E15"],
+    soup:["#B8741E","#5C3008"],guac:["#7A9E3A","#324216"],
+    salad:["#7A9E3A","#3D5018"],combo:["#8B5A2B","#3D2410"],
+    torta:["#B8741E","#5C3008"],"default":["#A8331C","#3D0F05"]
+  };
+  function gradientKeyFor(catName,itemName){
+    var t=(catName+" "+itemName).toLowerCase();
+    if(/torta/.test(t))return "torta";
+    if(/birria|quesabirria/.test(t))return "birria";
+    if(/molcajete|carne asada|steak|parrillada/.test(t))return "beef";
+    if(/cheese dip|las palmas dip/.test(t))return "cheese";
+    if(/loco rice/.test(t))return "rice";
+    if(/nacho/.test(t))return "nacho";
+    if(/fajita/.test(t))return "fajita";
+    if(/taco/.test(t))return "taco";
+    if(/bowl/.test(t))return "bowl";
+    if(/soup|chipotle soup/.test(t))return "soup";
+    if(/guacamole/.test(t))return "guac";
+    if(/salad/.test(t))return "salad";
+    if(/combo|#\d/.test(t))return "combo";
+    if(/chimichanga|quesadilla texana/.test(t))return "fajita";
+    return "default";
+  }
+  var ORN_S='stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"';
+  function cardOrnament(kind){
+    var inner;
+    switch(kind){
+      case "torta": case "taco":
+        inner='<path d="M10 50 Q40 20 70 50" '+ORN_S+'/><path d="M10 50 Q40 65 70 50" '+ORN_S+'/><path d="M22 47 L26 41 M32 48 L36 42 M42 48 L46 42 M52 47 L56 41" '+ORN_S+'/>';break;
+      case "birria": case "soup": case "bowl":
+        inner='<path d="M14 42 H66 Q66 60 50 64 H30 Q14 60 14 42 Z" '+ORN_S+'/><path d="M30 28 Q32 22 30 16 M40 30 Q42 22 40 14 M50 28 Q52 22 50 16" '+ORN_S+'/>';break;
+      case "beef": case "fajita":
+        inner='<path d="M12 52 Q12 38 28 36 L52 36 Q68 38 68 52 Q68 60 60 60 H20 Q12 60 12 52 Z" '+ORN_S+'/><path d="M28 36 Q30 24 40 22 Q50 24 52 36" '+ORN_S+'/>';break;
+      case "cheese":
+        inner='<circle cx="40" cy="44" r="22" '+ORN_S+'/><circle cx="34" cy="40" r="2" fill="currentColor"/><circle cx="46" cy="46" r="2" fill="currentColor"/><circle cx="40" cy="52" r="2" fill="currentColor"/>';break;
+      case "rice":
+        inner='<ellipse cx="40" cy="50" rx="26" ry="14" '+ORN_S+'/><path d="M28 44 q3 -3 6 0 M40 42 q3 -3 6 0 M52 44 q3 -3 6 0 M34 50 q3 -3 6 0 M46 50 q3 -3 6 0" '+ORN_S+'/>';break;
+      case "nacho":
+        inner='<path d="M20 56 L32 32 L44 56 Z" '+ORN_S+'/><path d="M38 58 L50 30 L62 58 Z" '+ORN_S+'/>';break;
+      case "guac": case "salad":
+        inner='<path d="M40 18 Q56 28 56 46 Q56 60 40 62 Q24 60 24 46 Q24 28 40 18 Z" '+ORN_S+'/><path d="M40 30 L40 56 M30 38 Q40 42 50 38 M28 48 Q40 52 52 48" '+ORN_S+'/>';break;
+      case "combo":
+        inner='<circle cx="28" cy="36" r="10" '+ORN_S+'/><circle cx="52" cy="44" r="10" '+ORN_S+'/><circle cx="40" cy="56" r="9" '+ORN_S+'/>';break;
+      default:
+        inner='<path d="M40 16 L46 34 L64 34 L50 46 L54 64 L40 54 L26 64 L30 46 L16 34 L34 34 Z" '+ORN_S+'/>';
+    }
+    return '<svg viewBox="0 0 80 80" width="100%" height="100%" aria-hidden="true">'+inner+'</svg>';
+  }
+
+  var MEAT_RE=/\b(chicken|beef|steak|shrimp|chorizo|pork|carnit|fish|grouper|barbacoa|al pastor|carne|asada|bacon|ham|hot dog|tamale|wing|seafood|brisket|texano|texas|tex\b)/i;
+  var VEGGIE_NAME_PATTERNS=[
+    /^veggie\b/i,/^cheese (dip|nachos|enchilada|burrito|quesadilla|chalupa|relleno)/i,
+    /^spinach (and cheese )?dip/i,/^guacamole(\s+dip)?$/i,/^fresh guacamole/i,
+    /^chile (relleno|poblano)/i,/^refried beans$/i,/^(mexican )?rice$/i,
+    /^pico de gallo/i,/^tortillas?\b/i,/^quesadilla \(cheese\)/i,
+    /^(tomato|cilantro|shredded cheese|jalapeños|onions|avocado|sour cream|chile poblano)$/i
+  ];
+  function inferTags(catName,name,desc,isNew,co,explicitVeggie){
+    var txt=(catName+" "+name+" "+(desc||"")).toLowerCase();
+    var tags=[];
+    if(/diabla|chipotle|jalape|chile de arbol|chile toreado|habanero|spicy|hot sauce/.test(txt))tags.push("spicy");
+    if(/cheese|queso|chori-pollo|chile relleno|chile poblano/.test(txt))tags.push("cheesy");
+    var isVeggie=(function(){
+      if(explicitVeggie)return true;
+      if(catName==="Combos")return false;
+      if(MEAT_RE.test(txt))return false;
+      if(catName==="Veggie")return true;
+      for(var i=0;i<VEGGIE_NAME_PATTERNS.length;i++){if(VEGGIE_NAME_PATTERNS[i].test(name))return true;}
+      return false;
+    })();
+    if(isVeggie)tags.push("veggie");
+    if(/parrillada|molcajete|trio sampler|las palmas dip|papas locas|seafood soup|fresh guacamole|nachos fajitas|nachos supreme|fajitas? for two|cocktel/.test(txt))tags.push("shareable");
+    if(isNew)tags.push("new");
+    if(co)tags.push("crafted");
+    return tags;
+  }
+
+  /* Read the literal item name (text before the cooked-to-order badge). */
+  function itemName(el){
+    var n=el.querySelector('.m-item-name');
+    if(!n)return "";
+    var first=n.childNodes[0];
+    return (first&&first.nodeType===3?first.textContent:n.textContent).trim();
+  }
+  function itemCat(el){
+    var sec=el.closest('.m-cat');
+    return sec?(sec.getAttribute('data-cat')||""):"";
+  }
+  function startingPrice(el){
+    var chip=el.querySelector('.m-price-chip-val');
+    if(chip)return chip.textContent.trim();
+    var p=el.querySelector('.m-item-price');
+    return p?p.textContent.trim():null;
+  }
+  function itemDesc(el){var p=el.querySelector('.m-item-desc');return p?p.textContent.trim():"";}
+
+  var MICRO={spicy:["Spicy","M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5Z",false],
+    cheesy:["Cheesy","M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z;M6 17h12",false],
+    veggie:["Veggie","M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z;M2 21c0-3 1.85-5.36 5.08-6",false],
+    shareable:["Shareable","M3 2v7c0 1.1.9 2 2 2h0a2 2 0 0 0 2-2V2;M5 2v20;M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7",false],
+    crafted:["Crafted to order","M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z",false]};
+  function microSvg(paths){
+    var ps=paths.split(';').map(function(p){return '<path d="'+p+'"/>';}).join('');
+    return '<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ps+'</svg>';
+  }
+
+  /* ── Tag every item + inject micro-tags into expanded details ── */
+  var ALL_ITEMS=Array.prototype.slice.call(d.querySelectorAll('.m-item'));
+  ALL_ITEMS.forEach(function(el){
+    var cat=itemCat(el),name=itemName(el);
+    var isNew=!!el.querySelector('.m-badge-new');
+    var co=!!el.querySelector('.m-badge-co');
+    var key=cat+"::"+name;
+    var explicitVeggie=!!VEGGIE_EXPLICIT[key];
+    var tags=inferTags(cat,name,itemDesc(el),isNew,co,explicitVeggie);
+    if(FEATURED_SEED[key])tags.push("popular");
+    el.setAttribute('data-tags',' '+tags.join(' ')+' ');
+    /* micro-tags in the expanded detail (order per JSX) */
+    var detail=el.querySelector('.m-item-detail');
+    if(detail){
+      var order=["spicy","cheesy","veggie","shareable","crafted"];
+      var chips=order.filter(function(tg){return tags.indexOf(tg)!==-1;});
+      if(chips.length){
+        var wrap=d.createElement('div');wrap.className='m-item-tags';
+        wrap.innerHTML=chips.map(function(tg){
+          var m=MICRO[tg];
+          return '<span class="m-microtag m-microtag--'+tg+'">'+microSvg(m[1])+m[0]+'</span>';
+        }).join('');
+        detail.appendChild(wrap);
+      }
+    }
+  });
+
+  /* ── Date Night section (tag-driven, per active menu) ── */
+  function buildDateNight(panelKey){
+    var panel=panels[panelKey];
+    if(panel.querySelector('.m-cat--datenight'))return;
+    var seen={},picks=[];
+    panel.querySelectorAll('.m-cat').forEach(function(cat){
+      var cn=cat.getAttribute('data-cat')||"";
+      cat.querySelectorAll('.m-item').forEach(function(el){
+        var name=itemName(el);
+        if(!DATENIGHT_SEED[cn+"::"+name])return;
+        var clean=name.replace(/\*$/,'').toLowerCase();
+        if(seen[clean])return;seen[clean]=1;
+        picks.push({el:el,name:name,cat:cn});
+      });
+    });
+    if(!picks.length)return;
+    var sec=d.createElement('section');
+    sec.className='m-cat m-cat--datenight';
+    sec.id=panelKey+'-date-night';
+    sec.setAttribute('data-cat','Date Night');
+    var head='<div class="m-cat-head"><h2 class="serif m-cat-title" style="font-style:italic">Date Night</h2></div>'+
+      '<p class="m-cat-note">A few of our most romantic, shareable picks &mdash; best enjoyed with someone special and a margarita.</p>';
+    var items=picks.map(function(p){
+      var clone=p.el.cloneNode(true);
+      clone.removeAttribute('id');
+      /* source category label, per JSX "from · {cat}" */
+      var nameEl=clone.querySelector('.m-item-name');
+      if(nameEl){
+        var src=d.createElement('div');
+        src.style.cssText='font-size:10.5px;color:var(--text-mute);font-weight:500;letter-spacing:.04em;text-transform:uppercase;margin-top:3px';
+        src.textContent='from · '+p.cat;
+        nameEl.parentNode.appendChild(src);
+      }
+      return clone;
+    });
+    var box=d.createElement('div');box.className='m-items';
+    items.forEach(function(c){box.appendChild(c);});
+    sec.innerHTML=head;sec.appendChild(box);
+    panel.appendChild(sec);
+    /* add a jump link */
+    var jump=jumps[panelKey];
+    if(jump){var a=d.createElement('a');a.href='#'+sec.id;a.textContent='Date Night';jump.appendChild(a);}
+  }
+
+  /* ── House Favorites carousel (featured items, per active menu) ── */
+  var favTrack=d.getElementById('m-fav-track');
+  var favCount=d.getElementById('m-fav-count');
+  function buildFavorites(panelKey){
+    var panel=panels[panelKey];
+    var seen={},picks=[];
+    panel.querySelectorAll('.m-cat').forEach(function(cat){
+      if(cat.classList.contains('m-cat--datenight'))return;
+      var cn=cat.getAttribute('data-cat')||"";
+      cat.querySelectorAll('.m-item').forEach(function(el){
+        var name=itemName(el);
+        if(!FEATURED_SEED[cn+"::"+name])return;
+        var clean=name.replace(/\*$/,'').toLowerCase();
+        if(seen[clean])return;seen[clean]=1;
+        picks.push({el:el,name:name,cat:cn});
+      });
+    });
+    favTrack.innerHTML='';
+    picks.forEach(function(p,i){
+      var disp=p.name.replace(/\*$/,'');
+      var gk=gradientKeyFor(p.cat,p.name);
+      var g=CARD_GRADIENTS[gk]||CARD_GRADIENTS['default'];
+      var isNew=!!p.el.querySelector('.m-badge-new');
+      var chipCount=p.el.querySelectorAll('.m-price-chip-val').length;
+      var hasChip=!!p.el.querySelector('.m-price-chip-val');
+      /* JSX: "+" when item has no single price but >1 priced variants */
+      var suffix=(hasChip&&chipCount>1)?'+':'';
+      var price=startingPrice(p.el);
+      var rawDesc=itemDesc(p.el);
+      var desc=rawDesc?(rawDesc.length>90?rawDesc.slice(0,90)+'…':rawDesc):'';
+      var sec=p.el.closest('.m-cat');
+      var targetId=sec?sec.id:'';
+      var badge=(i===0?'#1 Pick':'House Pick');
+      var card=d.createElement('a');
+      card.className='m-fav-card';card.href='#'+targetId;
+      card.setAttribute('data-menu',panelKey);
+      var art='<div class="m-fav-art" style="background:linear-gradient(135deg,'+g[0]+' 0%,'+g[1]+' 100%)">'+
+        '<div class="m-fav-art-orn">'+cardOrnament(gk)+'</div>'+
+        '<div class="m-fav-art-shine"></div>'+
+        '<div class="m-fav-badges"><span class="m-fav-badge"><svg width="9" height="9" viewBox="0 0 24 24" fill="#FFE7B0" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>'+badge+'</span>'+
+        (isNew?'<span class="m-fav-badge-new">New</span>':'')+'</div>'+
+        '<div class="m-fav-cat">'+p.cat+'</div></div>';
+      var body='<div class="m-fav-body"><div class="m-fav-name">'+disp+'</div>'+
+        (desc?'<div class="m-fav-desc">'+desc+'</div>':'')+
+        '<div class="m-fav-foot"><span class="m-fav-price">'+(price?price+suffix:'—')+'</span>'+
+        '<span class="m-fav-view">View <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></span></div></div>';
+      card.innerHTML=art+body;
+      favTrack.appendChild(card);
+    });
+    favCount.textContent=picks.length+' '+(picks.length===1?'pick':'picks');
+    return picks.length;
+  }
+
+  /* ==== Menu toggle (single toggle -> the OTHER menu) ==== */
   var panels={main:d.getElementById('panel-main'),rockmart:d.getElementById('panel-rockmart')};
   var jumps={main:d.getElementById('m-jump-main'),rockmart:d.getElementById('m-jump-rockmart')};
+  var toggle=d.getElementById('m-switch-toggle');
+  var switchName=d.getElementById('m-switch-name');
+  var heroSub=d.getElementById('m-hero-sub');
   var current='main';
+  var LOC={main:'Shorter · Riverside · Cartersville',rockmart:'Rockmart'};
+  var OTHER={main:'rockmart',rockmart:'main'};
+  var OTHER_LABEL={rockmart:'Rockmart',main:'Main'};
   function showMenu(key){
     current=key;
-    tabs.forEach(function(t){t.setAttribute('aria-selected',String(t.dataset.menu===key));});
     for(var k in panels){panels[k].hidden=(k!==key);jumps[k].hidden=(k!==key);}
+    var other=OTHER[key];
+    switchName.textContent=OTHER_LABEL[other];
+    toggle.setAttribute('data-menu-other',other);
+    toggle.setAttribute('aria-label','View the '+OTHER_LABEL[other]+' menu');
+    heroSub.textContent=LOC[key];
+    buildDateNight(key);
+    buildFavorites(key);
     applyFilters();
   }
-  tabs.forEach(function(t){t.addEventListener('click',function(){showMenu(t.dataset.menu);});});
+  toggle.addEventListener('click',function(){showMenu(OTHER[current]);});
 
-  /* ── Search + quick filters (literal text filter over rendered DOM) ── */
+  /* ==== Search + quick filters (literal text over rendered DOM) ==== */
   var search=d.getElementById('m-search');
   var clearBtn=d.getElementById('m-search-clear');
   var emptyMsg=d.getElementById('m-empty');
   var emptyClear=d.getElementById('m-empty-clear');
   var filters=d.querySelectorAll('.m-filter');
+  var heroEl=d.getElementById('m-hero');
+  var favEl=d.getElementById('m-fav');
   var activeFilter=null;
 
   function tokens(q){return q.toLowerCase().split(/\s+/).filter(Boolean);}
   function matchesItem(el,toks,filt){
     if(filt){
-      if(filt==='new' && !el.querySelector('.m-badge-new')) return false;
-      if(filt==='co' && !el.querySelector('.m-badge-co')) return false;
-      if(filt==='veggie' && !el.querySelector('.m-microtag')) return false;
+      var tags=el.getAttribute('data-tags')||'';
+      if(tags.indexOf(' '+filt+' ')===-1)return false;
     }
-    if(!toks.length) return true;
+    if(!toks.length)return true;
     var kw=(el.getAttribute('data-kw')||'');
     return toks.every(function(t){return kw.indexOf(t)!==-1;});
   }
@@ -4829,6 +5176,9 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
     var q=search.value.trim();
     var toks=tokens(q);
     clearBtn.classList.toggle('show',!!q);
+    var searching=!!q||!!activeFilter;
+    heroEl.classList.toggle('is-hidden',searching);
+    favEl.classList.toggle('is-hidden',searching);
     var panel=panels[current];
     var anyVisible=false;
     panel.querySelectorAll('.m-cat').forEach(function(cat){
@@ -4855,6 +5205,9 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
       applyFilters();
     });
   });
+
+  /* initial render */
+  showMenu('main');
 })();
 </script>
 </body>

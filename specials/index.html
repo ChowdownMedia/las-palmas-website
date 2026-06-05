@@ -23,13 +23,18 @@
 <script>(function(){try{var t=localStorage.getItem('lp-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}document.documentElement.classList.remove('no-js');})();</script>
 
 <link rel="preload" href="/assets/fonts/playfair-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/playfair-italic-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/manrope-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/dm-sans-var.woff2" as="font" type="font/woff2" crossorigin>
 
 <style>
 @font-face{font-family:'Manrope';src:url('/assets/fonts/manrope-var.woff2') format('woff2');font-weight:200 800;font-style:normal;font-display:swap}
 @font-face{font-family:'Playfair Display';src:url('/assets/fonts/playfair-var.woff2') format('woff2');font-weight:400 900;font-style:normal;font-display:swap}
 @font-face{font-family:'Playfair Display';src:url('/assets/fonts/playfair-italic-var.woff2') format('woff2');font-weight:400 900;font-style:italic;font-display:swap}
+@font-face{font-family:'Instrument Serif';src:url('/assets/fonts/instrument-serif.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Instrument Serif';src:url('/assets/fonts/instrument-serif-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('/assets/fonts/dm-sans-var.woff2') format('woff2');font-weight:100 1000;font-style:normal;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('/assets/fonts/dm-sans-italic-var.woff2') format('woff2');font-weight:100 1000;font-style:italic;font-display:swap}
 :root{--bg:#faf3e4;--bg-elev:#f4ead4;--bg-card:#fbf5e6;--bg-card-2:#efe1c2;--line:#e3cfa3;--line-soft:#ead9b2;--text:#3b2415;--text-soft:#6b4a2e;--text-mute:#8a6a4a;--gold:#c89b3c;--gold-deep:#a87a1f;--amber:#d99a3c;--terracotta:#c25a36;--terracotta-deep:#a3411f;--salsa:#b03826;--shadow-sm:0 1px 2px rgba(74,42,18,.06),0 2px 8px rgba(74,42,18,.04);--shadow-md:0 4px 14px rgba(74,42,18,.10),0 1px 3px rgba(74,42,18,.06);--shadow-lg:0 18px 42px rgba(74,42,18,.14),0 4px 12px rgba(74,42,18,.08);--glow:0 0 0 1px rgba(217,154,60,.30),0 14px 38px -10px rgba(176,56,38,.30);--ring:0 0 0 3px rgba(200,155,60,.35);--gradient-warm:linear-gradient(135deg,#f4c97a 0%,#e08b4f 55%,#c2502c 100%);--gradient-button:linear-gradient(180deg,#d96b40 0%,#b03826 100%);--gradient-button-hover:linear-gradient(180deg,#e07a4d 0%,#c2452c 100%);--gradient-text:linear-gradient(95deg,#b03826 0%,#d99a3c 100%);--header-bg:rgba(250,243,228,.82)}
 [data-theme="dark"]{--bg:#1a0f07;--bg-elev:#22150c;--bg-card:#28190f;--bg-card-2:#311e12;--line:#4a2f1c;--line-soft:#3a2616;--text:#f1e2c4;--text-soft:#d8bf94;--text-mute:#a48d65;--gold:#d9a23c;--gold-deep:#b8862e;--amber:#e0a84a;--terracotta:#d96d44;--terracotta-deep:#c2502c;--salsa:#c44525;--shadow-sm:0 1px 2px rgba(0,0,0,.45),0 2px 8px rgba(0,0,0,.25);--shadow-md:0 6px 20px rgba(0,0,0,.55),0 2px 6px rgba(0,0,0,.3);--shadow-lg:0 22px 50px rgba(0,0,0,.65),0 6px 16px rgba(0,0,0,.4);--glow:0 0 0 1px rgba(217,162,60,.32),0 16px 44px -10px rgba(217,130,60,.40);--ring:0 0 0 3px rgba(217,162,60,.40);--gradient-warm:linear-gradient(135deg,#b8752c 0%,#9c4825 55%,#5e2010 100%);--gradient-button:linear-gradient(180deg,#e0784a 0%,#b03e20 100%);--gradient-button-hover:linear-gradient(180deg,#ec8757 0%,#c54725 100%);--gradient-text:linear-gradient(95deg,#e08e60 0%,#e0b860 100%);--header-bg:rgba(28,17,8,.78)}
 *{box-sizing:border-box}html,body{background:var(--bg)}
@@ -113,6 +118,44 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
 /* Bottom CTA strip */
 .lp-spec-cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:8px}
 .lp-spec-cta .btn{flex:1 1 200px}
+
+/* ── Specials typography → Instrument Serif + DM Sans (Glenn's JSX render) ── */
+.lp-specials-hero h1,.lp-loc-block-title,.lp-day-name,.item-headline,.everyday-headline,
+.lp-day-fallback-title,.lp-everyday-title,.lp-lunch-title{font-family:'Instrument Serif',Georgia,serif}
+.lp-specials-hero .lp-hero-tagline,.lp-specials-hero .lp-hero-body,.lp-specials-hero .lp-hero-fine,
+.lp-loc-switch button,.item-subhead,.item-condition,.everyday-subhead,.everyday-label,
+.lp-day-item-note,.lp-day-item-note--pill,.lp-day-fallback-body,.lp-fine-print,
+.lp-lunch-items,.lp-lunch-num,.lp-lunch-includes,.lp-lunch-cutoff,.lp-everyday-chip,
+.today-pill,.karaoke-chip{font-family:'DM Sans',system-ui,-apple-system,sans-serif}
+
+/* ── JSX SpecialItem two-element format (item-headline over item-subhead) ── */
+.lp-day-items li{display:flex;flex-direction:column;gap:1px}
+.item-headline{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:22px;line-height:1;
+  color:var(--day-tint,var(--terracotta));letter-spacing:-.01em;display:inline-flex;align-items:baseline;gap:1px}
+.item-headline-short{font-size:26px}
+.lp-day-card.is-today .item-headline{font-size:34px}
+.lp-day-card.is-today .item-headline-short{font-size:40px}
+.item-headline .ast{font-size:.55em;color:var(--text-mute);margin-left:2px;position:relative;top:-.3em}
+.item-subhead{font-size:13px;font-weight:500;color:var(--text);line-height:1.25;margin-top:2px}
+.lp-day-card.is-today .item-subhead{font-size:16px;margin-top:4px;font-weight:500}
+.item-conditions{display:flex;flex-wrap:wrap;gap:4px 8px;margin-top:4px}
+.item-condition{display:inline-flex;align-items:center;font-size:10.5px;color:var(--text-mute);font-style:italic;
+  letter-spacing:.01em;padding:1px 8px;border-radius:999px;background:var(--bg-card-2);border:1px solid var(--line)}
+.lp-day-card.is-today .item-condition{font-size:11.5px;padding:2px 10px}
+
+/* ── JSX EverydayBlock (Cartersville) ── */
+.everyday-block{display:flex;flex-direction:column;gap:12px}
+.everyday-eyebrow{display:flex;align-items:center;gap:10px;justify-content:center;color:var(--gold-deep);
+  font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+.everyday-line{flex:1;height:1px;max-width:60px;background:linear-gradient(to right,transparent,var(--line),transparent)}
+.everyday-items{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.everyday-item{display:flex;flex-direction:column;align-items:center;text-align:center;padding:10px 6px;
+  border-radius:13px;background:rgba(200,149,52,.08);border:1px solid rgba(200,149,52,.20)}
+[data-theme="dark"] .everyday-item{background:rgba(211,166,71,.10);border-color:rgba(211,166,71,.28)}
+.everyday-headline{font-family:'Instrument Serif',Georgia,serif;font-size:26px;line-height:1;color:var(--gold-deep);
+  letter-spacing:-.01em;margin-bottom:4px}
+.everyday-headline .ast{font-size:.55em;color:var(--text-mute);margin-left:2px;position:relative;top:-.3em}
+.everyday-subhead{font-size:12px;color:var(--text);font-weight:500;line-height:1.3}
 </style>
 
 <script type="application/ld+json">
@@ -287,56 +330,69 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
                 <div class="lp-days">
                   <div data-corp-today-slot></div>
                   <div class="lp-days-grid" data-corp-days>
-                    <div class="lp-day-card" data-corp-day="0">
+                    <div class="lp-day-card" data-corp-day="0" style="--day-tint:#c9482c">
                       <span class="today-pill">Today</span>
                       <div class="lp-day-name">Sunday</div>
                       <ul class="lp-day-items">
-                        <li><span class="lp-day-item-text">$9.99 Chicken Loco Rice</span></li>
-                        <li>
-                          <span class="lp-day-item-text">$3.99 Burritos</span>
-                          <span class="lp-day-item-note">After 5 PM</span>
+                        <li class="item">
+                          <div class="item-headline">$9.99</div>
+                          <div class="item-subhead">Chicken Loco Rice</div>
                         </li>
-                        <li>
-                          <span class="lp-day-item-text">$4.99 Margaritas<span class="alc" aria-hidden="true">*</span></span>
-                          <span class="lp-day-item-note">After 5 PM</span>
+                        <li class="item">
+                          <div class="item-headline">$3.99</div>
+                          <div class="item-subhead">Burritos</div>
+                          <div class="item-conditions"><span class="item-condition">After 5PM</span></div>
+                        </li>
+                        <li class="item">
+                          <div class="item-headline">$4.99<span class="ast" aria-label="alcohol">*</span></div>
+                          <div class="item-subhead">Margaritas</div>
+                          <div class="item-conditions"><span class="item-condition">After 5PM</span></div>
                         </li>
                       </ul>
                     </div>
-                    <div class="lp-day-card" data-corp-day="1">
+                    <div class="lp-day-card" data-corp-day="1" style="--day-tint:#a87a2d">
                       <span class="today-pill">Today</span>
                       <div class="lp-day-name">Monday</div>
                       <ul class="lp-day-items">
-                        <li><span class="lp-day-item-text">$6.99 Soup</span></li>
+                        <li class="item">
+                          <div class="item-headline">$6.99</div>
+                          <div class="item-subhead">Soup</div>
+                        </li>
                       </ul>
                     </div>
-                    <div class="lp-day-card" data-corp-day="2">
+                    <div class="lp-day-card" data-corp-day="2" style="--day-tint:#6f7f36">
                       <span class="today-pill">Today</span>
                       <div class="lp-day-name">Tuesday</div>
                       <ul class="lp-day-items">
-                        <li>
-                          <span class="lp-day-item-text">Kids Eat Free</span>
-                          <span class="lp-day-item-note">From Kids Menu</span>
+                        <li class="item">
+                          <div class="item-headline item-headline-short">FREE</div>
+                          <div class="item-subhead">Kids Eat</div>
+                          <div class="item-conditions"><span class="item-condition">From Kids Menu</span></div>
                         </li>
                       </ul>
                     </div>
-                    <div class="lp-day-card" data-corp-day="3">
+                    <div class="lp-day-card" data-corp-day="3" style="--day-tint:#b8581e">
                       <span class="today-pill">Today</span>
                       <div class="lp-day-name">Wednesday</div>
                       <ul class="lp-day-items">
-                        <li>
-                          <span class="lp-day-item-text">$12.99 Chicken Fajitas</span>
-                          <span class="lp-day-item-note">After 5 PM</span>
+                        <li class="item">
+                          <div class="item-headline">$12.99</div>
+                          <div class="item-subhead">Chicken Fajitas</div>
+                          <div class="item-conditions"><span class="item-condition">After 5PM</span></div>
                         </li>
                       </ul>
                     </div>
-                    <div class="lp-day-card" data-corp-day="4">
+                    <div class="lp-day-card" data-corp-day="4" style="--day-tint:#a8311f">
                       <span class="today-pill">Today</span>
                       <div class="lp-day-name">Thursday</div>
                       <ul class="lp-day-items">
-                        <li><span class="lp-day-item-text">99¢ Mini Tacos</span></li>
+                        <li class="item">
+                          <div class="item-headline item-headline-short">99¢</div>
+                          <div class="item-subhead">Mini Tacos</div>
+                        </li>
                       </ul>
                     </div>
-                    <div class="lp-day-card" data-corp-day="5">
+                    <div class="lp-day-card" data-corp-day="5" style="--day-tint:#5a847a">
                       <span class="today-pill">Today</span>
                       <div class="lp-day-name">Friday</div>
                       <div>
@@ -344,15 +400,19 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
                         <div class="lp-day-fallback-body">Start the weekend with chips, salsa, and your Las Palmas favorites.</div>
                       </div>
                     </div>
-                    <div class="lp-day-card" data-corp-day="6">
+                    <div class="lp-day-card" data-corp-day="6" style="--day-tint:#8b5a6b">
                       <span class="today-pill">Today</span>
                       <div class="lp-day-name">Saturday</div>
                       <ul class="lp-day-items">
-                        <li>
-                          <span class="lp-day-item-text">$8.99 Combos</span>
-                          <span class="lp-day-item-note">After 5 PM</span>
+                        <li class="item">
+                          <div class="item-headline">$8.99</div>
+                          <div class="item-subhead">Combos</div>
+                          <div class="item-conditions"><span class="item-condition">After 5PM</span></div>
                         </li>
-                        <li><span class="lp-day-item-text">$1.99 Domestic Draft Beer<span class="alc" aria-hidden="true">*</span></span></li>
+                        <li class="item">
+                          <div class="item-headline">$1.99<span class="ast" aria-label="alcohol">*</span></div>
+                          <div class="item-subhead">Domestic Draft Beer</div>
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -414,43 +474,58 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
                 <div class="lp-days">
                   <div data-corp-today-slot></div>
                   <div class="lp-days-grid" data-corp-days>
-                    <div class="lp-day-card" data-corp-day="0">
+                    <div class="lp-day-card" data-corp-day="0" style="--day-tint:#c9482c">
                       <span class="today-pill">Today</span>
                       <div class="lp-day-name">Sunday</div>
                       <ul class="lp-day-items">
-                        <li><span class="lp-day-item-text">$4.99 Lime Margaritas<span class="alc" aria-hidden="true">*</span></span></li>
-                      </ul>
-                    </div>
-                    <div class="lp-day-card" data-corp-day="1">
-                      <span class="today-pill">Today</span>
-                      <div class="lp-day-name">Monday</div>
-                      <ul class="lp-day-items">
-                        <li><span class="lp-day-item-text">99¢ Mini Tacos</span></li>
-                        <li><span class="lp-day-item-text">$1.99 Domestic Draft Beer<span class="alc" aria-hidden="true">*</span></span></li>
-                      </ul>
-                    </div>
-                    <div class="lp-day-card" data-corp-day="2">
-                      <span class="today-pill">Today</span>
-                      <div class="lp-day-name">Tuesday</div>
-                      <ul class="lp-day-items">
-                        <li><span class="lp-day-item-text">$9.99 Combo Dinners</span></li>
-                      </ul>
-                    </div>
-                    <div class="lp-day-card" data-corp-day="3">
-                      <span class="today-pill">Today</span>
-                      <div class="lp-day-name">Wednesday</div>
-                      <ul class="lp-day-items">
-                        <li>
-                          <span class="lp-day-item-text">Kids Eat Free</span>
-                          <span class="lp-day-item-note">From Kids Menu</span>
+                        <li class="item">
+                          <div class="item-headline">$4.99<span class="ast" aria-label="alcohol">*</span></div>
+                          <div class="item-subhead">Lime Margaritas</div>
                         </li>
                       </ul>
                     </div>
-                    <div class="lp-day-card" data-corp-day="4">
+                    <div class="lp-day-card" data-corp-day="1" style="--day-tint:#a87a2d">
+                      <span class="today-pill">Today</span>
+                      <div class="lp-day-name">Monday</div>
+                      <ul class="lp-day-items">
+                        <li class="item">
+                          <div class="item-headline item-headline-short">99¢</div>
+                          <div class="item-subhead">Mini Tacos</div>
+                        </li>
+                        <li class="item">
+                          <div class="item-headline">$1.99<span class="ast" aria-label="alcohol">*</span></div>
+                          <div class="item-subhead">Domestic Draft Beer</div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="lp-day-card" data-corp-day="2" style="--day-tint:#6f7f36">
+                      <span class="today-pill">Today</span>
+                      <div class="lp-day-name">Tuesday</div>
+                      <ul class="lp-day-items">
+                        <li class="item">
+                          <div class="item-headline">$9.99</div>
+                          <div class="item-subhead">Combo Dinners</div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="lp-day-card" data-corp-day="3" style="--day-tint:#b8581e">
+                      <span class="today-pill">Today</span>
+                      <div class="lp-day-name">Wednesday</div>
+                      <ul class="lp-day-items">
+                        <li class="item">
+                          <div class="item-headline item-headline-short">FREE</div>
+                          <div class="item-subhead">Kids Eat</div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="lp-day-card" data-corp-day="4" style="--day-tint:#a8311f">
                       <span class="today-pill">Today</span>
                       <div class="lp-day-name">Thursday</div>
                       <ul class="lp-day-items">
-                        <li><span class="lp-day-item-text">$3.99 Burrito</span></li>
+                        <li class="item">
+                          <div class="item-headline">$3.99</div>
+                          <div class="item-subhead">Burrito</div>
+                        </li>
                       </ul>
                       <div class="lp-day-badge">
                         <span class="karaoke-chip">
@@ -459,7 +534,7 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
                         </span>
                       </div>
                     </div>
-                    <div class="lp-day-card" data-corp-day="5">
+                    <div class="lp-day-card" data-corp-day="5" style="--day-tint:#5a847a">
                       <span class="today-pill">Today</span>
                       <div class="lp-day-name">Friday</div>
                       <div>
@@ -467,13 +542,14 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
                         <div class="lp-day-fallback-body">Good food, cold drinks, and Riverside energy.</div>
                       </div>
                     </div>
-                    <div class="lp-day-card" data-corp-day="6">
+                    <div class="lp-day-card" data-corp-day="6" style="--day-tint:#8b5a6b">
                       <span class="today-pill">Today</span>
                       <div class="lp-day-name">Saturday</div>
                       <ul class="lp-day-items">
-                        <li>
-                          <span class="lp-day-item-text">$19.99 Chicken Fajitas For 2</span>
-                          <span class="lp-day-item-note">Includes 2 Sweet Teas</span>
+                        <li class="item">
+                          <div class="item-headline">$19.99</div>
+                          <div class="item-subhead">Chicken Fajitas For 2</div>
+                          <div class="item-conditions"><span class="item-condition">With 2 Sweet Teas</span></div>
                         </li>
                       </ul>
                     </div>
@@ -527,22 +603,28 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
 
           <div class="card">
             <div class="lp-specials-body">
-              <div class="lp-everyday">
-                <span class="lp-everyday-chip">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-                  Every Day
-                </span>
-                <div class="lp-everyday-title">Every Day Specials</div>
-                <ul class="lp-day-items">
-                  <li><span class="lp-day-item-text">$2.00 off any Combinations</span></li>
-                  <li><span class="lp-day-item-text">$2.00 off any Frozen Margarita<span class="alc" aria-hidden="true">*</span></span></li>
-                </ul>
-              </div>
+              <section class="lp-everyday everyday-block" aria-label="Every Day Specials">
+                <div class="everyday-eyebrow">
+                  <span class="everyday-line" aria-hidden="true"></span>
+                  <span class="everyday-label">Every Day Specials</span>
+                  <span class="everyday-line" aria-hidden="true"></span>
+                </div>
+                <div class="everyday-items">
+                  <div class="everyday-item">
+                    <div class="everyday-headline">$2 OFF</div>
+                    <div class="everyday-subhead">Any Combination</div>
+                  </div>
+                  <div class="everyday-item">
+                    <div class="everyday-headline">$2 OFF<span class="ast" aria-label="alcohol">*</span></div>
+                    <div class="everyday-subhead">Any Frozen Margarita</div>
+                  </div>
+                </div>
+              </section>
 
               <div class="lp-days">
                 <div data-corp-today-slot></div>
                 <div class="lp-days-grid lp-days-grid--tall" data-corp-days>
-                  <div class="lp-day-card" data-corp-day="0">
+                  <div class="lp-day-card" data-corp-day="0" style="--day-tint:#c9482c">
                     <span class="today-pill">Today</span>
                     <div class="lp-day-name">Sunday</div>
                     <div>
@@ -550,70 +632,93 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
                       <div class="lp-day-fallback-body">Settle in for favorites, combinations, and a relaxed Sunday meal.</div>
                     </div>
                   </div>
-                  <div class="lp-day-card" data-corp-day="1">
+                  <div class="lp-day-card" data-corp-day="1" style="--day-tint:#a87a2d">
                     <span class="today-pill">Today</span>
                     <div class="lp-day-name">Monday</div>
                     <ul class="lp-day-items">
-                      <li><span class="lp-day-item-text">Kids Menu $5.00</span></li>
-                      <li>
-                        <span class="lp-day-item-text">Grilled Chicken Quesadilla w/ Rice and Small Soup $10.00</span>
-                        <span class="lp-day-item-note--pill">11 AM – 3 PM</span>
+                      <li class="item">
+                        <div class="item-headline">$5.00</div>
+                        <div class="item-subhead">Kids Menu</div>
                       </li>
-                      <li><span class="lp-day-item-text">Chicken Fajitas $14.00</span></li>
+                      <li class="item">
+                        <div class="item-headline">$10.00</div>
+                        <div class="item-subhead">Grilled Chicken Quesadilla w/ Rice &amp; Small Soup</div>
+                        <div class="item-conditions"><span class="item-condition">11AM – 3PM</span></div>
+                      </li>
+                      <li class="item">
+                        <div class="item-headline">$14.00</div>
+                        <div class="item-subhead">Chicken Fajitas</div>
+                      </li>
                     </ul>
                   </div>
-                  <div class="lp-day-card" data-corp-day="2">
+                  <div class="lp-day-card" data-corp-day="2" style="--day-tint:#6f7f36">
                     <span class="today-pill">Today</span>
                     <div class="lp-day-name">Tuesday</div>
                     <ul class="lp-day-items">
-                      <li><span class="lp-day-item-text">Draft Domestic Beer 16 oz $1.50<span class="alc" aria-hidden="true">*</span></span></li>
-                      <li>
-                        <span class="lp-day-item-text">Taco Tuesday $1.50 each</span>
-                        <span class="lp-day-item-note--pill">Ground Beef or Shredded Chicken</span>
+                      <li class="item">
+                        <div class="item-headline">$1.50<span class="ast" aria-label="alcohol">*</span></div>
+                        <div class="item-subhead">Draft Domestic Beer 16 oz</div>
                       </li>
-                      <li>
-                        <span class="lp-day-item-text">Lunch Taco Salad w/ Small Soup $10.00</span>
-                        <span class="lp-day-item-note--pill">11 AM – 3 PM</span>
+                      <li class="item">
+                        <div class="item-headline">$1.50</div>
+                        <div class="item-subhead">Taco Tuesday</div>
+                        <div class="item-conditions"><span class="item-condition">Ground Beef or Shredded Chicken</span><span class="item-condition">Each</span></div>
+                      </li>
+                      <li class="item">
+                        <div class="item-headline">$10.00</div>
+                        <div class="item-subhead">Lunch Taco Salad w/ Small Soup</div>
+                        <div class="item-conditions"><span class="item-condition">11AM – 3PM</span></div>
                       </li>
                     </ul>
                   </div>
-                  <div class="lp-day-card" data-corp-day="3">
+                  <div class="lp-day-card" data-corp-day="3" style="--day-tint:#b8581e">
                     <span class="today-pill">Today</span>
                     <div class="lp-day-name">Wednesday</div>
                     <ul class="lp-day-items">
-                      <li>
-                        <span class="lp-day-item-text">Speedy Gonzalez w/ Small Soup $10.00</span>
-                        <span class="lp-day-item-note--pill">11 AM – 3 PM</span>
+                      <li class="item">
+                        <div class="item-headline">$10.00</div>
+                        <div class="item-subhead">Speedy Gonzalez w/ Small Soup</div>
+                        <div class="item-conditions"><span class="item-condition">11AM – 3PM</span></div>
                       </li>
-                      <li>
-                        <span class="lp-day-item-text">Chimichanga and Rice w/ Small Soup $10.00</span>
-                        <span class="lp-day-item-note--pill">11 AM – 3 PM</span>
+                      <li class="item">
+                        <div class="item-headline">$10.00</div>
+                        <div class="item-subhead">Chimichanga &amp; Rice w/ Small Soup</div>
+                        <div class="item-conditions"><span class="item-condition">11AM – 3PM</span></div>
                       </li>
-                      <li><span class="lp-day-item-text">Enchiladas Supremas $10.00</span></li>
+                      <li class="item">
+                        <div class="item-headline">$10.00</div>
+                        <div class="item-subhead">Enchiladas Supremas</div>
+                      </li>
                     </ul>
                   </div>
-                  <div class="lp-day-card" data-corp-day="4">
+                  <div class="lp-day-card" data-corp-day="4" style="--day-tint:#a8311f">
                     <span class="today-pill">Today</span>
                     <div class="lp-day-name">Thursday</div>
                     <ul class="lp-day-items">
-                      <li>
-                        <span class="lp-day-item-text">Lunch Loco Rice w/ Small Soup $10.00</span>
-                        <span class="lp-day-item-note--pill">11 AM – 3 PM</span>
+                      <li class="item">
+                        <div class="item-headline">$10.00</div>
+                        <div class="item-subhead">Lunch Loco Rice w/ Small Soup</div>
+                        <div class="item-conditions"><span class="item-condition">11AM – 3PM</span></div>
                       </li>
-                      <li><span class="lp-day-item-text">Fiesta Quesadilla (Grilled Chicken) $10.00</span></li>
+                      <li class="item">
+                        <div class="item-headline">$10.00</div>
+                        <div class="item-subhead">Fiesta Quesadilla</div>
+                        <div class="item-conditions"><span class="item-condition">Grilled Chicken</span></div>
+                      </li>
                     </ul>
                   </div>
-                  <div class="lp-day-card" data-corp-day="5">
+                  <div class="lp-day-card" data-corp-day="5" style="--day-tint:#5a847a">
                     <span class="today-pill">Today</span>
                     <div class="lp-day-name">Friday</div>
                     <ul class="lp-day-items">
-                      <li>
-                        <span class="lp-day-item-text">Lunch Palmas Bowl (Chicken) w/ Small Soup $10.00</span>
-                        <span class="lp-day-item-note--pill">11 AM – 3 PM</span>
+                      <li class="item">
+                        <div class="item-headline">$10.00</div>
+                        <div class="item-subhead">Lunch Palmas Bowl (Chicken) w/ Small Soup</div>
+                        <div class="item-conditions"><span class="item-condition">11AM – 3PM</span></div>
                       </li>
                     </ul>
                   </div>
-                  <div class="lp-day-card" data-corp-day="6">
+                  <div class="lp-day-card" data-corp-day="6" style="--day-tint:#8b5a6b">
                     <span class="today-pill">Today</span>
                     <div class="lp-day-name">Saturday</div>
                     <div>
@@ -647,51 +752,68 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
               <div class="lp-days">
                 <div data-corp-today-slot></div>
                 <div class="lp-days-grid lp-days-grid--tall" data-corp-days>
-                  <div class="lp-day-card" data-corp-day="0">
+                  <div class="lp-day-card" data-corp-day="0" style="--day-tint:#c9482c">
                     <span class="today-pill">Today</span>
                     <div class="lp-day-name">Sunday</div>
                     <ul class="lp-day-items">
-                      <li>
-                        <span class="lp-day-item-text">Kids Eat Free</span>
-                        <span class="lp-day-item-note--pill">From Kids Menu</span>
+                      <li class="item">
+                        <div class="item-headline item-headline-short">FREE</div>
+                        <div class="item-subhead">Kids Eat</div>
                       </li>
-                      <li><span class="lp-day-item-text">$8.99 Loco Rice</span></li>
+                      <li class="item">
+                        <div class="item-headline">$8.99</div>
+                        <div class="item-subhead">Loco Rice</div>
+                      </li>
                     </ul>
                   </div>
-                  <div class="lp-day-card" data-corp-day="1">
+                  <div class="lp-day-card" data-corp-day="1" style="--day-tint:#a87a2d">
                     <span class="today-pill">Today</span>
                     <div class="lp-day-name">Monday</div>
                     <ul class="lp-day-items">
-                      <li>
-                        <span class="lp-day-item-text">BOGO Combos</span>
-                        <span class="lp-day-item-note--pill">When you purchase 2 soft drinks</span>
+                      <li class="item">
+                        <div class="item-headline item-headline-short">BOGO</div>
+                        <div class="item-subhead">Combos</div>
+                        <div class="item-conditions"><span class="item-condition">When you purchase 2 soft drinks</span></div>
                       </li>
                     </ul>
                   </div>
-                  <div class="lp-day-card" data-corp-day="2">
+                  <div class="lp-day-card" data-corp-day="2" style="--day-tint:#6f7f36">
                     <span class="today-pill">Today</span>
                     <div class="lp-day-name">Tuesday</div>
                     <ul class="lp-day-items">
-                      <li><span class="lp-day-item-text">$8.99 Chicken Wings and Fries</span></li>
-                      <li><span class="lp-day-item-text">$4.99 Flavored Margarita<span class="alc" aria-hidden="true">*</span></span></li>
-                    </ul>
-                  </div>
-                  <div class="lp-day-card" data-corp-day="3">
-                    <span class="today-pill">Today</span>
-                    <div class="lp-day-name">Wednesday</div>
-                    <ul class="lp-day-items">
-                      <li>
-                        <span class="lp-day-item-text">$9.99 Birria Tacos</span>
-                        <span class="lp-day-item-note--pill">Includes a side of Rice</span>
+                      <li class="item">
+                        <div class="item-headline">$8.99</div>
+                        <div class="item-subhead">Chicken Wings &amp; Fries</div>
+                      </li>
+                      <li class="item">
+                        <div class="item-headline">$4.99<span class="ast" aria-label="alcohol">*</span></div>
+                        <div class="item-subhead">Flavored Margarita</div>
                       </li>
                     </ul>
                   </div>
-                  <div class="lp-day-card" data-corp-day="4">
+                  <div class="lp-day-card" data-corp-day="3" style="--day-tint:#b8581e">
+                    <span class="today-pill">Today</span>
+                    <div class="lp-day-name">Wednesday</div>
+                    <ul class="lp-day-items">
+                      <li class="item">
+                        <div class="item-headline">$9.99</div>
+                        <div class="item-subhead">Birria Tacos</div>
+                        <div class="item-conditions"><span class="item-condition">With a side of Rice</span></div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="lp-day-card" data-corp-day="4" style="--day-tint:#a8311f">
                     <span class="today-pill">Today</span>
                     <div class="lp-day-name">Thursday</div>
                     <ul class="lp-day-items">
-                      <li><span class="lp-day-item-text">99¢ Tacos</span></li>
-                      <li><span class="lp-day-item-text">$1.49 Draft Beer<span class="alc" aria-hidden="true">*</span></span></li>
+                      <li class="item">
+                        <div class="item-headline item-headline-short">99¢</div>
+                        <div class="item-subhead">Tacos</div>
+                      </li>
+                      <li class="item">
+                        <div class="item-headline">$1.49<span class="ast" aria-label="alcohol">*</span></div>
+                        <div class="item-subhead">Draft Beer</div>
+                      </li>
                     </ul>
                     <div class="lp-day-badge">
                       <span class="karaoke-chip">
@@ -700,23 +822,25 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
                       </span>
                     </div>
                   </div>
-                  <div class="lp-day-card" data-corp-day="5">
+                  <div class="lp-day-card" data-corp-day="5" style="--day-tint:#5a847a">
                     <span class="today-pill">Today</span>
                     <div class="lp-day-name">Friday</div>
                     <ul class="lp-day-items">
-                      <li>
-                        <span class="lp-day-item-text">$9.99 Taco Salad</span>
-                        <span class="lp-day-item-note--pill">Sweet Tea Included</span>
+                      <li class="item">
+                        <div class="item-headline">$9.99</div>
+                        <div class="item-subhead">Taco Salad</div>
+                        <div class="item-conditions"><span class="item-condition">Sweet Tea Included</span></div>
                       </li>
                     </ul>
                   </div>
-                  <div class="lp-day-card" data-corp-day="6">
+                  <div class="lp-day-card" data-corp-day="6" style="--day-tint:#8b5a6b">
                     <span class="today-pill">Today</span>
                     <div class="lp-day-name">Saturday</div>
                     <ul class="lp-day-items">
-                      <li>
-                        <span class="lp-day-item-text">$19.99 Chicken Fajitas For 2</span>
-                        <span class="lp-day-item-note--pill">Includes 2 Sweet Teas</span>
+                      <li class="item">
+                        <div class="item-headline">$19.99</div>
+                        <div class="item-subhead">Chicken Fajitas For 2</div>
+                        <div class="item-conditions"><span class="item-condition">With 2 Sweet Teas</span></div>
                       </li>
                     </ul>
                   </div>

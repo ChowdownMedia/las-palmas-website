@@ -23,20 +23,26 @@
 <script>(function(){try{var t=localStorage.getItem('lp-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}document.documentElement.classList.remove('no-js');})();</script>
 
 <link rel="preload" href="/assets/fonts/playfair-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/playfair-italic-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/manrope-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/dm-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/images/catering/catering-buffet-line.webp" as="image">
 
 <style>
 @font-face{font-family:'Manrope';src:url('/assets/fonts/manrope-var.woff2') format('woff2');font-weight:200 800;font-style:normal;font-display:swap}
 @font-face{font-family:'Playfair Display';src:url('/assets/fonts/playfair-var.woff2') format('woff2');font-weight:400 900;font-style:normal;font-display:swap}
 @font-face{font-family:'Playfair Display';src:url('/assets/fonts/playfair-italic-var.woff2') format('woff2');font-weight:400 900;font-style:italic;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('/assets/fonts/dm-sans-var.woff2') format('woff2');font-weight:400 700;font-style:normal;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('/assets/fonts/dm-sans-italic-var.woff2') format('woff2');font-weight:400 700;font-style:italic;font-display:swap}
+@font-face{font-family:'Instrument Serif';src:url('/assets/fonts/instrument-serif.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Instrument Serif';src:url('/assets/fonts/instrument-serif-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
 :root{--bg:#faf3e4;--bg-elev:#f4ead4;--bg-card:#fbf5e6;--bg-card-2:#efe1c2;--line:#e3cfa3;--line-soft:#ead9b2;--text:#3b2415;--text-soft:#6b4a2e;--text-mute:#8a6a4a;--gold:#c89b3c;--gold-deep:#a87a1f;--amber:#d99a3c;--terracotta:#c25a36;--terracotta-deep:#a3411f;--salsa:#b03826;--shadow-sm:0 1px 2px rgba(74,42,18,.06),0 2px 8px rgba(74,42,18,.04);--shadow-md:0 4px 14px rgba(74,42,18,.10),0 1px 3px rgba(74,42,18,.06);--shadow-lg:0 18px 42px rgba(74,42,18,.14),0 4px 12px rgba(74,42,18,.08);--glow:0 0 0 1px rgba(217,154,60,.30),0 14px 38px -10px rgba(176,56,38,.30);--ring:0 0 0 3px rgba(200,155,60,.35);--gradient-warm:linear-gradient(135deg,#f4c97a 0%,#e08b4f 55%,#c2502c 100%);--gradient-button:linear-gradient(180deg,#d96b40 0%,#b03826 100%);--gradient-button-hover:linear-gradient(180deg,#e07a4d 0%,#c2452c 100%);--gradient-text:linear-gradient(95deg,#b03826 0%,#d99a3c 100%);--header-bg:rgba(250,243,228,.82)}
 [data-theme="dark"]{--bg:#1a0f07;--bg-elev:#22150c;--bg-card:#28190f;--bg-card-2:#311e12;--line:#4a2f1c;--line-soft:#3a2616;--text:#f1e2c4;--text-soft:#d8bf94;--text-mute:#a48d65;--gold:#d9a23c;--gold-deep:#b8862e;--amber:#e0a84a;--terracotta:#d96d44;--terracotta-deep:#c2502c;--salsa:#c44525;--shadow-sm:0 1px 2px rgba(0,0,0,.45),0 2px 8px rgba(0,0,0,.25);--shadow-md:0 6px 20px rgba(0,0,0,.55),0 2px 6px rgba(0,0,0,.3);--shadow-lg:0 22px 50px rgba(0,0,0,.65),0 6px 16px rgba(0,0,0,.4);--glow:0 0 0 1px rgba(217,162,60,.32),0 16px 44px -10px rgba(217,130,60,.40);--ring:0 0 0 3px rgba(217,162,60,.40);--gradient-warm:linear-gradient(135deg,#b8752c 0%,#9c4825 55%,#5e2010 100%);--gradient-button:linear-gradient(180deg,#e0784a 0%,#b03e20 100%);--gradient-button-hover:linear-gradient(180deg,#ec8757 0%,#c54725 100%);--gradient-text:linear-gradient(95deg,#e08e60 0%,#e0b860 100%);--header-bg:rgba(28,17,8,.78)}
 *{box-sizing:border-box}html,body{background:var(--bg)}
-body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--text);-webkit-font-smoothing:antialiased}
+body{margin:0;font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--text);-webkit-font-smoothing:antialiased}
 .lp-page{background:var(--bg);color:var(--text);min-height:100vh}
-.serif{font-family:'Playfair Display',Georgia,serif}.italic{font-style:italic}
+.serif{font-family:'Instrument Serif',Georgia,serif}.italic{font-style:italic}
 .lp-glow{box-shadow:var(--shadow-md),var(--glow)}
 .container{width:100%;max-width:720px;margin:0 auto;padding:0 18px}
 @media(min-width:768px){.container{max-width:880px;padding:0 28px}}
@@ -72,24 +78,25 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
 .cat-hero-media::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(40,18,8,.12) 0%,transparent 45%,rgba(40,18,8,.30) 100%)}
 @media(min-width:760px){.cat-hero-media{aspect-ratio:21/9;max-height:300px}}
 .cat-hero-text{position:relative;padding:22px 18px 26px;text-align:center}
-.cat-hero-eyebrow{font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-mute);margin:0 0 10px}
-.cat-hero-title{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:clamp(34px,9.5vw,52px);line-height:1.04;color:var(--text);margin:0 0 10px;letter-spacing:-.005em}
+.cat-hero-eyebrow{font-size:11.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--text-mute);margin:0 0 10px;opacity:.85}
+.cat-hero-title{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(34px,9.5vw,52px);line-height:1.04;color:var(--text);margin:0 0 10px;letter-spacing:-.005em}
 .cat-hero-accent{font-style:italic}
-.cat-hero-sub{font-size:15.5px;color:var(--text-soft);margin:0 auto 16px;max-width:46ch;line-height:1.55}
-.cat-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 12px 6px 10px;background:rgba(200,155,60,.14);border:1px solid var(--line);border-radius:999px;color:#e0b860;font:600 11.5px 'Manrope',sans-serif;letter-spacing:.04em;text-transform:uppercase}
+.cat-hero-sub{font-size:15px;color:var(--text-soft);margin:0 auto 14px;max-width:44ch;line-height:1.5}
+.cat-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 12px 6px 10px;background:rgba(200,155,60,.14);border:1px solid var(--line);border-radius:999px;color:#e0b860;font:600 11.5px 'DM Sans',sans-serif;letter-spacing:.04em;text-transform:uppercase}
 .cat-badge svg{color:#e0b860}
 
 .cat-sec{margin:0 0 28px}
 .cat-sec-head{margin-bottom:14px}
 .cat-sec-head--center{text-align:center}
-.cat-sec-title{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:clamp(24px,6.5vw,30px);color:var(--text);margin:0 0 6px;line-height:1.15}
+.cat-sec-title{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(24px,6.5vw,30px);color:var(--text);margin:0 0 6px;line-height:1.15;letter-spacing:.005em}
 .cat-sec-lede{font-size:14.5px;color:var(--text-soft);margin:0;max-width:56ch}
 .cat-sec-head--center .cat-sec-lede{margin:0 auto}
 
-.cat-notice{display:flex;align-items:center;gap:14px;padding:16px;background:linear-gradient(180deg,var(--bg-card) 0%,var(--bg-card-2) 100%);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm)}
-.cat-notice-icon{flex-shrink:0;width:44px;height:44px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:var(--bg);border:1px solid var(--line-soft);color:var(--terracotta-deep)}
-[data-theme="dark"] .cat-notice-icon{color:var(--gold-deep)}
-.cat-notice-title{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:20px;color:var(--text);margin:0 0 2px;line-height:1.15}
+.cat-notice{display:flex;align-items:center;gap:14px;padding:16px;background:linear-gradient(180deg,#F8E5BA 0%,#EDC97A 100%);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm)}
+[data-theme="dark"] .cat-notice{background:linear-gradient(180deg,#4A3216 0%,#2A1A0C 100%)}
+.cat-notice-icon{flex-shrink:0;width:44px;height:44px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,251,241,.85);border:1px solid var(--line-soft);color:var(--terracotta-deep)}
+[data-theme="dark"] .cat-notice-icon{background:rgba(60,42,22,.7);color:var(--gold-deep)}
+.cat-notice-title{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:20px;color:var(--text);margin:0 0 2px;line-height:1.15;letter-spacing:.005em}
 .cat-notice-body{margin:0;font-size:14.5px;color:var(--text);line-height:1.5}
 .cat-notice-body strong{color:var(--text);font-weight:800}
 
@@ -106,8 +113,8 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
 @media(min-width:720px){.cat-buffets{grid-template-columns:repeat(3,1fr);gap:14px}}
 .cat-buffet{position:relative;padding:18px;background:var(--bg-card);border:1px solid var(--line-soft);border-radius:18px;box-shadow:var(--shadow-sm);transition:transform 200ms ease,box-shadow 200ms ease,border-color 200ms ease}
 .cat-buffet:hover{border-color:var(--line);box-shadow:var(--shadow-md);transform:translateY(-1px)}
-.cat-buffet-num{position:absolute;top:14px;right:18px;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:22px;color:var(--gold);opacity:.75;line-height:1}
-.cat-buffet-name{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:22px;color:var(--text);margin:0 56px 8px 0;line-height:1.1}
+.cat-buffet-num{position:absolute;top:14px;right:18px;font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:22px;color:var(--gold);opacity:.75;line-height:1}
+.cat-buffet-name{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:22px;color:var(--text);margin:0 56px 8px 0;line-height:1.1}
 .cat-buffet-desc{margin:0;font-size:14.5px;color:var(--text-soft);line-height:1.5}
 
 .cat-prose-sec{margin:8px 0 28px}
@@ -115,14 +122,14 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
 
 .cat-loc-grid{display:grid;grid-template-columns:1fr;gap:10px}
 @media(min-width:520px){.cat-loc-grid{grid-template-columns:repeat(2,1fr);gap:12px}}
-@media(min-width:820px){.cat-loc-grid{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:820px){.cat-loc-grid{grid-template-columns:repeat(3,1fr)}}
 .cat-loc{display:flex;align-items:center;gap:12px;padding:14px;background:var(--bg-card);border:1px solid var(--line-soft);border-radius:16px;box-shadow:var(--shadow-sm);transition:border-color 180ms ease,box-shadow 180ms ease,transform 180ms ease}
 .cat-loc:hover{border-color:var(--line);box-shadow:var(--shadow-md);transform:translateY(-1px)}
 .cat-loc-info{flex:1;min-width:0}
-.cat-loc-name{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:19px;color:var(--text);margin:0;line-height:1.05}
+.cat-loc-name{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:19px;color:var(--text);margin:0;line-height:1.05}
 .cat-loc-phone{font-size:12.5px;color:var(--terracotta);text-decoration:none;font-weight:600;font-variant-numeric:tabular-nums;display:block;margin-top:3px}
 .cat-loc-phone:hover{color:var(--terracotta-deep);text-decoration:underline;text-underline-offset:3px}
-.cat-loc-callbtn{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;background:var(--gradient-button);color:#fff7e8;border:none;border-radius:999px;font:600 13px 'Manrope',sans-serif;text-decoration:none;box-shadow:var(--shadow-sm);flex-shrink:0;transition:transform 160ms ease,filter 160ms ease}
+.cat-loc-callbtn{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;background:var(--gradient-button);color:#fff7e8;border:none;border-radius:999px;font:600 13px 'DM Sans',sans-serif;text-decoration:none;box-shadow:var(--shadow-sm);flex-shrink:0;transition:transform 160ms ease,filter 160ms ease}
 .cat-loc-callbtn:hover{filter:brightness(1.05)}
 .cat-loc-callbtn:active{transform:scale(.97)}
 
@@ -133,7 +140,7 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
 .cat-imgcard-art{position:relative;width:calc(100% - 16px);aspect-ratio:16/11;border-radius:16px;overflow:hidden;margin:8px 8px 0;background:var(--bg-card-2)}
 .cat-imgcard-art svg,.cat-imgcard-art img{display:block;width:100%;height:100%;object-fit:cover}
 .cat-imgcard-body{padding:12px 14px 16px}
-.cat-imgcard-title{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:21px;color:var(--text);margin:0 0 4px;line-height:1.1}
+.cat-imgcard-title{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:21px;color:var(--text);margin:0 0 4px;line-height:1.1}
 .cat-imgcard-caption{font-size:13.5px;color:var(--text-soft);margin:0;line-height:1.45}
 
 /* ── Footer ── */
@@ -245,7 +252,7 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
         <div class="cat-hero-text">
           <p class="cat-hero-eyebrow">— Las Palmas Catering —</p>
           <h1 id="cat-hero-title" class="cat-hero-title"><span class="cat-hero-accent serif italic shimmer-text">Catering</span> Services</h1>
-          <p class="cat-hero-sub">Traditional buffets, party favorites, and Las Palmas flavor for your next event across Rome and Northwest Georgia.</p>
+          <p class="cat-hero-sub">Traditional buffets, party favorites, and Las Palmas flavor for your next event.</p>
           <div class="cat-badge" role="img" aria-label="Best of Georgia">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
             <span>Best of Georgia</span>
@@ -426,7 +433,7 @@ body{margin:0;font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'
                   <path d="M -27 -16 L 27 -16 L 4 12 L -4 12 Z" fill="rgba(232,200,110,0.55)"/>
                   <g transform="translate(22,-22) rotate(20)"><path d="M -7 0 A 7 7 0 0 1 7 0 Z" fill="rgba(200,230,130,0.92)" stroke="rgba(120,160,60,0.8)" stroke-width="0.6"/><line x1="-5" y1="-1" x2="5" y2="-1" stroke="rgba(120,160,60,0.7)" stroke-width="0.5"/></g>
                 </g>
-                <text x="178" y="186" text-anchor="end" fill="rgba(255,246,218,0.55)" font-family="'Playfair Display',Georgia,serif" font-size="14" letter-spacing="0.06em">LP</text>
+                <text x="178" y="186" text-anchor="end" fill="rgba(255,246,218,0.55)" font-family="'Instrument Serif',Georgia,serif" font-size="14" letter-spacing="0.06em">LP</text>
               </svg>
             </div>
             <div class="cat-imgcard-body">
