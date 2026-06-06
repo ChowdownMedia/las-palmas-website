@@ -24,7 +24,8 @@ CREATE TABLE IF NOT EXISTS chat_threads (
   started_at TEXT NOT NULL,
   last_at TEXT NOT NULL,
   flagged INTEGER NOT NULL DEFAULT 0,
-  flag_reason TEXT NOT NULL DEFAULT ''
+  flag_reason TEXT NOT NULL DEFAULT '',
+  read INTEGER NOT NULL DEFAULT 0              -- admin Chat CRM read-state
 );
 CREATE INDEX IF NOT EXISTS idx_chat_threads_last ON chat_threads (last_at);
 
@@ -36,3 +37,11 @@ CREATE TABLE IF NOT EXISTS chat_messages (
   ts TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS idx_chat_messages_thread ON chat_messages (thread_id);
+
+-- Admin back-office sessions (token issued by /api/admin/login)
+CREATE TABLE IF NOT EXISTS admin_sessions (
+  token TEXT PRIMARY KEY,
+  created_at TEXT NOT NULL,
+  expires_at TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_admin_sessions_exp ON admin_sessions (expires_at);

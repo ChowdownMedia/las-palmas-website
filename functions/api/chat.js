@@ -68,7 +68,8 @@ async function logToCrm(env, threadId, userText, replyText, flagInfo) {
      ON CONFLICT(id) DO UPDATE SET
        last_at = ?2,
        flagged = MAX(flagged, ?3),
-       flag_reason = CASE WHEN flag_reason = '' THEN ?4 ELSE flag_reason END`
+       flag_reason = CASE WHEN flag_reason = '' THEN ?4 ELSE flag_reason END,
+       read = 0`
   ).bind(threadId, nowIso, flagged, reason).run();
   await db.batch([
     db.prepare('INSERT INTO chat_messages (thread_id, role, text, ts) VALUES (?1, ?2, ?3, ?4)')

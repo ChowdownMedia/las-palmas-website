@@ -26,7 +26,8 @@ export async function onRequestPost({ request, env }) {
        ON CONFLICT(id) DO UPDATE SET
          last_at = ?2,
          flagged = 1,
-         flag_reason = CASE WHEN flag_reason = '' THEN ?3 ELSE flag_reason END`
+         flag_reason = CASE WHEN flag_reason = '' THEN ?3 ELSE flag_reason END,
+         read = 0`
     ).bind(threadId, nowIso, 'Guest gave a thumbs-down on a reply').run();
     if (text || body.withMessage) {
       await db.prepare(

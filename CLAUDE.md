@@ -45,12 +45,25 @@ each GBP listing points at its own location page.
   wrangler does not auto-load Pages D1 bindings locally) + `.dev.vars` for the key
   (never commit; delete after testing).
 
-## Still deferred (marked [BACKEND REQUIRED] in Glenn's prototypes)
+## Back office — /admin/ (Phase A live 2026-06-06)
+
+- Single login portal at `/admin/` (noindex) — replaces Glenn's hidden 4-tap gates.
+  Houses his CRM panels as tabs: **Conversations** (chat CRM) + **Feedback** (feedback CRM).
+- Auth: `ADMIN_PASSWORD` Pages secret = SAME password as LP AI Command (one credential for
+  the team). `/api/admin/login` issues a token stored in D1 `admin_sessions`; `requireAdmin`
+  (functions/api/admin/_auth.js) guards every admin route. Token in sessionStorage, 24h.
+- Admin API (all token-guarded): chat-threads/chat-thread (list/patch read+flag/delete),
+  feedback-records/feedback-record (list/patch concern/delete), session (verify/logout).
+- LP AI Command = the MIRROR (its own auth patched 2026-06-06; rotate its default
+  ADMIN_PASSWORD in Render env). Glenn's portal is the MAIN back office for the website.
+- Phase B (next): Training editor + Direct Links manager + live chat compiling its prompt
+  from D1 (edit Training → assistant updates). Phase C: feedback form builder + ToS editors.
+
+## Still deferred
 
 - Location Studio editors / homepage Studio (localStorage-based live editing)
 - AI menu search
-- Chat + feedback ADMIN panels (training editor, CRM views, ToS editors — passkey
-  auth in the prototypes is front-end only; needs real auth first)
+- Training editor / Direct Links / form builder / ToS editors (Phase B + C above)
 
 ## SEO requirements (every page)
 
