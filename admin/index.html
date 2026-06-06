@@ -1088,10 +1088,19 @@ button{font-family:inherit}
         var canvas = d.createElement('canvas'); canvas.width = tw; canvas.height = th;
         canvas.getContext('2d').drawImage(img, 0, 0, tw, th);
         URL.revokeObjectURL(url);
-        canvas.toBlob(function (blob) {
-          if (blob) resolve({ blob: blob, type: 'image/webp', w: tw, h: th });
-          else resolve({ blob: file, type: file.type, w: tw, h: th }); // WebP unsupported → original
-        }, 'image/webp', IMG_QUALITY);
+        // Encode WebP AND JPEG, keep whichever is smaller. Some browsers ignore the
+        // quality arg for WebP (producing huge near-lossless files); JPEG quality is
+        // honored everywhere — so the smaller of the two is always well-compressed.
+        function enc(type) { return new Promise(function (r) { canvas.toBlob(function (b) { r(b); }, type, IMG_QUALITY); }); }
+        Promise.all([enc('image/webp'), enc('image/jpeg')]).then(function (bs) {
+          var webp = bs[0], jpeg = bs[1];
+          if (webp && jpeg) {
+            if (webp.size <= jpeg.size) resolve({ blob: webp, type: 'image/webp', w: tw, h: th });
+            else resolve({ blob: jpeg, type: 'image/jpeg', w: tw, h: th });
+          } else if (webp) resolve({ blob: webp, type: 'image/webp', w: tw, h: th });
+          else if (jpeg) resolve({ blob: jpeg, type: 'image/jpeg', w: tw, h: th });
+          else resolve({ blob: file, type: file.type, w: tw, h: th });
+        });
       };
       img.onerror = function () { URL.revokeObjectURL(url); reject(); };
       img.src = url;
