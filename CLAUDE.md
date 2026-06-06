@@ -36,8 +36,11 @@ each GBP listing points at its own location page.
   regenerate from the JSX when training data changes, don't hand-edit.
 - D1: `las-palmas-site` (binding `DB` via wrangler.toml; schema.sql). Tables:
   feedback_records, chat_threads, chat_messages.
-- Secret: ANTHROPIC_API_KEY via `wrangler pages secret put` (Chuck's key, shared with
-  ChowdownOS). NEVER in client code or wrangler.toml.
+- Model: GPT-5 mini (gpt-5-mini-2025-08-07) on the LAS PALMAS OpenAI key — same key+model
+  as LP AI Command (lp-ai-command-center.onrender.com). BILLING RULE: Las Palmas AI usage
+  must bill to the Las Palmas key, never ChowdownOS or other client keys.
+- Secret: OPENAI_API_KEY via `wrangler pages secret put` (local copy: ~/LPAICommand/.env).
+  NEVER in client code or wrangler.toml.
 - Local dev: `wrangler pages dev . --d1=DB=las-palmas-site` (the --d1 flag is required;
   wrangler does not auto-load Pages D1 bindings locally) + `.dev.vars` for the key
   (never commit; delete after testing).
