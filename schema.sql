@@ -68,7 +68,9 @@ CREATE TABLE IF NOT EXISTS events (
   title TEXT NOT NULL DEFAULT '',
   description TEXT NOT NULL DEFAULT '',
   locations TEXT NOT NULL DEFAULT '[]',  -- JSON array of location names; [] = all
-  image TEXT NOT NULL DEFAULT '',        -- R2 key path (/media/...) or ''
+  image TEXT NOT NULL DEFAULT '',        -- /media/... path or ''
+  image_w INTEGER NOT NULL DEFAULT 0,    -- optimized width (defines the img, prevents CLS)
+  image_h INTEGER NOT NULL DEFAULT 0,
   created_at TEXT NOT NULL,
   updated_at TEXT NOT NULL
 );

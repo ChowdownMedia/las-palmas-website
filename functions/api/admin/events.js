@@ -14,6 +14,7 @@ function newId() {
 }
 function validDate(s) { return /^\d{4}-\d{2}-\d{2}$/.test(String(s || '')); }
 function cleanTime(s) { s = String(s || '').trim(); return /^\d{2}:\d{2}$/.test(s) ? s : ''; }
+function dim(n) { n = Math.trunc(Number(n) || 0); return n > 0 && n < 20000 ? n : 0; }
 function cleanLocs(arr) {
   if (!Array.isArray(arr)) return [];
   return arr.map(String).filter((l) => LOCATIONS.includes(l));
@@ -22,10 +23,10 @@ const safe = (s) => { try { const a = JSON.parse(s); return Array.isArray(a) ? a
 
 export async function onRequestGet({ request, env }) {
   const guard = await requireAdmin(request, env); if (guard) return guard;
-  const res = await env.DB.prepare('SELECT id, date, time, end_time, title, description, locations, image FROM events ORDER BY date ASC').all();
+  const res = await env.DB.prepare('SELECT id, date, time, end_time, title, description, locations, image, image_w, image_h FROM events ORDER BY date ASC').all();
   return json({
     events: (res.results || []).map((r) => ({
-      id: r.id, date: r.date, time: r.time || '', endTime: r.end_time || '', title: r.title, description: r.description, locations: safe(r.locations), image: r.image || '',
+      id: r.id, date: r.date, time: r.time || '', endTime: r.end_time || '', title: r.title, description: r.description, locations: safe(r.locations), image: r.image || '', imageW: r.image_w || 0, imageH: r.image_h || 0,
     })),
   });
 }
@@ -40,8 +41,8 @@ export async function onRequestPost({ request, env }) {
   const id = newId();
   const now = new Date().toISOString();
   await env.DB.prepare(
-    'INSERT INTO events (id, date, time, end_time, title, description, locations, image, created_at, updated_at) VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,?9)'
-  ).bind(id, b.date, cleanTime(b.time), cleanTime(b.endTime), title, String(b.description || '').slice(0, 1000), JSON.stringify(cleanLocs(b.locations)), String(b.image || '').slice(0, 300), now).run();
+    'INSERT INTO events (id, date, time, end_time, title, description, locations, image, image_w, image_h, created_at, updated_at) VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,?10,?11,?11)'
+  ).bind(id, b.date, cleanTime(b.time), cleanTime(b.endTime), title, String(b.description || '').slice(0, 1000), JSON.stringify(cleanLocs(b.locations)), String(b.image || '').slice(0, 300), dim(b.imageW), dim(b.imageH), now).run();
   return json({ ok: true, id });
 }
 
@@ -57,6 +58,8 @@ export async function onRequestPatch({ request, env }) {
   if (typeof b.description === 'string') { sets.push(`description = ?${binds.length + 2}`); binds.push(b.description.slice(0, 1000)); }
   if (Array.isArray(b.locations)) { sets.push(`locations = ?${binds.length + 2}`); binds.push(JSON.stringify(cleanLocs(b.locations))); }
   if (typeof b.image === 'string') { sets.push(`image = ?${binds.length + 2}`); binds.push(b.image.slice(0, 300)); }
+  if (Number.isFinite(b.imageW)) { sets.push(`image_w = ?${binds.length + 2}`); binds.push(dim(b.imageW)); }
+  if (Number.isFinite(b.imageH)) { sets.push(`image_h = ?${binds.length + 2}`); binds.push(dim(b.imageH)); }
   if (!sets.length) return badRequest('nothing to update');
   sets.push(`updated_at = ?${binds.length + 2}`); binds.push(new Date().toISOString());
   await env.DB.prepare(`UPDATE events SET ${sets.join(', ')} WHERE id = ?1`).bind(String(b.id), ...binds).run();

@@ -1049,24 +1049,53 @@ button{font-family:inherit}
     });
     d.getElementById('lpa-ev-cancel').addEventListener('click', function () { evEditing = null; evErr = ''; renderEvents(); });
     d.getElementById('lpa-ev-save').addEventListener('click', saveEvent);
-    // Image upload (raw bytes → R2 via /api/admin/event-image)
+    // Image upload: optimize in the browser (resize → WebP) BEFORE upload, so
+    // only a small, web-sized file hits R2 and we know its exact dimensions (no CLS).
     var fileInput = d.getElementById('lpa-ev-file');
     if (fileInput) fileInput.addEventListener('change', function () {
       var file = this.files && this.files[0]; if (!file) return;
       var status = d.getElementById('lpa-ev-upstatus');
-      if (file.size > 8 * 1024 * 1024) { status.textContent = 'Too large (max 8MB)'; return; }
-      status.textContent = 'Uploading…';
+      if (file.size > 25 * 1024 * 1024) { status.textContent = 'Too large (max 25MB)'; return; }
+      status.textContent = 'Optimizing…';
       syncEventForm();
-      fetch('/api/admin/event-image', { method: 'POST', headers: { 'Content-Type': file.type, Authorization: 'Bearer ' + token }, body: file })
-        .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
-        .then(function (res) {
-          if (res.ok && res.j.url) { evEditing.image = res.j.url; renderEventForm(); }
-          else { status.textContent = (res.j && res.j.error) ? res.j.error : 'Upload failed'; }
-        })
-        .catch(function () { status.textContent = 'Upload failed — try again'; });
+      optimizeImage(file).then(function (opt) {
+        status.textContent = 'Uploading…';
+        return fetch('/api/admin/event-image', { method: 'POST', headers: { 'Content-Type': opt.type, Authorization: 'Bearer ' + token }, body: opt.blob })
+          .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+          .then(function (res) {
+            if (res.ok && res.j.url) { evEditing.image = res.j.url; evEditing.imageW = opt.w; evEditing.imageH = opt.h; renderEventForm(); }
+            else { status.textContent = (res.j && res.j.error) ? res.j.error : 'Upload failed'; }
+          });
+      }).catch(function () { status.textContent = 'Upload failed — try again'; });
     });
     var rm = d.getElementById('lpa-ev-imgremove');
-    if (rm) rm.addEventListener('click', function () { syncEventForm(); evEditing.image = ''; renderEventForm(); });
+    if (rm) rm.addEventListener('click', function () { syncEventForm(); evEditing.image = ''; evEditing.imageW = 0; evEditing.imageH = 0; renderEventForm(); });
+  }
+
+  /* Resize to <=1200px longest edge + encode WebP ~0.82 (SEO/perf standard).
+     GIFs pass through untouched (preserve animation). Returns { blob, type, w, h }. */
+  var IMG_MAX_EDGE = 1200, IMG_QUALITY = 0.82;
+  function optimizeImage(file) {
+    return new Promise(function (resolve, reject) {
+      if (file.type === 'image/gif') { resolve({ blob: file, type: file.type, w: 0, h: 0 }); return; }
+      var url = URL.createObjectURL(file);
+      var img = new Image();
+      img.onload = function () {
+        var w = img.naturalWidth, h = img.naturalHeight;
+        if (!w || !h) { URL.revokeObjectURL(url); resolve({ blob: file, type: file.type, w: 0, h: 0 }); return; }
+        var scale = Math.min(1, IMG_MAX_EDGE / Math.max(w, h));
+        var tw = Math.round(w * scale), th = Math.round(h * scale);
+        var canvas = d.createElement('canvas'); canvas.width = tw; canvas.height = th;
+        canvas.getContext('2d').drawImage(img, 0, 0, tw, th);
+        URL.revokeObjectURL(url);
+        canvas.toBlob(function (blob) {
+          if (blob) resolve({ blob: blob, type: 'image/webp', w: tw, h: th });
+          else resolve({ blob: file, type: file.type, w: tw, h: th }); // WebP unsupported → original
+        }, 'image/webp', IMG_QUALITY);
+      };
+      img.onerror = function () { URL.revokeObjectURL(url); reject(); };
+      img.src = url;
+    });
   }
 
   function syncEventForm() {
@@ -1088,7 +1117,7 @@ button{font-family:inherit}
     if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) { evErr = 'Please pick a date.'; renderEventForm(); return; }
     if (!title) { evErr = 'Please enter a title.'; renderEventForm(); return; }
     evErr = '';
-    var payload = { date: date, time: time, endTime: endTime, title: title, description: description, locations: evEditing.locations, image: evEditing.image || '' };
+    var payload = { date: date, time: time, endTime: endTime, title: title, description: description, locations: evEditing.locations, image: evEditing.image || '', imageW: evEditing.imageW || 0, imageH: evEditing.imageH || 0 };
     if (evEditing.isNew) {
       adminFetch('/api/admin/events', { method: 'POST', body: JSON.stringify(payload) }).then(function () { loadEvents(); }).catch(function () {});
     } else {
