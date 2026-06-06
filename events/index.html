@@ -203,6 +203,11 @@ html[data-ev-theme="dark"] .lp-ico-moon { display: none; }
   display: block;
   object-fit: cover;
 }
+/* Uploaded flyer: show the WHOLE flyer at its own proportions (no crop). Any
+   flyer Glenn injects — portrait, square, landscape — just fits. */
+.lp-event-card.has-photo .lp-event-card__media { aspect-ratio: auto; background: var(--surface); }
+.lp-event-card.has-photo .lp-event-image { position: static; }
+.lp-event-card.has-photo .lp-event-image img { position: static; width: 100%; height: auto; object-fit: contain; }
 .lp-date-badge {
   position: absolute;
   top: 14px;
@@ -411,7 +416,7 @@ html[data-ev-theme="dark"] .lp-ico-moon { display: none; }
       var dt=parseYMD(ev.date);
       var du=daysUntil(dt);
       var badge=du===0?'<span class="lp-status lp-status--today">Today</span>':(du>0&&du<=COMING_SOON_DAYS?'<span class="lp-status lp-status--soon">Coming Soon</span>':'');
-      htmlOut+='<article class="lp-event-card">'+
+      htmlOut+='<article class="lp-event-card'+(ev.image?' has-photo':'')+'">'+
         '<div class="lp-event-card__media"><div class="lp-event-image">'+(ev.image?('<img src="'+esc(ev.image)+'" alt="'+esc(ev.title)+'" loading="lazy">'):fallbackArt(i))+'</div>'+
         '<div class="lp-date-badge" aria-hidden="true"><div class="lp-date-badge__month">'+MONTH_LABELS[dt.getMonth()]+'</div>'+
         '<div class="lp-date-badge__day">'+dt.getDate()+'</div><div class="lp-date-badge__rule"></div></div></div>'+
