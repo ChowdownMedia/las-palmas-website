@@ -59,6 +59,18 @@ CREATE TABLE IF NOT EXISTS training_entries (
 );
 CREATE INDEX IF NOT EXISTS idx_training_cat ON training_entries (category, scope, sort_order);
 
+-- Phase C: events shown on /events/ (replaces the demo events). Edited via /admin/ Events tab.
+CREATE TABLE IF NOT EXISTS events (
+  id TEXT PRIMARY KEY,
+  date TEXT NOT NULL,                    -- YYYY-MM-DD
+  title TEXT NOT NULL DEFAULT '',
+  description TEXT NOT NULL DEFAULT '',
+  locations TEXT NOT NULL DEFAULT '[]',  -- JSON array of location names; [] = all
+  created_at TEXT NOT NULL,
+  updated_at TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_events_date ON events (date);
+
 -- Phase C: editable Terms of Use per surface (chat, feedback). Markdown text
 -- (## / ### / - / **bold**). Seeded from each page's current terms; edited via /admin/ Terms tab.
 CREATE TABLE IF NOT EXISTS site_terms (

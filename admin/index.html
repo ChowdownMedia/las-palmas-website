@@ -260,6 +260,7 @@ button{font-family:inherit}
     <div id="lpa-pane-training" hidden></div>
     <div id="lpa-pane-links" hidden></div>
     <div id="lpa-pane-terms" hidden></div>
+    <div id="lpa-pane-events" hidden></div>
     <div id="lpa-pane-planned" hidden></div>
   </main>
 </div>
@@ -364,8 +365,7 @@ button{font-family:inherit}
     { group: 'Assistant', id: 'training', label: 'Training', status: 'live' },
     { group: 'Assistant', id: 'links', label: 'Direct Links', status: 'live' },
     { group: 'Site content', id: 'terms', label: 'Terms', status: 'live' },
-    { group: 'Site content', id: 'events', label: 'Events', status: 'building', priority: 'This pass',
-      desc: 'Add, edit, and delete events (date, locations, title, description). Replaces the demo events currently on /events/.' },
+    { group: 'Site content', id: 'events', label: 'Events', status: 'live' },
     { group: 'Site content', id: 'specials', label: 'Daily Specials', status: 'planned', priority: 'High',
       desc: 'Edit the per-day daily specials shown on /specials/ and the location pages.' },
     { group: 'Site content', id: 'menu', label: 'Menu', status: 'planned', priority: 'High',
@@ -381,7 +381,7 @@ button{font-family:inherit}
     { group: 'Site content', id: 'fbform', label: 'Feedback Form', status: 'planned', priority: 'Optional',
       desc: 'Reshape the guest feedback form — add, rename, or remove rating categories and questions. Deferred for now; we\'ll build it if we decide there\'s a real need.' },
   ];
-  var BUILT = { chat: 1, feedback: 1, training: 1, links: 1, terms: 1 };
+  var BUILT = { chat: 1, feedback: 1, training: 1, links: 1, terms: 1, events: 1 };
   var tab = 'chat';
   var loadedOnce = {};
 
@@ -411,12 +411,13 @@ button{font-family:inherit}
     tab = id;
     d.querySelectorAll('.lpa-tab').forEach(function (x) { x.classList.toggle('is-active', x.getAttribute('data-tab') === id); });
     var built = !!BUILT[id];
-    ['chat', 'feedback', 'training', 'links', 'terms'].forEach(function (t) { d.getElementById('lpa-pane-' + t).hidden = !(built && t === id); });
+    ['chat', 'feedback', 'training', 'links', 'terms', 'events'].forEach(function (t) { d.getElementById('lpa-pane-' + t).hidden = !(built && t === id); });
     d.getElementById('lpa-pane-planned').hidden = built;
     if (built) {
       if (id === 'training' && !loadedOnce.training) { loadedOnce.training = true; loadTraining(); }
       if (id === 'links' && !loadedOnce.links) { loadedOnce.links = true; loadLinks(); }
       if (id === 'terms' && !loadedOnce.terms) { loadedOnce.terms = true; loadTerms(); }
+      if (id === 'events' && !loadedOnce.events) { loadedOnce.events = true; loadEvents(); }
     } else {
       renderPlanned(id);
     }
@@ -919,6 +920,102 @@ button{font-family:inherit}
       if (j.terms) { terms.chat = j.terms.chat || terms.chat; terms.feedback = j.terms.feedback || terms.feedback; }
       renderTerms();
     }).catch(function () {});
+  }
+
+  /* ============================ EVENTS EDITOR ============================ */
+  var events = [], evEditing = null, evErr = '';
+  var EV_LOCS = ['Shorter', 'Riverside', 'Cartersville', 'Rockmart'];
+  var paneEvents = d.getElementById('lpa-pane-events');
+
+  function evDateLabel(ymd) {
+    try { var p = ymd.split('-'); return new Date(p[0], p[1] - 1, p[2]).toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' }); } catch (e) { return ymd; }
+  }
+  function isPast(ymd) { return ymd < new Date().toISOString().slice(0, 10); }
+
+  function renderEvents() {
+    if (evEditing) { renderEventForm(); return; }
+    var html = '<div class="lpa-links-actions"><button type="button" class="lpa-btn-sm lpa-btn-primary" id="lpa-ev-add">' + svg(IC.plus, 15) + '<span>Add Event</span></button></div>';
+    if (!events.length) {
+      html += '<div class="lpa-empty">' + svg(IC.alert, 26) + '<p>No events yet.</p><p class="lpa-empty-sub">Add one and it appears on /events/ immediately (today onward).</p></div>';
+    } else {
+      html += '<div class="lpa-list">';
+      events.forEach(function (ev) {
+        var locs = (ev.locations && ev.locations.length) ? ev.locations.join(', ') : 'All locations';
+        html += '<div class="lpa-rule-card ' + (isPast(ev.date) ? 'is-disabled' : '') + '"><div class="lpa-rule-main">' +
+          '<div class="lpa-rule-head"><span class="lpa-rule-label">' + esc(ev.title) + '</span>' +
+          (isPast(ev.date) ? '<span class="lpa-status-tag">Past</span>' : '<span class="lpa-status-tag is-active">Upcoming</span>') + '</div>' +
+          '<div class="lpa-rule-meta"><strong>' + evDateLabel(ev.date) + '</strong> · ' + esc(locs) + '</div>' +
+          '<div class="lpa-rule-meta">' + esc((ev.description || '').slice(0, 120)) + ((ev.description || '').length > 120 ? '…' : '') + '</div></div>' +
+          '<div class="lpa-rule-controls"><div class="lpa-rule-mod">' +
+          '<button type="button" class="lpa-iconbtn-sm" data-edit="' + esc(ev.id) + '" aria-label="Edit event">' + svg(IC.edit, 15) + '</button>' +
+          '<button type="button" class="lpa-iconbtn-sm is-danger" data-del="' + esc(ev.id) + '" aria-label="Delete event">' + svg(IC.trash, 15) + '</button></div></div></div>';
+      });
+      html += '</div>';
+    }
+    paneEvents.innerHTML = html;
+    var add = d.getElementById('lpa-ev-add');
+    if (add) add.addEventListener('click', function () { evErr = ''; evEditing = { id: '', date: '', title: '', description: '', locations: [], isNew: true }; renderEvents(); });
+    paneEvents.querySelectorAll('[data-edit]').forEach(function (b) {
+      b.addEventListener('click', function () { evErr = ''; var e = events.filter(function (x) { return x.id === b.getAttribute('data-edit'); })[0]; evEditing = Object.assign({}, e, { locations: (e.locations || []).slice(), isNew: false }); renderEvents(); });
+    });
+    paneEvents.querySelectorAll('[data-del]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var id = b.getAttribute('data-del');
+        if (!confirm('Delete this event?')) return;
+        events = events.filter(function (x) { return x.id !== id; });
+        adminFetch('/api/admin/events', { method: 'DELETE', body: JSON.stringify({ id: id }) }).catch(function () {});
+        renderEvents();
+      });
+    });
+  }
+
+  function renderEventForm() {
+    var e = evEditing;
+    var html = '<div class="lpa-rule-form"><h3 class="lpa-train-scopetitle" style="margin-bottom:12px">' + (e.isNew ? 'New Event' : 'Edit Event') + '</h3>';
+    if (evErr) html += '<div class="lpa-err">' + esc(evErr) + '</div>';
+    html += fg('Date', '<input type="date" id="lpa-ev-date" value="' + esc(e.date) + '">');
+    html += fg('Title', '<input type="text" maxlength="120" id="lpa-ev-title" value="' + esc(e.title) + '" placeholder="e.g. Cinco de Mayo Fiesta">');
+    html += fg('Description', '<textarea id="lpa-ev-desc" rows="4" maxlength="1000" placeholder="What\'s happening, specials, times…">' + esc(e.description) + '</textarea>');
+    html += '<div class="lpa-fg"><label>Locations <span style="text-transform:none;letter-spacing:0;color:var(--soft)">(none = all four)</span></label><div class="lpa-train-subnav" id="lpa-ev-locs">';
+    EV_LOCS.forEach(function (l) {
+      var on = e.locations.indexOf(l) >= 0;
+      html += '<button type="button" class="lpa-chip ' + (on ? 'is-active' : '') + '" data-loc="' + l + '">' + svg(IC.pin, 12) + l + '</button>';
+    });
+    html += '</div></div>';
+    html += '<div class="lpa-form-actions"><button type="button" class="lpa-btn-sm lpa-btn-ghost" id="lpa-ev-cancel">Cancel</button><button type="button" class="lpa-btn-sm lpa-btn-primary" id="lpa-ev-save">Save Event</button></div></div>';
+    paneEvents.innerHTML = html;
+    paneEvents.querySelectorAll('#lpa-ev-locs .lpa-chip').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var l = b.getAttribute('data-loc'); var i = evEditing.locations.indexOf(l);
+        if (i >= 0) evEditing.locations.splice(i, 1); else evEditing.locations.push(l);
+        b.classList.toggle('is-active');
+      });
+    });
+    d.getElementById('lpa-ev-cancel').addEventListener('click', function () { evEditing = null; evErr = ''; renderEvents(); });
+    d.getElementById('lpa-ev-save').addEventListener('click', saveEvent);
+  }
+
+  function saveEvent() {
+    var date = d.getElementById('lpa-ev-date').value;
+    var title = d.getElementById('lpa-ev-title').value.trim();
+    var description = d.getElementById('lpa-ev-desc').value;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) { evErr = 'Please pick a date.'; renderEventForm(); return; }
+    if (!title) { evErr = 'Please enter a title.'; renderEventForm(); return; }
+    evErr = '';
+    var payload = { date: date, title: title, description: description, locations: evEditing.locations };
+    if (evEditing.isNew) {
+      adminFetch('/api/admin/events', { method: 'POST', body: JSON.stringify(payload) }).then(function () { loadEvents(); }).catch(function () {});
+    } else {
+      payload.id = evEditing.id;
+      adminFetch('/api/admin/events', { method: 'PATCH', body: JSON.stringify(payload) }).catch(function () {});
+      events = events.map(function (x) { return x.id === evEditing.id ? Object.assign({}, x, payload) : x; });
+    }
+    evEditing = null; renderEvents();
+  }
+
+  function loadEvents() {
+    paneEvents.innerHTML = '<div class="lpa-loading">' + svg(IC.loader, 22, 2.5).replace('<svg', '<svg class="lpa-spin"') + '<p>Loading events…</p></div>';
+    adminFetch('/api/admin/events').then(function (r) { return r.json(); }).then(function (j) { events = j.events || []; renderEvents(); }).catch(function () {});
   }
 
   /* ============================ LOAD ============================ */
