@@ -234,6 +234,10 @@ button{font-family:inherit}
 .lpa-ev-upload{display:inline-flex;align-items:center;gap:7px;padding:10px 15px;border-radius:11px;border:1px dashed var(--border);background:var(--surface-soft);color:var(--text);font-size:13px;font-weight:600;cursor:pointer}
 .lpa-ev-upload:hover{border-color:var(--gold)}
 .lpa-ev-upstatus{margin-left:10px;font-size:12.5px;color:var(--muted)}
+/* Start + End time always share one row (Date full-width above them) */
+.lpa-ev-timerow{display:flex;gap:12px}
+.lpa-ev-timerow > .lpa-fg{flex:1 1 0;min-width:0}
+.lpa-ev-timerow input{width:100%}
 </style>
 </head>
 <body>
@@ -1013,10 +1017,10 @@ button{font-family:inherit}
     var e = evEditing;
     var html = '<div class="lpa-rule-form"><h3 class="lpa-train-scopetitle" style="margin-bottom:12px">' + (e.isNew ? 'New Event' : 'Edit Event') + '</h3>';
     if (evErr) html += '<div class="lpa-err">' + esc(evErr) + '</div>';
-    html += '<div class="lpa-fg-row" style="display:flex;gap:12px;flex-wrap:wrap">' +
-      '<div class="lpa-fg" style="flex:1 1 120px"><label>Date</label><input type="date" id="lpa-ev-date" value="' + esc(e.date) + '"></div>' +
-      '<div class="lpa-fg" style="flex:1 1 100px"><label>Start time <span style="text-transform:none;letter-spacing:0;color:var(--soft)">(optional)</span></label><input type="time" id="lpa-ev-time" value="' + esc(e.time || '') + '"></div>' +
-      '<div class="lpa-fg" style="flex:1 1 100px"><label>End time <span style="text-transform:none;letter-spacing:0;color:var(--soft)">(optional)</span></label><input type="time" id="lpa-ev-endtime" value="' + esc(e.endTime || '') + '"></div></div>';
+    html += '<div class="lpa-fg"><label>Date</label><input type="date" id="lpa-ev-date" value="' + esc(e.date) + '"></div>' +
+      '<div class="lpa-ev-timerow">' +
+      '<div class="lpa-fg"><label>Start time <span style="text-transform:none;letter-spacing:0;color:var(--soft)">(optional)</span></label><input type="time" id="lpa-ev-time" value="' + esc(e.time || '') + '"></div>' +
+      '<div class="lpa-fg"><label>End time <span style="text-transform:none;letter-spacing:0;color:var(--soft)">(optional)</span></label><input type="time" id="lpa-ev-endtime" value="' + esc(e.endTime || '') + '"></div></div>';
     html += fg('Title', '<input type="text" maxlength="120" id="lpa-ev-title" value="' + esc(e.title) + '" placeholder="e.g. Cinco de Mayo Fiesta">');
     html += fg('Description', '<textarea id="lpa-ev-desc" rows="4" maxlength="1000" placeholder="What\'s happening, specials, times…">' + esc(e.description) + '</textarea>');
     // Image / flyer upload
