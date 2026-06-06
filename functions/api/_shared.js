@@ -1,9 +1,11 @@
 /* Shared helpers for the Las Palmas Pages Functions.
-   Model + limits mirror Glenn's prototypes (LPChatV3.6 / FeedbackPortalV3) —
-   the key lives ONLY here as the ANTHROPIC_API_KEY Pages secret, never client-side. */
+   Prompts/limits mirror Glenn's prototypes (LPChatV3.6 / FeedbackPortalV3).
+   Model: OpenAI GPT-5 mini on the LAS PALMAS OpenAI key (same key + model as
+   LP AI Command on Render) so all Las Palmas AI usage bills to one place.
+   The key lives ONLY here as the OPENAI_API_KEY Pages secret, never client-side. */
 
-export const MODEL_NAME = 'claude-sonnet-4-20250514'; // per Glenn's prototypes
-export const ANTHROPIC_URL = 'https://api.anthropic.com/v1/messages';
+export const MODEL_NAME = 'gpt-5-mini-2025-08-07'; // matches LP AI Command (verified key access)
+export const OPENAI_URL = 'https://api.openai.com/v1/chat/completions';
 
 export function json(data, status = 200) {
   return new Response(JSON.stringify(data), {
@@ -18,20 +20,26 @@ export async function readJson(request) {
   try { return await request.json(); } catch (e) { return null; }
 }
 
-/* Call Anthropic. Returns the concatenated text blocks. */
-export async function callModel(env, { system, messages, maxTokens }) {
-  const res = await fetch(ANTHROPIC_URL, {
+/* Call the model. Returns the reply text.
+   GPT-5 mini notes (same as LP AI Command's llm_service):
+   - max_completion_tokens, not max_tokens (reasoning uses part of the budget)
+   - temperature must be omitted (only the default is supported)
+   - jsonMode adds response_format json_object for the strict-JSON passes */
+export async function callModel(env, { system, messages, maxTokens, jsonMode }) {
+  const res = await fetch(OPENAI_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'x-api-key': env.ANTHROPIC_API_KEY,
-      'anthropic-version': '2023-06-01',
+      'Authorization': `Bearer ${env.OPENAI_API_KEY}`,
     },
     body: JSON.stringify({
       model: MODEL_NAME,
-      max_tokens: maxTokens,
-      ...(system ? { system } : {}),
-      messages,
+      max_completion_tokens: maxTokens,
+      ...(jsonMode ? { response_format: { type: 'json_object' } } : {}),
+      messages: [
+        ...(system ? [{ role: 'system', content: system }] : []),
+        ...messages,
+      ],
     }),
   });
   if (!res.ok) {
@@ -39,11 +47,7 @@ export async function callModel(env, { system, messages, maxTokens }) {
     throw new Error(`Model HTTP ${res.status}: ${body.slice(0, 200)}`);
   }
   const data = await res.json();
-  return (data.content || [])
-    .filter((b) => b.type === 'text')
-    .map((b) => b.text)
-    .join('\n')
-    .trim();
+  return ((data.choices || [])[0]?.message?.content || '').trim();
 }
 
 /* Lenient JSON extraction — mirrors aiParseJson() in Glenn's feedback portal. */

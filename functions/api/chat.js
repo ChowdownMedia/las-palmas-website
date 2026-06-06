@@ -15,7 +15,7 @@ import { callModel, currentDateContext, json, badRequest, readJson } from './_sh
 /* Limits mirror the prototype (enforced server-side per Glenn's handoff notes). */
 const PROMPT_LIMIT = 10;
 const CHAR_LIMIT = 2000;
-const MODEL_MAX_TOKENS = 1000;
+const MODEL_MAX_TOKENS = 2000; // GPT-5 mini uses part of the budget for reasoning
 
 /* Smart (intent) Direct-Link rules — from DEFAULT_CTA_RULES; only `ordering` is smart. */
 const SMART_RULES = [
@@ -50,7 +50,8 @@ async function classifyTurn(env, userText) {
     (ruleLines ? `Link rules:\n${ruleLines}` : 'Link rules: (none)');
   const raw = await callModel(env, {
     messages: [{ role: 'user', content: `${sys}\n\n---\nGuest message to classify:\n${userText}` }],
-    maxTokens: 200,
+    maxTokens: 600,
+    jsonMode: true,
   });
   return JSON.parse(raw.replace(/```json|```/g, '').trim());
 }

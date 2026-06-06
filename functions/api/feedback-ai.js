@@ -75,7 +75,8 @@ export async function onRequestPost({ request, env, waitUntil }) {
     raw = await callModel(env, {
       system: buildSystem(exchangeCount),
       messages: history,
-      maxTokens: 600,
+      maxTokens: 1500,
+      jsonMode: true,
     });
   } catch (e) {
     return json({ error: 'model_unavailable' }, 502);
