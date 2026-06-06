@@ -392,6 +392,7 @@ html[data-ev-theme="dark"] .lp-ico-moon { display: none; }
   function esc(s){var t=d.createElement('span');t.textContent=s==null?'':String(s);return t.innerHTML;}
   function fallbackArt(i){return ART_TEMPLATE.split('__ID__').join('fbGrad'+(i%3+1));}
   function parseYMD(s){var p=String(s).split('-');return new Date(+p[0],+p[1]-1,+p[2]);}
+  function fmtTime(t){if(!t)return '';var p=String(t).split(':');var h=+p[0],ap=h>=12?'PM':'AM',hh=h%12||12;return hh+':'+p[1]+' '+ap;}
   function daysUntil(dt){var t=new Date();t.setHours(0,0,0,0);return Math.round((dt-t)/86400000);}
   function readableLocations(locs){
     if(!locs||!locs.length)return 'All Las Palmas locations';
@@ -416,7 +417,7 @@ html[data-ev-theme="dark"] .lp-ico-moon { display: none; }
         '<div class="lp-date-badge__day">'+dt.getDate()+'</div><div class="lp-date-badge__rule"></div></div></div>'+
         '<div class="lp-event-card__body"><div class="lp-event-card__badges">'+badge+'</div>'+
         '<h2 class="lp-event-card__title">'+esc(ev.title)+'</h2>'+
-        '<p class="lp-event-card__date">'+WEEKDAYS[dt.getDay()]+', '+MONTH_FULL[dt.getMonth()]+' '+dt.getDate()+', '+dt.getFullYear()+'</p>'+
+        '<p class="lp-event-card__date">'+WEEKDAYS[dt.getDay()]+', '+MONTH_FULL[dt.getMonth()]+' '+dt.getDate()+', '+dt.getFullYear()+(ev.time?' · '+fmtTime(ev.time):'')+'</p>'+
         '<p class="lp-event-card__desc">'+esc(ev.description)+'</p>'+
         '<div class="lp-event-card__locations">'+esc(readableLocations(ev.locations))+'</div></div></article>';
     });
