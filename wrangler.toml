@@ -9,3 +9,7 @@ compatibility_date = "2026-06-01"
 binding = "DB"
 database_name = "las-palmas-site"
 database_id = "c3c41a10-5c2a-4da6-8f25-7c97c6c976e6"
+
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "las-palmas-media"
