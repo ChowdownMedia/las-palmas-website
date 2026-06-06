@@ -20,7 +20,7 @@
 <meta name="theme-color" content="#faf3e4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1a0f07" media="(prefers-color-scheme: dark)">
 
-<script>(function(){var p='auto';try{var s=localStorage.getItem('lp-catering-theme');if(s==='auto'||s==='light'||s==='dark')p=s;}catch(e){}var h=new Date().getHours();var dark=p==='dark'||(p==='auto'&&(h>=19||h<7));document.documentElement.setAttribute('data-lpc-pref',p);document.documentElement.setAttribute('data-lpc-dark',dark?'1':'0');if(dark)document.documentElement.setAttribute('data-theme','dark');})();</script>
+<script>(function(){var p='auto';try{var s=localStorage.getItem('lp-catering-theme');if(s==='auto'||s==='light'||s==='dark')p=s;}catch(e){}var dark=p==='dark'||(p==='auto'&&(function(){try{return window.matchMedia('(prefers-color-scheme: dark)').matches}catch(e){return false}})());document.documentElement.setAttribute('data-lpc-pref',p);document.documentElement.setAttribute('data-lpc-dark',dark?'1':'0');if(dark)document.documentElement.setAttribute('data-theme','dark');})();</script>
 
 <link rel="preload" href="/assets/fonts/playfair-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/manrope-var.woff2" as="font" type="font/woff2" crossorigin>
@@ -449,7 +449,7 @@ html[data-lpc-dark="1"] .lpc-header{background:linear-gradient(180deg,rgba(20,12
 <script>
 (function(){
   var d=document, html=d.documentElement, KEY='lp-catering-theme';
-  function isDarkByClock(){var h=new Date().getHours();return h>=19||h<7;}
+  function isDarkByClock(){try{return window.matchMedia('(prefers-color-scheme: dark)').matches}catch(e){return false}}
   function pref(){return html.getAttribute('data-lpc-pref')||'auto';}
   function apply(){
     var p=pref(), dark=p==='dark'||(p==='auto'&&isDarkByClock());
@@ -457,7 +457,7 @@ html[data-lpc-dark="1"] .lpc-header{background:linear-gradient(180deg,rgba(20,12
     html.setAttribute('data-lpc-dark',dark?'1':'0');
     var btn=d.getElementById('lpc-theme');
     btn.setAttribute('aria-label','Theme: '+p+'. Click to change.');
-    btn.title=p==='auto'?('Auto (currently '+(dark?'dark':'light')+' by clock)'):p==='light'?'Light theme':'Dark theme';
+    btn.title=p==='auto'?('Auto (currently '+(dark?'dark':'light')+' by system)'):p==='light'?'Light theme':'Dark theme';
   }
   d.getElementById('lpc-theme').addEventListener('click',function(){
     var next=pref()==='auto'?'light':pref()==='light'?'dark':'auto';

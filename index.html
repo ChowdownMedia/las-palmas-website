@@ -20,7 +20,7 @@
 <meta name="theme-color" content="#F7EFE2" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#160C08" media="(prefers-color-scheme: dark)">
 
-<script>(function(){var p='auto';try{var s=localStorage.getItem('lp-home-theme');if(s==='auto'||s==='light'||s==='dark')p=s;}catch(e){}var h=new Date().getHours();var dark=p==='dark'||(p==='auto'&&(h>=19||h<7));var e=document.documentElement;e.setAttribute('data-lph-pref',p);e.setAttribute('data-lph-dark',dark?'1':'0');e.classList.remove('no-js');})();</script>
+<script>(function(){var p='auto';try{var s=localStorage.getItem('lp-home-theme');if(s==='auto'||s==='light'||s==='dark')p=s;}catch(e){}var dark=p==='dark'||(p==='auto'&&(function(){try{return window.matchMedia('(prefers-color-scheme: dark)').matches}catch(e){return false}})());var e=document.documentElement;e.setAttribute('data-lph-pref',p);e.setAttribute('data-lph-dark',dark?'1':'0');e.classList.remove('no-js');})();</script>
 
 <link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/dm-sans-var.woff2" as="font" type="font/woff2" crossorigin>
@@ -2491,7 +2491,7 @@ html[data-lph-pref="dark"] .lph-theme-ico--dark{display:block}
 
   /* ── Theme: auto (clock: dark 19–7) / light / dark; persists lp-home-theme ── */
   var KEY = 'lp-home-theme';
-  function isDarkByClock() { var h = new Date().getHours(); return h >= 19 || h < 7; }
+  function isDarkByClock(){try{return window.matchMedia('(prefers-color-scheme: dark)').matches}catch(e){return false}}
   function pref() { return html.getAttribute('data-lph-pref') || 'auto'; }
   function applyTheme() {
     var p = pref();
@@ -2499,7 +2499,7 @@ html[data-lph-pref="dark"] .lph-theme-ico--dark{display:block}
     root.setAttribute('data-theme', dark ? 'dark' : 'light');
     var btn = d.getElementById('lph-theme');
     btn.setAttribute('aria-label', 'Theme: ' + p + '. Click to change.');
-    btn.title = p === 'auto' ? ('Auto (currently ' + (dark ? 'dark' : 'light') + ' by clock)') : p === 'light' ? 'Light theme' : 'Dark theme';
+    btn.title = p === 'auto' ? ('Auto (currently ' + (dark ? 'dark' : 'light') + ' by system)') : p === 'light' ? 'Light theme' : 'Dark theme';
   }
   d.getElementById('lph-theme').addEventListener('click', function () {
     var next = pref() === 'auto' ? 'light' : pref() === 'light' ? 'dark' : 'auto';

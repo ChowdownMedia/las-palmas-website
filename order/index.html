@@ -20,7 +20,7 @@
 <meta name="theme-color" content="#120d07" media="(prefers-color-scheme: dark)">
 
 <!-- Glenn's theme model: dark from 19:00–07:00, light otherwise; manual toggle flips it. -->
-<script>(function(){var h=new Date().getHours();document.documentElement.setAttribute('data-otheme',(h>=19||h<7)?'dark':'light');})();</script>
+<script>(function(){var dark=(function(){try{return window.matchMedia('(prefers-color-scheme: dark)').matches}catch(e){return false}})();document.documentElement.setAttribute('data-otheme',dark?'dark':'light');})();</script>
 
 <link rel="preload" href="/assets/fonts/dm-serif-display.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/dm-sans-var.woff2" as="font" type="font/woff2" crossorigin>

@@ -20,7 +20,7 @@
 <meta name="theme-color" content="#160C08" media="(prefers-color-scheme: dark)">
 
 <!-- Glenn's theme model: pref (auto|light|dark) in localStorage lp-locations-theme; auto = dark 19:00–07:00 -->
-<script>(function(){var p='auto';try{var s=localStorage.getItem('lp-locations-theme');if(s==='auto'||s==='light'||s==='dark')p=s;}catch(e){}var h=new Date().getHours();var dark=p==='dark'||(p==='auto'&&(h>=19||h<7));document.documentElement.setAttribute('data-lpl-pref',p);document.documentElement.setAttribute('data-lpl-dark',dark?'1':'0');})();</script>
+<script>(function(){var p='auto';try{var s=localStorage.getItem('lp-locations-theme');if(s==='auto'||s==='light'||s==='dark')p=s;}catch(e){}var dark=p==='dark'||(p==='auto'&&(function(){try{return window.matchMedia('(prefers-color-scheme: dark)').matches}catch(e){return false}})());document.documentElement.setAttribute('data-lpl-pref',p);document.documentElement.setAttribute('data-lpl-dark',dark?'1':'0');})();</script>
 
 <link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/dm-sans-var.woff2" as="font" type="font/woff2" crossorigin>
@@ -906,7 +906,7 @@ body { background: var(--bg, #F7EFE2); color: var(--text, #3D2016); }
   var d=document, root=d.getElementById('lpl-root'), html=d.documentElement;
   /* ── Theme: auto (clock: dark 19–7) / light / dark; persists lp-locations-theme ── */
   var KEY='lp-locations-theme';
-  function isDarkByClock(){var h=new Date().getHours();return h>=19||h<7;}
+  function isDarkByClock(){try{return window.matchMedia('(prefers-color-scheme: dark)').matches}catch(e){return false}}
   function pref(){return html.getAttribute('data-lpl-pref')||'auto';}
   function apply(){
     var p=pref();
@@ -914,7 +914,7 @@ body { background: var(--bg, #F7EFE2); color: var(--text, #3D2016); }
     root.setAttribute('data-theme',dark?'dark':'light');
     var btn=d.getElementById('lpl-theme');
     btn.setAttribute('aria-label','Theme: '+p+'. Click to change.');
-    btn.title=p==='auto'?('Auto (currently '+(dark?'dark':'light')+' by clock)'):p==='light'?'Light theme':'Dark theme';
+    btn.title=p==='auto'?('Auto (currently '+(dark?'dark':'light')+' by system)'):p==='light'?'Light theme':'Dark theme';
   }
   d.getElementById('lpl-theme').addEventListener('click',function(){
     var next=pref()==='auto'?'light':pref()==='light'?'dark':'auto';
