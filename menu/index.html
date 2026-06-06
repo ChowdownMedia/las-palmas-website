@@ -173,6 +173,9 @@ main .serif,.m-cat-title,.m-item-price,.m-price-chip-val{font-family:'Fraunces',
 .m-themebtn,.m-homebtn{background:transparent;border:1px solid var(--line);color:var(--text-mute);width:34px;height:34px;border-radius:999px;display:grid;place-items:center;cursor:pointer;transition:all 0.2s;flex-shrink:0}
 .m-homebtn{text-decoration:none}
 .m-homebtn:hover{color:var(--text);border-color:var(--terracotta)}
+.m-floathome{position:fixed;top:12px;left:12px;z-index:60;display:inline-flex;align-items:center;gap:7px;padding:9px 14px 9px 12px;border-radius:999px;background:var(--header-bg);-webkit-backdrop-filter:saturate(140%) blur(10px);backdrop-filter:saturate(140%) blur(10px);border:1px solid var(--line);color:var(--text);font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;text-decoration:none;box-shadow:var(--shadow-md);transition:opacity .2s ease}
+.m-floathome:hover{border-color:var(--terracotta)}
+.m-floathome[hidden]{display:none}
 html:not([data-theme="dark"]) .m-ico-sun{display:none}
 html[data-theme="dark"] .m-ico-moon{display:none}
 .m-brand{text-align:center;flex:1;padding:0 8px}
@@ -207,6 +210,13 @@ html[data-theme="dark"] .m-ico-moon{display:none}
 </head>
 <body>
 <div class="lp-page">
+
+  <!-- Always-visible Home affordance over the intro; hides once the sticky header
+       (with its own Home button) reaches the top, so there's no duplicate. -->
+  <a href="/" class="m-floathome" id="m-floathome" aria-label="Back to Las Palmas home">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <span>Home</span>
+  </a>
 
   <main>
     <section class="m-intro">
@@ -5182,6 +5192,16 @@ html[data-theme="dark"] .m-ico-moon{display:none}
     if(dark){html.removeAttribute('data-theme');}else{html.setAttribute('data-theme','dark');}
     try{localStorage.setItem('lp-menu-theme',dark?'light':'dark');}catch(e){}
   });
+
+  /* Floating Home button: show over the intro, hide once the sticky controls bar
+     reaches the top (its own Home button takes over) so there's never a duplicate. */
+  var floatHome=d.getElementById('m-floathome'), controls=d.querySelector('.m-controls');
+  if(floatHome&&controls){
+    var syncHome=function(){ floatHome.hidden = controls.getBoundingClientRect().top <= 6; };
+    window.addEventListener('scroll',syncHome,{passive:true});
+    window.addEventListener('resize',syncHome);
+    syncHome();
+  }
 })();
 </script>
 </body>
