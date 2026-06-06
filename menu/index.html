@@ -110,6 +110,15 @@ main .serif,.m-cat-title,.m-item-price,.m-price-chip-val{font-family:'Fraunces',
 .m-jump{display:flex;gap:6px;overflow-x:auto;padding:10px 0 2px;-ms-overflow-style:none;scrollbar-width:none}
 .m-jump::-webkit-scrollbar{display:none}
 .m-jump a{flex-shrink:0;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg-card);color:var(--text-soft);font-size:12px;font-weight:600;text-decoration:none;white-space:nowrap}
+/* Desktop (mouse): hidden scrollbars leave no way to reach off-screen options — show a slim one.
+   Mobile keeps the clean swipe look. */
+@media (hover:hover) and (pointer:fine){
+  .m-fav-track,.m-filters,.m-jump{scrollbar-width:thin;scrollbar-color:var(--line) transparent;padding-bottom:12px}
+  .m-fav-track::-webkit-scrollbar,.m-filters::-webkit-scrollbar,.m-jump::-webkit-scrollbar{display:block;height:8px}
+  .m-fav-track::-webkit-scrollbar-thumb,.m-filters::-webkit-scrollbar-thumb,.m-jump::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
+  .m-fav-track::-webkit-scrollbar-thumb:hover,.m-filters::-webkit-scrollbar-thumb:hover,.m-jump::-webkit-scrollbar-thumb:hover{background:var(--text-mute)}
+  .m-fav-track::-webkit-scrollbar-track,.m-filters::-webkit-scrollbar-track,.m-jump::-webkit-scrollbar-track{background:transparent}
+}
 /* menu panels */
 .m-panel[hidden]{display:none}
 .m-cat{padding:22px 0 6px;scroll-margin-top:200px}
