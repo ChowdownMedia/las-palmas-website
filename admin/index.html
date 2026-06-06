@@ -984,7 +984,7 @@ button{font-family:inherit}
         html += '<div class="lpa-rule-card ' + (isPast(ev.date) ? 'is-disabled' : '') + '"><div class="lpa-rule-main">' +
           '<div class="lpa-rule-head"><span class="lpa-rule-label">' + esc(ev.title) + '</span>' +
           (isPast(ev.date) ? '<span class="lpa-status-tag">Past</span>' : '<span class="lpa-status-tag is-active">Upcoming</span>') + '</div>' +
-          '<div class="lpa-rule-meta"><strong>' + evDateLabel(ev.date) + (ev.time ? ' · ' + fmtEvTime(ev.time) : '') + '</strong> · ' + esc(locs) + '</div>' +
+          '<div class="lpa-rule-meta"><strong>' + evDateLabel(ev.date) + (ev.time ? ' · ' + fmtEvTime(ev.time) + (ev.endTime ? ' – ' + fmtEvTime(ev.endTime) : '') : '') + '</strong> · ' + esc(locs) + '</div>' +
           '<div class="lpa-rule-meta">' + esc((ev.description || '').slice(0, 120)) + ((ev.description || '').length > 120 ? '…' : '') + '</div></div>' +
           '<div class="lpa-rule-controls"><div class="lpa-rule-mod">' +
           '<button type="button" class="lpa-iconbtn-sm" data-edit="' + esc(ev.id) + '" aria-label="Edit event">' + svg(IC.edit, 15) + '</button>' +
@@ -1013,9 +1013,10 @@ button{font-family:inherit}
     var e = evEditing;
     var html = '<div class="lpa-rule-form"><h3 class="lpa-train-scopetitle" style="margin-bottom:12px">' + (e.isNew ? 'New Event' : 'Edit Event') + '</h3>';
     if (evErr) html += '<div class="lpa-err">' + esc(evErr) + '</div>';
-    html += '<div class="lpa-fg-row" style="display:flex;gap:12px">' +
-      '<div class="lpa-fg" style="flex:1"><label>Date</label><input type="date" id="lpa-ev-date" value="' + esc(e.date) + '"></div>' +
-      '<div class="lpa-fg" style="flex:1"><label>Start time <span style="text-transform:none;letter-spacing:0;color:var(--soft)">(optional)</span></label><input type="time" id="lpa-ev-time" value="' + esc(e.time || '') + '"></div></div>';
+    html += '<div class="lpa-fg-row" style="display:flex;gap:12px;flex-wrap:wrap">' +
+      '<div class="lpa-fg" style="flex:1 1 120px"><label>Date</label><input type="date" id="lpa-ev-date" value="' + esc(e.date) + '"></div>' +
+      '<div class="lpa-fg" style="flex:1 1 100px"><label>Start time <span style="text-transform:none;letter-spacing:0;color:var(--soft)">(optional)</span></label><input type="time" id="lpa-ev-time" value="' + esc(e.time || '') + '"></div>' +
+      '<div class="lpa-fg" style="flex:1 1 100px"><label>End time <span style="text-transform:none;letter-spacing:0;color:var(--soft)">(optional)</span></label><input type="time" id="lpa-ev-endtime" value="' + esc(e.endTime || '') + '"></div></div>';
     html += fg('Title', '<input type="text" maxlength="120" id="lpa-ev-title" value="' + esc(e.title) + '" placeholder="e.g. Cinco de Mayo Fiesta">');
     html += fg('Description', '<textarea id="lpa-ev-desc" rows="4" maxlength="1000" placeholder="What\'s happening, specials, times…">' + esc(e.description) + '</textarea>');
     // Image / flyer upload
@@ -1065,6 +1066,7 @@ button{font-family:inherit}
     var dEl = d.getElementById('lpa-ev-date'), tmEl = d.getElementById('lpa-ev-time'), tEl = d.getElementById('lpa-ev-title'), dsEl = d.getElementById('lpa-ev-desc');
     if (dEl) evEditing.date = dEl.value;
     if (tmEl) evEditing.time = tmEl.value;
+    var etEl = d.getElementById('lpa-ev-endtime'); if (etEl) evEditing.endTime = etEl.value;
     if (tEl) evEditing.title = tEl.value;
     if (dsEl) evEditing.description = dsEl.value;
   }
@@ -1072,12 +1074,13 @@ button{font-family:inherit}
   function saveEvent() {
     var date = d.getElementById('lpa-ev-date').value;
     var time = d.getElementById('lpa-ev-time').value;
+    var endTime = d.getElementById('lpa-ev-endtime').value;
     var title = d.getElementById('lpa-ev-title').value.trim();
     var description = d.getElementById('lpa-ev-desc').value;
     if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) { evErr = 'Please pick a date.'; renderEventForm(); return; }
     if (!title) { evErr = 'Please enter a title.'; renderEventForm(); return; }
     evErr = '';
-    var payload = { date: date, time: time, title: title, description: description, locations: evEditing.locations, image: evEditing.image || '' };
+    var payload = { date: date, time: time, endTime: endTime, title: title, description: description, locations: evEditing.locations, image: evEditing.image || '' };
     if (evEditing.isNew) {
       adminFetch('/api/admin/events', { method: 'POST', body: JSON.stringify(payload) }).then(function () { loadEvents(); }).catch(function () {});
     } else {

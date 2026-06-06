@@ -22,10 +22,10 @@ const safe = (s) => { try { const a = JSON.parse(s); return Array.isArray(a) ? a
 
 export async function onRequestGet({ request, env }) {
   const guard = await requireAdmin(request, env); if (guard) return guard;
-  const res = await env.DB.prepare('SELECT id, date, time, title, description, locations, image FROM events ORDER BY date ASC').all();
+  const res = await env.DB.prepare('SELECT id, date, time, end_time, title, description, locations, image FROM events ORDER BY date ASC').all();
   return json({
     events: (res.results || []).map((r) => ({
-      id: r.id, date: r.date, time: r.time || '', title: r.title, description: r.description, locations: safe(r.locations), image: r.image || '',
+      id: r.id, date: r.date, time: r.time || '', endTime: r.end_time || '', title: r.title, description: r.description, locations: safe(r.locations), image: r.image || '',
     })),
   });
 }
@@ -40,8 +40,8 @@ export async function onRequestPost({ request, env }) {
   const id = newId();
   const now = new Date().toISOString();
   await env.DB.prepare(
-    'INSERT INTO events (id, date, time, title, description, locations, image, created_at, updated_at) VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?8)'
-  ).bind(id, b.date, cleanTime(b.time), title, String(b.description || '').slice(0, 1000), JSON.stringify(cleanLocs(b.locations)), String(b.image || '').slice(0, 300), now).run();
+    'INSERT INTO events (id, date, time, end_time, title, description, locations, image, created_at, updated_at) VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,?9)'
+  ).bind(id, b.date, cleanTime(b.time), cleanTime(b.endTime), title, String(b.description || '').slice(0, 1000), JSON.stringify(cleanLocs(b.locations)), String(b.image || '').slice(0, 300), now).run();
   return json({ ok: true, id });
 }
 
@@ -52,6 +52,7 @@ export async function onRequestPatch({ request, env }) {
   const sets = [], binds = [];
   if (validDate(b.date)) { sets.push(`date = ?${binds.length + 2}`); binds.push(b.date); }
   if (typeof b.time === 'string') { sets.push(`time = ?${binds.length + 2}`); binds.push(cleanTime(b.time)); }
+  if (typeof b.endTime === 'string') { sets.push(`end_time = ?${binds.length + 2}`); binds.push(cleanTime(b.endTime)); }
   if (typeof b.title === 'string') { sets.push(`title = ?${binds.length + 2}`); binds.push(b.title.slice(0, 120).trim()); }
   if (typeof b.description === 'string') { sets.push(`description = ?${binds.length + 2}`); binds.push(b.description.slice(0, 1000)); }
   if (Array.isArray(b.locations)) { sets.push(`locations = ?${binds.length + 2}`); binds.push(JSON.stringify(cleanLocs(b.locations))); }

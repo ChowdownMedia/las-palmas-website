@@ -63,7 +63,8 @@ CREATE INDEX IF NOT EXISTS idx_training_cat ON training_entries (category, scope
 CREATE TABLE IF NOT EXISTS events (
   id TEXT PRIMARY KEY,
   date TEXT NOT NULL,                    -- YYYY-MM-DD
-  time TEXT NOT NULL DEFAULT '',         -- HH:MM (24h) or '' for all-day
+  time TEXT NOT NULL DEFAULT '',         -- HH:MM (24h) start, or '' for all-day
+  end_time TEXT NOT NULL DEFAULT '',     -- HH:MM (24h) end, optional
   title TEXT NOT NULL DEFAULT '',
   description TEXT NOT NULL DEFAULT '',
   locations TEXT NOT NULL DEFAULT '[]',  -- JSON array of location names; [] = all
