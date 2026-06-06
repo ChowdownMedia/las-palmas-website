@@ -1476,6 +1476,11 @@ html[data-lp-pref="dark"] .lp-theme-ico--dark{display:inline-flex}
       p.style.margin = li === 0 ? '0' : '0.6em 0 0';
       line.split(urlRe).forEach(function (part) {
         if (/^https?:\/\//.test(part)) {
+          /* Sentence punctuation glued to the URL stays as text, not link
+             (e.g. "…/menu." → link to /menu, period rendered after it). */
+          var trail = '';
+          var m = part.match(/^(.*?)([.,;:!?]+)$/);
+          if (m) { part = m[1]; trail = m[2]; }
           var a = d.createElement('a');
           a.href = part; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.className = 'lp-link';
           var t = d.createElement('span'); t.className = 'lp-link-text'; t.textContent = part;
@@ -1483,6 +1488,7 @@ html[data-lp-pref="dark"] .lp-theme-ico--dark{display:inline-flex}
           var ie = d.createElement('span'); ie.innerHTML = icon(P.external, 14); ie.firstChild.classList.add('lp-link-icon');
           a.appendChild(ie.firstChild);
           p.appendChild(a);
+          if (trail) p.appendChild(d.createTextNode(trail));
         } else if (part) {
           p.appendChild(d.createTextNode(part));
         }
