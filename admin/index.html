@@ -234,10 +234,14 @@ button{font-family:inherit}
 .lpa-ev-upload{display:inline-flex;align-items:center;gap:7px;padding:10px 15px;border-radius:11px;border:1px dashed var(--border);background:var(--surface-soft);color:var(--text);font-size:13px;font-weight:600;cursor:pointer}
 .lpa-ev-upload:hover{border-color:var(--gold)}
 .lpa-ev-upstatus{margin-left:10px;font-size:12.5px;color:var(--muted)}
-/* Start + End time always share one row (Date full-width above them) */
-.lpa-ev-timerow{display:flex;gap:12px}
-.lpa-ev-timerow > .lpa-fg{flex:1 1 0;min-width:0}
+/* Start + End time: stacked full-width on phones (native time inputs are bulky
+   and crowd each other), side-by-side only when there's room. */
+.lpa-ev-timerow{display:flex;flex-direction:column;gap:0}
 .lpa-ev-timerow input{width:100%}
+@media (min-width:620px){
+  .lpa-ev-timerow{flex-direction:row;gap:12px}
+  .lpa-ev-timerow > .lpa-fg{flex:1 1 0;min-width:0}
+}
 </style>
 </head>
 <body>
