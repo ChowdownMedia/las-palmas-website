@@ -130,6 +130,66 @@ button{font-family:inherit}
 .lpa-fb-followups-label{display:block;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px}
 .lpa-fb-followup{font-size:13px;line-height:1.5;margin:0 0 6px}
 .lpa-fb-detail-actions{display:flex;gap:8px;margin-top:14px}
+
+/* ── shared form bits ── */
+.lpa-fg{margin-bottom:14px}
+.lpa-fg label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--soft);margin-bottom:6px}
+.lpa-fg input,.lpa-fg textarea{width:100%;padding:11px 13px;background:var(--surface-soft);color:var(--text);border:1px solid var(--border);border-radius:11px;font-size:14px;font-family:inherit;outline:none}
+.lpa-fg input:focus,.lpa-fg textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(211,166,71,.18)}
+.lpa-fg textarea{resize:vertical;line-height:1.5}
+.lpa-form-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:6px}
+.lpa-btn-sm{display:inline-flex;align-items:center;gap:6px;padding:9px 15px;border-radius:10px;border:none;font-size:13px;font-weight:700;cursor:pointer}
+.lpa-btn-primary{background:linear-gradient(180deg,var(--terracotta),var(--terracotta-deep));color:var(--on-terracotta)}
+.lpa-btn-ghost{background:transparent;border:1px solid var(--border);color:var(--muted)}
+.lpa-btn-ghost:hover{color:var(--text);border-color:var(--gold)}
+.lpa-banner{padding:11px 13px;border-radius:11px;background:var(--surface-soft);border:1px solid var(--border-soft);font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:14px}
+.lpa-err{padding:10px 13px;border-radius:11px;background:rgba(212,90,53,.14);border:1px solid var(--terracotta);color:var(--terracotta);font-size:13px;font-weight:600;margin-bottom:12px}
+.lpa-iconbtn-sm{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:9px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer}
+.lpa-iconbtn-sm:hover{color:var(--text);border-color:var(--gold)}
+.lpa-iconbtn-sm.is-danger:hover{color:#fff;border-color:var(--terracotta);background:var(--terracotta)}
+
+/* ── Training (Glenn's lp-train) ── */
+.lpa-train{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:680px){.lpa-train{grid-template-columns:180px 1fr}}
+.lpa-train-rail{display:flex;flex-wrap:wrap;gap:6px}
+@media(min-width:680px){.lpa-train-rail{flex-direction:column;flex-wrap:nowrap}}
+.lpa-railbtn{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border-radius:10px;border:1px solid var(--border-soft);background:var(--surface);color:var(--muted);font-size:13.5px;font-weight:600;cursor:pointer;text-align:left;white-space:nowrap}
+.lpa-railbtn:hover{color:var(--text)}
+.lpa-railbtn.is-active{background:var(--surface-deep);color:var(--terracotta);border-color:var(--terracotta)}
+.lpa-train-scopehead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.lpa-train-scopetitle{font-family:var(--font-display);font-size:21px;color:var(--text-strong);margin:0}
+.lpa-train-subnav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.lpa-chip{display:inline-flex;align-items:center;gap:5px;padding:6px 11px;border-radius:999px;border:1px solid var(--border);background:var(--surface);color:var(--muted);font-size:12.5px;font-weight:600;cursor:pointer}
+.lpa-chip.is-active{background:var(--gold);color:var(--on-gold);border-color:transparent}
+.lpa-train-list{display:flex;flex-direction:column;gap:8px}
+.lpa-train-card{display:flex;align-items:flex-start;gap:10px;padding:12px 13px;border-radius:12px;border:1px solid var(--border-soft);background:var(--surface)}
+.lpa-train-card-main{flex:1;min-width:0}
+.lpa-train-card-title{display:block;font-weight:700;font-size:14px;color:var(--text-strong);margin-bottom:3px}
+.lpa-train-card-content{font-size:13px;color:var(--muted);line-height:1.5;white-space:pre-wrap;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+.lpa-train-card-actions{flex:0 0 auto;display:flex;gap:6px}
+
+/* ── Direct Links (Glenn's lp-dev / lp-links) ── */
+.lpa-links-actions{display:flex;gap:8px;margin-bottom:14px}
+.lpa-rule-card{display:flex;gap:10px;padding:13px;border-radius:12px;border:1px solid var(--border-soft);background:var(--surface);margin-bottom:8px}
+.lpa-rule-card.is-disabled{opacity:.55}
+.lpa-rule-main{flex:1;min-width:0}
+.lpa-rule-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.lpa-rule-label{font-weight:700;font-size:14px;color:var(--text-strong)}
+.lpa-status-tag{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;padding:2px 8px;border-radius:999px;background:var(--surface-deep);color:var(--muted)}
+.lpa-status-tag.is-active{background:rgba(95,174,126,.18);color:var(--green)}
+.lpa-smart-pill{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:999px;background:rgba(211,166,71,.18);color:var(--gold-deep)}
+.lpa-rule-meta{font-size:12.5px;color:var(--muted);line-height:1.5;word-break:break-word}
+.lpa-rule-meta strong{color:var(--soft)}
+.lpa-rule-controls{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.lpa-reorder{display:flex;flex-direction:column;gap:2px}
+.lpa-reorder button{width:28px;height:24px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--border);background:transparent;color:var(--muted);border-radius:7px;cursor:pointer}
+.lpa-reorder button:disabled{opacity:.3;cursor:default}
+.lpa-rule-mod{display:flex;gap:6px}
+.lpa-toggle{display:inline-flex;align-items:center;gap:8px;padding:8px 0;background:none;border:none;color:var(--muted);font-size:13px;font-weight:600;font-family:inherit;cursor:pointer}
+.lpa-toggle .on{color:var(--green)}
+.lpa-fg--check{display:flex;align-items:center}
+.lpa-smartbox{margin-top:6px;padding:12px;border-radius:11px;border:1px solid var(--border-soft);background:var(--surface-soft)}
+.lpa-smarthint{font-size:12px;color:var(--soft);margin:6px 0 0}
 </style>
 </head>
 <body>
@@ -178,10 +238,14 @@ button{font-family:inherit}
   <nav class="lpa-tabs">
     <button type="button" class="lpa-tab is-active" id="lpa-tab-chat" data-tab="chat">Conversations <span class="lpa-badge" id="lpa-chat-badge" hidden>0</span></button>
     <button type="button" class="lpa-tab" id="lpa-tab-fb" data-tab="feedback">Feedback <span class="lpa-badge" id="lpa-fb-badge" hidden>0</span></button>
+    <button type="button" class="lpa-tab" id="lpa-tab-training" data-tab="training">Training</button>
+    <button type="button" class="lpa-tab" id="lpa-tab-links" data-tab="links">Direct Links</button>
   </nav>
   <main class="lpa-body">
     <div id="lpa-pane-chat"></div>
     <div id="lpa-pane-feedback" hidden></div>
+    <div id="lpa-pane-training" hidden></div>
+    <div id="lpa-pane-links" hidden></div>
   </main>
 </div>
 
@@ -204,7 +268,30 @@ button{font-family:inherit}
     loader: '<path d="M21 12a9 9 0 1 1-6.219-8.56"/>',
     star: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>',
     alert: '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 20h16a2 2 0 0 0 1.73-2Z"/><path d="M12 9v4"/><path d="M12 17h.01"/>',
+    plus: '<path d="M5 12h14"/><path d="M12 5v14"/>',
+    edit: '<path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/>',
+    trash: '<path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>',
+    save: '<path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/>',
+    chevU: '<path d="m18 15-6-6-6 6"/>',
+    pin: '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
+    globe: '<circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
+    sparkle: '<path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>',
+    toggleOn: '<rect x="1" y="5" width="22" height="14" rx="7"/><circle cx="16" cy="12" r="3" fill="currentColor"/>',
+    toggleOff: '<rect x="1" y="5" width="22" height="14" rx="7"/><circle cx="8" cy="12" r="3" fill="currentColor"/>',
+    brain: '<path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/>',
   };
+  /* Training categories (mirror seedTraining / _training.js order) */
+  var TRAIN_CATS = [
+    { id: 'identity', label: 'Identity / Persona', kind: 'flat' },
+    { id: 'general', label: 'General Data', kind: 'flat' },
+    { id: 'guardrails', label: 'Guardrails', kind: 'flat' },
+    { id: 'voice', label: 'Brand Voice', kind: 'flat' },
+    { id: 'menus', label: 'Menus', kind: 'flat' },
+    { id: 'location', label: 'Location Specific', kind: 'location' },
+    { id: 'seasonal', label: 'Temporary / Seasonal', kind: 'seasonal' },
+  ];
+  var TRAIN_LOCS = ['Shorter', 'Riverside', 'Cartersville', 'Rockmart'];
+  var TRAIN_SEASONS = ['All Locations'].concat(TRAIN_LOCS);
 
   var loginView = d.getElementById('lpa-login');
   var shellView = d.getElementById('lpa-shell');
@@ -254,12 +341,17 @@ button{font-family:inherit}
 
   /* ── tabs ── */
   var tab = 'chat';
+  var loadedOnce = {};
   d.querySelectorAll('.lpa-tab').forEach(function (b) {
     b.addEventListener('click', function () {
       tab = b.getAttribute('data-tab');
       d.querySelectorAll('.lpa-tab').forEach(function (x) { x.classList.toggle('is-active', x === b); });
-      d.getElementById('lpa-pane-chat').hidden = tab !== 'chat';
-      d.getElementById('lpa-pane-feedback').hidden = tab !== 'feedback';
+      ['chat', 'feedback', 'training', 'links'].forEach(function (t) {
+        d.getElementById('lpa-pane-' + t).hidden = tab !== t;
+      });
+      // Lazy-load Training/Links the first time their tab is opened.
+      if (tab === 'training' && !loadedOnce.training) { loadedOnce.training = true; loadTraining(); }
+      if (tab === 'links' && !loadedOnce.links) { loadedOnce.links = true; loadLinks(); }
     });
   });
 
@@ -469,6 +561,239 @@ button{font-family:inherit}
     if (f) f.addEventListener('click', function () { fbFlaggedOnly = !fbFlaggedOnly; renderFeedback(); });
   }
 
+  /* ============================ TRAINING EDITOR ============================ */
+  var trainEntries = [], trainCat = 'identity', trainLoc = TRAIN_LOCS[0], trainSeason = TRAIN_SEASONS[0], trainEditing = null;
+  var paneTraining = d.getElementById('lpa-pane-training');
+
+  function trainScope() {
+    var c = catDef(trainCat);
+    if (c.kind === 'location') return trainLoc;
+    if (c.kind === 'seasonal') return trainSeason;
+    return '';
+  }
+  function catDef(id) { return TRAIN_CATS.filter(function (c) { return c.id === id; })[0]; }
+  function trainBucket() {
+    var scope = trainScope();
+    return trainEntries.filter(function (e) { return e.category === trainCat && (e.scope || '') === scope; })
+      .sort(function (a, b) { return a.sortOrder - b.sortOrder; });
+  }
+
+  function renderTraining() {
+    var c = catDef(trainCat);
+    var scopeLabel = c.kind === 'location' ? c.label + ' — ' + trainLoc : c.kind === 'seasonal' ? c.label + ' — ' + trainSeason : c.label;
+    var html = '<div class="lpa-train"><aside class="lpa-train-rail">';
+    TRAIN_CATS.forEach(function (cc) {
+      html += '<button type="button" class="lpa-railbtn ' + (trainCat === cc.id ? 'is-active' : '') + '" data-cat="' + cc.id + '">' +
+        svg(IC.brain, 15) + '<span>' + cc.label + '</span></button>';
+    });
+    html += '</aside><section class="lpa-train-main">';
+    html += '<div class="lpa-train-scopehead"><h3 class="lpa-train-scopetitle">' + esc(scopeLabel) + '</h3>' +
+      (trainEditing ? '' : '<button type="button" class="lpa-btn-sm lpa-btn-primary" id="lpa-train-add">' + svg(IC.plus, 14) + '<span>Add Entry</span></button>') + '</div>';
+
+    if (c.kind === 'location') {
+      html += '<div class="lpa-train-subnav">';
+      TRAIN_LOCS.forEach(function (l) { html += '<button type="button" class="lpa-chip ' + (trainLoc === l ? 'is-active' : '') + '" data-loc="' + l + '">' + svg(IC.pin, 12) + l + '</button>'; });
+      html += '</div>';
+    } else if (c.kind === 'seasonal') {
+      html += '<div class="lpa-train-subnav">';
+      TRAIN_SEASONS.forEach(function (s) { html += '<button type="button" class="lpa-chip ' + (trainSeason === s ? 'is-active' : '') + '" data-season="' + esc(s) + '">' + svg(s === 'All Locations' ? IC.globe : IC.pin, 12) + esc(s) + '</button>'; });
+      html += '</div>';
+    }
+
+    if (trainEditing) {
+      html += '<div class="lpa-train-form">' +
+        '<div class="lpa-fg"><label>Title / label</label><input type="text" maxlength="80" id="lpa-train-title" value="' + esc(trainEditing.title) + '" placeholder="e.g. Hours, House margarita, Allergy policy…"></div>' +
+        '<div class="lpa-fg"><label>Content (this feeds the assistant\'s system prompt)</label><textarea id="lpa-train-content" rows="8" placeholder="Write the source-of-truth information for this entry…">' + esc(trainEditing.content) + '</textarea></div>' +
+        '<div class="lpa-form-actions"><button type="button" class="lpa-btn-sm lpa-btn-ghost" id="lpa-train-cancel">Cancel</button>' +
+        '<button type="button" class="lpa-btn-sm lpa-btn-primary" id="lpa-train-save">' + svg(IC.save, 14) + '<span>Save Entry</span></button></div></div>';
+    } else {
+      var bucket = trainBucket();
+      if (!bucket.length) {
+        html += '<div class="lpa-empty">' + svg(IC.brain, 26) + '<p>No entries yet in <strong>' + esc(scopeLabel) + '</strong>.</p>' +
+          '<p class="lpa-empty-sub">Add entries here and they become part of the assistant\'s knowledge — changes go live on the next message.</p></div>';
+      } else {
+        html += '<div class="lpa-train-list">';
+        bucket.forEach(function (e) {
+          html += '<div class="lpa-train-card"><div class="lpa-train-card-main">' +
+            '<span class="lpa-train-card-title">' + esc(e.title || 'Untitled') + '</span>' +
+            '<p class="lpa-train-card-content">' + (e.content ? esc(e.content) : '<em>(empty)</em>') + '</p></div>' +
+            '<div class="lpa-train-card-actions">' +
+            '<button type="button" class="lpa-iconbtn-sm" data-edit="' + esc(e.id) + '" aria-label="Edit entry">' + svg(IC.edit, 15) + '</button>' +
+            '<button type="button" class="lpa-iconbtn-sm is-danger" data-del="' + esc(e.id) + '" aria-label="Delete entry">' + svg(IC.trash, 15) + '</button></div></div>';
+        });
+        html += '</div>';
+      }
+    }
+    html += '</section></div>';
+    paneTraining.innerHTML = html;
+
+    paneTraining.querySelectorAll('[data-cat]').forEach(function (b) { b.addEventListener('click', function () { trainCat = b.getAttribute('data-cat'); trainEditing = null; renderTraining(); }); });
+    paneTraining.querySelectorAll('[data-loc]').forEach(function (b) { b.addEventListener('click', function () { trainLoc = b.getAttribute('data-loc'); trainEditing = null; renderTraining(); }); });
+    paneTraining.querySelectorAll('[data-season]').forEach(function (b) { b.addEventListener('click', function () { trainSeason = b.getAttribute('data-season'); trainEditing = null; renderTraining(); }); });
+    var addBtn = d.getElementById('lpa-train-add');
+    if (addBtn) addBtn.addEventListener('click', function () { trainEditing = { id: '', title: '', content: '', isNew: true }; renderTraining(); });
+    paneTraining.querySelectorAll('[data-edit]').forEach(function (b) {
+      b.addEventListener('click', function () { var e = trainEntries.filter(function (x) { return x.id === b.getAttribute('data-edit'); })[0]; trainEditing = { id: e.id, title: e.title, content: e.content, isNew: false }; renderTraining(); });
+    });
+    paneTraining.querySelectorAll('[data-del]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var id = b.getAttribute('data-del');
+        if (!confirm('Delete this training entry? This changes what the assistant knows.')) return;
+        trainEntries = trainEntries.filter(function (x) { return x.id !== id; });
+        adminFetch('/api/admin/training', { method: 'DELETE', body: JSON.stringify({ id: id }) }).catch(function () {});
+        renderTraining();
+      });
+    });
+    if (trainEditing) {
+      d.getElementById('lpa-train-cancel').addEventListener('click', function () { trainEditing = null; renderTraining(); });
+      d.getElementById('lpa-train-save').addEventListener('click', saveTrainEntry);
+      d.getElementById('lpa-train-title').focus();
+    }
+  }
+
+  function saveTrainEntry() {
+    var title = d.getElementById('lpa-train-title').value.trim();
+    var content = d.getElementById('lpa-train-content').value.trim();
+    if (!title && !content) { trainEditing = null; renderTraining(); return; }
+    if (trainEditing.isNew) {
+      var payload = { category: trainCat, scope: trainScope(), title: title || 'Untitled', content: content };
+      adminFetch('/api/admin/training', { method: 'POST', body: JSON.stringify(payload) })
+        .then(function (r) { return r.json(); })
+        .then(function (res) { loadTraining(); }).catch(function () {});
+    } else {
+      var id = trainEditing.id;
+      trainEntries = trainEntries.map(function (e) { return e.id === id ? Object.assign({}, e, { title: title || 'Untitled', content: content }) : e; });
+      adminFetch('/api/admin/training', { method: 'PATCH', body: JSON.stringify({ id: id, title: title || 'Untitled', content: content }) }).catch(function () {});
+    }
+    trainEditing = null; renderTraining();
+  }
+
+  function loadTraining() {
+    paneTraining.innerHTML = '<div class="lpa-loading">' + svg(IC.loader, 22, 2.5).replace('<svg', '<svg class="lpa-spin"') + '<p>Loading training…</p></div>';
+    adminFetch('/api/admin/training').then(function (r) { return r.json(); }).then(function (j) {
+      trainEntries = j.entries || []; renderTraining();
+    }).catch(function () {});
+  }
+
+  /* ============================ DIRECT LINKS EDITOR ============================ */
+  var ctaRules = [], ctaEditing = null, ctaErr = '';
+  var paneLinks = d.getElementById('lpa-pane-links');
+
+  function renderLinks() {
+    var html = '<p class="lpa-banner">Keyword match fires instantly. Turn on <strong>Smart</strong> to let the model surface a card from intent (e.g. a guest says <em>"I\'d like to get that"</em> → Ready to order). Cards are detected server-side and shown in chat.</p>';
+    if (!ctaEditing) {
+      html += '<div class="lpa-links-actions"><button type="button" class="lpa-btn-sm lpa-btn-primary" id="lpa-cta-add">' + svg(IC.plus, 15) + '<span>Add New Link</span></button></div>';
+      ctaRules.forEach(function (r, idx) {
+        html += '<div class="lpa-rule-card ' + (r.enabled ? '' : 'is-disabled') + '"><div class="lpa-rule-main">' +
+          '<div class="lpa-rule-head"><span class="lpa-rule-label">' + esc(r.label || 'Untitled Link') + '</span>' +
+          '<span class="lpa-status-tag ' + (r.enabled ? 'is-active' : '') + '">' + (r.enabled ? 'Active' : 'Disabled') + '</span>' +
+          (r.smart ? '<span class="lpa-smart-pill">' + svg(IC.sparkle, 11) + 'Smart</span>' : '') + '</div>' +
+          '<div class="lpa-rule-meta"><strong>Keywords:</strong> ' + esc(r.keywords.join(', ') || 'none') + '</div>' +
+          '<div class="lpa-rule-meta"><strong>Destination:</strong> ' + esc(r.url) + '</div>' +
+          '<button type="button" class="lpa-toggle" data-smart="' + esc(r.id) + '">' + svg(r.smart ? IC.toggleOn : IC.toggleOff, 22).replace('<svg', '<svg class="' + (r.smart ? 'on' : '') + '"') + '<span>Smart intent matching ' + (r.smart ? 'on' : 'off') + '</span></button>' +
+          '</div><div class="lpa-rule-controls"><div class="lpa-reorder">' +
+          '<button type="button" data-up="' + idx + '"' + (idx === 0 ? ' disabled' : '') + ' aria-label="Move up">' + svg(IC.chevU, 16) + '</button>' +
+          '<button type="button" data-down="' + idx + '"' + (idx === ctaRules.length - 1 ? ' disabled' : '') + ' aria-label="Move down">' + svg(IC.chevD, 16) + '</button></div>' +
+          '<div class="lpa-rule-mod"><button type="button" class="lpa-iconbtn-sm" data-edit="' + esc(r.id) + '" aria-label="Edit link">' + svg(IC.edit, 15) + '</button>' +
+          '<button type="button" class="lpa-iconbtn-sm is-danger" data-del="' + esc(r.id) + '" aria-label="Delete link">' + svg(IC.trash, 15) + '</button></div></div></div>';
+      });
+    } else {
+      var e = ctaEditing;
+      html += '<div class="lpa-rule-form"><h3 class="lpa-train-scopetitle" style="margin-bottom:12px">' + (e.isNew ? 'Create New Link' : 'Edit: ' + esc(e.label)) + '</h3>';
+      if (ctaErr) html += '<div class="lpa-err">' + esc(ctaErr) + '</div>';
+      html += fg('Internal Label (max 40)', '<input type="text" maxlength="40" id="lpa-cta-label" value="' + esc(e.label) + '">');
+      html += fg('Keywords (comma separated, max 32 each)', '<input type="text" id="lpa-cta-kw" placeholder="e.g. order, pickup, delivery" value="' + esc((e.keywords || []).join(', ')) + '">');
+      html += fg('Card Title (max 60)', '<input type="text" maxlength="60" id="lpa-cta-title" value="' + esc(e.title) + '">');
+      html += fg('Card Description / Body (max 120)', '<input type="text" maxlength="120" id="lpa-cta-body" value="' + esc(e.body) + '">');
+      html += fg('Button Text (max 28)', '<input type="text" maxlength="28" id="lpa-cta-btn" value="' + esc(e.buttonText) + '">');
+      html += fg('Destination URL (max 300; http(s):// or /path)', '<input type="text" maxlength="300" id="lpa-cta-url" value="' + esc(e.url) + '">');
+      html += '<div class="lpa-fg lpa-fg--check"><button type="button" class="lpa-toggle" id="lpa-cta-enabled">' + svg(e.enabled ? IC.toggleOn : IC.toggleOff, 26).replace('<svg', '<svg class="' + (e.enabled ? 'on' : '') + '"') + '<span>Enabled</span></button></div>';
+      html += '<div class="lpa-smartbox"><button type="button" class="lpa-toggle" id="lpa-cta-smart">' + svg(e.smart ? IC.toggleOn : IC.toggleOff, 26).replace('<svg', '<svg class="' + (e.smart ? 'on' : '') + '"') + '<span>' + svg(IC.sparkle, 13) + ' Smart intent matching</span></button>';
+      if (e.smart) html += '<div class="lpa-fg" style="margin-top:10px"><label>Extra instructions (optional) — when should the model surface this?</label><textarea id="lpa-cta-smartinstr" rows="3" placeholder="e.g. Surface when the guest expresses intent to buy a specific menu item.">' + esc(e.smartInstructions || '') + '</textarea><p class="lpa-smarthint">If blank, the model uses the keywords above as the intent hint.</p></div>';
+      html += '</div><div class="lpa-form-actions"><button type="button" class="lpa-btn-sm lpa-btn-ghost" id="lpa-cta-cancel">Cancel</button><button type="button" class="lpa-btn-sm lpa-btn-primary" id="lpa-cta-save">Save Changes</button></div></div>';
+    }
+    paneLinks.innerHTML = html;
+    bindLinks();
+  }
+
+  function fg(label, inner) { return '<div class="lpa-fg"><label>' + label + '</label>' + inner + '</div>'; }
+
+  function bindLinks() {
+    var add = d.getElementById('lpa-cta-add');
+    if (add) add.addEventListener('click', function () { ctaErr = ''; ctaEditing = { id: '', label: '', keywords: [], title: '', body: '', buttonText: '', url: '', enabled: true, smart: false, smartInstructions: '', isNew: true }; renderLinks(); });
+    paneLinks.querySelectorAll('[data-smart]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var id = b.getAttribute('data-smart'); var r = ctaRules.filter(function (x) { return x.id === id; })[0];
+        r.smart = !r.smart; adminFetch('/api/admin/cta', { method: 'PATCH', body: JSON.stringify({ id: id, smart: r.smart }) }).catch(function () {}); renderLinks();
+      });
+    });
+    paneLinks.querySelectorAll('[data-up]').forEach(function (b) { b.addEventListener('click', function () { moveRule(+b.getAttribute('data-up'), -1); }); });
+    paneLinks.querySelectorAll('[data-down]').forEach(function (b) { b.addEventListener('click', function () { moveRule(+b.getAttribute('data-down'), 1); }); });
+    paneLinks.querySelectorAll('[data-edit]').forEach(function (b) {
+      b.addEventListener('click', function () { ctaErr = ''; var r = ctaRules.filter(function (x) { return x.id === b.getAttribute('data-edit'); })[0]; ctaEditing = Object.assign({}, r, { isNew: false }); renderLinks(); });
+    });
+    paneLinks.querySelectorAll('[data-del]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var id = b.getAttribute('data-del');
+        if (!confirm('Delete this Direct Link?')) return;
+        ctaRules = ctaRules.filter(function (x) { return x.id !== id; });
+        adminFetch('/api/admin/cta', { method: 'DELETE', body: JSON.stringify({ id: id }) }).catch(function () {}); renderLinks();
+      });
+    });
+    var en = d.getElementById('lpa-cta-enabled'); if (en) en.addEventListener('click', function () { ctaEditing.enabled = !ctaEditing.enabled; renderLinks(); });
+    var sm = d.getElementById('lpa-cta-smart'); if (sm) sm.addEventListener('click', function () { syncCtaForm(); ctaEditing.smart = !ctaEditing.smart; renderLinks(); });
+    var cancel = d.getElementById('lpa-cta-cancel'); if (cancel) cancel.addEventListener('click', function () { ctaEditing = null; ctaErr = ''; renderLinks(); });
+    var save = d.getElementById('lpa-cta-save'); if (save) save.addEventListener('click', saveRule);
+  }
+
+  function syncCtaForm() {
+    if (!ctaEditing) return;
+    ctaEditing.label = d.getElementById('lpa-cta-label').value;
+    ctaEditing.keywords = d.getElementById('lpa-cta-kw').value.split(',').map(function (k) { return k.trim(); }).filter(function (k, i, a) { return k && a.indexOf(k) === i; });
+    ctaEditing.title = d.getElementById('lpa-cta-title').value;
+    ctaEditing.body = d.getElementById('lpa-cta-body').value;
+    ctaEditing.buttonText = d.getElementById('lpa-cta-btn').value;
+    ctaEditing.url = d.getElementById('lpa-cta-url').value;
+    var si = d.getElementById('lpa-cta-smartinstr'); if (si) ctaEditing.smartInstructions = si.value;
+  }
+
+  function moveRule(i, dir) {
+    var j = i + dir; if (j < 0 || j >= ctaRules.length) return;
+    var a = ctaRules[i], b = ctaRules[j];
+    ctaRules[i] = b; ctaRules[j] = a;
+    // persist swapped sort orders
+    adminFetch('/api/admin/cta', { method: 'PATCH', body: JSON.stringify({ id: a.id, sortOrder: j }) }).catch(function () {});
+    adminFetch('/api/admin/cta', { method: 'PATCH', body: JSON.stringify({ id: b.id, sortOrder: i }) }).catch(function () {});
+    a.sortOrder = j; b.sortOrder = i;
+    renderLinks();
+  }
+
+  function saveRule() {
+    syncCtaForm();
+    var e = ctaEditing;
+    if (!e.label.trim() || !e.title.trim() || !e.body.trim() || !e.buttonText.trim() || !e.url.trim() || !e.keywords.length) {
+      ctaErr = 'All fields are required and need at least one keyword.'; renderLinks(); return;
+    }
+    if (!/^(https?:\/\/|\/)/i.test(e.url.trim())) { ctaErr = 'URL must start with http://, https://, or a relative path /.'; renderLinks(); return; }
+    ctaErr = '';
+    var payload = { label: e.label.trim(), keywords: e.keywords, title: e.title.trim(), body: e.body.trim(), buttonText: e.buttonText.trim(), url: e.url.trim(), enabled: e.enabled, smart: e.smart, smartInstructions: e.smartInstructions || '' };
+    if (e.isNew) {
+      adminFetch('/api/admin/cta', { method: 'POST', body: JSON.stringify(payload) }).then(function () { loadLinks(); }).catch(function () {});
+    } else {
+      payload.id = e.id;
+      adminFetch('/api/admin/cta', { method: 'PATCH', body: JSON.stringify(payload) }).catch(function () {});
+      ctaRules = ctaRules.map(function (r) { return r.id === e.id ? Object.assign({}, r, payload) : r; });
+    }
+    ctaEditing = null; renderLinks();
+  }
+
+  function loadLinks() {
+    paneLinks.innerHTML = '<div class="lpa-loading">' + svg(IC.loader, 22, 2.5).replace('<svg', '<svg class="lpa-spin"') + '<p>Loading Direct Links…</p></div>';
+    adminFetch('/api/admin/cta').then(function (r) { return r.json(); }).then(function (j) {
+      ctaRules = j.rules || []; renderLinks();
+    }).catch(function () {});
+  }
+
   /* ============================ LOAD ============================ */
   function loadAll() {
     paneChat.innerHTML = '<div class="lpa-loading">' + svg(IC.loader, 22, 2.5).replace('<svg', '<svg class="lpa-spin"') + '<p>Loading conversations…</p></div>';
@@ -478,6 +803,7 @@ button{font-family:inherit}
     adminFetch('/api/admin/feedback-records').then(function (r) { return r.json(); }).then(function (j) {
       fbRecords = j.records || []; renderFeedback();
     }).catch(function () {});
+    loadedOnce = {}; // Training/Links re-fetch on next open
   }
 
   /* ── boot ── */
