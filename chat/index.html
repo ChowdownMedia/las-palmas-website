@@ -413,6 +413,7 @@ to { opacity: 1; transform: translateY(0) scale(1); }
 
 /* ---------- Conversation Thread ---------- */
 .lp-thread { display: flex; flex-direction: column; gap: 14px; padding: 16px 0 28px; }
+#lp-messages { display: flex; flex-direction: column; gap: 14px; }
 
 .lp-day-marker {
 align-self: center;
@@ -1725,6 +1726,7 @@ html[data-lp-pref="dark"] .lp-theme-ico--dark{display:inline-flex}
       micBtn.disabled = !speechSupported;
       paintComposer();
       scrollDown();
+      if (voiceTurn) { voiceTurn = false; speak(replyText); } // voice in → voice out
       if (!limitReached()) inputEl.focus();
     }
   }
@@ -1826,10 +1828,22 @@ html[data-lp-pref="dark"] .lp-theme-ico--dark{display:inline-flex}
     else if (!newChatBackdrop.hidden) { newChatBackdrop.hidden = true; d.body.style.overflow = ''; }
   });
 
+  /* ── Voice mode: speak → auto-send → the reply reads back aloud (hands-free) ── */
+  var voiceTurn = false;          // current exchange was started by voice
+  function speak(text) {
+    if (!window.speechSynthesis || !text) return;
+    try {
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(text.replace(/https?:\/\/[^\s]+/g, ''));
+      u.rate = 1.0; u.pitch = 1.0;
+      window.speechSynthesis.speak(u);
+    } catch (e) {}
+  }
+
   /* ── Speech recognition (voice input) ── */
   var SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
   var speechSupported = !!SpeechRec;
-  var recognition = null, listening = false, baseValue = '';
+  var recognition = null, listening = false, baseValue = '', dictated = false;
   if (!speechSupported) {
     micBtn.disabled = true;
     d.getElementById('lp-speech-warning').hidden = false;
@@ -1838,19 +1852,25 @@ html[data-lp-pref="dark"] .lp-theme-ico--dark{display:inline-flex}
     recognition.continuous = false;
     recognition.interimResults = true;
     recognition.lang = 'en-US';
-    recognition.onstart = function () { baseValue = inputEl.value || ''; };
+    recognition.onstart = function () { baseValue = inputEl.value || ''; dictated = false; };
     recognition.onresult = function (event) {
       var interim = '', finalT = '';
       for (var i = event.resultIndex; i < event.results.length; i++) {
         var t = event.results[i][0].transcript;
         if (event.results[i].isFinal) finalT += t; else interim += t;
       }
+      dictated = true;
       var sep = baseValue && !/\s$/.test(baseValue) ? ' ' : '';
       inputEl.value = (baseValue + sep + (finalT || interim)).slice(0, CHAR_LIMIT);
       paintComposer();
     };
-    recognition.onend = function () { setListening(false); };
-    recognition.onerror = function () { setListening(false); };
+    recognition.onend = function () {
+      setListening(false);
+      // Hands-free: if they actually spoke something, send it and read the reply aloud.
+      if (dictated && canSend()) { voiceTurn = true; sendMessage(); }
+      dictated = false;
+    };
+    recognition.onerror = function () { setListening(false); dictated = false; };
   }
   function setListening(on) {
     listening = on;

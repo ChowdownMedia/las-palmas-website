@@ -298,6 +298,7 @@ button{font-family:inherit}
     <div id="lpa-pane-training" hidden></div>
     <div id="lpa-pane-links" hidden></div>
     <div id="lpa-pane-terms" hidden></div>
+    <div id="lpa-pane-fbterms" hidden></div>
     <div id="lpa-pane-events" hidden></div>
     <div id="lpa-pane-planned" hidden></div>
   </main>
@@ -407,7 +408,8 @@ button{font-family:inherit}
       desc: 'Job applications from the Join Our Team form. The form currently doesn\'t submit anywhere — this needs a backend that routes each application to the right location\'s hiring contact.' },
     { group: 'Assistant', id: 'training', label: 'Training', status: 'live' },
     { group: 'Assistant', id: 'links', label: 'Direct Links', status: 'live' },
-    { group: 'Site content', id: 'terms', label: 'Terms', status: 'live' },
+    { group: 'Assistant', id: 'terms', label: 'Terms', status: 'live' },
+    { group: 'Site content', id: 'fbterms', label: 'Feedback Terms', status: 'live' },
     { group: 'Site content', id: 'events', label: 'Events', status: 'live' },
     { group: 'Site content', id: 'specials', label: 'Daily Specials', status: 'planned', priority: 'High',
       desc: 'Edit the per-day daily specials shown on /specials/ and the location pages.' },
@@ -424,7 +426,7 @@ button{font-family:inherit}
     { group: 'Site content', id: 'fbform', label: 'Feedback Form', status: 'planned', priority: 'Optional',
       desc: 'Reshape the guest feedback form — add, rename, or remove rating categories and questions. Deferred for now; we\'ll build it if we decide there\'s a real need.' },
   ];
-  var BUILT = { chat: 1, feedback: 1, training: 1, links: 1, terms: 1, events: 1 };
+  var BUILT = { chat: 1, feedback: 1, training: 1, links: 1, terms: 1, fbterms: 1, events: 1 };
   var tab = 'chat';
   var loadedOnce = {};
 
@@ -458,12 +460,13 @@ button{font-family:inherit}
     d.getElementById('lpa-tabs').classList.remove('is-open'); // close mobile drawer on select
     d.getElementById('lpa-nav-toggle').setAttribute('aria-expanded', 'false');
     var built = !!BUILT[id];
-    ['chat', 'feedback', 'training', 'links', 'terms', 'events'].forEach(function (t) { d.getElementById('lpa-pane-' + t).hidden = !(built && t === id); });
+    ['chat', 'feedback', 'training', 'links', 'terms', 'fbterms', 'events'].forEach(function (t) { d.getElementById('lpa-pane-' + t).hidden = !(built && t === id); });
     d.getElementById('lpa-pane-planned').hidden = built;
     if (built) {
       if (id === 'training' && !loadedOnce.training) { loadedOnce.training = true; loadTraining(); }
       if (id === 'links' && !loadedOnce.links) { loadedOnce.links = true; loadLinks(); }
-      if (id === 'terms' && !loadedOnce.terms) { loadedOnce.terms = true; loadTerms(); }
+      if (id === 'terms' && !loadedOnce.terms) { loadedOnce.terms = true; loadTerms('chat'); }
+      if (id === 'fbterms' && !loadedOnce.fbterms) { loadedOnce.fbterms = true; loadTerms('feedback'); }
       if (id === 'events' && !loadedOnce.events) { loadedOnce.events = true; loadEvents(); }
     } else {
       renderPlanned(id);
@@ -921,51 +924,49 @@ button{font-family:inherit}
     }).catch(function () {});
   }
 
-  /* ============================ TERMS EDITOR ============================ */
+  /* ============================ TERMS EDITORS ============================
+     Split per Glenn: the assistant's Terms live under Assistant; the feedback
+     portal's Terms live under Site content. One editor, parameterized by surface. */
   var terms = { chat: { content: '', updatedAt: null }, feedback: { content: '', updatedAt: null } };
-  var termsSurface = 'chat';
-  var paneTerms = d.getElementById('lpa-pane-terms');
+  var termsLoaded = false;
+  var termsPane = { chat: d.getElementById('lpa-pane-terms'), feedback: d.getElementById('lpa-pane-fbterms') };
 
-  function renderTerms() {
-    var t = terms[termsSurface] || { content: '', updatedAt: null };
+  function renderTermsSurface(surface) {
+    var pane = termsPane[surface];
+    var t = terms[surface] || { content: '', updatedAt: null };
     var dateStr = '';
     try { if (t.updatedAt) dateStr = new Date(t.updatedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }); } catch (e) {}
-    var html = '<div class="lpa-fb-toolbar"><div class="lpa-fb-locs">' +
-      '<button type="button" class="lpa-fb-loc ' + (termsSurface === 'chat' ? 'is-active' : '') + '" data-surface="chat">Chat assistant terms</button>' +
-      '<button type="button" class="lpa-fb-loc ' + (termsSurface === 'feedback' ? 'is-active' : '') + '" data-surface="feedback">Feedback portal terms</button>' +
-      '</div></div>' +
-      '<p class="lpa-banner">Edit the Terms of Use shown to guests on the ' + (termsSurface === 'chat' ? 'chat assistant' : 'feedback portal') + '. Markdown supported: <strong>## heading</strong>, <strong>### subheading</strong>, <strong>- bullet</strong>, <strong>**bold**</strong>. Saving stamps today\'s date automatically.</p>' +
-      '<div class="lpa-fg"><textarea id="lpa-terms-text" rows="20" spellcheck="true">' + esc(t.content) + '</textarea></div>' +
+    var who = surface === 'chat' ? 'the chat assistant' : 'the feedback portal';
+    pane.innerHTML =
+      '<p class="lpa-banner">Edit the Terms of Use shown to guests on ' + who + '. Markdown supported: <strong>## heading</strong>, <strong>### subheading</strong>, <strong>- bullet</strong>, <strong>**bold**</strong>. Saving stamps today\'s date automatically.</p>' +
+      '<div class="lpa-fg"><textarea id="lpa-terms-text-' + surface + '" rows="20" spellcheck="true">' + esc(t.content) + '</textarea></div>' +
       '<div class="lpa-form-actions" style="justify-content:space-between;align-items:center">' +
-      '<span class="lpa-fb-when" id="lpa-terms-date">' + (dateStr ? 'Last saved ' + dateStr : 'Not saved yet') + '</span>' +
-      '<button type="button" class="lpa-btn-sm lpa-btn-primary" id="lpa-terms-save">' + svg(IC.save, 14) + '<span>Save changes</span></button></div>';
-    paneTerms.innerHTML = html;
-    paneTerms.querySelectorAll('[data-surface]').forEach(function (b) {
-      b.addEventListener('click', function () { terms[termsSurface].content = d.getElementById('lpa-terms-text').value; termsSurface = b.getAttribute('data-surface'); renderTerms(); });
-    });
-    d.getElementById('lpa-terms-save').addEventListener('click', function () {
-      var content = d.getElementById('lpa-terms-text').value;
-      terms[termsSurface].content = content;
-      var btn = d.getElementById('lpa-terms-save');
-      btn.disabled = true; btn.querySelector('span').textContent = 'Saving…';
-      adminFetch('/api/admin/terms', { method: 'PATCH', body: JSON.stringify({ surface: termsSurface, content: content }) })
+      '<span class="lpa-fb-when" id="lpa-terms-date-' + surface + '">' + (dateStr ? 'Last saved ' + dateStr : 'Not saved yet') + '</span>' +
+      '<button type="button" class="lpa-btn-sm lpa-btn-primary" id="lpa-terms-save-' + surface + '">' + svg(IC.save, 14) + '<span>Save changes</span></button></div>';
+    d.getElementById('lpa-terms-save-' + surface).addEventListener('click', function () {
+      var content = d.getElementById('lpa-terms-text-' + surface).value;
+      terms[surface].content = content;
+      var btn = this; btn.disabled = true; btn.querySelector('span').textContent = 'Saving…';
+      adminFetch('/api/admin/terms', { method: 'PATCH', body: JSON.stringify({ surface: surface, content: content }) })
         .then(function (r) { return r.json(); })
         .then(function (res) {
-          if (res.updatedAt) terms[termsSurface].updatedAt = res.updatedAt;
+          if (res.updatedAt) terms[surface].updatedAt = res.updatedAt;
           btn.disabled = false; btn.querySelector('span').textContent = 'Saved';
           var ds = ''; try { ds = new Date(res.updatedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }); } catch (e) {}
-          d.getElementById('lpa-terms-date').textContent = ds ? 'Last saved ' + ds : '';
+          d.getElementById('lpa-terms-date-' + surface).textContent = ds ? 'Last saved ' + ds : '';
           setTimeout(function () { if (btn.querySelector('span')) btn.querySelector('span').textContent = 'Save changes'; }, 1600);
         })
         .catch(function () { btn.disabled = false; btn.querySelector('span').textContent = 'Save changes'; });
     });
   }
 
-  function loadTerms() {
-    paneTerms.innerHTML = '<div class="lpa-loading">' + svg(IC.loader, 22, 2.5).replace('<svg', '<svg class="lpa-spin"') + '<p>Loading terms…</p></div>';
+  function loadTerms(surface) {
+    if (termsLoaded) { renderTermsSurface(surface); return; }
+    termsPane[surface].innerHTML = '<div class="lpa-loading">' + svg(IC.loader, 22, 2.5).replace('<svg', '<svg class="lpa-spin"') + '<p>Loading terms…</p></div>';
     adminFetch('/api/admin/terms').then(function (r) { return r.json(); }).then(function (j) {
       if (j.terms) { terms.chat = j.terms.chat || terms.chat; terms.feedback = j.terms.feedback || terms.feedback; }
-      renderTerms();
+      termsLoaded = true;
+      renderTermsSurface(surface);
     }).catch(function () {});
   }
 
