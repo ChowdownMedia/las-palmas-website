@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Share Your Feedback | Las Palmas Mexican Restaurant</title>
+<meta name="description" content="Tell us about your visit to Las Palmas in Rome, Rockmart, or Cartersville, GA. Your feedback helps us recognize great service and improve every experience.">
+<link rel="canonical" href="https://laspalmasmexicanrest.com/feedback/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Las Palmas Mexican Restaurant">
+<meta property="og:title" content="Share Your Feedback — Las Palmas Mexican Restaurant">
+<meta property="og:description" content="Tell us about your visit. Your feedback helps us recognize great service and make every Las Palmas experience better.">
+<meta property="og:url" content="https://laspalmasmexicanrest.com/feedback/">
+<meta property="og:image" content="https://laspalmasmexicanrest.com/assets/images/shared/og-share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Share Your Feedback — Las Palmas Mexican Restaurant">
+<meta name="twitter:description" content="Tell us about your visit. Your feedback helps us make every Las Palmas experience better.">
+<meta name="twitter:image" content="https://laspalmasmexicanrest.com/assets/images/shared/og-share.jpg">
+<meta name="theme-color" content="#F7EFE2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#160C08" media="(prefers-color-scheme: dark)">
+
+<script>(function(){var p='auto';try{var s=localStorage.getItem('lp-feedback-theme');if(s==='auto'||s==='light'||s==='dark')p=s;}catch(e){}var h=new Date().getHours();var dark=p==='dark'||(p==='auto'&&(h>=19||h<7));var e=document.documentElement;e.setAttribute('data-lpf-pref',p);e.setAttribute('data-lpf-dark',dark?'1':'0');})();</script>
+
+<link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/dm-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+@font-face{font-family:'Instrument Serif';src:url('/assets/fonts/instrument-serif.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Instrument Serif';src:url('/assets/fonts/instrument-serif-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('/assets/fonts/dm-sans-var.woff2') format('woff2');font-weight:100 1000;font-style:normal;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('/assets/fonts/dm-sans-italic-var.woff2') format('woff2');font-weight:100 1000;font-style:italic;font-display:swap}
+
+/* ════ FeedbackPortalV3 baseStyles — ported verbatim (customer-facing slice) ════ */
+
+:root, .lpf-root[data-theme="light"] {
+  --bg:           #F7EFE2;
+  --bg-deep:      #F2E5C2;
+  --surface:      #FFF8E9;
+  --surface-soft: #F8EBD0;
+  --surface-deep: #F3DFBD;
+  --text:         #3D2016;
+  --text-strong:  #2A140C;
+  --muted:        #7B5B45;
+  --soft:         #A38968;
+  --gold:         #C8923A;
+  --gold-deep:    #A6731D;
+  --gold-light:   #F5E2B0;
+  --terracotta:        #C9482C;
+  --terracotta-deep:   #8F2C1D;
+  --terracotta-soft:   #E07A5F;
+  --green:        #2F7B4F;
+  --border:       rgba(120, 75, 35, 0.18);
+  --border-soft:  rgba(120, 75, 35, 0.11);
+  --border-strong:rgba(120, 75, 35, 0.30);
+  --shadow-sm:    0 1px 2px rgba(80, 45, 15, 0.04), 0 4px 12px rgba(80, 45, 15, 0.06);
+  --shadow-md:    0 2px 4px rgba(80, 45, 15, 0.07), 0 12px 28px rgba(80, 45, 15, 0.10);
+  --shadow-lg:    0 4px 8px rgba(80, 45, 15, 0.09), 0 22px 50px rgba(80, 45, 15, 0.14);
+
+  --page-grad:
+    radial-gradient(circle at 12% -6%, rgba(245, 219, 165, 0.55) 0%, transparent 42%),
+    radial-gradient(circle at 92% 108%, rgba(232, 178, 138, 0.30) 0%, transparent 52%),
+    linear-gradient(180deg, #F7EFE2 0%, #F2E1BE 100%);
+  --texture-dot:    rgba(160, 110, 60, 0.045);
+  --texture-dot-2:  rgba(160, 110, 60, 0.030);
+  --header-bg:      rgba(247, 239, 226, 0.94);
+  --header-bg-soft: rgba(247, 239, 226, 0.82);
+  --card-grad:      linear-gradient(180deg, #FFFAEE 0%, #F7E8C8 100%);
+  --card-hover:     linear-gradient(180deg, #FFFCEF 0%, #F4E0B4 100%);
+  --field-bg:       #FFFAEE;
+  --field-border:   rgba(120, 75, 35, 0.22);
+  --error:        #B83122;
+  --error-bg:     rgba(184, 49, 34, 0.08);
+  --warn:         #B26C0F;
+  --shimmer-a: #6B2B1F; --shimmer-b: #B9472A; --shimmer-c: #D8A640; --shimmer-d: #C9482C; --shimmer-e: #7A2616;
+  --on-terracotta: #FFF8EC; --on-gold: #3D2016;
+  --font-display:  'Instrument Serif', 'Playfair Display', Georgia, serif;
+  --font-body:     'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --card-border-animated: linear-gradient(135deg, #C8923A 0%, #C9482C 25%, #B83122 50%, #2F7B4F 75%, #C8923A 100%);
+}
+
+.lpf-root[data-theme="dark"] {
+  --bg:           #160C08;
+  --bg-deep:      #0E0604;
+  --surface:      #24140E;
+  --surface-soft: #2E1B13;
+  --surface-deep: #38241A;
+  --text:         #F4E3C4;
+  --text-strong:  #FAEDD0;
+  --muted:        #C5A987;
+  --soft:         #9A7E62;
+  --gold:         #D3A647;
+  --gold-deep:    #E1B85A;
+  --gold-light:   #3F2D14;
+  --terracotta:        #D45A35;
+  --terracotta-deep:   #A33A22;
+  --terracotta-soft:   #E58963;
+  --green:        #6FBF7D;
+  --border:       rgba(211, 166, 71, 0.22);
+  --border-soft:  rgba(211, 166, 71, 0.13);
+  --border-strong:rgba(211, 166, 71, 0.38);
+  --shadow-sm:    0 1px 2px rgba(0, 0, 0, 0.40), 0 4px 12px rgba(0, 0, 0, 0.45);
+  --shadow-md:    0 2px 6px rgba(0, 0, 0, 0.45), 0 14px 32px rgba(0, 0, 0, 0.55);
+  --shadow-lg:    0 4px 10px rgba(0, 0, 0, 0.50), 0 24px 56px rgba(0, 0, 0, 0.65);
+
+  --page-grad: radial-gradient(circle at 12% -6%, rgba(180, 105, 50, 0.20) 0%, transparent 45%), radial-gradient(circle at 92% 108%, rgba(150, 75, 35, 0.22) 0%, transparent 52%), linear-gradient(180deg, #160C08 0%, #0E0604 100%);
+  --texture-dot: rgba(220, 170, 100, 0.028); --texture-dot-2: rgba(220, 170, 100, 0.020);
+  --header-bg: rgba(20, 12, 7, 0.92); --header-bg-soft: rgba(20, 12, 7, 0.78);
+  --card-grad: linear-gradient(180deg, #2A1810 0%, #1D1009 100%); --card-hover: linear-gradient(180deg, #321F15 0%, #21130B 100%);
+  --field-bg: #1F140A; --field-border: rgba(211, 166, 71, 0.28);
+  --error: #E07457; --error-bg: rgba(224, 116, 87, 0.12); --warn: #D6A155;
+  --shimmer-a: #8F351F; --shimmer-b: #D45A35; --shimmer-c: #E5B85C; --shimmer-d: #C95630; --shimmer-e: #6F2A18;
+  --on-terracotta: #FFF5E5; --on-gold: #1E0F08;
+  --card-border-animated: linear-gradient(135deg, #E1B85A 0%, #D45A35 25%, #E07457 50%, #6FBF7D 75%, #E1B85A 100%);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
+.lpf-root { position: relative; min-height: 100vh; background: var(--page-grad); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+.lpf-root::before { content: ''; position: fixed; inset: 0; pointer-events: none; background-image: radial-gradient(var(--texture-dot) 1px, transparent 1px), radial-gradient(var(--texture-dot-2) 1px, transparent 1px); background-size: 28px 28px, 14px 14px; background-position: 0 0, 7px 7px; }
+
+.lpf-header { position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; padding: 10px 14px 12px; background: linear-gradient(180deg, var(--header-bg) 0%, var(--header-bg-soft) 100%); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-soft); }
+.lpf-header-brand { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; color: var(--text-strong); }
+.lpf-header-name { font-family: var(--font-display); font-size: clamp(19px, 5vw, 22px); line-height: 1; }
+.lpf-iconbtn { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 999px; border: 1px solid var(--border-soft); background: var(--surface-soft); color: var(--text); cursor: pointer; text-decoration: none; }
+.lpf-iconbtn:hover { background: var(--surface-deep); border-color: var(--border); }
+
+.lpf-main { position: relative; width: 100%; max-width: 720px; margin: 0 auto; padding: 18px 14px 60px; }
+.lpf-hero { text-align: center; padding: 16px 6px 22px; }
+.lpf-eyebrow { font-size: 11.5px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.lpf-h1 { font-family: var(--font-display); font-size: clamp(30px, 8vw, 42px); line-height: 1.07; color: var(--text-strong); margin-bottom: 14px; }
+.lpf-lede { font-size: 15px; color: var(--muted); max-width: 56ch; margin: 0 auto; }
+
+.lpf-shimmer { display: inline-block; font-style: italic; background-image: linear-gradient(90deg, var(--shimmer-a), var(--shimmer-b), var(--shimmer-c), var(--shimmer-d), var(--shimmer-e), var(--shimmer-a)); background-size: 240% auto; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: lpf-shimmer 9s ease-in-out infinite; }
+@keyframes lpf-shimmer { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+
+.lpf-form-card { margin-top: 4px; padding: 4px; background: var(--card-border-animated); background-size: 300% 300%; border-radius: 26px; box-shadow: var(--shadow-md); animation: lpf-rise 600ms cubic-bezier(.2, .7, .2, 1), lpf-border-flow 18s ease-in-out infinite; }
+.lpf-form-card-inner { background: var(--card-grad); border-radius: 22px; }
+@keyframes lpf-border-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+@keyframes lpf-rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+.lpf-form-error-banner { display: flex; gap: 12px; margin: 18px 18px 0; padding: 14px 16px; border: 1.5px solid var(--error); border-radius: 14px; box-shadow: 0 2px 8px rgba(184, 49, 34, 0.10); }
+.lpf-form-error-icon { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 999px; background: var(--error-bg); color: var(--error); }
+.lpf-form-error-title { margin: 2px 0 6px; font-weight: 600; font-size: 14.5px; color: var(--text-strong); }
+.lpf-form-error-list { margin: 0; padding-left: 18px; font-size: 13px; }
+
+.lpf-fs { padding: 20px 22px; }
+.lpf-fs-label { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-weight: 600; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.lpf-fs-helper { margin: -6px 0 12px; font-size: 13px; color: var(--soft); }
+.lpf-req { color: var(--terracotta); }
+.lpf-optional { font-weight: 400; text-transform: none; color: var(--soft); font-size: 11.5px; }
+.lpf-divider { height: 1px; margin: 0 22px; background: linear-gradient(90deg, transparent 0%, var(--border-soft) 20%, var(--border) 50%, var(--border-soft) 80%, transparent 100%); }
+
+.lpf-input, .lpf-textarea { width: 100%; padding: 13px 15px; background: var(--field-bg); color: var(--text); border: 1px solid var(--field-border); border-radius: 12px; font-size: 15px; outline: none; transition: border-color 140ms ease; }
+.lpf-input:focus, .lpf-textarea:focus { border-color: var(--gold); background: var(--surface); box-shadow: 0 0 0 3px rgba(200, 146, 58, 0.22); }
+.lpf-textarea { min-height: 110px; resize: vertical; }
+
+.lpf-picker { position: relative; width: 100%; }
+.lpf-picker-btn { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 13px 15px; background: var(--field-bg); color: var(--text); border: 1px solid var(--field-border); border-radius: 12px; font-size: 15px; cursor: pointer; text-align: left; }
+.lpf-picker-btn.is-open { border-color: var(--gold); background: var(--surface); }
+.lpf-picker-list { position: absolute; top: calc(100% + 6px); left: 0; right: 0; z-index: 50; margin: 0; padding: 6px; list-style: none; background: var(--card-grad); border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow-lg); max-height: 320px; overflow-y: auto; }
+.lpf-picker-opt { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 12px 14px; background: transparent; border: none; border-radius: 9px; font-size: 15px; color: var(--text); text-align: left; cursor: pointer; }
+.lpf-picker-opt:hover { background: var(--surface-soft); }
+.lpf-picker-opt.is-selected { background: linear-gradient(135deg, rgba(200, 146, 58, 0.14), rgba(201, 72, 44, 0.10)); font-weight: 600; }
+
+.lpf-contact-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 540px) { .lpf-contact-grid { grid-template-columns: 1fr 1fr; } }
+.lpf-mini-label { display: block; margin-bottom: 6px; font-size: 11.5px; text-transform: uppercase; color: var(--soft); letter-spacing: 0.08em; }
+
+.lpf-counter { margin-top: 6px; font-size: 11.5px; color: var(--soft); text-align: right; opacity: 0; }
+.lpf-counter.is-visible { opacity: 0.85; }
+.lpf-counter.is-urgent { color: var(--warn); opacity: 1; font-weight: 600; }
+
+.lpf-stars { display: inline-flex; align-items: center; gap: 4px; }
+.lpf-star { display: inline-flex; align-items: center; justify-content: center; padding: 6px; background: none; border: none; cursor: pointer; color: var(--soft); }
+.lpf-star.is-filled { color: var(--gold); }
+.lpf-star.is-selected svg { animation: lpf-star-pop 380ms cubic-bezier(.2, .7, .2, 1.5); filter: drop-shadow(0 0 6px rgba(200, 146, 58, 0.55)); }
+@keyframes lpf-star-pop { 0% { transform: scale(1); } 40% { transform: scale(1.22); } 100% { transform: scale(1); } }
+.lpf-overall-wrap { display: flex; align-items: center; gap: 10px; padding: 12px 0 4px; }
+.lpf-stars-label { font-family: var(--font-display); font-style: italic; font-size: 16px; color: var(--gold-deep); margin-left: 6px; }
+
+.lpf-quick-grid { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; padding: 6px; background: var(--surface); border: 1px solid var(--border-soft); border-radius: 14px; }
+.lpf-quick { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; border-radius: 10px; }
+.lpf-quick:hover { background: var(--surface-soft); }
+.lpf-quick-label { display: inline-flex; align-items: center; gap: 9px; font-weight: 600; font-size: 13.5px; color: var(--text-strong); }
+.lpf-quick-icon { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: var(--gold-light); color: var(--gold-deep); }
+
+.lpf-consent { display: flex; gap: 14px; padding: 16px 18px; background: var(--surface); border: 1px solid var(--border-soft); border-radius: 16px; cursor: pointer; }
+.lpf-consent:hover { background: var(--surface-soft); }
+.lpf-consent.is-checked { background: linear-gradient(135deg, rgba(200, 146, 58, 0.10), rgba(201, 72, 44, 0.08)); border-color: var(--gold); }
+.lpf-consent-input { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.lpf-consent-box { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--field-border); background: var(--field-bg); color: var(--on-terracotta); }
+.lpf-consent.is-checked .lpf-consent-box { background: linear-gradient(180deg, var(--terracotta) 0%, var(--terracotta-deep) 100%); border-color: var(--terracotta-deep); animation: lpf-check-pop 320ms cubic-bezier(.2, .7, .2, 1.5); }
+.lpf-consent-text { display: flex; flex-direction: column; gap: 3px; font-size: 13.5px; }
+.lpf-consent-title { font-weight: 600; font-size: 14.5px; color: var(--text-strong); }
+.lpf-consent-body { color: var(--muted); font-size: 13px; }
+
+.lpf-error { margin-top: 8px; display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; background: var(--error-bg); border-radius: 10px; font-size: 13px; color: var(--error); font-weight: 500; }
+.lpf-fs.has-error .lpf-picker-btn, .lpf-fs.has-error .lpf-input, .lpf-fs.has-error .lpf-textarea { border-color: var(--error); box-shadow: 0 0 0 3px var(--error-bg); }
+
+.lpf-submit-row { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 8px 22px 26px; }
+.lpf-submit { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; max-width: 360px; padding: 15px 24px; background: linear-gradient(180deg, var(--terracotta) 0%, var(--terracotta-deep) 100%); color: var(--on-terracotta); border: 1px solid rgba(60, 15, 6, 0.18); border-radius: 999px; font-weight: 700; font-size: 15px; cursor: pointer; box-shadow: var(--shadow-sm); }
+.lpf-submit:hover:not(:disabled) { filter: brightness(1.06); }
+.lpf-submit:disabled { opacity: 0.85; cursor: wait; }
+.lpf-spin { animation: lpf-spin 700ms linear infinite; }
+@keyframes lpf-spin { to { transform: rotate(360deg); } }
+.lpf-terms-link { background: none; border: none; color: var(--muted); font-size: 12.5px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+
+.lpf-modal-backdrop { position: fixed; inset: 0; z-index: 70; background: rgba(35, 16, 8, 0.55); backdrop-filter: blur(3px); display: flex; align-items: flex-end; justify-content: center; padding: max(env(safe-area-inset-top), 16px) 12px max(env(safe-area-inset-bottom), 12px); }
+@media (min-width: 600px) { .lpf-modal-backdrop { align-items: center; padding: 24px; } }
+.lpf-modal { width: 100%; max-width: 640px; max-height: 92vh; display: flex; flex-direction: column; background: var(--card-grad); border: 1px solid var(--border); border-radius: 22px; overflow: hidden; }
+.lpf-modal-head { display: flex; align-items: flex-start; justify-content: space-between; padding: 18px 18px 14px; border-bottom: 1px solid var(--border-soft); background: var(--surface); }
+.lpf-modal-title { margin: 0; font-family: var(--font-display); font-size: 22px; color: var(--text-strong); }
+.lpf-modal-body { flex: 1; padding: 18px 22px; overflow-y: auto; font-size: 14.5px; color: var(--text); }
+.lpf-modal-foot { padding: 12px 16px; border-top: 1px solid var(--border-soft); background: var(--surface-soft); }
+.lpf-btn { display: inline-flex; align-items: center; justify-content: center; width: 100%; padding: 12px 18px; border-radius: 999px; border: none; font-weight: 600; font-size: 14.5px; cursor: pointer; }
+.lpf-btn--primary { background: linear-gradient(180deg, var(--terracotta) 0%, var(--terracotta-deep) 100%); color: var(--on-terracotta); }
+
+.lpf-thanks { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 60px 18px 40px; border-radius: 24px; background: var(--card-grad); border: 1px solid var(--border-soft); position: relative; overflow: hidden; animation: lpf-thanks-intro 750ms cubic-bezier(.175, .885, .32, 1.1) forwards; }
+.lpf-thanks-radiance-wrap { position: absolute; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+.lpf-radiant-layer { position: absolute; inset: 0; opacity: 0; }
+.lpf-radiant-gold { background: radial-gradient(circle at top center, rgba(200, 146, 58, 0.35) 0%, transparent 75%); animation: lpf-fade-pulse-a 8s ease-in-out infinite; }
+.lpf-radiant-terracotta { background: radial-gradient(circle at top center, rgba(201, 72, 44, 0.30) 0%, transparent 75%); animation: lpf-fade-pulse-b 8s ease-in-out infinite; }
+.lpf-radiant-green { background: radial-gradient(circle at top center, rgba(47, 123, 79, 0.25) 0%, transparent 75%); animation: lpf-fade-pulse-c 8s ease-in-out infinite; }
+@keyframes lpf-fade-pulse-a { 0%, 100% { opacity: 1; } 33% { opacity: 0; } 66% { opacity: 0; } }
+@keyframes lpf-fade-pulse-b { 0%, 100% { opacity: 0; } 33% { opacity: 1; } 66% { opacity: 0; } }
+@keyframes lpf-fade-pulse-c { 0%, 100% { opacity: 0; } 33% { opacity: 0; } 66% { opacity: 1; } }
+
+.lpf-celebration-canvas { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+.lpf-celebration-sparkle { position: absolute; transform: translate(0, 0) scale(0); opacity: 0; animation: lpf-sparkle-flow 3.0s cubic-bezier(0.15, 0.85, 0.35, 1) forwards; }
+@keyframes lpf-sparkle-flow { 0% { transform: translate(-50%, -50%) scale(0) rotate(0deg); opacity: 0; } 15% { opacity: 0.95; transform: translate(calc(-50% + var(--tx) * 0.40), calc(-50% + var(--ty) * 0.40)) scale(1.1) rotate(45deg); } 75% { opacity: 0.80; } 100% { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0) rotate(180deg); opacity: 0; } }
+
+.lpf-thanks-icon { position: relative; width: 120px; height: 120px; margin-bottom: 24px; display: flex; align-items: center; justify-content: center; z-index: 3; }
+.lpf-thanks-ring { position: absolute; inset: -12px; border-radius: 999px; background: radial-gradient(circle, rgba(200, 146, 58, 0.35) 0%, rgba(47, 123, 79, 0.15) 50%, rgba(200, 146, 58, 0) 70%); animation: lpf-pulse-glowing 2000ms ease-in-out infinite; }
+@keyframes lpf-pulse-glowing { 0%, 100% { transform: scale(1); opacity: 0.85; } 50% { transform: scale(1.12); opacity: 1; } }
+.lpf-thanks-check { position: relative; width: 82px; height: 82px; border-radius: 999px; background: linear-gradient(180deg, var(--gold) 0%, var(--gold-deep) 100%); color: var(--on-gold); display: inline-flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm); animation: lpf-check-pop-in 800ms cubic-bezier(.34, 1.56, .64, 1); }
+
+.lpf-thanks-title { max-width: 20ch; margin-bottom: 8px; z-index: 3; opacity: 0; animation: lpf-thanks-fade-up 1000ms cubic-bezier(0.16, 1, 0.3, 1) 200ms both; }
+.lpf-thanks-body { font-family: var(--font-display); font-style: italic; font-size: clamp(21px, 6vw, 26px); color: var(--terracotta); max-width: 48ch; z-index: 3; opacity: 0; animation: lpf-thanks-fade-up 1000ms cubic-bezier(0.16, 1, 0.3, 1) 2000ms both; }
+.lpf-thanks-delayed-group { width: 100%; display: flex; flex-direction: column; align-items: center; opacity: 0; animation: lpf-thanks-fade-up 1000ms cubic-bezier(0.16, 1, 0.3, 1) 2300ms both; }
+@keyframes lpf-thanks-fade-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+.lpf-thanks-meta { margin-top: 18px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); opacity: 0.8; z-index: 3; }
+.lpf-thanks-actions { display: flex; justify-content: center; width: 100%; margin-top: 24px; z-index: 3; }
+.lpf-thanks-close { display: inline-flex; align-items: center; justify-content: center; padding: 14px 44px; background: linear-gradient(135deg, var(--terracotta) 0%, var(--gold) 50%, var(--green) 100%); background-size: 200% auto; color: #FFF8EC; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: background-position 0.5s ease; z-index: 3; }
+.lpf-thanks-close:hover { background-position: right center; transform: translateY(-3px); }
+
+/* ---- v2.5 AI follow-up ---- */
+.lpf-thanks.is-calm { padding-top: 48px; }
+.lpf-thanks-check.is-calm { background: linear-gradient(180deg, var(--terracotta-soft) 0%, var(--terracotta) 100%); color: var(--on-terracotta); }
+.lpf-submitted-pill { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 14px; padding: 5px 13px; border-radius: 999px; background: color-mix(in srgb, var(--green) 16%, transparent); color: var(--green); border: 1px solid color-mix(in srgb, var(--green) 35%, transparent); font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; z-index: 3; }
+.lpf-ai-wrap { position: relative; z-index: 3; max-width: 52ch; min-height: 30px; margin: 2px auto 0; }
+.lpf-ai-message { font-family: var(--font-display); font-style: italic; font-size: clamp(19px, 5.2vw, 24px); line-height: 1.4; color: var(--terracotta); margin: 0; animation: lpf-thanks-fade-up 700ms cubic-bezier(0.16,1,0.3,1) both; }
+.lpf-thanks.is-positive .lpf-ai-message { color: var(--gold-deep); }
+.lpf-ai-thinking { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: 14px; margin: 4px 0 0; }
+
+.lpf-followup { position: relative; z-index: 3; width: 100%; max-width: 440px; margin: 22px auto 0; text-align: left; animation: lpf-thanks-fade-up 600ms cubic-bezier(0.16,1,0.3,1) both; }
+.lpf-followup-q { font-size: 15px; font-weight: 600; color: var(--text-strong); margin: 0 0 10px; line-height: 1.45; text-align: center; }
+.lpf-followup-box { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 12px; box-shadow: var(--shadow-sm); }
+.lpf-followup-input { min-height: 76px; font-size: 15px; }
+.lpf-followup-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 10px; }
+.lpf-followup-hint { font-size: 12px; color: var(--muted); font-style: italic; }
+.lpf-followup-send { display: inline-flex; align-items: center; gap: 7px; padding: 10px 18px; border: none; border-radius: 999px; background: linear-gradient(180deg, var(--gold) 0%, var(--gold-deep) 100%); color: var(--on-gold); font-weight: 700; font-size: 14px; font-family: var(--font-body); cursor: pointer; box-shadow: var(--shadow-sm); }
+.lpf-followup-send:hover:not(:disabled) { filter: brightness(1.06); }
+.lpf-followup-send:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ---- v2.5 crisis modal ---- */
+.lpf-crisis-overlay { position: fixed; inset: 0; z-index: 90; display: flex; align-items: center; justify-content: center; padding: 20px; background: rgba(20, 28, 22, 0.62); backdrop-filter: blur(5px); animation: lpf-rise 200ms ease both; }
+.lpf-crisis-modal { width: 100%; max-width: 380px; background: var(--surface); border: 1px solid var(--border); border-radius: 22px; padding: 26px 22px 22px; box-shadow: 0 18px 50px rgba(0,0,0,0.3); text-align: center; }
+.lpf-crisis-icon { width: 56px; height: 56px; margin: 0 auto 14px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; background: color-mix(in srgb, var(--green) 18%, transparent); color: var(--green); border: 1px solid color-mix(in srgb, var(--green) 40%, transparent); }
+.lpf-crisis-body { font-size: 14px; line-height: 1.6; color: var(--text); margin: 0 0 18px; }
+.lpf-crisis-call { display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; box-sizing: border-box; padding: 14px 20px; border-radius: 999px; background: linear-gradient(180deg, #4FA45F 0%, #2F7B4F 100%); color: #FFFFFF; text-decoration: none; font-weight: 800; font-size: 16px; border: 1px solid rgba(0,0,0,0.12); }
+.lpf-crisis-call:hover { filter: brightness(1.05); }
+.lpf-threat-icon { width: 56px; height: 56px; margin: 0 auto 14px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; background: color-mix(in srgb, var(--terracotta) 16%, transparent); color: var(--terracotta); border: 1px solid color-mix(in srgb, var(--terracotta) 40%, transparent); }
+.lpf-threat-call { display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; box-sizing: border-box; padding: 14px 20px; border-radius: 999px; background: linear-gradient(180deg, #C0392B 0%, #9B2417 100%); color: #FFFFFF; text-decoration: none; font-weight: 800; font-size: 16px; border: 1px solid rgba(0,0,0,0.12); margin-bottom: 12px; }
+.lpf-threat-call:hover { filter: brightness(1.06); }
+.lpf-crisis-sub { font-size: 12.5px; color: var(--muted); margin: 12px 0 16px; }
+.lpf-crisis-close { width: 100%; padding: 11px 20px; border-radius: 999px; background: transparent; border: 1px solid var(--border); color: var(--muted); font-weight: 700; font-size: 13.5px; font-family: var(--font-body); cursor: pointer; }
+.lpf-crisis-close:hover { background: var(--surface-soft); }
+
+/* ---- v2.6 thank-you ToS link + test bar ---- */
+/* ---- v2.6.2 discreet demo reset (looks like a tiny footer caption) ---- */
+.lpf-thanks-reset { display: block; margin: 30px auto 0; padding: 6px 10px; background: none; border: none; color: var(--muted); opacity: 0.4; font-family: var(--font-display); font-style: italic; font-size: 13px; letter-spacing: 0.02em; cursor: default; -webkit-user-select: none; user-select: none; z-index: 3; }
+.lpf-thanks-reset:hover { opacity: 0.55; }
+.lpf-tos-date { font-size: 12px; color: var(--muted); margin: 4px 0 0; }
+
+/* ── Port shims (static-HTML runtime; no visual change) ── */
+[hidden]{display:none!important}
+.lpf-theme-ico{display:none}
+html[data-lpf-pref="auto"] .lpf-theme-ico--auto{display:block}
+html[data-lpf-pref="light"] .lpf-theme-ico--light{display:block}
+html[data-lpf-pref="dark"] .lpf-theme-ico--dark{display:block}
+.lpf-picker-chev{transition:transform 160ms ease}
+.lpf-picker-chev.is-flipped{transform:rotate(180deg)}
+.lpf-picker-list:focus{outline:none}
+.lpf-picker-opt.is-focused{background:var(--surface-soft)}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Las Palmas Feedback Center",
+  "url": "https://laspalmasmexicanrest.com/feedback/",
+  "description": "Customer feedback portal for Las Palmas Mexican Restaurant's four Northwest Georgia locations.",
+  "isPartOf": { "@type": "WebSite", "name": "Las Palmas Mexican Restaurant", "url": "https://laspalmasmexicanrest.com/" }
+}
+</script>
+</head>
+<body>
+
+<div class="lpf-root" id="lpf-root" data-theme="light">
+<script>(function(){if(document.documentElement.getAttribute('data-lpf-dark')==='1')document.getElementById('lpf-root').setAttribute('data-theme','dark');})();</script>
+
+<!-- ====================== HEADER ====================== -->
+<header class="lpf-header" role="banner">
+  <div class="lpf-header-left">
+    <a href="/" class="lpf-iconbtn" aria-label="Home" title="Return to Home"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a>
+  </div>
+  <div class="lpf-header-center">
+    <a href="/" class="lpf-header-brand" aria-label="Las Palmas home">
+      <svg viewBox="0 0 44 44" width="32" height="32" aria-hidden="true">
+  <defs>
+    <linearGradient id="lpf-hm-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FBE7BD"/><stop offset="100%" stop-color="#F0CF87"/></linearGradient>
+    <linearGradient id="lpf-hm-sun" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F5BE3F"/><stop offset="100%" stop-color="#E07628"/></linearGradient>
+  </defs>
+  <circle cx="22" cy="22" r="22" fill="url(#lpf-hm-bg)"/>
+  <g stroke="#C8801E" stroke-width="1.6" stroke-linecap="round" opacity="0.85">
+    <line x1="22" y1="9" x2="22" y2="12.5"/><line x1="14" y1="13.5" x2="16.2" y2="15.7"/><line x1="30" y1="13.5" x2="27.8" y2="15.7"/><line x1="10.5" y1="20.5" x2="13.5" y2="20.5"/><line x1="33.5" y1="20.5" x2="30.5" y2="20.5"/>
+  </g>
+  <path d="M 14 24.5 a 8 8 0 0 1 16 0 z" fill="url(#lpf-hm-sun)"/>
+  <path d="M 7.5 28.5 Q 22 33.5 36.5 28.5" stroke="#B23A14" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M 12 32.5 Q 22 35.5 32 32.5" stroke="#D88239" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+</svg>
+      <span class="lpf-header-name">Las Palmas</span>
+    </a>
+  </div>
+  <div class="lpf-header-right">
+    <button type="button" id="lpf-theme" class="lpf-iconbtn" aria-label="Theme: auto. Click to change.">
+      <svg class="lpf-theme-ico lpf-theme-ico--auto" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8a2.83 2.83 0 0 0 4 4 4 4 0 1 1-4-4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.9 4.9 1.4 1.4"/><path d="m17.7 17.7 1.4 1.4"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.3 17.7-1.4 1.4"/><path d="m19.1 4.9-1.4 1.4"/></svg>
+      <svg class="lpf-theme-ico lpf-theme-ico--light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="lpf-theme-ico lpf-theme-ico--dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="lpf-main">
+
+<div id="lpf-form-view">
+  <!-- ====================== HERO ====================== -->
+  <section class="lpf-hero" aria-label="Customer Feedback Center">
+    <p class="lpf-eyebrow">— Customer Feedback —</p>
+    <h1 class="lpf-h1">Las Palmas <span class="lpf-shimmer">Feedback Center</span></h1>
+    <p class="lpf-lede">Tell us about your visit. Your feedback helps us recognize great service and make every Las Palmas experience better.</p>
+  </section>
+
+  <!-- ====================== FORM CARD ====================== -->
+  <div class="lpf-form-card">
+    <div class="lpf-form-card-inner">
+
+    <div id="lpf-error-banner" class="lpf-form-error-banner" role="alert" aria-live="assertive" hidden>
+      <div class="lpf-form-error-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg></div>
+      <div class="lpf-form-error-content">
+        <p class="lpf-form-error-title">Please complete the highlighted fields below</p>
+        <ul class="lpf-form-error-list">
+          <li id="lpf-err-li-location" hidden>Location Visited</li>
+          <li id="lpf-err-li-overall" hidden>Overall Experience rating</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Location -->
+    <section class="lpf-fs" id="lpf-fs-location">
+      <label for="lpf-location" class="lpf-fs-label">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Location Visited <span class="lpf-req">*</span></span>
+      </label>
+      <div class="lpf-picker" id="lpf-picker">
+        <button type="button" id="lpf-location" class="lpf-picker-btn is-placeholder" aria-haspopup="listbox" aria-expanded="false" aria-invalid="false">
+          <span class="lpf-picker-value">Select Location</span>
+          <span class="lpf-picker-chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+        </button>
+        <ul class="lpf-picker-list" id="lpf-picker-list" role="listbox" aria-label="Location" tabindex="-1" hidden>
+          <li role="option" aria-selected="false"><button type="button" class="lpf-picker-opt" data-loc="Shorter" tabindex="-1"><span>Shorter</span><span class="lpf-opt-check" hidden><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span></button></li>
+<li role="option" aria-selected="false"><button type="button" class="lpf-picker-opt" data-loc="Riverside" tabindex="-1"><span>Riverside</span><span class="lpf-opt-check" hidden><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span></button></li>
+<li role="option" aria-selected="false"><button type="button" class="lpf-picker-opt" data-loc="Rockmart" tabindex="-1"><span>Rockmart</span><span class="lpf-opt-check" hidden><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span></button></li>
+<li role="option" aria-selected="false"><button type="button" class="lpf-picker-opt" data-loc="Cartersville" tabindex="-1"><span>Cartersville</span><span class="lpf-opt-check" hidden><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span></button></li>
+        </ul>
+      </div>
+      <p id="lpf-location-err" class="lpf-error" hidden><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg><span>Please select a location.</span></p>
+    </section>
+
+    <div class="lpf-divider" aria-hidden="true"></div>
+
+    <!-- Overall experience -->
+    <section class="lpf-fs" id="lpf-fs-overall">
+      <p class="lpf-fs-label">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+        <span>How was your overall experience?<span class="lpf-req"> *</span></span>
+      </p>
+      <div class="lpf-overall-wrap">
+        <div class="lpf-stars lpf-stars--large" role="radiogroup" data-stars="overall"><button type="button" role="radio" aria-checked="false" aria-label="1 star" class="lpf-star" data-star="1"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button><button type="button" role="radio" aria-checked="false" aria-label="2 stars" class="lpf-star" data-star="2"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button><button type="button" role="radio" aria-checked="false" aria-label="3 stars" class="lpf-star" data-star="3"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button><button type="button" role="radio" aria-checked="false" aria-label="4 stars" class="lpf-star" data-star="4"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button><button type="button" role="radio" aria-checked="false" aria-label="5 stars" class="lpf-star" data-star="5"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button><span class="lpf-stars-label" aria-hidden="true" data-stars-label hidden></span></div>
+      </div>
+      <p id="lpf-overall-err" class="lpf-error" hidden><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg><span>Please rate your overall experience.</span></p>
+    </section>
+
+    <div class="lpf-divider" aria-hidden="true"></div>
+
+    <!-- Quick ratings -->
+    <section class="lpf-fs">
+      <p class="lpf-fs-label">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        <span>Quick ratings</span>
+      </p>
+      <p class="lpf-fs-helper">A few specifics — only if you'd like.</p>
+      <div class="lpf-quick-grid">
+        <div class="lpf-quick">
+  <div class="lpf-quick-label">
+    <span class="lpf-quick-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+    <span>Food Quality</span>
+  </div>
+  <div class="lpf-stars lpf-stars--small" role="radiogroup" data-stars="quick-food"><button type="button" role="radio" aria-checked="false" aria-label="1 star" class="lpf-star" data-star="1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button><button type="button" role="radio" aria-checked="false" aria-label="2 stars" class="lpf-star" data-star="2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button><button type="button" role="radio" aria-checked="false" aria-label="3 stars" class="lpf-star" data-star="3"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button><button type="button" role="radio" aria-checked="false" aria-label="4 stars" class="lpf-star" data-star="4"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button><button type="button" role="radio" aria-checked="false" aria-label="5 stars" class="lpf-star" data-star="5"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button></div>
+</div>
+        <div class="lpf-quick">
+  <div class="lpf-quick-label">
+    <span class="lpf-quick-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+    <span>Service</span>
+  </div>
+  <div class="lpf-stars lpf-stars--small" role="radiogroup" data-stars="quick-service"><button type="button" role="radio" aria-checked="false" aria-label="1 star" class="lpf-star" data-star="1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button><button type="button" role="radio" aria-checked="false" aria-label="2 stars" class="lpf-star" data-star="2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button><button type="button" role="radio" aria-checked="false" aria-label="3 stars" class="lpf-star" data-star="3"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button><button type="button" role="radio" aria-checked="false" aria-label="4 stars" class="lpf-star" data-star="4"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button><button type="button" role="radio" aria-checked="false" aria-label="5 stars" class="lpf-star" data-star="5"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button></div>
+</div>
+        <div class="lpf-quick">
+  <div class="lpf-quick-label">
+    <span class="lpf-quick-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+    <span>Ambience</span>
+  </div>
+  <div class="lpf-stars lpf-stars--small" role="radiogroup" data-stars="quick-ambience"><button type="button" role="radio" aria-checked="false" aria-label="1 star" class="lpf-star" data-star="1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button><button type="button" role="radio" aria-checked="false" aria-label="2 stars" class="lpf-star" data-star="2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button><button type="button" role="radio" aria-checked="false" aria-label="3 stars" class="lpf-star" data-star="3"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button><button type="button" role="radio" aria-checked="false" aria-label="4 stars" class="lpf-star" data-star="4"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button><button type="button" role="radio" aria-checked="false" aria-label="5 stars" class="lpf-star" data-star="5"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button></div>
+</div>
+      </div>
+    </section>
+
+    <div class="lpf-divider" aria-hidden="true"></div>
+
+    <!-- Tell us more -->
+    <section class="lpf-fs">
+      <label for="lpf-comments" class="lpf-fs-label">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span>Tell us more</span>
+      </label>
+      <textarea id="lpf-comments" class="lpf-textarea" rows="5" placeholder="What did you enjoy? What can we do better?" maxlength="2000"></textarea>
+      <div id="lpf-counter" class="lpf-counter" aria-live="polite">0 / 2,000</div>
+    </section>
+
+    <div class="lpf-divider" aria-hidden="true"></div>
+
+    <!-- Server name -->
+    <section class="lpf-fs">
+      <label for="lpf-server" class="lpf-fs-label">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>Server Name <span class="lpf-optional">(Optional)</span></span>
+      </label>
+      <p class="lpf-fs-helper">Want to recognize someone? Add their name here.</p>
+      <input id="lpf-server" type="text" class="lpf-input" placeholder="Who served you today?" maxlength="100" autocomplete="off">
+    </section>
+
+    <div class="lpf-divider" aria-hidden="true"></div>
+
+    <!-- Optional contact -->
+    <section class="lpf-fs">
+      <p class="lpf-fs-label">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>Contact info <span class="lpf-optional">(Optional)</span></span>
+      </p>
+      <p class="lpf-fs-helper">Only if you'd like us to be able to follow up with you directly.</p>
+      <div class="lpf-contact-grid">
+        <div class="lpf-field">
+          <label for="lpf-name" class="lpf-mini-label">Your Name</label>
+          <input id="lpf-name" type="text" class="lpf-input" placeholder="Your Name" maxlength="100" autocomplete="name">
+        </div>
+        <div class="lpf-field">
+          <label for="lpf-phone" class="lpf-mini-label">Phone</label>
+          <input id="lpf-phone" type="tel" class="lpf-input" placeholder="(555) 000-0000" inputmode="tel" autocomplete="tel">
+        </div>
+      </div>
+    </section>
+
+    <div class="lpf-divider" aria-hidden="true"></div>
+
+    <!-- Permission -->
+    <section class="lpf-fs">
+      <label class="lpf-consent" id="lpf-consent">
+        <input type="checkbox" class="lpf-consent-input">
+        <span class="lpf-consent-box" aria-hidden="true"></span>
+        <span class="lpf-consent-text">
+          <span class="lpf-consent-title">Permission to share publicly</span>
+          <span class="lpf-consent-body">Check this box if you agree to let Las Palmas feature your feedback on our website, social media, or other marketing materials.</span>
+        </span>
+      </label>
+    </section>
+
+    <!-- Submit -->
+    <div class="lpf-submit-row">
+      <button type="button" id="lpf-submit" class="lpf-submit" aria-busy="false">
+        <span id="lpf-submit-idle" style="display:inline-flex;align-items:center;gap:8px"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg><span>Submit Feedback</span></span>
+        <span id="lpf-submit-busy" style="display:inline-flex;align-items:center;gap:8px" hidden><svg class="lpf-spin" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg><span>Sending…</span></span>
+      </button>
+      <button type="button" id="lpf-terms-open" class="lpf-terms-link">Terms &amp; Conditions</button>
+    </div>
+    </div>
+  </div>
+
+  <!-- Discreet footer caption (admin gate deferred to the backend pass) -->
+  <button type="button" class="lpf-thanks-reset" aria-hidden="true" tabindex="-1">Las Palmas Mexican Restaurant</button>
+</div>
+
+<!-- ====================== AI THANK-YOU ====================== -->
+<section class="lpf-thanks" id="lpf-thanks" aria-live="polite" hidden>
+  <div class="lpf-thanks-radiance-wrap" id="lpf-thanks-radiance" aria-hidden="true" hidden>
+    <div class="lpf-radiant-layer lpf-radiant-gold"></div>
+    <div class="lpf-radiant-layer lpf-radiant-terracotta"></div>
+    <div class="lpf-radiant-layer lpf-radiant-green"></div>
+  </div>
+  <div class="lpf-celebration-canvas" id="lpf-celebration" aria-hidden="true" hidden></div>
+
+  <div class="lpf-thanks-icon" aria-hidden="true">
+    <div class="lpf-thanks-ring"></div>
+    <div class="lpf-thanks-check" id="lpf-thanks-check">
+      <span id="lpf-check-pos"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+      <span id="lpf-check-calm" hidden><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span>
+    </div>
+  </div>
+
+  <span class="lpf-submitted-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Feedback submitted</span>
+
+  <h1 class="lpf-h1 lpf-thanks-title" id="lpf-thanks-title">Thank You!</h1>
+
+  <div class="lpf-ai-wrap">
+    <p class="lpf-ai-thinking" id="lpf-ai-thinking" hidden><svg class="lpf-spin" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> Personalizing your note…</p>
+    <p class="lpf-ai-message" id="lpf-ai-message" hidden></p>
+  </div>
+
+  <div class="lpf-followup" id="lpf-followup" hidden>
+    <p class="lpf-followup-q" id="lpf-followup-q"></p>
+    <div class="lpf-followup-box">
+      <textarea class="lpf-textarea lpf-followup-input" id="lpf-followup-input" maxlength="500" placeholder="Optional — only if you'd like to share more" rows="3"></textarea>
+      <div class="lpf-followup-foot">
+        <span class="lpf-followup-hint" id="lpf-followup-hint">Optional</span>
+        <button type="button" class="lpf-followup-send" id="lpf-followup-send" disabled><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg> Share</button>
+      </div>
+    </div>
+  </div>
+
+  <p class="lpf-ai-thinking" id="lpf-ai-thinking-later" style="margin-top:4px" hidden><svg class="lpf-spin" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> One moment…</p>
+
+  <div class="lpf-thanks-delayed-group" style="animation-delay:120ms">
+    <div class="lpf-thanks-actions">
+      <a href="/" class="lpf-thanks-close">Close &amp; Return Home</a>
+    </div>
+  </div>
+
+  <button type="button" class="lpf-thanks-reset" aria-hidden="true" tabindex="-1">thank you</button>
+</section>
+
+</main>
+
+<!-- ====================== TERMS MODAL ====================== -->
+<div class="lpf-modal-backdrop" id="lpf-terms-backdrop" hidden>
+  <div class="lpf-modal" role="dialog" aria-modal="true" aria-labelledby="lpf-terms-title">
+    <div class="lpf-modal-head">
+      <div>
+        <p class="lpf-modal-kicker">Las Palmas Mexican Restaurant</p>
+        <h2 id="lpf-terms-title" class="lpf-modal-title">Terms, Privacy &amp; Consent</h2>
+      </div>
+      <button type="button" id="lpf-terms-close" class="lpf-iconbtn" aria-label="Close terms"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    </div>
+    <div class="lpf-modal-body">
+<div class="lpf-terms">
+  <p>By submitting feedback through this form, you acknowledge and agree to the following:</p>
+  <h3>1. Information We Collect</h3>
+  <ul>
+    <li>Your selected location</li>
+    <li>Star rating and written comments</li>
+    <li>Optional name and phone number</li>
+    <li>Your preference on whether we may use your feedback publicly</li>
+  </ul>
+  <h3>2. How Your Data Is Used</h3>
+  <p>Your feedback may be viewed, processed, and used by Las Palmas Mexican Restaurant, LiveWire Media Partners, and hosting/AI vendors to monitor service quality and train customer experience systems.</p>
+  <h3>3. Optional Personal Information</h3>
+  <p>Inclusion of contact details is entirely voluntary.</p>
+  <h3>4. Public Use of Feedback</h3>
+  <p>Checking the public sharing box grants a royalty-free license to feature edits of your comments on brand channels.</p>
+  <h3>5. Liability Limitation</h3>
+  <p>Portal services are provided "as is". Dispute resolution mediation and binding arbitration shall exclusively take place in Floyd County, Georgia.</p>
+</div>
+    </div>
+    <div class="lpf-modal-foot">
+      <button type="button" class="lpf-btn lpf-btn--primary" id="lpf-terms-close2">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ====================== CRISIS MODAL (self-harm) ====================== -->
+<div class="lpf-modal-overlay lpf-crisis-overlay" id="lpf-crisis" role="alertdialog" aria-modal="true" hidden>
+  <div class="lpf-modal lpf-crisis-modal">
+    <div class="lpf-crisis-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/></svg></div>
+    <h2 class="lpf-modal-title" style="text-align:center">You're not alone</h2>
+    <p class="lpf-crisis-body">We can’t help with anything related to self-harm — but we want you to get support right now. You don’t have to go through this alone. Help is available 24/7.</p>
+    <a href="tel:988" class="lpf-crisis-call"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call 988 now</a>
+    <p class="lpf-crisis-sub">Call or text the 988 Suicide &amp; Crisis Lifeline.</p>
+    <button type="button" class="lpf-crisis-close">Close</button>
+  </div>
+</div>
+
+<!-- ====================== THREAT MODAL ====================== -->
+<div class="lpf-modal-overlay lpf-crisis-overlay" id="lpf-threat" role="alertdialog" aria-modal="true" hidden>
+  <div class="lpf-modal lpf-crisis-modal">
+    <div class="lpf-threat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 20h16a2 2 0 0 0 1.73-2Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></div>
+    <h2 class="lpf-modal-title" style="text-align:center">We can't help with this</h2>
+    <p class="lpf-crisis-body">We're not able to assist with threats or harmful content. If anyone is in immediate danger, please call 911 right away.</p>
+    <a href="tel:911" class="lpf-threat-call"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call 911</a>
+    <button type="button" class="lpf-crisis-close">Close</button>
+  </div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  var d = document, html = d.documentElement, root = d.getElementById('lpf-root');
+
+  /* ── Theme: auto (clock: dark 19–7) / light / dark; persists lp-feedback-theme ── */
+  var KEY = 'lp-feedback-theme';
+  function isDarkByClock() { var h = new Date().getHours(); return h >= 19 || h < 7; }
+  function pref() { return html.getAttribute('data-lpf-pref') || 'auto'; }
+  function applyTheme() {
+    var p = pref(), dark = p === 'dark' || (p === 'auto' && isDarkByClock());
+    root.setAttribute('data-theme', dark ? 'dark' : 'light');
+    var btn = d.getElementById('lpf-theme');
+    btn.setAttribute('aria-label', 'Theme: ' + p + '. Click to change.');
+    btn.title = p === 'auto' ? ('Auto (currently ' + (dark ? 'dark' : 'light') + ' by clock)') : p === 'light' ? 'Light theme' : 'Dark theme';
+  }
+  d.getElementById('lpf-theme').addEventListener('click', function () {
+    var next = pref() === 'auto' ? 'light' : pref() === 'light' ? 'dark' : 'auto';
+    html.setAttribute('data-lpf-pref', next);
+    try { localStorage.setItem(KEY, next); } catch (e) {}
+    applyTheme();
+  });
+  setInterval(applyTheme, 60000);
+  applyTheme();
+
+  /* ── Form state ── */
+  var COMMENT_MAX = 2000, NAME_MAX = 100, FOLLOWUP_MAX = 500, AI_MAX_EXCHANGES = 2;
+  var STAR_LABELS = ['', 'Not great', 'Could be better', "It was good", 'Really good', 'Excellent'];
+  var responses = { overall: 0, quick: {}, comments: '' };
+  var formData = { location: '', serverName: '', guestName: '', phone: '', permissionToUsePublicly: false };
+
+  /* ── Star rating widgets (hover preview + pop, like the prototype) ── */
+  d.querySelectorAll('[data-stars]').forEach(function (group) {
+    var wid = group.getAttribute('data-stars');
+    var btns = [].slice.call(group.querySelectorAll('.lpf-star'));
+    var labelEl = group.querySelector('[data-stars-label]');
+    var value = 0;
+    function paint(display) {
+      btns.forEach(function (b, i) {
+        var n = i + 1, filled = n <= display;
+        b.classList.toggle('is-filled', filled);
+        b.classList.toggle('is-selected', n === value);
+        b.setAttribute('aria-checked', String(n === value));
+        b.querySelector('svg').setAttribute('fill', filled ? 'currentColor' : 'none');
+      });
+      if (labelEl) {
+        if (value > 0) { labelEl.hidden = false; labelEl.textContent = STAR_LABELS[value]; }
+        else labelEl.hidden = true;
+      }
+    }
+    function store() {
+      if (wid === 'overall') { responses.overall = value; clearError('overall'); }
+      else responses.quick[wid.replace('quick-', '')] = value;
+    }
+    btns.forEach(function (b, i) {
+      var n = i + 1;
+      b.addEventListener('mouseenter', function () { paint(n); });
+      b.addEventListener('mouseleave', function () { paint(value); });
+      b.addEventListener('focus', function () { paint(n); });
+      b.addEventListener('blur', function () { paint(value); });
+      b.addEventListener('click', function () { value = (n === value ? 0 : n); store(); paint(value); });
+    });
+    paint(0);
+  });
+
+  /* ── Location picker (listbox with keyboard support) ── */
+  var picker = d.getElementById('lpf-picker');
+  var pickerBtn = d.getElementById('lpf-location');
+  var pickerList = d.getElementById('lpf-picker-list');
+  var pickerValue = pickerBtn.querySelector('.lpf-picker-value');
+  var pickerChev = pickerBtn.querySelector('.lpf-picker-chev');
+  var opts = [].slice.call(pickerList.querySelectorAll('.lpf-picker-opt'));
+  var focusedIndex = -1;
+  function pickerOpen() { return !pickerList.hidden; }
+  function paintFocus() {
+    opts.forEach(function (o, i) { o.classList.toggle('is-focused', i === focusedIndex); });
+  }
+  function openList() {
+    pickerList.hidden = false;
+    pickerBtn.classList.add('is-open');
+    pickerBtn.setAttribute('aria-expanded', 'true');
+    pickerChev.classList.add('is-flipped');
+    var idx = formData.location ? opts.findIndex(function (o) { return o.getAttribute('data-loc') === formData.location; }) : 0;
+    focusedIndex = idx >= 0 ? idx : 0;
+    paintFocus();
+    pickerList.focus();
+  }
+  function closeList() {
+    pickerList.hidden = true;
+    pickerBtn.classList.remove('is-open');
+    pickerBtn.setAttribute('aria-expanded', 'false');
+    pickerChev.classList.remove('is-flipped');
+    focusedIndex = -1;
+  }
+  function selectLoc(loc) {
+    formData.location = loc;
+    pickerValue.textContent = loc;
+    pickerBtn.classList.remove('is-placeholder');
+    opts.forEach(function (o) {
+      var sel = o.getAttribute('data-loc') === loc;
+      o.classList.toggle('is-selected', sel);
+      o.parentElement.setAttribute('aria-selected', String(sel));
+      o.querySelector('.lpf-opt-check').hidden = !sel;
+    });
+    clearError('location');
+    closeList();
+    pickerBtn.focus();
+  }
+  pickerBtn.addEventListener('click', function () { pickerOpen() ? closeList() : openList(); });
+  pickerBtn.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openList(); }
+  });
+  pickerList.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowDown') { e.preventDefault(); focusedIndex = (focusedIndex + 1) % opts.length; paintFocus(); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); focusedIndex = (focusedIndex - 1 + opts.length) % opts.length; paintFocus(); }
+    else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); if (focusedIndex >= 0) selectLoc(opts[focusedIndex].getAttribute('data-loc')); }
+    else if (e.key === 'Home') { e.preventDefault(); focusedIndex = 0; paintFocus(); }
+    else if (e.key === 'End') { e.preventDefault(); focusedIndex = opts.length - 1; paintFocus(); }
+    else if (e.key === 'Escape') { closeList(); pickerBtn.focus(); }
+  });
+  opts.forEach(function (o, i) {
+    o.addEventListener('click', function () { selectLoc(o.getAttribute('data-loc')); });
+    o.addEventListener('mouseenter', function () { focusedIndex = i; paintFocus(); });
+  });
+  d.addEventListener('mousedown', function (e) { if (pickerOpen() && !picker.contains(e.target)) closeList(); });
+  d.addEventListener('touchstart', function (e) { if (pickerOpen() && !picker.contains(e.target)) closeList(); }, { passive: true });
+
+  /* ── Comments counter ── */
+  var commentsEl = d.getElementById('lpf-comments');
+  var counterEl = d.getElementById('lpf-counter');
+  commentsEl.addEventListener('input', function () {
+    var v = commentsEl.value.slice(0, COMMENT_MAX);
+    if (v !== commentsEl.value) commentsEl.value = v;
+    responses.comments = v;
+    counterEl.textContent = v.length.toLocaleString() + ' / ' + COMMENT_MAX.toLocaleString();
+    counterEl.classList.toggle('is-visible', v.length > 0);
+    counterEl.classList.toggle('is-urgent', v.length >= COMMENT_MAX - 100);
+  });
+
+  /* ── Phone formatting (port of formatPhoneNumber) ── */
+  function formatPhoneNumber(value) {
+    var digits = String(value || '').replace(/\D/g, '').slice(0, 10);
+    if (digits.length === 0) return '';
+    if (digits.length < 4) return digits;
+    if (digits.length < 7) return '(' + digits.slice(0, 3) + ') ' + digits.slice(3);
+    return '(' + digits.slice(0, 3) + ') ' + digits.slice(3, 6) + '-' + digits.slice(6);
+  }
+  var phoneEl = d.getElementById('lpf-phone');
+  phoneEl.addEventListener('input', function () {
+    phoneEl.value = formatPhoneNumber(phoneEl.value);
+    formData.phone = phoneEl.value;
+  });
+  d.getElementById('lpf-server').addEventListener('input', function (e) { formData.serverName = e.target.value.slice(0, NAME_MAX); });
+  d.getElementById('lpf-name').addEventListener('input', function (e) { formData.guestName = e.target.value.slice(0, NAME_MAX); });
+
+  /* ── Consent checkbox ── */
+  var consentLabel = d.getElementById('lpf-consent');
+  var consentInput = consentLabel.querySelector('.lpf-consent-input');
+  var consentBox = consentLabel.querySelector('.lpf-consent-box');
+  consentInput.addEventListener('change', function () {
+    formData.permissionToUsePublicly = consentInput.checked;
+    consentLabel.classList.toggle('is-checked', consentInput.checked);
+    consentBox.innerHTML = consentInput.checked ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>' : '';
+  });
+
+  /* ── Validation + errors ── */
+  var errors = {};
+  function clearError(key) { if (errors[key]) { delete errors[key]; paintErrors(); } }
+  function paintErrors() {
+    var banner = d.getElementById('lpf-error-banner');
+    var any = Object.keys(errors).length > 0;
+    banner.hidden = !any;
+    d.getElementById('lpf-err-li-location').hidden = !errors.location;
+    d.getElementById('lpf-err-li-overall').hidden = !errors.overall;
+    var locFs = d.getElementById('lpf-fs-location');
+    locFs.classList.toggle('has-error', !!errors.location);
+    d.getElementById('lpf-location-err').hidden = !errors.location;
+    pickerBtn.setAttribute('aria-invalid', String(!!errors.location));
+    var ovFs = d.getElementById('lpf-fs-overall');
+    ovFs.classList.toggle('has-error', !!errors.overall);
+    d.getElementById('lpf-overall-err').hidden = !errors.overall;
+  }
+
+  /* ── AI thank-you flow ── */
+  function buildFeedbackSummary(f) {
+    function ratingText(n) { return n ? n + '/5' : 'not rated'; }
+    var ratingLines = (f.ratings || []).map(function (r) { return '  · ' + r.label + ': ' + ratingText(r.value); }).join('\n');
+    return [
+      'A guest just submitted this feedback form (already saved):',
+      '- Location: ' + (f.location || 'not given'),
+      '- Overall: ' + ratingText(f.overallRating),
+      ratingLines ? '- Ratings:\n' + ratingLines : '- Ratings: none given',
+      '- Server named: ' + (f.serverName ? f.serverName : 'not given'),
+      '- Guest first name: ' + (f.guestName ? f.guestName : 'not given'),
+      '- Contact phone on file: ' + (f.phone ? 'yes' : 'no'),
+      '- Comments: ' + (f.comments ? JSON.stringify(f.comments) : '(none)'),
+    ].join('\n');
+  }
+
+  var aiHistory = [], exchanges = 0, aiDone = false, payload = null;
+  var thanksEl = d.getElementById('lpf-thanks');
+  var aiThinking = d.getElementById('lpf-ai-thinking');
+  var aiMessage = d.getElementById('lpf-ai-message');
+  var followup = d.getElementById('lpf-followup');
+  var followupQ = d.getElementById('lpf-followup-q');
+  var followupInput = d.getElementById('lpf-followup-input');
+  var followupHint = d.getElementById('lpf-followup-hint');
+  var followupSend = d.getElementById('lpf-followup-send');
+  var laterThinking = d.getElementById('lpf-ai-thinking-later');
+
+  function showCrisis() { d.getElementById('lpf-crisis').hidden = false; d.body.style.overflow = 'hidden'; }
+  function showThreat() { d.getElementById('lpf-threat').hidden = false; d.body.style.overflow = 'hidden'; }
+
+  function runTurn(count) {
+    aiThinking.hidden = aiMessage.textContent !== '' ? true : false;
+    if (count > 0) laterThinking.hidden = false;
+    followupSend.disabled = true;
+    fetch('/api/feedback-ai', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: payload.id, history: aiHistory, exchangeCount: count }),
+    })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (res) {
+        aiHistory.push({ role: 'assistant', content: JSON.stringify({ message: res.message, question: res.question, flag: res.flag, done: res.done }) });
+        if (res.flag === 'self_harm') showCrisis();
+        if (res.flag === 'threat') showThreat();
+        aiMessage.textContent = res.message || 'Thank you so much for taking the time to share this with us.';
+        var capped = count >= AI_MAX_EXCHANGES;
+        var question = capped ? '' : (res.question || '');
+        aiDone = res.done || capped;
+        aiThinking.hidden = true;
+        laterThinking.hidden = true;
+        aiMessage.hidden = false;
+        var show = !aiDone && question && exchanges < AI_MAX_EXCHANGES && res.flag !== 'self_harm' && res.flag !== 'threat';
+        followup.hidden = !show;
+        if (show) { followupQ.textContent = question; followupInput.value = ''; paintFollowup(); }
+      })
+      .catch(function () {
+        var positive = (payload.overallRating || 0) >= 4;
+        aiMessage.textContent = positive
+          ? 'Thank you so much for your feedback — it genuinely means a lot to our family and our team.'
+          : 'Thank you for taking the time to share this. We’re sorry your visit fell short, and we’re grateful you told us.';
+        aiThinking.hidden = true;
+        laterThinking.hidden = true;
+        aiMessage.hidden = false;
+        followup.hidden = true;
+      });
+  }
+
+  function paintFollowup() {
+    var n = followupInput.value.length;
+    followupHint.textContent = 'Optional' + (n > 0 ? ' · ' + n + '/' + FOLLOWUP_MAX : '');
+    followupSend.disabled = !followupInput.value.trim();
+  }
+  followupInput.addEventListener('input', function () {
+    if (followupInput.value.length > FOLLOWUP_MAX) followupInput.value = followupInput.value.slice(0, FOLLOWUP_MAX);
+    paintFollowup();
+  });
+  followupSend.addEventListener('click', function () {
+    var text = followupInput.value.trim().slice(0, FOLLOWUP_MAX);
+    if (!text || followupSend.disabled) return;
+    aiHistory.push({ role: 'user', content: text });
+    exchanges += 1;
+    followup.hidden = true;
+    runTurn(exchanges);
+  });
+
+  /* Celebration sparkles — same distribution as CELEBRATION_SPARKLES */
+  function spawnSparkles() {
+    var canvas = d.getElementById('lpf-celebration');
+    var types = ['star', 'circle', 'diamond'];
+    var colors = ['#C8923A', '#C9482C', '#B83122', '#2F7B4F'];
+    var shapes = {
+      star: '<svg viewBox="0 0 24 24" fill="currentColor" style="width:100%;height:100%"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>',
+      circle: '<svg viewBox="0 0 24 24" fill="currentColor" style="width:100%;height:100%"><circle cx="12" cy="12" r="8"/></svg>',
+      diamond: '<svg viewBox="0 0 24 24" fill="currentColor" style="width:100%;height:100%"><path d="M12 2L22 12L12 22L2 12Z"/></svg>',
+    };
+    for (var i = 0; i < 14; i++) {
+      var angle = (i / 14) * 360 + (Math.random() * 12 - 6);
+      var distance = 70 + Math.random() * 90;
+      var sp = d.createElement('div');
+      sp.className = 'lpf-celebration-sparkle';
+      sp.style.setProperty('--tx', Math.cos(angle * Math.PI / 180) * distance + 'px');
+      sp.style.setProperty('--ty', Math.sin(angle * Math.PI / 180) * distance + 'px');
+      sp.style.left = '50%';
+      sp.style.top = '50%';
+      var size = 4 + Math.random() * 6;
+      sp.style.width = size + 'px';
+      sp.style.height = size + 'px';
+      sp.style.color = colors[Math.floor(Math.random() * colors.length)];
+      sp.style.animationDelay = (Math.random() * 0.2) + 's';
+      sp.style.animationDuration = (1.8 + Math.random()) + 's';
+      sp.innerHTML = shapes[types[Math.floor(Math.random() * types.length)]];
+      canvas.appendChild(sp);
+    }
+  }
+
+  /* ── Submit & celebrate ── */
+  var submitBtn = d.getElementById('lpf-submit');
+  var submitting = false;
+  submitBtn.addEventListener('click', function () {
+    if (submitting) return;
+    errors = {};
+    if (!formData.location) errors.location = 'Please select a location.';
+    if (!(responses.overall > 0)) errors.overall = 'Please rate your overall experience.';
+    paintErrors();
+    if (Object.keys(errors).length > 0) {
+      setTimeout(function () {
+        var banner = d.getElementById('lpf-error-banner');
+        banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 50);
+      return;
+    }
+    submitting = true;
+    submitBtn.disabled = true;
+    submitBtn.setAttribute('aria-busy', 'true');
+    d.getElementById('lpf-submit-idle').hidden = true;
+    d.getElementById('lpf-submit-busy').hidden = false;
+
+    var ratings = [
+      { label: 'Food Quality', value: responses.quick.food || 0 },
+      { label: 'Service', value: responses.quick.service || 0 },
+      { label: 'Ambience', value: responses.quick.ambience || 0 },
+    ];
+    payload = {
+      id: 'fb_' + Math.random().toString(36).slice(2, 8),
+      location: formData.location,
+      overallRating: responses.overall,
+      ratings: ratings,
+      comments: (responses.comments || '').trim(),
+      serverName: formData.serverName,
+      guestName: formData.guestName,
+      phone: formData.phone,
+      permissionToUsePublicly: formData.permissionToUsePublicly,
+      responses: { overall: responses.overall, quick: responses.quick, comments: responses.comments },
+      submittedAt: new Date().toISOString(),
+      concern: false,
+    };
+
+    fetch('/api/feedback', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (res) { if (res.id) payload.id = res.id; })
+      .catch(function () { /* thank-you flow continues; record retry is a backend concern */ })
+      .then(function () {
+        var positive = (payload.overallRating || 0) >= 4;
+        d.getElementById('lpf-form-view').hidden = true;
+        thanksEl.hidden = false;
+        thanksEl.classList.toggle('is-positive', positive);
+        thanksEl.classList.toggle('is-calm', !positive);
+        d.getElementById('lpf-thanks-radiance').hidden = !positive;
+        d.getElementById('lpf-celebration').hidden = !positive;
+        d.getElementById('lpf-check-pos').hidden = !positive;
+        d.getElementById('lpf-check-calm').hidden = positive;
+        d.getElementById('lpf-thanks-check').classList.toggle('is-calm', !positive);
+        d.getElementById('lpf-thanks-title').textContent = positive ? 'Thank You!' : 'Thank you for telling us';
+        if (positive && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) spawnSparkles();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        aiHistory = [{ role: 'user', content: buildFeedbackSummary(payload) }];
+        aiThinking.hidden = false;
+        runTurn(0);
+      });
+  });
+
+  /* ── Terms modal ── */
+  var termsBackdrop = d.getElementById('lpf-terms-backdrop');
+  function openTerms() { termsBackdrop.hidden = false; d.body.style.overflow = 'hidden'; d.getElementById('lpf-terms-close').focus(); }
+  function closeTerms() { termsBackdrop.hidden = true; d.body.style.overflow = ''; }
+  d.getElementById('lpf-terms-open').addEventListener('click', openTerms);
+  d.getElementById('lpf-terms-close').addEventListener('click', closeTerms);
+  d.getElementById('lpf-terms-close2').addEventListener('click', closeTerms);
+  termsBackdrop.addEventListener('click', function (e) { if (e.target === termsBackdrop) closeTerms(); });
+
+  /* ── Crisis / threat modals ── */
+  ['crisis', 'threat'].forEach(function (kind) {
+    var overlay = d.getElementById('lpf-' + kind);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) { overlay.hidden = true; d.body.style.overflow = ''; } });
+    overlay.querySelector('.lpf-crisis-close').addEventListener('click', function () { overlay.hidden = true; d.body.style.overflow = ''; });
+  });
+
+  d.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    if (!termsBackdrop.hidden) closeTerms();
+    ['crisis', 'threat'].forEach(function (kind) {
+      var overlay = d.getElementById('lpf-' + kind);
+      if (!overlay.hidden) { overlay.hidden = true; d.body.style.overflow = ''; }
+    });
+  });
+})();
+</script>
+</body>
+</html>

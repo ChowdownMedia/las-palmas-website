@@ -26,11 +26,28 @@ each GBP listing points at its own location page.
 - SEO/build standard: Chowly 2026 playbook + `~/Liberty Collective Website/` pipeline docs +
   `~/westfield-collective/` (gold-standard template, 98/100 PageSpeed).
 
-## Deferred (v1 ships without — all marked [BACKEND REQUIRED] in Glenn's prototypes)
+## Backend (Pages Functions + D1, built 2026-06-06)
 
-- Location Studio editors (localStorage-based live editing)
-- AI menu search / LP Chatbot (client-side Anthropic API calls — must move behind a backend)
-- Feedback Portal backend
+- `/chat/` + `/feedback/` are LIVE pages with real backends (ported from LPChatV3.6 /
+  FeedbackPortalV3; admin/Studio layers still deferred — demo auth only in prototypes).
+- `functions/api/`: chat (reply+classifier+CRM log), chat-feedback (thumbs-down flag),
+  feedback (D1 insert), feedback-ai (post-submit assistant, v3 JSON contract).
+- `_system-prompt.js` is GENERATED from seedTraining() in Glenn's LPChatV3.6.jsx —
+  regenerate from the JSX when training data changes, don't hand-edit.
+- D1: `las-palmas-site` (binding `DB` via wrangler.toml; schema.sql). Tables:
+  feedback_records, chat_threads, chat_messages.
+- Secret: ANTHROPIC_API_KEY via `wrangler pages secret put` (Chuck's key, shared with
+  ChowdownOS). NEVER in client code or wrangler.toml.
+- Local dev: `wrangler pages dev . --d1=DB=las-palmas-site` (the --d1 flag is required;
+  wrangler does not auto-load Pages D1 bindings locally) + `.dev.vars` for the key
+  (never commit; delete after testing).
+
+## Still deferred (marked [BACKEND REQUIRED] in Glenn's prototypes)
+
+- Location Studio editors / homepage Studio (localStorage-based live editing)
+- AI menu search
+- Chat + feedback ADMIN panels (training editor, CRM views, ToS editors — passkey
+  auth in the prototypes is front-end only; needs real auth first)
 
 ## SEO requirements (every page)
 
@@ -62,7 +79,7 @@ each GBP listing points at its own location page.
 ```bash
 grep -r "leadconnectorhq\|gohighlevel\|msgsndr" . --include="*.html"  # GHL leftovers: 0
 grep -rE "fonts\.googleapis|gstatic|cdn\." . --include="*.html"       # external CDNs: 0
-find . -name "index.html" | wc -l                                     # 12 pages
+find . -name "index.html" | wc -l                                     # 14 pages (12 + chat + feedback)
 grep -r "<iframe" . --include="*.html" | grep -v 'title='             # must be 0
 # localStorage: exactly 1 hit/page is EXPECTED (the inline theme-FOUC script);
 # more than that = prototype leftover, investigate.

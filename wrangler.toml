@@ -1,0 +1,11 @@
+# Cloudflare Pages config — las-palmas-website
+# Bindings here ship with every `wrangler pages deploy` (CI + manual).
+# Secrets are NOT here: ANTHROPIC_API_KEY is set via `wrangler pages secret put`.
+name = "las-palmas-website"
+pages_build_output_dir = "."
+compatibility_date = "2026-06-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "las-palmas-site"
+database_id = "c3c41a10-5c2a-4da6-8f25-7c97c6c976e6"
