@@ -56,7 +56,28 @@ button{font-family:inherit}
 .lpa-top-actions{display:flex;align-items:center;gap:8px}
 .lpa-iconbtn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 12px;border-radius:10px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:13px;font-weight:600;cursor:pointer}
 .lpa-iconbtn:hover{color:var(--text);border-color:var(--gold)}
+.lpa-hamburger{display:none;align-items:center;gap:8px;padding:8px 13px;border-radius:11px;border:1px solid var(--border);background:var(--surface-soft);color:var(--text);font-size:14px;font-weight:700;font-family:inherit;cursor:pointer}
+.lpa-hamburger:hover{border-color:var(--gold)}
 .lpa-tabs{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:10px 14px;border-bottom:1px solid var(--border-soft);background:var(--surface-soft)}
+/* Mobile: collapse the section nav behind the hamburger (drops down when open) */
+@media (max-width:760px){
+  .lpa-hamburger{display:inline-flex}
+  .lpa-brand-text{display:none}
+  .lpa-top{padding:12px 14px}
+  .lpa-top-actions{gap:6px}
+  .lpa-tabs{display:none;flex-direction:column;align-items:stretch;gap:4px;padding:10px 12px}
+  .lpa-tabs.is-open{display:flex}
+  .lpa-nav-progress{order:-1;margin-bottom:4px}
+  .lpa-nav-group{flex-direction:column;align-items:stretch;width:100%;gap:3px;padding:6px 0;border-top:1px solid var(--border-soft)}
+  .lpa-nav-grouplabel{margin:0 0 2px}
+  .lpa-tab{width:100%;justify-content:flex-start;padding:11px 12px}
+  /* Cards: let right-side actions wrap below instead of clipping off-screen */
+  .lpa-row{flex-wrap:wrap}
+  .lpa-row-actions{width:100%;justify-content:flex-end;margin-top:8px}
+  .lpa-rule-card{flex-wrap:wrap}
+  .lpa-rule-controls{flex-direction:row;width:100%;justify-content:flex-end;align-items:center;margin-top:8px}
+  .lpa-body{padding:14px 12px 40px}
+}
 .lpa-nav-progress{flex-basis:100%;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--soft)}
 .lpa-nav-group{display:inline-flex;flex-wrap:wrap;align-items:center;gap:5px}
 .lpa-nav-grouplabel{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);margin-right:1px;opacity:.8}
@@ -243,7 +264,11 @@ button{font-family:inherit}
 <div class="lpa-shell" id="lpa-shell" hidden>
   <header class="lpa-top">
     <div class="lpa-brand">
-      <div>
+      <button type="button" class="lpa-hamburger" id="lpa-nav-toggle" aria-label="Open sections menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        <span id="lpa-current-label">Conversations</span>
+      </button>
+      <div class="lpa-brand-text">
         <div class="lpa-title">Las Palmas Back Office</div>
         <div class="lpa-sub">Conversations &amp; guest feedback</div>
       </div>
@@ -348,6 +373,11 @@ button{font-family:inherit}
       .then(function () { btn.disabled = false; btn.textContent = 'Sign In'; });
   });
 
+  d.getElementById('lpa-nav-toggle').addEventListener('click', function () {
+    var nav = d.getElementById('lpa-tabs');
+    var open = nav.classList.toggle('is-open');
+    this.setAttribute('aria-expanded', String(open));
+  });
   d.getElementById('lpa-signout').addEventListener('click', function () {
     adminFetch('/api/admin/session', { method: 'DELETE' }).catch(function () {});
     token = null; try { sessionStorage.removeItem(TOKEN_KEY); } catch (e) {}
@@ -410,6 +440,10 @@ button{font-family:inherit}
   function switchTab(id) {
     tab = id;
     d.querySelectorAll('.lpa-tab').forEach(function (x) { x.classList.toggle('is-active', x.getAttribute('data-tab') === id); });
+    var def = TABS.filter(function (t) { return t.id === id; })[0];
+    var lbl = d.getElementById('lpa-current-label'); if (lbl && def) lbl.textContent = def.label;
+    d.getElementById('lpa-tabs').classList.remove('is-open'); // close mobile drawer on select
+    d.getElementById('lpa-nav-toggle').setAttribute('aria-expanded', 'false');
     var built = !!BUILT[id];
     ['chat', 'feedback', 'training', 'links', 'terms', 'events'].forEach(function (t) { d.getElementById('lpa-pane-' + t).hidden = !(built && t === id); });
     d.getElementById('lpa-pane-planned').hidden = built;
