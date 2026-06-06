@@ -59,6 +59,14 @@ CREATE TABLE IF NOT EXISTS training_entries (
 );
 CREATE INDEX IF NOT EXISTS idx_training_cat ON training_entries (category, scope, sort_order);
 
+-- Phase C: editable Terms of Use per surface (chat, feedback). Markdown text
+-- (## / ### / - / **bold**). Seeded from each page's current terms; edited via /admin/ Terms tab.
+CREATE TABLE IF NOT EXISTS site_terms (
+  surface TEXT PRIMARY KEY,                 -- 'chat' | 'feedback'
+  content TEXT NOT NULL DEFAULT '',
+  updated_at TEXT NOT NULL
+);
+
 -- Phase B: editable Direct Link / CTA rules (the chat assistant's action cards).
 -- Seeded from DEFAULT_CTA_RULES; edited via /admin/ Direct Links tab.
 CREATE TABLE IF NOT EXISTS cta_rules (

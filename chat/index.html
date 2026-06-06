@@ -1148,7 +1148,7 @@ html[data-lp-pref="dark"] .lp-theme-ico--dark{display:inline-flex}
       <button type="button" id="lp-terms-close" aria-label="Close terms" class="lp-modal-close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
     </div>
     <div class="lp-modal-body lp-modal-body--scroll">
-      <div class="lp-terms">
+      <div class="lp-terms" id="lp-terms-body">
         <p class="lp-terms-effective"><strong>Last updated:</strong> May 9, 2026</p>
 <p>These Terms &amp; Conditions (“Terms”) govern your use of the Las Palmas AI-powered assistant, including any chatbots, messaging bots, automated agents, or similar tools provided by Las Palmas Mexican Restaurant (“Las Palmas,” “we,” “us,” or “our”) (collectively, the “Las Palmas Assistant” or the “Service”).</p>
 <p>By accessing or using the Las Palmas Assistant in any way — including through our website, mobile app, Meta Messenger, Google Messages, or any other supported platform — you expressly acknowledge and agree that:</p>
@@ -1781,9 +1781,39 @@ html[data-lp-pref="dark"] .lp-theme-ico--dark{display:inline-flex}
   /* ── Terms modal ── */
   var termsBackdrop = d.getElementById('lp-terms-backdrop');
   function closeTerms() { termsBackdrop.hidden = true; d.body.style.overflow = ''; }
+  /* Editable terms: render markdown from /admin/, fall back to the baked HTML body. */
+  function renderTosMarkdown(text) {
+    function esc(s) { var t = d.createElement('span'); t.textContent = s == null ? '' : String(s); return t.innerHTML; }
+    function inline(s) { return String(s).split(/\*\*(.+?)\*\*/g).map(function (p, i) { return i % 2 ? '<strong>' + esc(p) + '</strong>' : esc(p); }).join(''); }
+    var out = [], para = [], list = [];
+    function fp() { if (para.length) { out.push('<p>' + inline(para.join(' ')) + '</p>'); para = []; } }
+    function fl() { if (list.length) { out.push('<ul>' + list.map(function (li) { return '<li>' + inline(li) + '</li>'; }).join('') + '</ul>'); list = []; } }
+    String(text || '').split('\n').forEach(function (raw) {
+      var line = raw.trim();
+      if (!line) { fp(); fl(); return; }
+      if (line.indexOf('## ') === 0) { fp(); fl(); out.push('<h3>' + inline(line.slice(3)) + '</h3>'); }
+      else if (line.indexOf('### ') === 0) { fp(); fl(); out.push('<h4>' + inline(line.slice(4)) + '</h4>'); }
+      else if (line.indexOf('- ') === 0) { fp(); list.push(line.slice(2)); }
+      else { fl(); para.push(line); }
+    });
+    fp(); fl(); return out.join('');
+  }
+  var termsLoaded = false;
+  function refreshTerms() {
+    if (termsLoaded) return; // baked HTML already shows; fetch the live version once
+    fetch('/api/terms?surface=chat').then(function (r) { return r.json(); }).then(function (j) {
+      if (!j || !j.content) return;
+      var dateStr = '';
+      try { dateStr = new Date(j.updatedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }); } catch (e) {}
+      d.getElementById('lp-terms-body').innerHTML =
+        '<p class="lp-terms-effective"><strong>Last updated:</strong> ' + (dateStr || '—') + '</p>' + renderTosMarkdown(j.content);
+      termsLoaded = true;
+    }).catch(function () {});
+  }
   d.getElementById('lp-terms-open').addEventListener('click', function () {
     termsBackdrop.hidden = false;
     d.body.style.overflow = 'hidden';
+    refreshTerms();
     d.getElementById('lp-terms-close').focus();
   });
   d.getElementById('lp-terms-close').addEventListener('click', closeTerms);

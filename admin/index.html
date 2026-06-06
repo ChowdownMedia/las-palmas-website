@@ -259,6 +259,7 @@ button{font-family:inherit}
     <div id="lpa-pane-feedback" hidden></div>
     <div id="lpa-pane-training" hidden></div>
     <div id="lpa-pane-links" hidden></div>
+    <div id="lpa-pane-terms" hidden></div>
     <div id="lpa-pane-planned" hidden></div>
   </main>
 </div>
@@ -362,8 +363,7 @@ button{font-family:inherit}
       desc: 'Job applications from the Join Our Team form. The form currently doesn\'t submit anywhere — this needs a backend that routes each application to the right location\'s hiring contact.' },
     { group: 'Assistant', id: 'training', label: 'Training', status: 'live' },
     { group: 'Assistant', id: 'links', label: 'Direct Links', status: 'live' },
-    { group: 'Site content', id: 'terms', label: 'Terms', status: 'building', priority: 'This pass',
-      desc: 'Edit the chat and feedback Terms of Use shown to guests; saving stamps the date automatically.' },
+    { group: 'Site content', id: 'terms', label: 'Terms', status: 'live' },
     { group: 'Site content', id: 'events', label: 'Events', status: 'building', priority: 'This pass',
       desc: 'Add, edit, and delete events (date, locations, title, description). Replaces the demo events currently on /events/.' },
     { group: 'Site content', id: 'specials', label: 'Daily Specials', status: 'planned', priority: 'High',
@@ -381,7 +381,7 @@ button{font-family:inherit}
     { group: 'Site content', id: 'fbform', label: 'Feedback Form', status: 'planned', priority: 'Optional',
       desc: 'Reshape the guest feedback form — add, rename, or remove rating categories and questions. Deferred for now; we\'ll build it if we decide there\'s a real need.' },
   ];
-  var BUILT = { chat: 1, feedback: 1, training: 1, links: 1 };
+  var BUILT = { chat: 1, feedback: 1, training: 1, links: 1, terms: 1 };
   var tab = 'chat';
   var loadedOnce = {};
 
@@ -411,11 +411,12 @@ button{font-family:inherit}
     tab = id;
     d.querySelectorAll('.lpa-tab').forEach(function (x) { x.classList.toggle('is-active', x.getAttribute('data-tab') === id); });
     var built = !!BUILT[id];
-    ['chat', 'feedback', 'training', 'links'].forEach(function (t) { d.getElementById('lpa-pane-' + t).hidden = !(built && t === id); });
+    ['chat', 'feedback', 'training', 'links', 'terms'].forEach(function (t) { d.getElementById('lpa-pane-' + t).hidden = !(built && t === id); });
     d.getElementById('lpa-pane-planned').hidden = built;
     if (built) {
       if (id === 'training' && !loadedOnce.training) { loadedOnce.training = true; loadTraining(); }
       if (id === 'links' && !loadedOnce.links) { loadedOnce.links = true; loadLinks(); }
+      if (id === 'terms' && !loadedOnce.terms) { loadedOnce.terms = true; loadTerms(); }
     } else {
       renderPlanned(id);
     }
@@ -869,6 +870,54 @@ button{font-family:inherit}
     paneLinks.innerHTML = '<div class="lpa-loading">' + svg(IC.loader, 22, 2.5).replace('<svg', '<svg class="lpa-spin"') + '<p>Loading Direct Links…</p></div>';
     adminFetch('/api/admin/cta').then(function (r) { return r.json(); }).then(function (j) {
       ctaRules = j.rules || []; renderLinks();
+    }).catch(function () {});
+  }
+
+  /* ============================ TERMS EDITOR ============================ */
+  var terms = { chat: { content: '', updatedAt: null }, feedback: { content: '', updatedAt: null } };
+  var termsSurface = 'chat';
+  var paneTerms = d.getElementById('lpa-pane-terms');
+
+  function renderTerms() {
+    var t = terms[termsSurface] || { content: '', updatedAt: null };
+    var dateStr = '';
+    try { if (t.updatedAt) dateStr = new Date(t.updatedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }); } catch (e) {}
+    var html = '<div class="lpa-fb-toolbar"><div class="lpa-fb-locs">' +
+      '<button type="button" class="lpa-fb-loc ' + (termsSurface === 'chat' ? 'is-active' : '') + '" data-surface="chat">Chat assistant terms</button>' +
+      '<button type="button" class="lpa-fb-loc ' + (termsSurface === 'feedback' ? 'is-active' : '') + '" data-surface="feedback">Feedback portal terms</button>' +
+      '</div></div>' +
+      '<p class="lpa-banner">Edit the Terms of Use shown to guests on the ' + (termsSurface === 'chat' ? 'chat assistant' : 'feedback portal') + '. Markdown supported: <strong>## heading</strong>, <strong>### subheading</strong>, <strong>- bullet</strong>, <strong>**bold**</strong>. Saving stamps today\'s date automatically.</p>' +
+      '<div class="lpa-fg"><textarea id="lpa-terms-text" rows="20" spellcheck="true">' + esc(t.content) + '</textarea></div>' +
+      '<div class="lpa-form-actions" style="justify-content:space-between;align-items:center">' +
+      '<span class="lpa-fb-when" id="lpa-terms-date">' + (dateStr ? 'Last saved ' + dateStr : 'Not saved yet') + '</span>' +
+      '<button type="button" class="lpa-btn-sm lpa-btn-primary" id="lpa-terms-save">' + svg(IC.save, 14) + '<span>Save changes</span></button></div>';
+    paneTerms.innerHTML = html;
+    paneTerms.querySelectorAll('[data-surface]').forEach(function (b) {
+      b.addEventListener('click', function () { terms[termsSurface].content = d.getElementById('lpa-terms-text').value; termsSurface = b.getAttribute('data-surface'); renderTerms(); });
+    });
+    d.getElementById('lpa-terms-save').addEventListener('click', function () {
+      var content = d.getElementById('lpa-terms-text').value;
+      terms[termsSurface].content = content;
+      var btn = d.getElementById('lpa-terms-save');
+      btn.disabled = true; btn.querySelector('span').textContent = 'Saving…';
+      adminFetch('/api/admin/terms', { method: 'PATCH', body: JSON.stringify({ surface: termsSurface, content: content }) })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (res.updatedAt) terms[termsSurface].updatedAt = res.updatedAt;
+          btn.disabled = false; btn.querySelector('span').textContent = 'Saved';
+          var ds = ''; try { ds = new Date(res.updatedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }); } catch (e) {}
+          d.getElementById('lpa-terms-date').textContent = ds ? 'Last saved ' + ds : '';
+          setTimeout(function () { if (btn.querySelector('span')) btn.querySelector('span').textContent = 'Save changes'; }, 1600);
+        })
+        .catch(function () { btn.disabled = false; btn.querySelector('span').textContent = 'Save changes'; });
+    });
+  }
+
+  function loadTerms() {
+    paneTerms.innerHTML = '<div class="lpa-loading">' + svg(IC.loader, 22, 2.5).replace('<svg', '<svg class="lpa-spin"') + '<p>Loading terms…</p></div>';
+    adminFetch('/api/admin/terms').then(function (r) { return r.json(); }).then(function (j) {
+      if (j.terms) { terms.chat = j.terms.chat || terms.chat; terms.feedback = j.terms.feedback || terms.feedback; }
+      renderTerms();
     }).catch(function () {});
   }
 
