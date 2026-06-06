@@ -1376,28 +1376,9 @@ html[data-lp-pref="dark"] .lp-theme-ico--dark{display:inline-flex}
     user: '<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
   };
 
-  /* ── CTA rules (DEFAULT_CTA_RULES port; URLs mapped to site paths) ── */
-  var CTA_RULES = [
-    { id: 'ordering', label: 'Ordering', keywords: ['order', 'ordering', 'pickup', 'delivery', 'carryout', 'to go', 'takeout'],
-      title: 'Ready to order?', body: 'Order online for pickup or delivery.', buttonText: 'Order Online', url: '/order/', enabled: true },
-    { id: 'menu', label: 'Menu', keywords: ['menu'],
-      title: 'Want to browse the full menu?', body: 'See our full Las Palmas menu online.', buttonText: 'View Full Menu', url: '/menu/', enabled: true },
-    { id: 'vip', label: 'VIP Rewards', keywords: ['vip', 'rewards'],
-      title: 'Interested in VIP rewards?', body: 'Learn more about the Las Palmas VIP program.', buttonText: 'View VIP Program', url: '/tacopete/', enabled: true },
-  ];
-  function detectCTA(text) {
-    if (!text) return null;
-    var lower = text.toLowerCase() + ' ';
-    for (var r = 0; r < CTA_RULES.length; r++) {
-      var rule = CTA_RULES[r];
-      if (!rule.enabled) continue;
-      for (var k = 0; k < rule.keywords.length; k++) {
-        var kw = rule.keywords[k].trim().toLowerCase().replace(/\s+/g, '\\s+');
-        if (new RegExp('(^|[^a-z])' + kw + '([^a-z]|$)', 'i').test(lower)) return rule;
-      }
-    }
-    return null;
-  }
+  /* CTA cards (Direct Links) are now detected server-side and editable in /admin/.
+     The /api/chat response carries the matched rule (or null); the client just
+     renders it — single source of truth in D1, no client-side rule list. */
 
   function fallbackResponse() {
     return "¡Hola! I'm the Las Palmas Assistant. I'm having trouble reaching the kitchen brain right now, but I can still point you to our menu, locations, hours, and VIP rewards — what can I help you with?";
@@ -1732,16 +1713,10 @@ html[data-lp-pref="dark"] .lp-theme-ico--dark{display:inline-flex}
       }),
     })
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-      .then(function (res) { finish(res.reply || fallbackResponse(), res.ruleId || null); })
+      .then(function (res) { finish(res.reply || fallbackResponse(), res.cta || null); })
       .catch(function () { finish(fallbackResponse(), null); });
 
-    function finish(replyText, smartRuleId) {
-      var ctaRule = detectCTA(text);
-      if (!ctaRule && smartRuleId) {
-        for (var i = 0; i < CTA_RULES.length; i++) {
-          if (CTA_RULES[i].id === smartRuleId && CTA_RULES[i].enabled) { ctaRule = CTA_RULES[i]; break; }
-        }
-      }
+    function finish(replyText, ctaRule) {
       messages.push({ id: 'a-' + Date.now(), role: 'assistant', text: replyText, ts: new Date() });
       hideThinking();
       addAssistantBlock(replyText, ctaRule);

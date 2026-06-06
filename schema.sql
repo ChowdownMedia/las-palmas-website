@@ -45,3 +45,33 @@ CREATE TABLE IF NOT EXISTS admin_sessions (
   expires_at TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS idx_admin_sessions_exp ON admin_sessions (expires_at);
+
+-- Phase B: editable assistant knowledge base (compiles into the chat system prompt).
+-- Seeded from seedTraining() in Glenn's LPChatV3.6.jsx; edited via /admin/ Training tab.
+CREATE TABLE IF NOT EXISTS training_entries (
+  id TEXT PRIMARY KEY,
+  category TEXT NOT NULL,        -- identity|general|guardrails|voice|menus|location|seasonal
+  scope TEXT NOT NULL DEFAULT '',-- location/seasonal bucket ('Shorter'…/'All Locations'); '' for flat
+  title TEXT NOT NULL DEFAULT '',
+  content TEXT NOT NULL DEFAULT '',
+  sort_order INTEGER NOT NULL DEFAULT 0,
+  updated_at TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_training_cat ON training_entries (category, scope, sort_order);
+
+-- Phase B: editable Direct Link / CTA rules (the chat assistant's action cards).
+-- Seeded from DEFAULT_CTA_RULES; edited via /admin/ Direct Links tab.
+CREATE TABLE IF NOT EXISTS cta_rules (
+  id TEXT PRIMARY KEY,
+  label TEXT NOT NULL DEFAULT '',
+  keywords TEXT NOT NULL DEFAULT '[]',   -- JSON array of strings
+  title TEXT NOT NULL DEFAULT '',
+  body TEXT NOT NULL DEFAULT '',
+  button_text TEXT NOT NULL DEFAULT '',
+  url TEXT NOT NULL DEFAULT '',
+  enabled INTEGER NOT NULL DEFAULT 1,
+  smart INTEGER NOT NULL DEFAULT 0,
+  smart_instructions TEXT NOT NULL DEFAULT '',
+  sort_order INTEGER NOT NULL DEFAULT 0,
+  updated_at TEXT NOT NULL
+);
